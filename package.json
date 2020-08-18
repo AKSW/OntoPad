@@ -1,0 +1,112 @@
+{
+  "name": "OntoPad",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "wp": "webpack --progress",
+    "dev": "webpack-dev-server --inline --progress",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "@donsi/rdform": "0.0.5",
+    "axios": "^0.19.2",
+    "bootstrap-vue": "^2.16.0",
+    "core-js": "^2.6.11",
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "jsonld": "^1.8.1",
+    "n3": "^1.6.1",
+    "rdf-string": "^1.4.2",
+    "sparqljs": "^2.2.3",
+    "uuid": "^8.3.0",
+    "vue": "^2.6.11",
+    "vue-diagrams": "git+https://github.com/white-gecko/vue-diagrams.git#master",
+    "vue-router": "^3.4.3",
+    "vuex": "^3.5.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^3.12.1",
+    "@vue/cli-service": "^3.12.1",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^24.9.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "jest": "^24.9.0",
+    "vue-jest": "^4.0.0-beta.5",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-console": "off"
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ],
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

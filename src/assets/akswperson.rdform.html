@@ -1,0 +1,60 @@
+<form prefix="xsd http://www.w3.org/2001/XMLSchema# rdfs http://www.w3.org/2000/01/rdf-schema# owl http://www.w3.org/2002/07/owl# dc http://purl.org/dc/elements/1.1/ dct http://purl.org/dc/terms/ foaf http://xmlns.com/foaf/0.1/ skos http://www.w3.org/2004/02/skos/core# aksws http://aksw.org/schema/ ov http://open.vocab.org/terms/">
+
+  <!-- Root Class Person -->
+  <legend>Person</legend>
+  <div typeof="foaf:Person" resource="Person-{pid}">
+    <input name="pid" type="hidden" value="123-{foaf:name}" />
+
+    <!-- literal property -->
+    <label>Name</label>
+    <input name="foaf:name" type="literal" datatype="xsd:string" required multiple />
+
+    <label>Family Name</label>
+    <input name="foaf:familyName" type="literal" datatype="xsd:string" />
+
+    <label>Nick Name</label>
+    <input name="foaf:nick" type="literal" datatype="xsd:string" multiple />
+
+    <label>Hidden Label</label>
+    <input name="skos:hiddenLabel" type="literal" datatype="xsd:string" multiple />
+
+    <label>Same As</label>
+    <input name="owl:sameAs" type="resource" external multiple />
+    <label>See Also</label>
+    <input name="rdfs:seeAlso" type="resource" external multiple />
+    <label>Homepage</label>
+    <input name="foaf:homepage" type="resource" external multiple />
+
+    <label>Description</label>
+    <input name="dct:description" type="literal" datatype="xsd:string" textarea />
+
+    <label>Depiction</label>
+    <input name="foaf:depiction" type="resource" external multiple />
+
+    <label>Business Card/Location</label>
+    <input name="ov:businessCard" type="resource" external multiple />
+
+    <!-- literal property -->
+    <label>E-Mail</label>
+    <input name="foaf:mbox" type="resource" placeholder="mailto:name@example.org" external multiple />
+
+    <!-- literal property -->
+    <label>Phone</label>
+    <input name="foaf:phone" type="resource" placeholder="tel:+49 341 1234567" external multiple />
+
+    <label>Publication Tag</label>
+    <input name="aksws:publicationTag" type="literal" datatype="xsd:string" multiple />
+    <label>Supervision Tag</label>
+    <input name="aksws:supervisorTag" type="literal" datatype="xsd:string" multiple />
+
+    <label>Room</label>
+    <input name="aksws:room" type="literal" datatype="xsd:string" multiple />
+
+    <label>Current Projects</label>
+    <input name="foaf:currentProject" type="resource" external multiple />
+
+    <label>Past Projects</label>
+    <input name="foaf:pastProject" type="resource" external multiple />
+  </div>
+
+</form>

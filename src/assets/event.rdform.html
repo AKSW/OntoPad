@@ -1,0 +1,23 @@
+<form prefix="xsd http://www.w3.org/2001/XMLSchema# bio http://vocab.org/bio/0.1/ foaf http://xmlns.com/foaf/0.1/ rdfs http://www.w3.org/2000/01/rdf-schema# dc http://purl.org/dc/elements/1.1/ rel http://purl.org/vocab/relationship/ vcard http://www.w3.org/2006/vcard/ns# wed https://hochzeit.tracy.und.natanael.arndt.xyz/vocab# schema http://schema.org/">
+
+  <!-- Root Class Person -->
+  <legend>Event</legend>
+  <div typeof="schema:Event" resource="Event-{pid}">
+    <input name="pid" type="hidden" value="{dc:date}" />
+
+    <!-- literal property -->
+    <label>Title</label>
+    <input name="rdfs:label" type="literal" datatype="xsd:string" required multiple />
+
+    <label>Date</label>
+    <input name="dc:date" type="literal" datatype="xsd:date" placeholder="JJJJ-MM-TT" />
+
+    <!-- literal property as textarea -->
+    <label>Location</label>
+    <input name="schema:location" type="literal" />
+
+    <label>Performer</label>
+    <input name="schema:performer" type="resource" placeholder="http://example.org/NatanaelArndt" external multiple />
+
+  </div>
+</form>
