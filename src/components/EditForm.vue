@@ -102,13 +102,13 @@ export default {
         })
     },
     async updateResource () {
-      for (let index in this.dataModel) {
-        let statement = this.dataModel[index]
+      for (const index in this.dataModel) {
+        const statement = this.dataModel[index]
         statement.subject = this.subject
       }
-      let difference = diff(this.originalDataModel, this.dataModel)
+      const difference = diff(this.originalDataModel, this.dataModel)
       try {
-        await this.$store.commit('insertDeleteData', {insertArray: difference['add'], deleteArray: difference['del'], graphIri: this.graph_iri})
+        await this.$store.commit('insertDeleteData', { insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
         this.getResource()
       } catch (e) {
         console.error(e)

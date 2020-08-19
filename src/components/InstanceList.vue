@@ -40,9 +40,9 @@ export default {
       this.$store.dispatch('sendQuery',
         'select distinct ?instance { ?instance a <' + this.resource_iri + '> } order by ?instance')
         .then(result => {
-          let bindings = result.data.results.bindings
+          const bindings = result.data.results.bindings
           this.instances = []
-          for (let key in bindings) {
+          for (const key in bindings) {
             this.instances.push(bindings[key].instance.value)
           }
         })

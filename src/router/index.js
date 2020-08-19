@@ -7,7 +7,6 @@ import DashboardView from '@/components/DashboardView'
 import InstanceList from '@/components/InstanceList'
 import Source from '@/components/Source'
 
-
 export default new Router({
   routes: [
     {

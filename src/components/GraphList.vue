@@ -44,7 +44,7 @@ const { triple, namedNode } = DataFactory
 export default {
   name: 'GraphList',
   components: {
-    TermInput,
+    TermInput
   },
   mounted () {
     this.updateGraphList()
@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       graphs: [],
-      new_graph_iri: namedNode(''),
+      new_graph_iri: namedNode('')
     }
   },
   computed: mapState(['graph_iri']),
@@ -62,20 +62,20 @@ export default {
       this.$store.commit('changeResourceIri', graph)
     },
     updateGraphList () {
-      this.$store.dispatch('sendQuery', {query: 'select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph', queryQuads: true})
+      this.$store.dispatch('sendQuery', { query: 'select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph', queryQuads: true })
         .then(result => {
-          let bindings = result.data.results.bindings
+          const bindings = result.data.results.bindings
           this.graphs = []
-          for (let key in bindings) {
+          for (const key in bindings) {
             this.graphs.push(bindings[key].graph.value)
           }
         })
     },
     async add_graph () {
-      let newGraphData = [triple(this.new_graph_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]
+      const newGraphData = [triple(this.new_graph_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]
       console.log(this.new_graph_iri)
       try {
-        await this.$store.commit('insertDeleteData', {insertArray: newGraphData, graphIri: this.new_graph_iri.id})
+        await this.$store.commit('insertDeleteData', { insertArray: newGraphData, graphIri: this.new_graph_iri.id })
       } catch (e) {
         console.error(e)
       }
