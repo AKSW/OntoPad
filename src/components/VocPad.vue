@@ -411,18 +411,18 @@ export default {
     getShapes () {
       this.$store.dispatch('sendQuery',
       // eslint-disable-next-line
-        `PREFIX sh: <http://www.w3.org/ns/shacl#> \
-        select distinct ?nodeShape ?targetClass ?propertyShape ?path ?nodeShapeRef ?targetClassRef { \
-          ?nodeShape a sh:NodeShape ; \
-            sh:targetClass ?targetClass . \
-          optional { \
-            ?nodeShape sh:property ?propertyShape . \
-            ?propertyShape sh:path ?path . \
-            optional { \
-              ?propertyShape sh:node ?nodeShapeRef . \
-              ?nodeShapeRef sh:targetClass ?targetClassRef . \
-            } \
-          } \
+        `PREFIX sh: <http://www.w3.org/ns/shacl#>
+        select distinct ?nodeShape ?targetClass ?propertyShape ?path ?nodeShapeRef ?targetClassRef {
+          ?nodeShape a sh:NodeShape ;
+            sh:targetClass ?targetClass .
+          optional {
+            ?nodeShape sh:property ?propertyShape .
+            ?propertyShape sh:path ?path .
+            optional {
+              ?propertyShape sh:node ?nodeShapeRef .
+              ?nodeShapeRef sh:targetClass ?targetClassRef .
+            }
+          }
         } order by ?nodeShape ?propertyShape`)
         .then(result => {
           const bindings = result.data.results.bindings
@@ -440,29 +440,29 @@ export default {
         })
       this.$store.dispatch('sendQuery', {
         // eslint-disable-next-line
-        query: `REFIX sh: <http://www.w3.org/ns/shacl#> \
-          construct { \
-            ?nodeShape a sh:NodeShape ; \
-              sh:targetClass ?targetClass ; \
-              sh:property ?propertyShape . \
-            ?propertyShape a ?propertyShapeType ; \
-              sh:path ?path ; \
-              sh:node ?nodeShapeRef . \
-            ?nodeShapeRef sh:targetClass ?targetClassRef . \
-          } where { \
-            ?nodeShape a sh:NodeShape ; \
-              sh:targetClass ?targetClass . \
-            optional { \
-              ?nodeShape sh:property ?propertyShape . \
-              ?propertyShape sh:path ?path . \
-              optional { \
-                ?propertyShape sh:node ?nodeShapeRef . \
-                ?nodeShapeRef sh:targetClass ?targetClassRef . \
-              } \
-              optional { \
-                ?propertyShape a ?propertyShapeType . \
-              } \
-            } \
+        query: `PREFIX sh: <http://www.w3.org/ns/shacl#>
+          construct {
+            ?nodeShape a sh:NodeShape ;
+              sh:targetClass ?targetClass ;
+              sh:property ?propertyShape .
+            ?propertyShape a ?propertyShapeType ;
+              sh:path ?path ;
+              sh:node ?nodeShapeRef .
+            ?nodeShapeRef sh:targetClass ?targetClassRef .
+          } where {
+            ?nodeShape a sh:NodeShape ;
+              sh:targetClass ?targetClass .
+            optional {
+              ?nodeShape sh:property ?propertyShape .
+              ?propertyShape sh:path ?path .
+              optional {
+                ?propertyShape sh:node ?nodeShapeRef .
+                ?nodeShapeRef sh:targetClass ?targetClassRef .
+              }
+              optional {
+                ?propertyShape a ?propertyShapeType .
+              }
+            }
           }`,
         data: true
       }
