@@ -125,7 +125,7 @@
               <b-button class="mb-0" v-on:click="getShapes" v-b-tooltip.hover title="Reload" aria-label="Reload">
                 <b-icon icon="arrow-repeat"></b-icon>
               </b-button>
-              <b-button v-b-modal.add_class v-on:click="saveShapes" v-b-tooltip.hover title="Save Schema/Shapes" aria-label="Save Schema/Shapes">
+              <b-button v-on:click="saveShapes" v-b-tooltip.hover title="Save Schema/Shapes" aria-label="Save Schema/Shapes">
                 <b-iconstack>
                   <b-icon icon="hdd"></b-icon>
                   <b-icon icon="arrow-down" scale="0.8" shift-v="4.5"></b-icon>
