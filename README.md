@@ -1,5 +1,10 @@
 # OntoPad
 
+OntoPad is a simple editor for RDF data, e.g. Resources, Classes, and Properties. On top of the simple RDF layer it provides ways to visually interact with SHACL shapes.
+
+OntoPad is designed to run in you web browser and to be connected to a SPARQL Endpoint. To be able to share the data you create it works best with the [Quit Store](https://github.com/AKSW/QuitStore) (actually currently only supported SPARQL Endpoint).
+
+
 ## Project setup
 ```
 npm install
