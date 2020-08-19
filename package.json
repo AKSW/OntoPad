@@ -14,7 +14,7 @@
     "wp": "webpack --progress",
     "dev": "webpack-dev-server --inline --progress",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
     "test": "jest"
   },
