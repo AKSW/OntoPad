@@ -1,12 +1,18 @@
 <template>
   <div class="row">
     <div class="col-3" style="height:80vh; overflow-y:scroll;">
-      (<a v-on:click="getLists">refresh</a>)<br/>
       <b-card no-body>
         <template v-slot:header>
           <div class="d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Class List</h6>
-            <b-button v-b-modal.add_class>Add Class</b-button>
+            <div>
+              <b-button class="mb-0" v-on:click="getLists"  v-b-tooltip.hover title="Reload" aria-label="Reload">
+                <b-icon icon="arrow-repeat"></b-icon>
+              </b-button>
+              <b-button v-b-modal.add_class v-b-tooltip.hover title="Create Class" aria-label="Create Class">
+                <b-icon icon="plus-square"></b-icon>
+              </b-button>
+            </div>
           </div>
         </template>
         <b-list-group flush v-for="(rdfClass, index) in classes" :key="'class-' + index">
@@ -15,6 +21,7 @@
             :for="'class-' + index"
             style="cursor: move"
             draggable @dragstart='startDrag($event, rdfClass)'
+            v-b-tooltip.hover :title="rdfClass.iri"
             v-on:click="select(rdfClass.iri)">{{ shortenIri(rdfClass.iri) }}</b-list-group-item>
         </b-list-group>
       </b-card>
@@ -22,7 +29,9 @@
         <template v-slot:header>
           <div class="d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Property List</h6>
-            <b-button v-b-modal.add_property>Add Property</b-button>
+            <b-button v-b-modal.add_property>
+              <b-icon icon="plus-square" v-b-tooltip.hover title="Create Property" aria-label="Create Property"></b-icon>
+            </b-button>
           </div>
         </template>
         <b-list-group flush v-for="(rdfProperty, index) in properties" :key="'property-' + index">
@@ -108,9 +117,26 @@
       </b-modal>
     </div>
     <div class="col-9">
-      (<a v-on:click="getShapes">refresh</a>)<br/>
-      <diagram :model="model" width="100%" height="600" @drop='onDrop($event)' @dropNode='onDropNode' @configurePort='configureProperty'></diagram>
-      <button class="btn btn-primary" @click="saveShapes()">Save Schema/Shapes</button>
+      <b-card no-body>
+        <template v-slot:header>
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="mb-0">Shape Composer</h6>
+            <div>
+              <b-button class="mb-0" v-on:click="getShapes" v-b-tooltip.hover title="Reload" aria-label="Reload">
+                <b-icon icon="arrow-repeat"></b-icon>
+              </b-button>
+              <b-button v-b-modal.add_class v-on:click="saveShapes" v-b-tooltip.hover title="Save Schema/Shapes" aria-label="Save Schema/Shapes">
+                <b-iconstack>
+                  <b-icon icon="hdd"></b-icon>
+                  <b-icon icon="arrow-down" scale="0.8" shift-v="4.5"></b-icon>
+                </b-iconstack>
+                <!-- <b-icon icon="journal-arrow-down" v-b-tooltip.hover title="Save Schema/Shapes" aria-label="Save Schema/Shapes"></b-icon> -->
+              </b-button>
+            </div>
+          </div>
+        </template>
+        <diagram :model="model" width="100%" height="600" @drop='onDrop($event)' @dropNode='onDropNode' @configurePort='configureProperty'></diagram>
+      </b-card>
     </div>
   </div>
 </template>
@@ -128,7 +154,7 @@ export default {
   name: 'VocPad',
   components: {
     TermInput,
-    Diagram
+    Diagram,
   },
   data () {
     return {

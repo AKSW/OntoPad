@@ -1,23 +1,37 @@
 <template>
   <div>
-    <strong>Graph List</strong>
-    (<a v-on:click="updateGraphList">refresh</a>)
-    <ul class="list-group" v-for="(graph, index) in graphs" :key="index">
-      <li
-        class="list-group-item btn"
-        v-bind:class="{'active': graph == graph_iri}"
-        :for="'form-control' + index"
-        v-on:click="select(graph)">{{ graph }}</li>
-    </ul>
-    <form>
-      <div class="form-group row">
-        <label for="new_graph_iri" class="col-sm-3 col-form-label">IRI</label>
-        <div class="col-sm-9">
-          <TermInput type="iri" id="new_graph_iri" v-model="new_graph_iri" />
+    <b-card no-body>
+      <template v-slot:header>
+        <div class="d-flex justify-content-between align-items-center">
+          <h6 class="mb-0">Graph List</h6>
+          <div>
+            <b-button class="mb-0" v-on:click="updateGraphList" v-b-tooltip.hover title="Reload" aria-label="Reload">
+              <b-icon icon="arrow-repeat"></b-icon>
+            </b-button>
+            <b-button v-b-modal.add_graph v-b-tooltip.hover title="Create Graph" aria-label="Create Graph">
+              <b-icon icon="plus-square"></b-icon>
+            </b-button>
+          </div>
         </div>
-      </div>
-      <button class="btn btn-primary" @click="add_graph()">Add Graph</button>
-    </form>
+      </template>
+      <b-list-group flush v-for="(graph, index) in graphs" :key="index">
+        <b-list-group-item
+          class="btn"
+          v-bind:class="{'active': graph == graph_iri}"
+          :for="'form-control' + index"
+          v-on:click="select(graph)">{{ graph }}</b-list-group-item>
+      </b-list-group>
+    </b-card>
+    <b-modal id="add_graph" title="Create New Graph" :no-close-on-backdrop="true" @ok="add_graph()" size="lg">
+      <form>
+        <div class="form-group">
+          <label for="new_graph_iri">IRI</label>
+          <div>
+            <TermInput type="iri" id="new_graph_iri" v-model="new_graph_iri" />
+          </div>
+        </div>
+      </form>
+    </b-modal>
   </div>
 </template>
 

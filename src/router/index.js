@@ -1,6 +1,4 @@
-import Vue from 'vue'
 import Router from 'vue-router'
-import BootstrapVue from 'bootstrap-vue'
 import InputForm from '@/components/InputForm'
 import VocPad from '@/components/VocPad'
 import EditForm from '@/components/EditForm'
@@ -9,8 +7,6 @@ import DashboardView from '@/components/DashboardView'
 import InstanceList from '@/components/InstanceList'
 import Source from '@/components/Source'
 
-Vue.use(Router)
-Vue.use(BootstrapVue)
 
 export default new Router({
   routes: [

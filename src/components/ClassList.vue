@@ -1,14 +1,23 @@
 <template>
-  <div>
-    <strong>Class List</strong>
-    (<a v-on:click="updateClassList">refresh</a>)
-    <ul class="list-group" v-for="(rdfClass, index) in classes" :key="index">
-      <li
+  <b-card no-body>
+    <template v-slot:header>
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">Class List</h6>
+        <div>
+          <b-button class="mb-0" v-on:click="updateClassList" v-b-tooltip.hover title="Reload" aria-label="Reload">
+            <b-icon icon="arrow-repeat"></b-icon>
+          </b-button>
+        </div>
+      </div>
+    </template>
+
+    <b-list-group flush v-for="(rdfClass, index) in classes" :key="index">
+      <b-list-group-item
         class="list-group-item btn"
         :for="'form-control' + index"
-        v-on:click="select(rdfClass)">{{ rdfClass }}</li>
-    </ul>
-  </div>
+        v-on:click="select(rdfClass)">{{ rdfClass }}</b-list-group-item>
+    </b-list-group>
+  </b-card>
 </template>
 
 <script>
