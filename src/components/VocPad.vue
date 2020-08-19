@@ -356,8 +356,17 @@ export default {
       console.log(difference)
       try {
         await this.$store.commit('insertDeleteData', { insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+        this.$bvToast.toast(`Shapes where saved to the store`, {
+          title: 'Save Shapes',
+          autoHideDelay: 500
+        })
         // this.getShapes()
       } catch (e) {
+        this.$bvToast.toast(`Storing the Shapes failed`, {
+          title: 'Save Shapes',
+          variant: 'danger',
+          autoHideDelay: 5000
+        })
         console.error(e)
       }
     },

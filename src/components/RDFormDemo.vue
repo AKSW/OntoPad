@@ -124,8 +124,17 @@ export default {
       console.log(JSON.stringify(difference))
       try {
         await this.$store.commit('insertDeleteData', { insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+        this.$bvToast.toast(`The form data was saved to the store`, {
+          title: 'Save Form',
+          autoHideDelay: 500
+        })
         this.getResource()
       } catch (e) {
+        this.$bvToast.toast(`An error occurred when saving the form data to the store`, {
+          title: 'Save Form',
+          variant: 'danger',
+          autoHideDelay: 5000
+        })
         console.error(e)
       }
     },
