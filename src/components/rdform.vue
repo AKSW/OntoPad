@@ -14,7 +14,7 @@ export default {
   name: 'rdform',
   props: ['submit', 'template', 'hooks', 'settings', 'data'],
   mounted () {
-    let settings = {
+    const settings = {
       template: this.template,
       hooks: this.hooks,
       cache: true, // when using with wepack I think it is no good idea to use the rdform cache feature

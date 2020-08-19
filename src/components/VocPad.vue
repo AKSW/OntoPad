@@ -154,7 +154,7 @@ export default {
   name: 'VocPad',
   components: {
     TermInput,
-    Diagram,
+    Diagram
   },
   data () {
     return {
@@ -172,17 +172,17 @@ export default {
       originalDataModel: [],
       // dataModel: [],
       prefixes: {
-        "http://example.org/" : "ex:",
-        "http://example.org/classes#" : "exc:",
-        "http://example.org/properties#" : "exp:",
-        "http://www.w3.org/1999/02/22-rdf-syntax-ns#" : "rdf:",
-        "http://www.w3.org/2000/01/rdf-schema#" : "rdfs:",
-        "http://www.w3.org/2001/XMLSchema#" : "xsd:",
-        "http://xmlns.com/foaf/0.1/" : "foaf:",
-        "http://www.w3.org/ns/shacl#" : "sh:",
+        'http://example.org/': 'ex:',
+        'http://example.org/classes#': 'exc:',
+        'http://example.org/properties#': 'exp:',
+        'http://www.w3.org/1999/02/22-rdf-syntax-ns#': 'rdf:',
+        'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:',
+        'http://www.w3.org/2001/XMLSchema#': 'xsd:',
+        'http://xmlns.com/foaf/0.1/': 'foaf:',
+        'http://www.w3.org/ns/shacl#': 'sh:'
       },
       next_x: null,
-      next_y: null,
+      next_y: null
     }
   },
   computed: mapState(['graph_iri']),
@@ -204,7 +204,8 @@ export default {
     },
     getLists () {
       this.$store.dispatch('sendQuery',
-        "select distinct ?class ?property { \
+      // eslint-disable-next-line
+        `select distinct ?class ?property { \
           { \
             ?sc a ?class \
           } union { \
@@ -220,38 +221,38 @@ export default {
           } union { \
             ?property a <http://www.w3.org/2002/07/owl#DatatypeProperty> \
           } \
-        } order by ?class ?property")
+        } order by ?class ?property`)
         .then(result => {
-          let bindings = result.data.results.bindings
+          const bindings = result.data.results.bindings
           this.classes = []
           this.properties = []
-          for (let key in bindings) {
+          for (const key in bindings) {
             if (bindings[key].class) {
-              this.classes.push({iri: bindings[key].class.value, termType: "class"})
+              this.classes.push({ iri: bindings[key].class.value, termType: 'class' })
             }
             if (bindings[key].property) {
-              this.properties.push({iri: bindings[key].property.value, termType: "property"})
+              this.properties.push({ iri: bindings[key].property.value, termType: 'property' })
             }
           }
         })
     },
     async add_term (termType) {
       let newTerm = []
-      if (termType == 'class') {
+      if (termType === 'class') {
         newTerm = [
           triple(this.class_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/2000/01/rdf-schema#Class')),
           triple(this.class_iri, namedNode('http://www.w3.org/2000/01/rdf-schema#label'), this.class_label),
-          triple(this.class_iri, namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), this.class_comment),
+          triple(this.class_iri, namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), this.class_comment)
         ]
-      } else if (termType == 'property') {
+      } else if (termType === 'property') {
         newTerm = [
           triple(this.property_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#Property')),
           triple(this.property_iri, namedNode('http://www.w3.org/2000/01/rdf-schema#label'), this.property_label),
-          triple(this.property_iri, namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), this.property_comment),
+          triple(this.property_iri, namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), this.property_comment)
         ]
       }
       try {
-        await this.$store.commit('insertDeleteData', {insertArray: newTerm, graphIri: this.graph_iri})
+        await this.$store.commit('insertDeleteData', { insertArray: newTerm, graphIri: this.graph_iri })
         this.getLists()
       } catch (e) {
         console.error(e)
@@ -262,46 +263,46 @@ export default {
       evt.dataTransfer.effectAllowed = 'move'
       evt.dataTransfer.setData('iri', item.iri)
       evt.dataTransfer.setData('termType', item.termType)
-      console.log("start dragging " + item)
+      console.log('start dragging ' + item)
     },
     onDrop (evt) {
       const iri = evt.dataTransfer.getData('iri')
       const termType = evt.dataTransfer.getData('termType')
-      console.log("received " + iri)
+      console.log('received ' + iri)
       console.log(iri)
       console.log(termType)
-      if (termType == "class") {
-        this.addNodeShape("urn:nodeshape:" + uuidv4(), iri, evt.layerX, evt.layerY)
+      if (termType === 'class') {
+        this.addNodeShape('urn:nodeshape:' + uuidv4(), iri, evt.layerX, evt.layerY)
       }
     },
     onDropNode (evt, node) {
       const iri = evt.dataTransfer.getData('iri')
       const termType = evt.dataTransfer.getData('termType')
-      console.log("received on diagram node " + iri)
+      console.log('received on diagram node ' + iri)
       console.log(iri)
-      if (termType == "property") {
-        this.addPropertyShape(node, "urn:propertyshape:" + uuidv4(), iri)
+      if (termType === 'property') {
+        this.addPropertyShape(node, 'urn:propertyshape:' + uuidv4(), iri)
       }
     },
     configureProperty (node, port) {
       console.log(node)
       console.log(port)
-      console.log("configure " + node.object.shapeIri.id + " port" + port.object.shapeIri.id)
+      console.log('configure ' + node.object.shapeIri.id + ' port' + port.object.shapeIri.id)
     },
     shortenIri (iriIn) {
-      let iri = new URL(iriIn)
+      const iri = new URL(iriIn)
       let identifier = iri.toString()
-      let rest = ""
+      let rest = ''
       if (iri.hash) {
-        let hashPos = identifier.lastIndexOf("#")
-        rest = identifier.substr(0, hashPos+1)
+        const hashPos = identifier.lastIndexOf('#')
+        rest = identifier.substr(0, hashPos + 1)
         identifier = iri.hash.substr(1)
       } else if (iri.pathname) {
-        let slashPos = identifier.lastIndexOf("/")
-        rest = identifier.substr(0, slashPos+1)
-        identifier = identifier.substr(slashPos+1)
+        const slashPos = identifier.lastIndexOf('/')
+        rest = identifier.substr(0, slashPos + 1)
+        identifier = identifier.substr(slashPos + 1)
       }
-      if (this.prefixes[rest] && identifier.indexOf("#") < 0 && identifier.indexOf(":") < 0 && identifier.indexOf("/") < 0) {
+      if (this.prefixes[rest] && identifier.indexOf('#') < 0 && identifier.indexOf(':') < 0 && identifier.indexOf('/') < 0) {
         return this.prefixes[rest] + identifier
       }
       return iri.toString()
@@ -310,34 +311,34 @@ export default {
       return namedNode(this.portIds[portId])
     },
     getPortIdByShape (shapeIri) {
-      let portId = this.portIds.indexOf(shapeIri)
-      if (portId == -1) {
+      const portId = this.portIds.indexOf(shapeIri)
+      if (portId === -1) {
         return undefined
       }
       return portId
     },
     setShapePortIdMapping (shapeIri, portId) {
-      let existingPortId = this.portIds.indexOf(shapeIri)
-      if (existingPortId > -1 && existingPortId != portId) {
-        console.log("Duplicate shapeIri should not happen")
+      const existingPortId = this.portIds.indexOf(shapeIri)
+      if (existingPortId > -1 && existingPortId !== portId) {
+        console.log('Duplicate shapeIri should not happen')
       }
       this.portIds[portId] = shapeIri
     },
     async saveShapes () {
-      let modelSerialization = this.model._model;
+      const modelSerialization = this.model._model
       console.log(this.model.serialize())
-      let newSchema = []
-      for (let nodeIndex in modelSerialization.nodes) {
-        let node = modelSerialization.nodes[nodeIndex]
-        let shapeIri = node.object.shapeIri
-        let targetClass = node.object.targetClass
-        for (let portIndex in node.ports) {
-          let port = node.ports[portIndex]
-          if (port.name === "IRI") {
+      const newSchema = []
+      for (const nodeIndex in modelSerialization.nodes) {
+        const node = modelSerialization.nodes[nodeIndex]
+        const shapeIri = node.object.shapeIri
+        const targetClass = node.object.targetClass
+        for (const portIndex in node.ports) {
+          const port = node.ports[portIndex]
+          if (port.name === 'IRI') {
             this.setShapePortIdMapping(shapeIri.id, port.id)
           } else {
-            let propertyShapeIri = port.object.shapeIri
-            let path = port.object.path
+            const propertyShapeIri = port.object.shapeIri
+            const path = port.object.path
             this.setShapePortIdMapping(propertyShapeIri.id, port.id)
             newSchema.push(triple(shapeIri, namedNode('http://www.w3.org/ns/shacl#property'), propertyShapeIri))
             newSchema.push(triple(propertyShapeIri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/ns/shacl#PropertyShape')))
@@ -347,14 +348,14 @@ export default {
         newSchema.push(triple(shapeIri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/ns/shacl#NodeShape')))
         newSchema.push(triple(shapeIri, namedNode('http://www.w3.org/ns/shacl#targetClass'), targetClass))
       }
-      for (let linkIndex in modelSerialization.links) {
-        let link = modelSerialization.links[linkIndex]
+      for (const linkIndex in modelSerialization.links) {
+        const link = modelSerialization.links[linkIndex]
         newSchema.push(triple(this.getShapeByPortId(link.from), namedNode('http://www.w3.org/ns/shacl#node'), this.getShapeByPortId(link.to)))
       }
-      let difference = diff(this.originalDataModel, newSchema)
+      const difference = diff(this.originalDataModel, newSchema)
       console.log(difference)
       try {
-        await this.$store.commit('insertDeleteData', {insertArray: difference['add'], deleteArray: difference['del'], graphIri: this.graph_iri})
+        await this.$store.commit('insertDeleteData', { insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
         // this.getShapes()
       } catch (e) {
         console.error(e)
@@ -372,25 +373,25 @@ export default {
           this.next_y += 1
         }
       }
-      return {x: this.next_x * 240, y: this.next_y * 180}
+      return { x: this.next_x * 240, y: this.next_y * 180 }
     },
     addNodeShape (nodeShapeIri, targetClassIri, x = null, y = null, width = 200) {
       if (this.nodes[nodeShapeIri] !== undefined) {
         return this.nodes[nodeShapeIri]
       } else {
-        let nodeObject = {
+        const nodeObject = {
           title: this.shortenIri(targetClassIri),
           targetClass: namedNode(targetClassIri),
-          shapeIri: namedNode(nodeShapeIri),
+          shapeIri: namedNode(nodeShapeIri)
         }
         if (x === null || y === null) {
-          let nextPosition = this.nextPosition()
+          const nextPosition = this.nextPosition()
           x = nextPosition.x
           y = nextPosition.y
         }
-        let node = this.model.addNode(nodeObject, x, y, width)
+        const node = this.model.addNode(nodeObject, x, y, width)
         this.nodes[nodeShapeIri] = node
-        this.setShapePortIdMapping(nodeShapeIri, node.addInPort("IRI"))
+        this.setShapePortIdMapping(nodeShapeIri, node.addInPort('IRI'))
         return node
       }
     },
@@ -398,18 +399,19 @@ export default {
       if (this.getPortIdByShape(propertyShapeIri)) {
         return this.getPortIdByShape(propertyShapeIri)
       }
-      let portObject = {
+      const portObject = {
         title: this.shortenIri(pathIri),
         path: namedNode(pathIri),
         shapeIri: namedNode(propertyShapeIri)
       }
-      let portId = node.addOutPort(portObject)
+      const portId = node.addOutPort(portObject)
       this.setShapePortIdMapping(propertyShapeIri, portId)
       return portId
     },
     getShapes () {
       this.$store.dispatch('sendQuery',
-        "PREFIX sh: <http://www.w3.org/ns/shacl#> \
+      // eslint-disable-next-line
+        `PREFIX sh: <http://www.w3.org/ns/shacl#> \
         select distinct ?nodeShape ?targetClass ?propertyShape ?path ?nodeShapeRef ?targetClassRef { \
           ?nodeShape a sh:NodeShape ; \
             sh:targetClass ?targetClass . \
@@ -421,23 +423,24 @@ export default {
               ?nodeShapeRef sh:targetClass ?targetClassRef . \
             } \
           } \
-        } order by ?nodeShape ?propertyShape")
+        } order by ?nodeShape ?propertyShape`)
         .then(result => {
-          let bindings = result.data.results.bindings
-          for (let key in bindings) {
-            let node = this.addNodeShape(bindings[key].nodeShape.value, bindings[key].targetClass.value)
+          const bindings = result.data.results.bindings
+          for (const key in bindings) {
+            const node = this.addNodeShape(bindings[key].nodeShape.value, bindings[key].targetClass.value)
             if (bindings[key].propertyShape && bindings[key].path) {
-              let port = this.addPropertyShape(node, bindings[key].propertyShape.value, bindings[key].path.value)
+              const port = this.addPropertyShape(node, bindings[key].propertyShape.value, bindings[key].path.value)
               if (bindings[key].nodeShapeRef && bindings[key].targetClassRef) {
                 this.addNodeShape(bindings[key].nodeShapeRef.value, bindings[key].targetClassRef.value)
-                this.model.addLink(port, this.getPortIdByShape(bindings[key].nodeShapeRef.value));
+                this.model.addLink(port, this.getPortIdByShape(bindings[key].nodeShapeRef.value))
               }
             }
           }
           this.nextPosition(true)
         })
-        this.$store.dispatch('sendQuery', {
-          query: "PREFIX sh: <http://www.w3.org/ns/shacl#> \
+      this.$store.dispatch('sendQuery', {
+        // eslint-disable-next-line
+        query: `REFIX sh: <http://www.w3.org/ns/shacl#> \
           construct { \
             ?nodeShape a sh:NodeShape ; \
               sh:targetClass ?targetClass ; \
@@ -460,8 +463,10 @@ export default {
                 ?propertyShape a ?propertyShapeType . \
               } \
             } \
-          }", data: true}
-        )
+          }`,
+        data: true
+      }
+      )
         .then(result => {
           const parser = new Parser()
           this.originalDataModel = []
@@ -469,7 +474,7 @@ export default {
             if (error) {
               console.log(error)
             } else if (quad) {
-                this.originalDataModel.push(quad)
+              this.originalDataModel.push(quad)
             } else {
               console.log('done')
             }

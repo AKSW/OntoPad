@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {SparqlEndpoint} from '@/api/sparql.js'
-import {Generator} from 'sparqljs'
-import {quadToStringQuad} from 'rdf-string'
+import { SparqlEndpoint } from '@/api/sparql.js'
+import { Generator } from 'sparqljs'
+import { quadToStringQuad } from 'rdf-string'
 
 Vue.use(Vuex)
 
@@ -15,8 +15,8 @@ export default new Vuex.Store({
     sparqlEndpoint: SparqlEndpoint.create('http://localhost:8082', 'http://localhost:8082')
   },
   actions: {
-    sendQuery ({state}, payload) {
-      let query = ""
+    sendQuery ({ state }, payload) {
+      let query = ''
       let data = false
       if (typeof payload === 'object') {
         query = payload.query
@@ -24,18 +24,18 @@ export default new Vuex.Store({
       } else {
         query = payload
       }
-      console.log("shend query with data=" + data + " query: " + query)
+      console.log('shend query with data=' + data + ' query: ' + query)
       let defaultGraph
       let queryString = ''
       if (typeof query === 'string') {
         queryString = query
         defaultGraph = [state.graph_iri]
       } else if (query instanceof Object) {
-        queryString = query['query']
-        if (query['queryQuads'] !== undefined) {
+        queryString = query.query
+        if (query.queryQuads !== undefined) {
           defaultGraph = undefined
-        } else if (query['defaultGraph'] !== undefined) {
-          defaultGraph = query['defaultGraph']
+        } else if (query.defaultGraph !== undefined) {
+          defaultGraph = query.defaultGraph
         } else {
           defaultGraph = [state.graph_iri]
         }
@@ -45,11 +45,11 @@ export default new Vuex.Store({
       }
       return state.sparqlEndpoint.query(queryString, defaultGraph, data)
     },
-    getResource ({state}, resourceUri, defaultGraph) {
+    getResource ({ state }, resourceUri, defaultGraph) {
       if (defaultGraph === undefined) {
         defaultGraph = [state.graph_iri]
       }
-      let queryString = 'construct where {<' + resourceUri + '> ?p ?o}'
+      const queryString = 'construct where {<' + resourceUri + '> ?p ?o}'
       return state.sparqlEndpoint.query(queryString, defaultGraph, true)
     }
   },
@@ -71,44 +71,44 @@ export default new Vuex.Store({
       const deleteArray = payload.deleteArray
       const graphIri = payload.graphIri
 
-      let updateStructure = {
-        'type': 'update',
-        'updates': []
+      const updateStructure = {
+        type: 'update',
+        updates: []
       }
 
       // Delete has to come first, to not later remove stuff, we've just added
       if (deleteArray) {
         const deleteBGP = {
-          'triples': deleteArray.map(quadToStringQuad)
+          triples: deleteArray.map(quadToStringQuad)
         }
         if (graphIri === undefined) {
-          deleteBGP['type'] = 'bgp'
+          deleteBGP.type = 'bgp'
         } else {
-          deleteBGP['type'] = 'graph'
-          deleteBGP['name'] = graphIri
+          deleteBGP.type = 'graph'
+          deleteBGP.name = graphIri
         }
-        updateStructure['updates'].push(
+        updateStructure.updates.push(
           {
-            'updateType': 'delete',
-            'delete': [ deleteBGP ]
+            updateType: 'delete',
+            delete: [deleteBGP]
           }
         )
       }
 
       if (insertArray) {
         const insertBGP = {
-          'triples': insertArray.map(quadToStringQuad)
+          triples: insertArray.map(quadToStringQuad)
         }
         if (graphIri === undefined) {
-          insertBGP['type'] = 'bgp'
+          insertBGP.type = 'bgp'
         } else {
-          insertBGP['type'] = 'graph'
-          insertBGP['name'] = graphIri
+          insertBGP.type = 'graph'
+          insertBGP.name = graphIri
         }
-        updateStructure['updates'].push(
+        updateStructure.updates.push(
           {
-            'updateType': 'insert',
-            'insert': [ insertBGP ]
+            updateType: 'insert',
+            insert: [insertBGP]
           }
         )
       }

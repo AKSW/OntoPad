@@ -64,11 +64,11 @@ export default {
       this.dataModel.splice(index, 1)
     },
     submit () {
-      for (let index in this.dataModel) {
-        let statement = this.dataModel[index]
+      for (const index in this.dataModel) {
+        const statement = this.dataModel[index]
         statement.subject = this.subject
       }
-      this.$store.commit('insertDeleteData', {insertArray: this.dataModel, graphIri: this.graph_iri})
+      this.$store.commit('insertDeleteData', { insertArray: this.dataModel, graphIri: this.graph_iri })
     }
   }
 }

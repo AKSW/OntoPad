@@ -9,7 +9,7 @@
     </div>
     <div v-if="formsForClass.length">
       <select name="form" v-model="selected_form">
-        <option v-for="option in formsForClass" v-bind:value="option">{{ option }}</option>
+        <option v-for="(option, index) in formsForClass" v-bind:value="option" :key="index">{{ option }}</option>
       </select>
       <rdform v-if="data" :key="getKey(data, selected_form)" class="form-horizontal rdform" role="form" :template="require('@/assets/' + selected_form)" :submit="submit" :data="data"></rdform>
       <em>powered by <a href="https://github.com/simeonackermann/RDForm/">RDForm</a></em>
@@ -74,13 +74,14 @@ export default {
   computed: {
     ...mapState(['graph_iri', 'resource_iri']),
     formsForClass () {
-      let dataModel = new Store(this.dataModel)
-      let classes = dataModel.getObjects(null, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), null)
-      let forms = []
-      for (let c in classes) {
+      const dataModel = new Store(this.dataModel)
+      const classes = dataModel.getObjects(null, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), null)
+      const forms = []
+      for (const c in classes) {
         forms.push(...this.forms_class[classes[c].value])
       }
       if (forms.length) {
+        // eslint-disable-next-line
         this.selected_form = forms[0]
       }
       return forms
@@ -91,50 +92,50 @@ export default {
       console.log('I\'ve been called')
       console.log(result)
       console.log(JSON.stringify(result, null, '\t'))
-      let jsonldPromise = jsonld.toRDF(result, {format: 'application/n-quads'})
+      const jsonldPromise = jsonld.toRDF(result, { format: 'application/n-quads' })
       jsonldPromise.then(async (newData) => {
-        let [resultDataModel, prefixes] = await parseRDFtoRDFJS(newData, this.subject)
+        const [resultDataModel, prefixes] = await parseRDFtoRDFJS(newData, this.subject)
         this.dataModel = resultDataModel
         this.updateResource()
       })
     },
     async getResource () {
       this.subject = namedNode(this.resource_iri)
-      let result = await this.$store.dispatch('getResource', this.resource_iri)
+      const result = await this.$store.dispatch('getResource', this.resource_iri)
 
-      let [resultDataModel, prefixes] = await parseRDFtoRDFJS(result.data, this.subject)
+      const [resultDataModel, prefixes] = await parseRDFtoRDFJS(result.data, this.subject)
       this.originalDataModel = []
       this.dataModel = []
       // we need to iterate over the data to clone the quad objects
-      for (let quadIndex in resultDataModel) {
+      for (const quadIndex in resultDataModel) {
         this.originalDataModel.push(extend(true, {}, resultDataModel[quadIndex]))
         this.dataModel.push(resultDataModel[quadIndex])
       }
 
       // Parse to JSON-LD
-      this.data = await jsonld.fromRDF(result.data, {format: 'application/n-quads'})
+      this.data = await jsonld.fromRDF(result.data, { format: 'application/n-quads' })
     },
     async updateResource () {
-      for (let index in this.dataModel) {
-        let statement = this.dataModel[index]
+      for (const index in this.dataModel) {
+        const statement = this.dataModel[index]
         statement.subject = this.subject
       }
-      let difference = diff(this.originalDataModel, this.dataModel)
-      console.log(JSON.stringify(difference));
+      const difference = diff(this.originalDataModel, this.dataModel)
+      console.log(JSON.stringify(difference))
       try {
-        await this.$store.commit('insertDeleteData', {insertArray: difference['add'], deleteArray: difference['del'], graphIri: this.graph_iri})
+        await this.$store.commit('insertDeleteData', { insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
         this.getResource()
       } catch (e) {
         console.error(e)
       }
     },
-    getKey (data, selected_form) {
+    getKey (data, selectedForm) {
       // hack according to https://stackoverflow.com/a/57690135/414075
-      let dataKey = "nothing"
+      let dataKey = 'nothing'
       if (data) {
         dataKey = data.length.toString()
       }
-      let key = selected_form + dataKey
+      const key = selectedForm + dataKey
       return key
     }
   }

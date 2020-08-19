@@ -4,8 +4,8 @@ import { quadToStringQuad } from 'rdf-string'
 
 function diff (oldData, newData) {
   // Copy the incomming data
-  let _newArray = newData.slice(0)
-  let _oldArray = oldData.slice(0)
+  const _newArray = newData.slice(0)
+  const _oldArray = oldData.slice(0)
 
   // Sort the data arrays to make the comparison easier
   _newArray.sort(sortFunction)
@@ -20,42 +20,42 @@ function diff (oldData, newData) {
   let nextOrig = origIterator.next()
 
   // initialize the resulting arrays
-  let insertArray = []
-  let deleteArray = []
+  const insertArray = []
+  const deleteArray = []
 
-  while (!nextNew['done'] || !nextOrig['done']) {
-    if (nextNew['done'] && !nextOrig['done']) {
+  while (!nextNew.done || !nextOrig.done) {
+    if (nextNew.done && !nextOrig.done) {
       // add rest to delete
-      while (!nextOrig['done']) {
-        deleteArray.push(nextOrig['value'])
+      while (!nextOrig.done) {
+        deleteArray.push(nextOrig.value)
         nextOrig = origIterator.next()
       }
-    } else if (nextOrig['done'] && !nextNew['done']) {
+    } else if (nextOrig.done && !nextNew.done) {
       // add rest to add
-      while (!nextNew['done']) {
-        insertArray.push(nextNew['value'])
+      while (!nextNew.done) {
+        insertArray.push(nextNew.value)
         nextNew = newIterator.next()
       }
-    } else if (nextNew['value'].equals(nextOrig['value'])) {
+    } else if (nextNew.value.equals(nextOrig.value)) {
       nextNew = newIterator.next()
       nextOrig = origIterator.next()
     } else {
-      let equality = sortFunction(nextNew['value'], nextOrig['value'])
+      const equality = sortFunction(nextNew.value, nextOrig.value)
       if (equality < 0) {
-        insertArray.push(nextNew['value'])
+        insertArray.push(nextNew.value)
         nextNew = newIterator.next()
       } else if (equality > 0) {
-        deleteArray.push(nextOrig['value'])
+        deleteArray.push(nextOrig.value)
         nextOrig = origIterator.next()
       }
     }
   }
-  return {add: insertArray, del: deleteArray}
+  return { add: insertArray, del: deleteArray }
 }
 
 function sortFunction (a, b) {
-  let x = JSON.stringify(quadToStringQuad(a))
-  let y = JSON.stringify(quadToStringQuad(b))
+  const x = JSON.stringify(quadToStringQuad(a))
+  const y = JSON.stringify(quadToStringQuad(b))
   return x < y ? -1 : x > y ? 1 : 0
 }
 

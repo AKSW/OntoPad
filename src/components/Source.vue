@@ -46,27 +46,27 @@ export default {
   },
   methods: {
     async getResource () {
-      console.log("get resource")
-      let resourceRDF = await this.$store.dispatch('getResource', this.resource_iri)
-      console.log("parse resource")
+      console.log('get resource')
+      const resourceRDF = await this.$store.dispatch('getResource', this.resource_iri)
+      console.log('parse resource')
       console.log(resourceRDF)
-      let resourceData = await this.parse(resourceRDF.data, { format: 'application/n-triples' })
-      console.log("serialize")
+      const resourceData = await this.parse(resourceRDF.data, { format: 'application/n-triples' })
+      console.log('serialize')
       this.originalSource = this.resourceSource = await this.serialize(resourceData, { format: 'text/turtle', prefixes: this.prefixes })
-      console.log("serialized")
+      console.log('serialized')
       console.log(this.originalSource)
       console.log(this.resourceSource)
     },
     async updateResource () {
-      let a = this.parse(this.originalSource)
-      let b = this.parse(this.resourceSource)
+      const a = this.parse(this.originalSource)
+      const b = this.parse(this.resourceSource)
 
-      let [originalDataModel, newDataModel] = await Promise.all([a, b])
-      let difference = diff(originalDataModel, newDataModel)
-      this.$store.commit('insertDeleteData', {insertArray: difference['add'], deleteArray: difference['del'], graphIri: this.graph_iri})
+      const [originalDataModel, newDataModel] = await Promise.all([a, b])
+      const difference = diff(originalDataModel, newDataModel)
+      this.$store.commit('insertDeleteData', { insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
     },
     parse (source, parserConfig = {}) {
-      let dataModel = []
+      const dataModel = []
       return new Promise((resolve, reject) => {
         const resourceParser = new Parser(parserConfig)
         resourceParser.parse(source, (error, quad, prefixes) => {
@@ -79,7 +79,7 @@ export default {
           } else if (quad) {
             dataModel.push(quad)
           } else {
-            this.prefixes = {...prefixes, ...this.prefixes}
+            this.prefixes = { ...prefixes, ...this.prefixes }
             resolve(dataModel)
           }
         })

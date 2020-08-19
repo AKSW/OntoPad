@@ -49,9 +49,9 @@ export default {
       this.$store.dispatch('sendQuery',
         'select distinct ?class { {?s a ?class} union {?class a <http://www.w3.org/2000/01/rdf-schema#Class>} union {?class a <http://www.w3.org/2002/07/owl#Class>} } order by ?class')
         .then(result => {
-          let bindings = result.data.results.bindings
+          const bindings = result.data.results.bindings
           this.classes = []
-          for (let key in bindings) {
+          for (const key in bindings) {
             this.classes.push(bindings[key].class.value)
           }
         })

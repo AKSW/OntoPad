@@ -1,4 +1,5 @@
-import { mount } from '@vue/test-utils'
+// import { mount } from '@vue/test-utils'
+import { describe, expect, test } from '@jest/globals'
 import { diff } from '@/helpers/n3-compare'
 
 import { DataFactory } from 'n3'
@@ -6,7 +7,7 @@ const { triple, namedNode, blankNode } = DataFactory
 
 describe('diff', () => {
   test('compare lists of empty triples', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode(''), namedNode(''), namedNode(''))
     ], [
       triple(namedNode(''), namedNode(''), namedNode(''))
@@ -15,7 +16,7 @@ describe('diff', () => {
     expect(answer.add).toHaveLength(0)
   })
   test('compare lists of two and one triples', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode('a'), namedNode('a'), namedNode('a')),
       triple(namedNode('b'), namedNode('b'), namedNode('b'))
     ], [
@@ -25,7 +26,7 @@ describe('diff', () => {
     expect(answer.add).toHaveLength(0)
   })
   test('compare lists add to the end', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode('s'), namedNode('p'), namedNode('a')),
       triple(namedNode('s'), namedNode('p'), namedNode('b'))
     ], [
@@ -38,7 +39,7 @@ describe('diff', () => {
     expect(answer.add).toEqual([triple(namedNode('s'), namedNode('p'), namedNode('c'))])
   })
   test('compare lists add to the beginning', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode('s'), namedNode('p'), namedNode('b')),
       triple(namedNode('s'), namedNode('p'), namedNode('c'))
     ], [
@@ -51,7 +52,7 @@ describe('diff', () => {
     expect(answer.add).toEqual([triple(namedNode('s'), namedNode('p'), namedNode('a'))])
   })
   test('compare lists add to the middle', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode('s'), namedNode('p'), namedNode('a')),
       triple(namedNode('s'), namedNode('p'), namedNode('c'))
     ], [
@@ -64,7 +65,7 @@ describe('diff', () => {
     expect(answer.add).toEqual([triple(namedNode('s'), namedNode('p'), namedNode('b'))])
   })
   test('compare lists remove from the end', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode('s'), namedNode('p'), namedNode('a')),
       triple(namedNode('s'), namedNode('p'), namedNode('b')),
       triple(namedNode('s'), namedNode('p'), namedNode('c'))
@@ -77,7 +78,7 @@ describe('diff', () => {
     expect(answer.del).toEqual([triple(namedNode('s'), namedNode('p'), namedNode('c'))])
   })
   test('compare lists remove from the beginning', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode('s'), namedNode('p'), namedNode('a')),
       triple(namedNode('s'), namedNode('p'), namedNode('b')),
       triple(namedNode('s'), namedNode('p'), namedNode('c'))
@@ -90,7 +91,7 @@ describe('diff', () => {
     expect(answer.del).toEqual([triple(namedNode('s'), namedNode('p'), namedNode('a'))])
   })
   test('compare lists remove from the middle', () => {
-    let answer = diff([
+    const answer = diff([
       triple(namedNode('s'), namedNode('p'), namedNode('a')),
       triple(namedNode('s'), namedNode('p'), namedNode('b')),
       triple(namedNode('s'), namedNode('p'), namedNode('c'))

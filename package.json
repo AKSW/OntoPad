@@ -2,6 +2,14 @@
   "name": "OntoPad",
   "version": "0.1.0",
   "private": true,
+  "license": "GPLv3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AKSW/OntoPad"
+  },
+  "bugs": {
+    "url": "https://github.com/AKSW/OntoPad/issues"
+  },
   "scripts": {
     "wp": "webpack --progress",
     "dev": "webpack-dev-server --inline --progress",
@@ -15,7 +23,6 @@
     "@donsi/rdform": "0.0.5",
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.16.0",
-    "core-js": "^2.6.11",
     "jquery": "^3.5.1",
     "jquery-ui": "^1.12.1",
     "jsonld": "^1.8.1",
@@ -26,22 +33,29 @@
     "vue": "^2.6.11",
     "vue-diagrams": "git+https://github.com/white-gecko/vue-diagrams.git#master",
     "vue-router": "^3.4.3",
-    "vuex": "^3.5.1",
-    "webpack-cli": "^3.3.12"
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.11.0",
-    "@vue/cli-plugin-babel": "^3.12.1",
-    "@vue/cli-plugin-eslint": "^3.12.1",
-    "@vue/cli-service": "^3.12.1",
+    "@vue/cli-plugin-babel": "^4.5.4",
+    "@vue/cli-plugin-eslint": "^4.5.4",
+    "@vue/cli-service": "^4.5.4",
+    "@vue/eslint-config-standard": "^5.1.2",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^24.9.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "jest": "^24.9.0",
+    "babel-jest": "^25.0.0",
+    "eslint": "^6.0.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "jest": "^25.0.0",
+    "typescript": "^3.9.7",
     "vue-jest": "^4.0.0-beta.5",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "eslintConfig": {
     "root": true,
@@ -50,10 +64,11 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "@vue/standard"
     ],
     "rules": {
-      "no-console": "off"
+      "no-console": "off",
+      "no-unused-vars": "warn"
     },
     "parserOptions": {
       "parser": "babel-eslint"
@@ -107,6 +122,8 @@
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions"
+    "last 2 versions",
+    "not ie <= 11",
+    "not ie_mob <= 11"
   ]
 }

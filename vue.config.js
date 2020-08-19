@@ -7,7 +7,7 @@ module.exports = {
       .rule('rdform')
       .test(/\.(rdform\.html)(\?.*)?$/)
       .use('file-loader')
-        .loader('file-loader')
-        .end()
+      .loader('file-loader')
+      .end()
   }
 }
