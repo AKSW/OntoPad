@@ -6,7 +6,7 @@
 */
 const fs = require('fs');
 const htmlFile = './dist/index.html';
-const configFile = './src/configs/config.json';
+const configFile = './src/config/config.json';
 
 if (!fs.existsSync(htmlFile)) {
   console.warn(`The project is not compiled (${htmlFile} is missing for post-compilation config injection)`);
@@ -29,7 +29,7 @@ if (fs.existsSync(configFile)) {
 } else {
   console.warn(`Configuration is missing for post-compilation config injection. Provide ${configFile} or QUIT_UPDATE and QUIT_QUERY environment variables.`);
 }
-const configVariablePattern = /<script>const APP_CONFIG = .*;<\/script>/g;
+const configVariablePattern = /<script>const APP_CONFIG = null;<\/script>/g;
 const newConfigVariable = '<script>const APP_CONFIG = ' + JSON.stringify(config) + ';</script>';
 const injectedHtml = html.replace(configVariablePattern, newConfigVariable);
 
