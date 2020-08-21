@@ -3,16 +3,17 @@ import Vuex from 'vuex'
 import { SparqlEndpoint } from '@/api/sparql.js'
 import { Generator } from 'sparqljs'
 import { quadToStringQuad } from 'rdf-string'
+import config from '@/config'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    query_url: 'http://localhost:8082',
-    update_url: 'http://localhost:8082',
-    graph_iri: 'http://example.org/',
-    resource_iri: 'http://example.org/Resource',
-    sparqlEndpoint: SparqlEndpoint.create('http://localhost:8082', 'http://localhost:8082')
+    query_url: config.query_url,
+    update_url: config.update_url,
+    graph_iri: config.graph_iri,
+    resource_iri: config.resource_iri,
+    sparqlEndpoint: SparqlEndpoint.create(config.query_url, config.update_url)
   },
   actions: {
     sendQuery ({ state }, payload) {

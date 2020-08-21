@@ -17,5 +17,11 @@ RUN npm run build
 
 RUN npm prune --production
 
+ENV QUIT_QUERY="http://localhost:5000"
+ENV QUIT_UPDATE="http://localhost:5000"
+ENV PRESELECTED_GRAPH_IRI="http://example.org/"
+ENV PRESELECTED_RESOURCE_IRI="http://example.org/Resource"
+
 EXPOSE 8080
-CMD [ "http-server", "dist" ]
+ENTRYPOINT [ "/bin/sh" ]
+CMD [ "docker-entrypoint.sh" ]
