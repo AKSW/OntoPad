@@ -24,7 +24,7 @@ if (fs.existsSync(configFile)) {
     "query_url": process.env.QUIT_QUERY,
     "update_url": process.env.QUIT_UPDATE,
     "graph_iri": process.env.PRESELECTED_GRAPH_IRI,
-    "resource_iri": process.env.PRESELECTED_RESOURCE_IRI,
+    "resource_iri": process.env.PRESELECTED_RESOURCE_IRI
   }
 } else {
   console.warn(`Configuration is missing for post-compilation config injection. Provide ${configFile} or QUIT_UPDATE and QUIT_QUERY environment variables.`);

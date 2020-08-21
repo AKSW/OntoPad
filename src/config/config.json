@@ -2,5 +2,5 @@
   "query_url":"http://localhost:5000",
   "update_url":"http://localhost:5000",
   "graph_iri": "http://example.org/",
-  "resource_iri": "http://example.org/Resource",
+  "resource_iri": "http://example.org/Resource"
 }
