@@ -16,7 +16,7 @@ if (!fs.existsSync(htmlFile)) {
 const html = fs.readFileSync(htmlFile).toString();
 let config;
 if ('QUIT_UPDATE' in process.env && 'QUIT_QUERY' in process.env){
-  console.log('No local config file found construct config from environment variables.');
+  console.log('Environment found construct config from environment variables.');
   config = {
     "query_url": process.env.QUIT_QUERY,
     "update_url": process.env.QUIT_UPDATE,
