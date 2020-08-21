@@ -11,8 +11,6 @@
     "url": "https://github.com/AKSW/OntoPad/issues"
   },
   "scripts": {
-    "wp": "webpack --progress",
-    "dev": "webpack-dev-server --inline --progress",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
