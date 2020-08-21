@@ -15,10 +15,7 @@ if (!fs.existsSync(htmlFile)) {
 
 const html = fs.readFileSync(htmlFile).toString();
 let config;
-if (fs.existsSync(configFile)) {
-  console.log(`Local config file found use it: ${configFile}`);
-  config = require(configFile);
-} else if ('QUIT_UPDATE' in process.env && 'QUIT_QUERY' in process.env){
+if ('QUIT_UPDATE' in process.env && 'QUIT_QUERY' in process.env){
   console.log('No local config file found construct config from environment variables.');
   config = {
     "query_url": process.env.QUIT_QUERY,
@@ -26,6 +23,9 @@ if (fs.existsSync(configFile)) {
     "graph_iri": process.env.PRESELECTED_GRAPH_IRI,
     "resource_iri": process.env.PRESELECTED_RESOURCE_IRI
   }
+} else if (fs.existsSync(configFile)) {
+  console.log(`Local config file found use it: ${configFile}`);
+  config = require(configFile);
 } else {
   console.warn(`Configuration is missing for post-compilation config injection. Provide ${configFile} or QUIT_UPDATE and QUIT_QUERY environment variables.`);
 }
