@@ -94,7 +94,7 @@ export default {
       console.log(JSON.stringify(result, null, '\t'))
       const jsonldPromise = jsonld.toRDF(result, { format: 'application/n-quads' })
       jsonldPromise.then(async (newData) => {
-        const [resultDataModel, prefixes] = await parseRDFtoRDFJS(newData, this.subject)
+        const [resultDataModel] = await parseRDFtoRDFJS(newData, this.subject)
         this.dataModel = resultDataModel
         this.updateResource()
       })
@@ -103,7 +103,7 @@ export default {
       this.subject = namedNode(this.resource_iri)
       const result = await this.$store.dispatch('getResource', this.resource_iri)
 
-      const [resultDataModel, prefixes] = await parseRDFtoRDFJS(result.data, this.subject)
+      const [resultDataModel] = await parseRDFtoRDFJS(result.data, this.subject)
       this.originalDataModel = []
       this.dataModel = []
       // we need to iterate over the data to clone the quad objects
