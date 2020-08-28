@@ -2,7 +2,9 @@
   <div id="app" class="container-fluid">
     <div class="row">
     <div class="col-3">
-    <SparqlConnection/>
+    <div v-intro="'The content of tooltip'">
+      <SparqlConnection/>
+    </div>
     <GraphList/>
     <ClassList/>
     </div>
@@ -33,6 +35,10 @@ export default {
     SparqlConnection,
     GraphList,
     ClassList
+  },
+  mounted () {
+    this.$intro().start() // start the guide
+    this.$intro().showHints() // show hints
   }
 }
 </script>
