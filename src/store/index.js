@@ -9,11 +9,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    query_url: config.query_url,
-    update_url: config.update_url,
     graph_iri: config.graph_iri,
     resource_iri: config.resource_iri,
     sparqlEndpoint: SparqlEndpoint.create(config.query_url, config.update_url)
+  },
+  getters: {
+    query_url: (state) => {
+      return state.sparqlEndpoint.getQueryUrl()
+    },
+    update_url: (state) => {
+      return state.sparqlEndpoint.getUpdateUrl()
+    }
   },
   actions: {
     sendQuery ({ state }, payload) {

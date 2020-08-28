@@ -54,6 +54,12 @@ export const SparqlEndpoint = {
       },
       changeUpdateUrl (updateUrl) {
         HTTPUpdate = axios.create({ baseURL: updateUrl })
+      },
+      getQueryUrl () {
+        HTTPQuery.baseURL
+      },
+      getUpdateUrl () {
+        HTTPUpdate.baseURL
       }
     }
   }
