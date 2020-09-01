@@ -1,5 +1,14 @@
 <template>
     <div class="Form">
+      <b-button class="mb-0" v-b-tooltip.hover title="Configure Endpoint" aria-label="Configure Endpoint">
+        <b-icon icon="gear"></b-icon>
+      </b-button>
+      <b-button class="mb-0" v-b-tooltip.hover title="Push To Remote Repository" aria-label="Push To Remote Repository">
+        <b-icon icon="cloud-upload"></b-icon>
+      </b-button>
+      <b-button class="mb-0" v-b-tooltip.hover title="Pull From Remote Repository" aria-label="Pull From Remote Repository">
+        <b-icon icon="cloud-download"></b-icon>
+      </b-button>
       <form>
       <div class="form-group row">
         <label for="update_url" class="col-sm-3 col-form-label">Update URL</label>
@@ -27,24 +36,16 @@
       </div>
       <button class="btn btn-primary" @click="push()">Push</button>
       </form>
-      <div>
-      {{response}}
-      </div>
     </div>
 </template>
 
 <script>
 export default {
   name: 'SparqlConnection',
-  data () {
-    return {
-      response: 'Nothing'
-    }
-  },
   computed: {
     query_url: {
       get () {
-        return this.$store.state.query_url
+        return this.$store.getters.query_url
       },
       set (value) {
         this.$store.commit('changeQueryUrl', value)
@@ -52,7 +53,7 @@ export default {
     },
     update_url: {
       get () {
-        return this.$store.state.update_url
+        return this.$store.getters.update_url
       },
       set (value) {
         this.$store.commit('changeUpdateUrl', value)

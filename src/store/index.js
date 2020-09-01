@@ -15,6 +15,7 @@ export default new Vuex.Store({
   },
   getters: {
     query_url: (state) => {
+      console.log('Call getter')
       return state.sparqlEndpoint.getQueryUrl()
     },
     update_url: (state) => {
@@ -68,10 +69,12 @@ export default new Vuex.Store({
         })
     },
     push (state) {
-      state.sparqlEndpoint.push()
-        .then(function (response) {
-          console.log(response)
-        })
+      if (state.sparqlEndpoint.push !== undefined) {
+        state.sparqlEndpoint.push()
+          .then(function (response) {
+            console.log(response)
+          })
+      }
     },
     insertDeleteData (state, payload) {
       const insertArray = payload.insertArray
