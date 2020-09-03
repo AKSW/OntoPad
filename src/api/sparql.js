@@ -1,66 +1,112 @@
 import axios from 'axios'
 import querystring from 'querystring'
 
-export const SparqlEndpoint = {
-  create (queryEndpoint, updateEndpoint) {
-    let HTTPQuery = axios.create({ baseURL: queryEndpoint })
-    let HTTPUpdate = axios.create({ baseURL: updateEndpoint })
+class SparqlEndpoint {
+  constructor (queryEndpoint, updateEndpoint) {
+    this.HTTPQuery = axios.create({ baseURL: queryEndpoint })
+    this.type = 'query_only'
+    this.capability = {
+      query: true,
+      update: false,
+      quit: false
+    }
+    if (updateEndpoint) {
+      this.HTTPUpdate = axios.create({ baseURL: updateEndpoint })
+      this.type = 'query_update'
+      this.capability.update = true
+    }
+  }
 
-    return {
-      query (queryString, defaultGraph = undefined, data = false) {
-        const params = new URLSearchParams()
-        if (defaultGraph === 'quads') {
-        } else if (defaultGraph !== undefined) {
-          defaultGraph.forEach((element) => {
-            params.append('default-graph-uri', element)
-          })
-        }
-        let acceptType = 'application/sparql-results+json'
-        if (data) {
-          acceptType = 'application/n-triples'
-        }
-        return HTTPQuery.post('/sparql', queryString, {
-          params: params,
-          headers: {
-            'Content-Type': 'application/sparql-query',
-            Accept: acceptType
-          }
-        })
-      },
-      update (updateString) {
-        return HTTPUpdate.post('/sparql', updateString, {
-          headers: {
-            'Content-Type': 'application/sparql-update',
-            Accept: 'application/sparql-results+json'
-          }
-        })
-      },
-      push () {
-        return HTTPUpdate.post('/push', querystring.stringify({
-          dst: 'master',
-          refspec: 'master:master',
-          remote: 'origin',
-          src: 'master'
-        }),
-        {
-          headers: {
-            'content-type': 'application/x-www-form-urlencoded',
-            Accept: 'application/sparql-results+json'
-          }
-        })
-      },
-      changeQueryUrl (queryUrl) {
-        HTTPQuery = axios.create({ baseURL: queryUrl })
-      },
-      changeUpdateUrl (updateUrl) {
-        HTTPUpdate = axios.create({ baseURL: updateUrl })
-      },
-      getQueryUrl () {
-        return HTTPQuery.defaults.baseURL
-      },
-      getUpdateUrl () {
-        return HTTPUpdate.defaults.baseURL
+  query (queryString, defaultGraph = undefined, data = false) {
+    const params = new URLSearchParams()
+    if (defaultGraph === 'quads') {
+    } else if (defaultGraph !== undefined) {
+      defaultGraph.forEach((element) => {
+        params.append('default-graph-uri', element)
+      })
+    }
+    let acceptType = 'application/sparql-results+json'
+    if (data) {
+      acceptType = 'application/n-triples'
+    }
+    return this.HTTPQuery.post('', queryString, {
+      params: params,
+      headers: {
+        'Content-Type': 'application/sparql-query',
+        Accept: acceptType
       }
+    })
+  }
+
+  update (updateString) {
+    return this.HTTPUpdate.post('', updateString, {
+      headers: {
+        'Content-Type': 'application/sparql-update',
+        Accept: 'application/sparql-results+json'
+      }
+    })
+  }
+
+  get queryUrl () {
+    return this.HTTPQuery.defaults.baseURL
+  }
+
+  get updateUrl () {
+    return this.HTTPUpdate.defaults.baseURL
+  }
+}
+
+class QuitStore extends SparqlEndpoint {
+  constructor (storeUrl) {
+    super(storeUrl + '/sparql', storeUrl + '/sparql')
+    this.type = 'quit'
+    this.HTTPGit = axios.create({ baseURL: storeUrl })
+    this.capability.quit = true
+  }
+
+  push () {
+    return this.HTTPGit.post('/push', querystring.stringify({
+      dst: 'master',
+      refspec: 'master:master',
+      remote: 'origin',
+      src: 'master'
+    }),
+    {
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        Accept: 'text/plain'
+      }
+    })
+  }
+
+  pull () {
+    return this.HTTPGit.post('/pull', querystring.stringify({
+      dst: 'master',
+      refspec: 'master:master',
+      remote: 'origin',
+      src: 'master'
+    }),
+    {
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        Accept: 'text/plain'
+      }
+    })
+  }
+
+  get quitUrl () {
+    return this.HTTPGit.defaults.baseURL
+  }
+}
+
+const EndpointFactory = {
+  create (configuration) {
+    if (configuration.quit_url) {
+      return new QuitStore(configuration.quit_url)
+    } else {
+      return new SparqlEndpoint(configuration.query_url, configuration.update_url)
     }
   }
 }
+
+export { EndpointFactory, SparqlEndpoint, QuitStore }

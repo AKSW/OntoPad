@@ -1,8 +1,10 @@
 <template>
   <div id="app" class="container-fluid">
+    <div class="row connection">
+      <SparqlConnection/>
+    </div>
     <div class="row">
     <div class="col-3">
-    <SparqlConnection/>
     <GraphList/>
     <ClassList/>
     </div>
@@ -43,6 +45,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.row.connection {
+  margin: 30px 0;
 }
 </style>
