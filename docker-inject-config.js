@@ -15,11 +15,19 @@ if (!fs.existsSync(htmlFile)) {
 
 const html = fs.readFileSync(htmlFile).toString();
 let config;
-if ('QUIT_UPDATE' in process.env && 'QUIT_QUERY' in process.env){
+if ('QUIT_URL' in process.env || 'SPARQL_QUERY' in process.env){
   console.log('Environment found construct config from environment variables.');
+  const endpoint = {}
+  if ('QUIT_URL' in process.env) {
+    endpoint.quit_url = process.env.QUIT_URL
+  } else {
+    endpoint.query_url = process.env.SPARQL_QUERY
+    if ('SPARQL_UPDATE' in process.env) {
+      endpoint.update_url = process.env.SPARQL_UPDATE
+    }
+  }
   config = {
-    "query_url": process.env.QUIT_QUERY,
-    "update_url": process.env.QUIT_UPDATE,
+    "endpoint": endpoint,
     "graph_iri": process.env.PRESELECTED_GRAPH_IRI,
     "resource_iri": process.env.PRESELECTED_RESOURCE_IRI
   }
