@@ -1,8 +1,10 @@
 <template>
   <div id="app" class="container-fluid">
+    <div class="row connection">
+      <SparqlConnection v-intro="'This is the configuration of the SPARQL Endpoint. Currently a <a href=\'http://github.com/AKSW/QuitStore\'>Quit Store</a> is used.'"/>
+    </div>
     <div class="row">
     <div class="col-3">
-    <SparqlConnection v-intro="'This is the configuration of the SPARQL Endpoint. Currently a <a href=\'http://github.com/AKSW/QuitStore\'>Quit Store</a> is used.'"/>
     <GraphList v-intro="'This is the list of all named graphs in the connected store. With the plus-button a new graph can be created.'"/>
     <ClassList v-intro="'This is the list of all classes in the selected graph.'"/>
     </div>
@@ -70,6 +72,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.row.connection {
+  margin: 30px 0;
 }
 </style>

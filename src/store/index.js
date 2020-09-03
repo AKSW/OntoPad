@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { SparqlEndpoint } from '@/api/sparql.js'
+import { EndpointFactory } from '@/api/sparql.js'
 import { Generator } from 'sparqljs'
 import { quadToStringQuad } from 'rdf-string'
 import config from '@/config'
@@ -9,11 +9,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    query_url: config.query_url,
-    update_url: config.update_url,
     graph_iri: config.graph_iri,
     resource_iri: config.resource_iri,
-    sparqlEndpoint: SparqlEndpoint.create(config.query_url, config.update_url)
+    sparqlEndpoint: EndpointFactory.create(config.endpoint)
   },
   actions: {
     sendQuery ({ state }, payload) {
@@ -62,10 +60,20 @@ export default new Vuex.Store({
         })
     },
     push (state) {
-      state.sparqlEndpoint.push()
-        .then(function (response) {
-          console.log(response)
-        })
+      if (state.sparqlEndpoint.push !== undefined) {
+        state.sparqlEndpoint.push()
+          .then(function (response) {
+            console.log(response)
+          })
+      }
+    },
+    pull (state) {
+      if (state.sparqlEndpoint.pull !== undefined) {
+        state.sparqlEndpoint.pull()
+          .then(function (response) {
+            console.log(response)
+          })
+      }
     },
     insertDeleteData (state, payload) {
       const insertArray = payload.insertArray
@@ -119,16 +127,6 @@ export default new Vuex.Store({
       console.log('updatestring: ' + updateString)
       return state.sparqlEndpoint.update(updateString)
     },
-    changeUpdateUrl (state, updateUrl) {
-      console.log('Change update Url to ' + updateUrl)
-      state.sparqlEndpoint.changeUpdateUrl(updateUrl)
-      state.update_url = updateUrl
-    },
-    changeQueryUrl (state, queryUrl) {
-      console.log('Change query Url to ' + queryUrl)
-      state.sparqlEndpoint.changeQueryUrl(queryUrl)
-      state.query_url = queryUrl
-    },
     changeGraphIri (state, graphIri) {
       console.log('Change graph Iri to ' + graphIri)
       state.graph_iri = graphIri
@@ -136,6 +134,11 @@ export default new Vuex.Store({
     changeResourceIri (state, resourceIri) {
       console.log('Change resource Iri to ' + resourceIri)
       state.resource_iri = resourceIri
+    },
+    updateEndpointConfiguration (state, configuration) {
+      console.log('Change SPARQL Endpoint configuration.')
+      console.log(configuration)
+      state.sparqlEndpoint = EndpointFactory.create(configuration)
     }
   }
 })
