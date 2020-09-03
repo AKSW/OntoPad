@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-3" style="height:80vh; overflow-y:scroll;">
+  <div class="row" v-intro-step="9" v-intro="'Click on a class and move it to the canvas to the right. This will create a new SHACL NodeShape. If you then take a property and move it inside the NodeShape, a new PropertyShape is created.'">
+    <div class="col-3" style="height:80vh; overflow-y:scroll;" v-intro="'This is the list of terms, in the top classes and in the bottom properties.'">
       <b-card no-body>
         <template v-slot:header>
           <div class="d-flex justify-content-between align-items-center">
@@ -9,7 +9,7 @@
               <b-button class="mb-0" v-on:click="getLists"  v-b-tooltip.hover title="Reload" aria-label="Reload">
                 <b-icon icon="arrow-repeat"></b-icon>
               </b-button>
-              <b-button v-b-modal.add_class v-b-tooltip.hover title="Create Class" aria-label="Create Class">
+              <b-button v-b-modal.add_class v-b-tooltip.hover title="Create Class" aria-label="Create Class" v-intro="'With this button you can define a new class …'">
                 <b-icon icon="plus-square"></b-icon>
               </b-button>
             </div>
@@ -29,8 +29,8 @@
         <template v-slot:header>
           <div class="d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Property List</h6>
-            <b-button v-b-modal.add_property>
-              <b-icon icon="plus-square" v-b-tooltip.hover title="Create Property" aria-label="Create Property"></b-icon>
+            <b-button v-b-modal.add_property v-b-tooltip.hover title="Create Property" aria-label="Create Property" v-intro="'… and with this button a new property.'">
+              <b-icon icon="plus-square"></b-icon>
             </b-button>
           </div>
         </template>

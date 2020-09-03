@@ -1,4 +1,6 @@
 // vue.config.js
+const webpack = require('webpack');
+
 module.exports = {
   runtimeCompiler: true,
   chainWebpack: config => {
@@ -9,5 +11,12 @@ module.exports = {
       .use('file-loader')
       .loader('file-loader')
       .end()
-  }
+  },
+  configureWebpack: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        'introJs': ['intro.js']
+      })
+    ]
+  },
 }
