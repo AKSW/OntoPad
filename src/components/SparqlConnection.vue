@@ -29,22 +29,22 @@
             <b-form-radio value="quit">Quit Store</b-form-radio>
           </b-form-radio-group>
         </b-form-group>
-        <div class="form-group">
+        <div class="form-group" v-if="endpoint_type == 'quit'">
           <label for="quit_url">Quit URL</label>
           <div>
-            <input type="text" class="form-control" id="quit_url" v-model="quit_url">
+            <input type="text" class="form-control" id="quit_url" v-model="quit_url" placeholder="http://your.quit.store.org/">
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" v-if="endpoint_type == 'query_only' || endpoint_type == 'query_update'">
           <label for="query_url">Query URL</label>
           <div>
-            <input type="text" class="form-control" id="query_url" v-model="query_url">
+            <input type="text" class="form-control" id="query_url" v-model="query_url" placeholder="http://your.sparql.store.org/query">
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" v-if="endpoint_type == 'query_update'">
           <label for="update_url">Update URL</label>
           <div>
-            <input type="text" class="form-control" id="update_url" v-model="update_url">
+            <input type="text" class="form-control" id="update_url" v-model="update_url" placeholder="http://your.sparql.store.org/update">
           </div>
         </div>
       </form>
