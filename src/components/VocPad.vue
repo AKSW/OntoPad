@@ -493,7 +493,7 @@ export default {
     },
     hoverTerms (isHovered) {
       if (isHovered && !this.hover_note_shown) {
-        this.$bvToast.toast('You can drag a class from the left hand side to the canvas to create a NodeShape. In the same way you can drag a property from the left hand site onto a NodeShape to create a PropertyShape.', {
+        this.$bvToast.toast('You can drag a class from the left hand side to the canvas to create a NodeShape. In the same way you can drag a property from the left hand side onto a NodeShape to create a PropertyShape.', {
           title: 'Pro Tip!',
           variant: 'info',
           noAutoHide: true
