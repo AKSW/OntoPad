@@ -12,7 +12,7 @@
       <ul class="nav nav-tabs" v-intro="'This is the navigation list.'">
         <li class="nav-item"><router-link class="nav-link" active-class="active" to="/dashboard">Home</router-link></li>
         <li class="nav-item"><router-link class="nav-link" active-class="active" to="/instances">Instances</router-link></li>
-        <li class="nav-item" v-intro="'Please click on this tab.'"><router-link class="nav-link" active-class="active" to="/voc">Vocabulary</router-link></li>
+        <li class="nav-item"><router-link class="nav-link" active-class="active" to="/voc">Vocabulary</router-link></li>
         <li class="nav-item"><router-link class="nav-link" active-class="active" to="/edit">Edit</router-link></li>
         <li class="nav-item"><router-link class="nav-link" active-class="active" to="/rdform">RDForm</router-link></li>
         <li class="nav-item"><router-link class="nav-link" active-class="active" to="/add">Add</router-link></li>

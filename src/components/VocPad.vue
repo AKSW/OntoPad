@@ -1,6 +1,6 @@
 <template>
-  <div class="row" v-intro-step="9" v-intro="'Click on a class and move it to the canvas to the right. This will create a new SHACL NodeShape. If you then take a property and move it inside the NodeShape, a new PropertyShape is created.'">
-    <div class="col-3" style="height:80vh; overflow-y:scroll;" v-intro="'This is the list of terms, in the top classes and in the bottom properties.'">
+  <div class="row" v-intro-step="8" v-intro="'Click on a class and move it to the canvas to the right. This will create a new SHACL NodeShape. If you then take a property and move it inside the NodeShape, a new PropertyShape is created.'">
+    <div class="col-3" style="height:80vh; overflow-y:scroll;" v-intro="'This is the list of terms, in the top classes and in the bottom properties.'" v-b-hover="hoverTerms">
       <b-card no-body>
         <template v-slot:header>
           <div class="d-flex justify-content-between align-items-center">
@@ -182,7 +182,8 @@ export default {
         'http://www.w3.org/ns/shacl#': 'sh:'
       },
       next_x: null,
-      next_y: null
+      next_y: null,
+      hover_note_shown: false
     }
   },
   computed: mapState(['graph_iri']),
@@ -489,6 +490,18 @@ export default {
             }
           })
         })
+    },
+    hoverTerms (isHovered) {
+      if (isHovered && !this.hover_note_shown) {
+        this.$bvToast.toast('You can drag a class from the left hand side to the canvas to create a NodeShape. In the same way you can drag a property from the left hand site onto a NodeShape to create a PropertyShape.', {
+          title: 'Pro Tip!',
+          variant: 'info',
+          noAutoHide: true
+        })
+        this.hover_note_shown = true
+      } else {
+        // Do something else
+      }
     }
   }
 }
