@@ -56,17 +56,13 @@ export default {
         .then(result => {
           const parser = new Parser()
           this.originalDataModel = []
-          console.log(this.dataModel)
           this.dataModel = new Store()
-          console.log(this.dataModel)
           parser.parse(result.data, (error, quad, prefixes) => {
             if (error) {
               console.log(error)
             } else if (quad) {
               if (quad.subject.id === this.subject.id) {
                 this.dataModel.addQuad(quad)
-                console.log('add quad')
-                console.log(quad)
               } else {
                 console.log('skip')
                 console.log(quad.subject.id)
@@ -74,7 +70,6 @@ export default {
               }
             } else {
               console.log('done')
-              console.log(this.dataModel)
               this.updateLabelAndDescription()
             }
           })
