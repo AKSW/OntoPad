@@ -28,6 +28,7 @@
     "n3": "^1.6.1",
     "rdf-string": "^1.4.2",
     "sparqljs": "^2.2.3",
+    "streamify-string": "^1.0.1",
     "uuid": "^8.3.0",
     "vue": "^2.6.11",
     "vue-diagrams": "git+https://github.com/white-gecko/vue-diagrams.git#master",

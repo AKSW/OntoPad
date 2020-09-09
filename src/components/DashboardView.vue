@@ -24,8 +24,9 @@
 
 <script>
 import Term from '@/components/Term'
+import Streamify from 'streamify-string'
 import { mapState } from 'vuex'
-import { DataFactory, Parser, Store } from 'n3'
+import { DataFactory, Store, StreamParser } from 'n3'
 const { namedNode } = DataFactory
 
 export default {
@@ -35,12 +36,31 @@ export default {
   },
   data () {
     return {
-      label: '',
-      description: '',
-      dataModel: {}
+      dataModel: {},
+      subject: namedNode('')
     }
   },
-  computed: mapState(['resource_iri']),
+  computed: {
+    ...mapState(['resource_iri']),
+    label () {
+      if (this.dataModel.getQuads !== undefined) {
+        const label = this.dataModel.getQuads(namedNode(this.resource_iri), namedNode('http://www.w3.org/2000/01/rdf-schema#label'), null)[0]
+        if (label) {
+          return label.object
+        }
+      }
+      return ''
+    },
+    description () {
+      if (this.dataModel.getQuads !== undefined) {
+        const description = this.dataModel.getQuads(namedNode(this.resource_iri), namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), null)[0]
+        if (description) {
+          return description.object
+        }
+      }
+      return ''
+    }
+  },
   mounted () {
     this.getResource()
   },
@@ -52,38 +72,16 @@ export default {
   methods: {
     getResource () {
       this.subject = namedNode(this.resource_iri)
+      console.log('get resource: ' + this.resource_iri)
       this.$store.dispatch('getResource', this.resource_iri)
         .then(result => {
-          const parser = new Parser()
-          this.originalDataModel = []
-          this.dataModel = new Store()
-          parser.parse(result.data, (error, quad, prefixes) => {
-            if (error) {
-              console.log(error)
-            } else if (quad) {
-              if (quad.subject.id === this.subject.id) {
-                this.dataModel.addQuad(quad)
-              } else {
-                console.log('skip')
-                console.log(quad.subject.id)
-                console.log(this.subject.id)
-              }
-            } else {
-              console.log('done')
-              this.updateLabelAndDescription()
-            }
+          const streamParser = new StreamParser()
+          Streamify(result.data).pipe(streamParser)
+          const store = new Store()
+          store.import(streamParser).on('end', () => {
+            this.dataModel = store
           })
         })
-    },
-    updateLabelAndDescription () {
-      const label = this.dataModel.getQuads(namedNode(this.resource_iri), namedNode('http://www.w3.org/2000/01/rdf-schema#label'), null)[0]
-      const description = this.dataModel.getQuads(namedNode(this.resource_iri), namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), null)[0]
-      if (label) {
-        this.label = label.object
-      }
-      if (description) {
-        this.description = description.object
-      }
     },
     selectResource (resourceIri) {
       this.$store.commit('changeResourceIri', resourceIri)
