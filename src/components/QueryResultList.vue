@@ -1,0 +1,76 @@
+<template>
+  <b-card no-body>
+    <template v-slot:header>
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-0">{{ title }}</h6>
+        <div>
+          <b-button class="mb-0" v-on:click="updateList" v-b-tooltip.hover title="Reload" aria-label="Reload">
+            <b-icon icon="arrow-repeat"></b-icon>
+          </b-button>
+          <b-button v-if="add" v-b-tooltip.hover :title="addTitle" :aria-label="addTitle">
+            <b-icon icon="plus-square"></b-icon>
+          </b-button>
+        </div>
+      </div>
+    </template>
+
+    <b-list-group flush v-for="(resource, index) in resources" :key="index">
+      <b-list-group-item
+        class="list-group-item"
+        style="cursor: pointer"
+        :for="'form-control' + index"
+        v-on:click="select(resource)">{{ resource }}</b-list-group-item>
+    </b-list-group>
+  </b-card>
+</template>
+
+<script>
+export default {
+  name: 'QueryResultList',
+  mounted () {
+    this.updateList()
+  },
+  props: {
+    title: String,
+    query: String,
+    queryQuads: {
+      type: Boolean,
+      default: false
+    },
+    selectVariable: {
+      type: String,
+      default: 'resourceIri'
+    },
+    itemClass: String,
+    add: Function,
+    addTitle: String
+  },
+  watch: {
+    query (value) {
+      this.updateList()
+    }
+  },
+  data () {
+    return {
+      resources: []
+    }
+  },
+  methods: {
+    select (resource) {
+      this.$store.commit('changeResourceIri', resource)
+    },
+    updateList () {
+      this.$store.dispatch('sendQuery',
+        { query: this.query, queryQuads: this.queryQuads })
+        .then(result => {
+          const bindings = result.data.results.bindings
+          this.resources = []
+          for (const key in bindings) {
+            this.resources.push(bindings[key][this.selectVariable].value)
+          }
+        })
+    }
+  }
+}
+
+</script>

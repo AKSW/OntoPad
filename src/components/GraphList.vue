@@ -1,5 +1,6 @@
 <template>
   <div>
+    <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" />
     <b-card no-body>
       <template v-slot:header>
         <div class="d-flex justify-content-between align-items-center">
@@ -37,6 +38,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import QueryResultList from '@/components/QueryResultList'
 import TermInput from '@/components/TermInput'
 import { DataFactory } from 'n3'
 const { triple, namedNode } = DataFactory
@@ -44,7 +46,8 @@ const { triple, namedNode } = DataFactory
 export default {
   name: 'GraphList',
   components: {
-    TermInput
+    TermInput,
+    QueryResultList
   },
   mounted () {
     this.updateGraphList()

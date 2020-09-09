@@ -15,10 +15,6 @@
 <script>
 import PropertyView from '@/components/PropertyView'
 import InstanceList from '@/components/InstanceList'
-import Streamify from 'streamify-string'
-import { mapState } from 'vuex'
-import { DataFactory, Store, StreamParser } from 'n3'
-const { namedNode } = DataFactory
 
 export default {
   name: 'DashboardView',
