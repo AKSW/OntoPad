@@ -23,7 +23,7 @@ export default new Vuex.Store({
       } else {
         query = payload
       }
-      console.log('shend query with data=' + data + ' query: ' + query)
+      console.log('send query with data=' + data + ' query: ' + query)
       let defaultGraph
       let queryString = ''
       if (typeof query === 'string') {
