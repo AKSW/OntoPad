@@ -6,7 +6,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Class List</h6>
             <div>
-              <b-button class="mb-0" v-on:click="getLists"  v-b-tooltip.hover title="Reload" aria-label="Reload">
+              <b-button class="mb-0" v-on:click="getLists" v-b-tooltip.hover title="Reload" aria-label="Reload">
                 <b-icon icon="arrow-repeat"></b-icon>
               </b-button>
               <b-button v-b-modal.add_class v-b-tooltip.hover title="Create Class" aria-label="Create Class" v-intro="'With this button you can define a new class …'">

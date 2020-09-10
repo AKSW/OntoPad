@@ -6,7 +6,7 @@
         <PropertyView />
       </b-col>
       <b-col>
-        <InstanceList />
+        <InstanceList style="height:80vh; overflow-y:scroll;" />
       </b-col>
     </b-row>
   </div>
@@ -15,10 +15,6 @@
 <script>
 import PropertyView from '@/components/PropertyView'
 import InstanceList from '@/components/InstanceList'
-import Streamify from 'streamify-string'
-import { mapState } from 'vuex'
-import { DataFactory, Store, StreamParser } from 'n3'
-const { namedNode } = DataFactory
 
 export default {
   name: 'DashboardView',
