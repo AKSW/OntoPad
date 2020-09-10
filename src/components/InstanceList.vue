@@ -1,5 +1,5 @@
 <template>
-  <QueryResultList title="Instance List" :query="'select distinct ?instance { ?instance a <' + resource_iri + '> } order by ?instance'" select-variable="instance" ref="instanceList" />
+  <QueryResultList title="Instance List" :query="'select distinct ?instance { ?instance a <' + resource_iri + '> } order by ?instance'" select-variable="instance" itemClass="py-2" ref="instanceList" />
 </template>
 
 <script>

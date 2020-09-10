@@ -1,28 +1,6 @@
 <template>
   <div>
-    <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" />
-    <b-card no-body>
-      <template v-slot:header>
-        <div class="d-flex justify-content-between align-items-center">
-          <h6 class="mb-0">Graph List</h6>
-          <div>
-            <b-button class="mb-0" v-on:click="updateGraphList" v-b-tooltip.hover title="Reload" aria-label="Reload">
-              <b-icon icon="arrow-repeat"></b-icon>
-            </b-button>
-            <b-button v-b-modal.add_graph v-b-tooltip.hover title="Create Graph" aria-label="Create Graph">
-              <b-icon icon="plus-square"></b-icon>
-            </b-button>
-          </div>
-        </div>
-      </template>
-      <b-list-group flush v-for="(graph, index) in graphs" :key="index">
-        <b-list-group-item
-          class="btn"
-          v-bind:class="{'active': graph == graph_iri}"
-          :for="'form-control' + index"
-          v-on:click="select(graph)">{{ graph }}</b-list-group-item>
-      </b-list-group>
-    </b-card>
+    <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" :add="() => {$bvModal.show('add_graph')}" :selectResource="(graphIri) => {select(graphIri)}" :activeResource="graph_iri"/>
     <b-modal id="add_graph" title="Create New Graph" :no-close-on-backdrop="true" @ok="add_graph()" size="lg">
       <form>
         <div class="form-group">
@@ -49,9 +27,6 @@ export default {
     TermInput,
     QueryResultList
   },
-  mounted () {
-    this.updateGraphList()
-  },
   data () {
     return {
       graphs: [],
@@ -63,16 +38,6 @@ export default {
     select (graph) {
       this.$store.commit('changeGraphIri', graph)
       this.$store.commit('changeResourceIri', graph)
-    },
-    updateGraphList () {
-      this.$store.dispatch('sendQuery', { query: 'select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph', queryQuads: true })
-        .then(result => {
-          const bindings = result.data.results.bindings
-          this.graphs = []
-          for (const key in bindings) {
-            this.graphs.push(bindings[key].graph.value)
-          }
-        })
     },
     async add_graph () {
       const newGraphData = [triple(this.new_graph_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]

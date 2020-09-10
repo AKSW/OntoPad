@@ -4,10 +4,10 @@
       <div class="d-flex justify-content-between align-items-center">
         <h6 class="mb-0">{{ title }}</h6>
         <div>
-          <b-button class="mb-0" v-on:click="updateList" v-b-tooltip.hover title="Reload" aria-label="Reload">
+          <b-button v-on:click="updateList" v-b-tooltip.hover title="Reload" aria-label="Reload">
             <b-icon icon="arrow-repeat"></b-icon>
           </b-button>
-          <b-button v-if="add" v-b-tooltip.hover :title="addTitle" :aria-label="addTitle">
+          <b-button v-if="add" v-on:click="add" v-b-tooltip.hover :title="addTitle" :aria-label="addTitle">
             <b-icon icon="plus-square"></b-icon>
           </b-button>
         </div>
@@ -17,6 +17,7 @@
     <b-list-group flush v-for="(resource, index) in resources" :key="index">
       <b-list-group-item
         class="list-group-item"
+        :class="[{'active': resource == activeResource}, itemClass]"
         style="cursor: pointer"
         :for="'form-control' + index"
         v-on:click="select(resource)">{{ resource }}</b-list-group-item>
@@ -43,7 +44,9 @@ export default {
     },
     itemClass: String,
     add: Function,
-    addTitle: String
+    selectResource: Function,
+    addTitle: String,
+    activeResource: String
   },
   watch: {
     query (value) {
@@ -57,7 +60,11 @@ export default {
   },
   methods: {
     select (resource) {
-      this.$store.commit('changeResourceIri', resource)
+      if (this.selectResource) {
+        this.selectResource(resource)
+      } else {
+        this.$store.commit('changeResourceIri', resource)
+      }
     },
     updateList () {
       this.$store.dispatch('sendQuery',

@@ -1,5 +1,5 @@
 <template>
-  <QueryResultList title="Class List" query="select distinct ?class { {?s a ?class} union {?class a <http://www.w3.org/2000/01/rdf-schema#Class>} union {?class a <http://www.w3.org/2002/07/owl#Class>} } order by ?class" select-variable="class" ref="classList" />
+  <QueryResultList title="Class List" query="select distinct ?class { {?s a ?class} union {?class a <http://www.w3.org/2000/01/rdf-schema#Class>} union {?class a <http://www.w3.org/2002/07/owl#Class>} } order by ?class" select-variable="class" ref="classList" :activeResource="resource_iri" />
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
       this.$refs.classList.updateList()
     }
   },
-  computed: mapState(['graph_iri'])
+  computed: mapState(['graph_iri', 'resource_iri'])
 }
 
 </script>
