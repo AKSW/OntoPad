@@ -6,7 +6,7 @@
         <PropertyView />
       </b-col>
       <b-col>
-        <InstanceList />
+        <InstanceList style="height:80vh; overflow-y:scroll;" />
       </b-col>
     </b-row>
   </div>

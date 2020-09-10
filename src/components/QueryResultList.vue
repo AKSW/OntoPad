@@ -3,7 +3,8 @@
     <template v-slot:header>
       <div class="d-flex justify-content-between align-items-center">
         <h6 class="mb-0">{{ title }}</h6>
-        <div>
+        <div class="form-inline">
+          <b-input v-if="search" v-model="filter" placeholder="Search …"></b-input>
           <b-button v-on:click="updateList" v-b-tooltip.hover title="Reload" aria-label="Reload">
             <b-icon icon="arrow-repeat"></b-icon>
           </b-button>
@@ -14,11 +15,11 @@
       </div>
     </template>
 
-    <b-list-group flush v-for="(resource, index) in resources" :key="index">
+    <b-list-group flush v-for="(resource, index) in resourcesFiltered" :key="index">
       <b-list-group-item
         class="list-group-item"
         :class="[{'active': resource == activeResource}, itemClass]"
-        style="cursor: pointer"
+        href="#"
         :for="'form-control' + index"
         v-on:click="select(resource)">{{ resource }}</b-list-group-item>
     </b-list-group>
@@ -35,6 +36,10 @@ export default {
     title: String,
     query: String,
     queryQuads: {
+      type: Boolean,
+      default: false
+    },
+    search: {
       type: Boolean,
       default: false
     },
@@ -55,7 +60,16 @@ export default {
   },
   data () {
     return {
-      resources: []
+      resources: [],
+      filter: ''
+    }
+  },
+  computed: {
+    resourcesFiltered () {
+      if (this.filter) {
+        return this.resources.filter(resource => resource.toLowerCase().includes(this.filter.toLowerCase()))
+      }
+      return this.resources
     }
   },
   methods: {
