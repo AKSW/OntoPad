@@ -12,10 +12,11 @@ require('@donsi/rdform')
 // https://vuejsdevelopers.com/2017/05/20/vue-js-safely-jquery-plugin/
 export default {
   name: 'rdform',
-  props: ['submit', 'template', 'hooks', 'settings', 'data'],
+  props: ['submit', 'template', 'templateExtension', 'hooks', 'settings', 'data'],
   mounted () {
     const settings = {
       template: this.template,
+      templateExtension: this.templateExtension,
       hooks: this.hooks,
       cache: true, // when using with wepack I think it is no good idea to use the rdform cache feature
       verbose: false,

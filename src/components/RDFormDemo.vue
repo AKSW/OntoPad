@@ -8,10 +8,10 @@
       No suitable form template found.
     </div>
     <div v-if="formsForClass.length">
-      <select name="form" v-model="selected_form">
+      <select name="form" v-model="shapeIri">
         <option v-for="(option, index) in formsForClass" v-bind:value="option" :key="index">{{ option }}</option>
       </select>
-      <rdform v-if="data" :key="getKey(data, selected_form)" class="form-horizontal rdform" role="form" :template="require('@/assets/' + selected_form)" :submit="submit" :data="data"></rdform>
+      <rdform v-if="data && formShape.length > 0" :key="getKey(data, shapeIri)" class="form-horizontal rdform" role="form" :template="formShape" :submit="submit" :data="data"></rdform>
       <em>powered by <a href="https://github.com/simeonackermann/RDForm/">RDForm</a></em>
     </div>
   </div>
@@ -20,7 +20,7 @@
 <script>
 import { extend } from 'jquery'
 import { mapState } from 'vuex'
-import { DataFactory, Store } from 'n3'
+import { DataFactory } from 'n3'
 import rdform from '@/components/rdform'
 import { diff } from '@/helpers/n3-compare'
 import { parseRDFtoRDFJS } from '@/helpers/rdf-parse'
@@ -36,11 +36,16 @@ export default {
   mounted () {
     this.data = undefined
     this.getResource()
+    this.getShapes()
   },
   watch: {
     resource_iri (value) {
       this.data = undefined
       this.getResource()
+      this.getShapes()
+    },
+    shapeIri (value) {
+      this.getShape()
     }
   },
   data () {
@@ -54,7 +59,9 @@ export default {
         triple(blankNode(''), namedNode(''), namedNode(''))
       ],
       data: undefined,
-      selected_form: 'form.rdform.html',
+      shapeIri: 'form.rdform.html',
+      formShape: {},
+      formsForClass: [],
       forms_class: {
         'http://xmlns.com/foaf/0.1/Group': [
           'familien.rdform.html'
@@ -72,20 +79,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['graph_iri', 'resource_iri']),
-    formsForClass () {
-      const dataModel = new Store(this.dataModel)
-      const classes = dataModel.getObjects(null, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), null)
-      const forms = []
-      for (const c in classes) {
-        forms.push(...this.forms_class[classes[c].value])
-      }
-      if (forms.length) {
-        // eslint-disable-next-line
-        this.selected_form = forms[0]
-      }
-      return forms
-    }
+    ...mapState(['graph_iri', 'resource_iri'])
   },
   methods: {
     submit (result) {
@@ -137,6 +131,57 @@ export default {
         })
         console.error(e)
       }
+    },
+    async getShapes () {
+      // const dataModel = new Store(this.dataModel)
+      // const classes = dataModel.getObjects(null, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), null)
+      const forms = []
+      const result = await this.$store.dispatch('sendQuery',
+        // eslint-disable-next-line
+        `PREFIX sh: <http://www.w3.org/ns/shacl#>
+        select distinct ?nodeShape ?targetClass {
+          ?nodeShape a sh:NodeShape ;
+            sh:targetClass ?targetClass .
+        } order by ?nodeShape`)
+      const bindings = result.data.results.bindings
+      for (const key in bindings) {
+        forms.push(bindings[key].nodeShape.value)
+        // bindings[key].targetClass.value
+      }
+      // for (const c in classes) {
+      // }
+      this.formsForClass = forms
+    },
+    async getShape () {
+      const result = await this.$store.dispatch('sendQuery', {
+        query: `PREFIX sh: <http://www.w3.org/ns/shacl#>
+          construct {
+            <${this.shapeIri}> a sh:NodeShape ;
+              sh:targetClass ?targetClass ;
+              sh:property ?propertyShape .
+            ?propertyShape a ?propertyShapeType ;
+              sh:path ?path ;
+              sh:node ?nodeShapeRef .
+            ?nodeShapeRef sh:targetClass ?targetClassRef .
+          } where {
+            <${this.shapeIri}> a sh:NodeShape ;
+              sh:targetClass ?targetClass .
+            optional {
+              <${this.shapeIri}> sh:property ?propertyShape .
+              ?propertyShape sh:path ?path .
+              optional {
+                ?propertyShape sh:node ?nodeShapeRef .
+                ?nodeShapeRef sh:targetClass ?targetClassRef .
+              }
+              optional {
+                ?propertyShape a ?propertyShapeType .
+              }
+            }
+          }`,
+        data: true
+      })
+      const formShape = await jsonld.fromRDF(result.data, { format: 'application/n-quads' })
+      this.formShape = formShape
     },
     getKey (data, selectedForm) {
       // hack according to https://stackoverflow.com/a/57690135/414075
