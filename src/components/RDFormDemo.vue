@@ -11,7 +11,7 @@
       <select name="form" v-model="shapeIri">
         <option v-for="(option, index) in formsForClass" v-bind:value="option" :key="index">{{ option }}</option>
       </select>
-      <rdform v-if="data && formShape.length > 0" :key="getKey(data, shapeIri)" class="form-horizontal rdform" role="form" :template="formShape" :submit="submit" :data="data"></rdform>
+      <rdform v-if="data && formShape.length > 0" :key="getKey(data, shapeIri)" class="form-horizontal rdform" role="form" :template="formShape" :rootShape="shapeIri" :submit="submit" :data="data" :templateExtension="templateExtension"></rdform>
       <em>powered by <a href="https://github.com/simeonackermann/RDForm/">RDForm</a></em>
     </div>
   </div>
@@ -59,7 +59,7 @@ export default {
         triple(blankNode(''), namedNode(''), namedNode(''))
       ],
       data: undefined,
-      shapeIri: 'form.rdform.html',
+      shapeIri: '',
       formShape: {},
       formsForClass: [],
       forms_class: {
@@ -82,16 +82,15 @@ export default {
     ...mapState(['graph_iri', 'resource_iri'])
   },
   methods: {
-    submit (result) {
+    async submit (result) {
       console.log('I\'ve been called')
       console.log(result)
       console.log(JSON.stringify(result, null, '\t'))
-      const jsonldPromise = jsonld.toRDF(result, { format: 'application/n-quads' })
-      jsonldPromise.then(async (newData) => {
-        const [resultDataModel] = await parseRDFtoRDFJS(newData, this.subject)
-        this.dataModel = resultDataModel
-        this.updateResource()
-      })
+      const newData = await jsonld.toRDF(result, { format: 'application/n-quads' })
+      console.log(newData)
+      const [resultDataModel] = await parseRDFtoRDFJS(newData, this.subject)
+      this.dataModel = resultDataModel
+      this.updateResource()
     },
     async getResource () {
       this.subject = namedNode(this.resource_iri)
@@ -108,6 +107,8 @@ export default {
 
       // Parse to JSON-LD
       this.data = await jsonld.fromRDF(result.data, { format: 'application/n-quads' })
+      console.log('got data for ' + this.resource_iri)
+      console.log(JSON.stringify(this.data, null, '\t'))
     },
     async updateResource () {
       for (const index in this.dataModel) {
@@ -182,6 +183,13 @@ export default {
       })
       const formShape = await jsonld.fromRDF(result.data, { format: 'application/n-quads' })
       this.formShape = formShape
+      this.templateExtension = {
+        '@context': {
+          '@base': 'http://example.org/'
+        },
+        '@id': this.shapeIri,
+        'rdf:value': 'person-{name}'
+      }
     },
     getKey (data, selectedForm) {
       // hack according to https://stackoverflow.com/a/57690135/414075
