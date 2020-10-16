@@ -11,7 +11,7 @@
       <select name="form" v-model="shapeIri">
         <option v-for="(option, index) in formsForClass" v-bind:value="option" :key="index">{{ option }}</option>
       </select>
-      <rdform v-if="data && formShape.length > 0" :key="getKey(data, shapeIri)" class="form-horizontal rdform" role="form" :template="formShape" :rootShape="shapeIri" :submit="submit" :data="data" :templateExtension="templateExtension"></rdform>
+      <rdform v-if="data && formShape.length > 0" :key="getKey(data, shapeIri)" class="form-horizontal rdform" role="form" :template="formShape" :rootShape="shapeIri" :submit="submit" :data="data"></rdform>
       <em>powered by <a href="https://github.com/simeonackermann/RDForm/">RDForm</a></em>
     </div>
   </div>
@@ -156,10 +156,12 @@ export default {
     async getShape () {
       const result = await this.$store.dispatch('sendQuery', {
         query: `PREFIX sh: <http://www.w3.org/ns/shacl#>
+          PREFIX rdform: <https://github.com/simeonackermann/RDForm/>
           construct {
             <${this.shapeIri}> a sh:NodeShape ;
               sh:targetClass ?targetClass ;
-              sh:property ?propertyShape .
+              sh:property ?propertyShape ;
+              rdform:resource ?iripattern .
             ?propertyShape a ?propertyShapeType ;
               sh:path ?path ;
               sh:node ?nodeShapeRef .
@@ -178,18 +180,14 @@ export default {
                 ?propertyShape a ?propertyShapeType .
               }
             }
+            optional {
+              <${this.shapeIri}> rdform:resource ?iripattern
+            }
           }`,
         data: true
       })
       const formShape = await jsonld.fromRDF(result.data, { format: 'application/n-quads' })
       this.formShape = formShape
-      this.templateExtension = {
-        '@context': {
-          '@base': 'http://example.org/'
-        },
-        '@id': this.shapeIri,
-        'rdf:value': 'person-{name}'
-      }
     },
     getKey (data, selectedForm) {
       // hack according to https://stackoverflow.com/a/57690135/414075
