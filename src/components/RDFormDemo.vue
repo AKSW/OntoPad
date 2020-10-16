@@ -21,7 +21,7 @@
 import { extend } from 'jquery'
 import { mapState } from 'vuex'
 import { DataFactory } from 'n3'
-import rdform from '@/components/rdform'
+import rdform from 'vue-rdform'
 import { diff } from '@/helpers/n3-compare'
 import { parseRDFtoRDFJS } from '@/helpers/rdf-parse'
 

@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "@donsi/rdform": "git+https://github.com/simeonackermann/RDForm.git#feature-shacl",
+    "vue-rdform": "git+https://github.com/aksw/vue-rdform.git",
     "axios": "^0.19.2",
     "bootstrap-vue": "^2.16.0",
     "intro.js": "^2.9.3",
