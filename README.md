@@ -12,7 +12,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run dev 
+npm run serve
 ```
 
 Now the OntoPad should be locally available at `http://localhost:8080/` or some other port, if port `8080` is used already.
