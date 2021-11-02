@@ -20,7 +20,8 @@
             class="list-group-item py-2"
             :for="'class-' + index"
             style="cursor: move"
-            draggable @dragstart='startDrag($event, rdfClass)'
+            draggable="true"
+            @dragstart='startDrag($event, rdfClass)'
             v-b-tooltip.hover :title="rdfClass.iri"
             v-on:click="select(rdfClass.iri)">{{ shortenIri(rdfClass.iri) }}</b-list-group-item>
         </b-list-group>
@@ -264,7 +265,7 @@ export default {
       evt.dataTransfer.effectAllowed = 'move'
       evt.dataTransfer.setData('iri', item.iri)
       evt.dataTransfer.setData('termType', item.termType)
-      console.log('start dragging ' + item)
+      console.log('start dragging ' + item.iri)
     },
     onDrop (evt) {
       const iri = evt.dataTransfer.getData('iri')
