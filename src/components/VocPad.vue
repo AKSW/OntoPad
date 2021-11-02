@@ -111,7 +111,7 @@
           <div class="form-group">
             <label for="property_comment">Cardinality</label>
             <div>
-              <TermInput type="literal" id="property_comment" v-model="property_comment" />
+              <TermInput type="literal" id="property_cartinality" v-model="property_cartinality" />
             </div>
           </div>
         </form>
