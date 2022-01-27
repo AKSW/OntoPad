@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { EndpointFactory } from '@/api/sparql.js'
+import { EndpointFactory } from '@/api/endpoint.js'
 import { Generator } from 'sparqljs'
 import { quadToStringQuad } from 'rdf-string'
 import config from '@/config'
