@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task -l
+
+  yarn:
+    desc: yarn
+    cmds:
+      - |
+        yarn
+        yarn format
+        yarn dev
