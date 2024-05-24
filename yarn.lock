@@ -383,6 +383,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rdfjs/types@npm:*":
+  version: 1.1.0
+  resolution: "@rdfjs/types@npm:1.1.0"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/ed18e5eded11fba0b297b19ecc51422e9d7d9ef121759a7023a949794092738075cb834f9d6da906a39aa75eb1ba18eb5256a1871f67754d654540892a55ea42
+  languageName: node
+  linkType: hard
+
 "@rollup/rollup-android-arm-eabi@npm:4.14.3":
   version: 4.14.3
   resolution: "@rollup/rollup-android-arm-eabi@npm:4.14.3"
@@ -513,6 +522,15 @@ __metadata:
   version: 1.0.5
   resolution: "@types/estree@npm:1.0.5"
   checksum: 10c0/b3b0e334288ddb407c7b3357ca67dbee75ee22db242ca7c56fe27db4e1a31989cb8af48a84dd401deb787fe10cc6b2ab1ee82dc4783be87ededbe3d53c79c70d
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:*":
+  version: 20.12.12
+  resolution: "@types/node@npm:20.12.12"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/f374b763c744e8f16e4f38cf6e2c0eef31781ec9228c9e43a6f267880fea420fab0a238b59f10a7cb3444e49547c5e3785787e371fc242307310995b21988812
   languageName: node
   linkType: hard
 
@@ -2439,6 +2457,8 @@ __metadata:
     jsdom: "npm:^24.0.0"
     pinia: "npm:^2.1.7"
     prettier: "npm:^3.2.5"
+    rdf-string: "npm:^1.6.3"
+    sparqljs: "npm:^3.7.1"
     vite: "npm:^5.2.8"
     vitest: "npm:^1.4.0"
     vue: "npm:^3.4.21"
@@ -2719,6 +2739,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rdf-data-factory@npm:^1.1.0, rdf-data-factory@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "rdf-data-factory@npm:1.1.2"
+  dependencies:
+    "@rdfjs/types": "npm:*"
+  checksum: 10c0/8b18f77d99fe5cbb4b4125f3c345752baf46f00e4d80e77e9541c194f4c225ba4c6e539f2f8a018e1ace32b50214102e5d556bd966f6d5e374f2548b454f9837
+  languageName: node
+  linkType: hard
+
+"rdf-string@npm:^1.6.3":
+  version: 1.6.3
+  resolution: "rdf-string@npm:1.6.3"
+  dependencies:
+    "@rdfjs/types": "npm:*"
+    rdf-data-factory: "npm:^1.1.0"
+  checksum: 10c0/d7fca91d659f1631708670efefe4d8243b55f18a74adb384b385f7562d3c1a7c7f0a64da09c094e08aced8dc9cfd870eadbec4fe97030d78a90ec69187f6a53c
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^18.0.0":
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
@@ -2933,6 +2972,17 @@ __metadata:
   version: 1.2.0
   resolution: "source-map-js@npm:1.2.0"
   checksum: 10c0/7e5f896ac10a3a50fe2898e5009c58ff0dc102dcb056ed27a354623a0ece8954d4b2649e1a1b2b52ef2e161d26f8859c7710350930751640e71e374fe2d321a4
+  languageName: node
+  linkType: hard
+
+"sparqljs@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "sparqljs@npm:3.7.1"
+  dependencies:
+    rdf-data-factory: "npm:^1.1.2"
+  bin:
+    sparqljs: bin/sparql-to-json
+  checksum: 10c0/457fea7e707292681cd4773bebf95fb55b22202957ad0a2b138903cbbe41aba8aaed61353ffbfc473e16b18906069a46b96f2dcfaaa098ea75e4681435ed2406
   languageName: node
   linkType: hard
 
@@ -3159,6 +3209,13 @@ __metadata:
   version: 1.5.3
   resolution: "ufo@npm:1.5.3"
   checksum: 10c0/1df10702582aa74f4deac4486ecdfd660e74be057355f1afb6adfa14243476cf3d3acff734ccc3d0b74e9bfdefe91d578f3edbbb0a5b2430fe93cd672370e024
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.26.4":
+  version: 5.26.5
+  resolution: "undici-types@npm:5.26.5"
+  checksum: 10c0/bb673d7876c2d411b6eb6c560e0c571eef4a01c1c19925175d16e3a30c4c428181fb8d7ae802a261f283e4166a0ac435e2f505743aa9e45d893f9a3df017b501
   languageName: node
   linkType: hard
 

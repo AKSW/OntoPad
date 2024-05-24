@@ -36,6 +36,8 @@ const RAW_RUNTIME_STATE =
           ["jsdom", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:24.0.0"],\
           ["pinia", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:2.1.7"],\
           ["prettier", "npm:3.2.5"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["sparqljs", "npm:3.7.1"],\
           ["vite", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.2.9"],\
           ["vitest", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:1.5.0"],\
           ["vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:3.4.23"],\
@@ -522,6 +524,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@rdfjs/types", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-types-npm-1.1.0-a00e1e81cf-10c0.zip/node_modules/@rdfjs/types/",\
+        "packageDependencies": [\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/node", "npm:20.12.12"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@rollup/rollup-android-arm-eabi", [\
       ["npm:4.14.3", {\
         "packageLocation": "./.yarn/unplugged/@rollup-rollup-android-arm-eabi-npm-4.14.3-1f211f7cee/node_modules/@rollup/rollup-android-arm-eabi/",\
@@ -689,6 +701,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/@types-estree-npm-1.0.5-5b7faed3b4-10c0.zip/node_modules/@types/estree/",\
         "packageDependencies": [\
           ["@types/estree", "npm:1.0.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/node", [\
+      ["npm:20.12.12", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-node-npm-20.12.12-3a45001f1f-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:20.12.12"],\
+          ["undici-types", "npm:5.26.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2898,6 +2920,8 @@ const RAW_RUNTIME_STATE =
           ["jsdom", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:24.0.0"],\
           ["pinia", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:2.1.7"],\
           ["prettier", "npm:3.2.5"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["sparqljs", "npm:3.7.1"],\
           ["vite", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.2.9"],\
           ["vitest", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:1.5.0"],\
           ["vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:3.4.23"],\
@@ -3232,6 +3256,27 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["rdf-data-factory", [\
+      ["npm:1.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-data-factory-npm-1.1.2-aed00316e2-10c0.zip/node_modules/rdf-data-factory/",\
+        "packageDependencies": [\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-string", [\
+      ["npm:1.6.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-string-npm-1.6.3-b133dedc58-10c0.zip/node_modules/rdf-string/",\
+        "packageDependencies": [\
+          ["rdf-string", "npm:1.6.3"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-is", [\
       ["npm:18.2.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/react-is-npm-18.2.0-0cc5edb910-10c0.zip/node_modules/react-is/",\
@@ -3436,6 +3481,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/source-map-js-npm-1.2.0-6e63f357e5-10c0.zip/node_modules/source-map-js/",\
         "packageDependencies": [\
           ["source-map-js", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["sparqljs", [\
+      ["npm:3.7.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/sparqljs-npm-3.7.1-46ddeff3ad-10c0.zip/node_modules/sparqljs/",\
+        "packageDependencies": [\
+          ["sparqljs", "npm:3.7.1"],\
+          ["rdf-data-factory", "npm:1.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3700,6 +3755,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/ufo-npm-1.5.3-8c9d710312-10c0.zip/node_modules/ufo/",\
         "packageDependencies": [\
           ["ufo", "npm:1.5.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["undici-types", [\
+      ["npm:5.26.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/undici-types-npm-5.26.5-de4f7c7bb9-10c0.zip/node_modules/undici-types/",\
+        "packageDependencies": [\
+          ["undici-types", "npm:5.26.5"]\
         ],\
         "linkType": "HARD"\
       }]\
