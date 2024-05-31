@@ -1,12 +1,6 @@
 <script setup>
-import { mapState } from 'pinia'
-import { useRdfStore } from '../stores/rdf'
 import QueryResultList from './QueryResultList.vue'
 import TermInput from './TermInput.vue'
-import { DataFactory } from 'n3'
-const { triple, namedNode } = DataFactory
-
-const store = useRdfStore();
 </script>
 
 <template>
@@ -26,8 +20,17 @@ const store = useRdfStore();
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { DataFactory } from 'n3'
+const { triple, namedNode } = DataFactory
+import { useRdfStore } from '../stores/rdf'
+
 export default {
   name: 'GraphList',
+  setup () {
+    const store = useRdfStore();
+    return { store }
+  },
   components: {
     TermInput,
     QueryResultList
@@ -43,14 +46,14 @@ export default {
   },
   methods: {
     select (graph) {
-      store.commit('changeGraphIri', graph)
-      store.commit('changeResourceIri', graph)
+      this.store.commit('changeGraphIri', graph)
+      this.store.commit('changeResourceIri', graph)
     },
     async add_graph () {
       const newGraphData = [triple(this.new_graph_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]
       console.log(this.new_graph_iri)
       try {
-        await store.commit('insertDeleteData', { insertArray: newGraphData, graphIri: this.new_graph_iri.id })
+        await this.store.commit('insertDeleteData', { insertArray: newGraphData, graphIri: this.new_graph_iri.id })
       } catch (e) {
         console.error(e)
       }

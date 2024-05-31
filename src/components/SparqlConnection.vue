@@ -53,8 +53,14 @@
 </template>
 
 <script>
+import { useRdfStore } from '../stores/rdf'
+
 export default {
   name: 'SparqlConnection',
+  setup () {
+    const store = useRdfStore();
+    return { store }
+  },
   data () {
     return {
       endpoint_type: 'quit',
@@ -66,35 +72,35 @@ export default {
   computed: {
     store_capability: {
       get () {
-        return this.$store.state.sparqlEndpoint.capability
+        return this.store.sparqlEndpoint.capability
       }
     },
     graph_iri: {
       get () {
-        return this.$store.state.graph_iri
+        return this.store.graph_iri
       },
       set (value) {
-        this.$store.commit('changeGraphIri', value)
+        this.store.commit('changeGraphIri', value)
       }
     },
     resource_iri: {
       get () {
-        return this.$store.state.resource_iri
+        return this.store.resource_iri
       },
       set (value) {
-        this.$store.commit('changeResourceIri', value)
+        this.store.commit('changeResourceIri', value)
       }
     }
   },
   methods: {
     push () {
-      this.$store.commit('push')
+      this.store.commit('push')
     },
     pull () {
-      this.$store.commit('pull')
+      this.store.commit('pull')
     },
     get_endpoint_configuration () {
-      const ep = this.$store.state.sparqlEndpoint
+      const ep = this.store.sparqlEndpoint
       this.quit_url = ''
       this.query_url = ''
       this.update_url = ''
@@ -122,7 +128,7 @@ export default {
           endpointConfiguration.update_url = this.update_url
         }
       }
-      this.$store.commit('updateEndpointConfiguration', endpointConfiguration)
+      this.store.commit('updateEndpointConfiguration', endpointConfiguration)
     }
   }
 }

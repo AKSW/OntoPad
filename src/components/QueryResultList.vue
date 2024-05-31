@@ -27,8 +27,14 @@
 </template>
 
 <script>
+import { useRdfStore } from '../stores/rdf'
+
 export default {
   name: 'QueryResultList',
+  setup () {
+    const store = useRdfStore();
+    return { store }
+  },
   mounted () {
     this.updateList()
   },
@@ -77,11 +83,11 @@ export default {
       if (this.selectResource) {
         this.selectResource(resource)
       } else {
-        this.$store.commit('changeResourceIri', resource)
+        this.store.changeResourceIri(resource)
       }
     },
     updateList () {
-      this.$store.dispatch('sendQuery',
+      this.store.sendQuery(
         { query: this.query, queryQuads: this.queryQuads })
         .then(result => {
           const bindings = result.data.results.bindings
