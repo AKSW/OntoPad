@@ -1,34 +1,27 @@
 <template>
-  <b-form inline class="col-12">
-    <b-button-group class="col-1 mb-2 mr-sm-2 mb-sm-0">
-      <b-button class="mb-0" v-b-modal.configure_endpoint v-b-tooltip.hover title="Configure Endpoint" aria-label="Configure Endpoint">
-        <b-icon icon="gear"></b-icon>
-      </b-button>
-      <b-button class="mb-0" v-if="store_capability.quit" @click="push()" v-b-tooltip.hover title="Push To Remote Repository" aria-label="Push To Remote Repository">
-        <b-icon icon="cloud-upload"></b-icon>
-      </b-button>
-      <b-button class="mb-0" v-if="store_capability.quit" @click="pull()" v-b-tooltip.hover title="Pull From Remote Repository" aria-label="Pull From Remote Repository">
-        <b-icon icon="cloud-download"></b-icon>
-      </b-button>
-    </b-button-group>
+  <form inline class="col-12">
+    <div class="btn-group col-1 mb-2 mr-sm-2 mb-sm-0" role="group">
+      <button type="button" class="btn btn-outline-secondary mb-0" v-b-modal.configure_endpoint v-b-tooltip.hover title="Configure Endpoint" aria-label="Configure Endpoint">
+        <i class="bi bi-gear"></i>
+      </button>
+      <button type="button" class="btn btn-outline-secondary mb-0" v-if="store_capability.quit" @click="push()" v-b-tooltip.hover title="Push To Remote Repository" aria-label="Push To Remote Repository">
+        <i class="bi bi-cloud-upload"></i>
+      </button>
+      <button type="button" class="btn btn-outline-secondary mb-0" v-if="store_capability.quit" @click="pull()" v-b-tooltip.hover title="Pull From Remote Repository" aria-label="Pull From Remote Repository">
+        <i class="bi bi-cloud-download"></i>
+      </button>
+    </div>
     <label for="select_url" class="col-1 mr-sm-2">Graph IRI</label>
     <input type="text" class="form-control col-2" id="graph_iri" v-model="graph_iri">
     <label for="select_url" class="col-1 mr-sm-2">Resource IRI</label>
     <input type="text" class="form-control col-6" id="resource_iri" v-model="resource_iri">
-    <b-modal id="configure_endpoint" title="Configure Endpoint" :no-close-on-backdrop="true" @ok="configure_endpoint()" @show="get_endpoint_configuration()" size="lg">
+    <div class="modal" role="dialog" id="configure_endpoint" title="Configure Endpoint" :no-close-on-backdrop="true" @ok="configure_endpoint()" @show="get_endpoint_configuration()" size="lg">
       <form>
-        <b-form-group label="Endpoint Type">
-          <b-form-radio-group
-            id="btn-radios-1"
-            v-model="endpoint_type"
-            buttons
-            name="radios-btn-default"
-          >
-            <b-form-radio value="query_only">Query only</b-form-radio>
-            <b-form-radio value="query_update">Query &amp; Update</b-form-radio>
-            <b-form-radio value="quit">Quit Store</b-form-radio>
-          </b-form-radio-group>
-        </b-form-group>
+        <div class="form-group" label="Endpoint Type">
+          <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_only" :value="query_only"><label class="form-check-label" for="query_only">Query only</label>
+          <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_update" :value="query_update"><label class="form-check-label" for="query_update">Query &amp; Update</label>
+          <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="quit" :value="quit"><label class="form-check-label" for="quit">Quit Store</label>
+        </div>
         <div class="form-group" v-if="endpoint_type == 'quit'">
           <label for="quit_url">Quit URL</label>
           <div>
@@ -48,8 +41,8 @@
           </div>
         </div>
       </form>
-    </b-modal>
-  </b-form>
+    </div>
+  </form>
 </template>
 
 <script>

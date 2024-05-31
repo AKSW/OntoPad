@@ -33,6 +33,7 @@ const RAW_RUNTIME_STATE =
           ["@vue/test-utils", "npm:2.4.5"],\
           ["axios", "npm:1.6.8"],\
           ["bootstrap", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.3.3"],\
+          ["bootstrap-icons", "npm:1.11.3"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.25.0"],\
           ["jsdom", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:24.0.0"],\
@@ -1370,6 +1371,15 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@popperjs/core",\
           "@types/popperjs__core"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["bootstrap-icons", [\
+      ["npm:1.11.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/bootstrap-icons-npm-1.11.3-8d5387bef2-10c0.zip/node_modules/bootstrap-icons/",\
+        "packageDependencies": [\
+          ["bootstrap-icons", "npm:1.11.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3814,6 +3824,7 @@ const RAW_RUNTIME_STATE =
           ["@vue/test-utils", "npm:2.4.5"],\
           ["axios", "npm:1.6.8"],\
           ["bootstrap", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.3.3"],\
+          ["bootstrap-icons", "npm:1.11.3"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.25.0"],\
           ["jsdom", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:24.0.0"],\

@@ -1,29 +1,26 @@
 <template>
-  <b-card no-body>
-    <template v-slot:header>
-      <div class="d-flex justify-content-between align-items-center">
-        <h6 class="mb-0">{{ title }}</h6>
-        <div class="form-inline">
-          <b-input v-if="search" v-model="filter" placeholder="Search …"></b-input>
-          <b-button v-on:click="updateList" v-b-tooltip.hover title="Reload" aria-label="Reload">
-            <b-icon icon="arrow-repeat"></b-icon>
-          </b-button>
-          <b-button v-if="add" v-on:click="add" v-b-tooltip.hover :title="addTitle" :aria-label="addTitle">
-            <b-icon icon="plus-square"></b-icon>
-          </b-button>
-        </div>
+  <div class="card" no-body>
+    <div class="d-flex justify-content-between align-items-center">
+      <h6 class="mb-0">{{ title }}</h6>
+      <div class="form-inline">
+        <input type="text" class="form-control" v-if="search" v-model="filter" placeholder="Search …"></input>
+        <button type="button" class="btn btn-secondary" v-on:click="updateList" v-b-tooltip.hover title="Reload" aria-label="Reload">
+          <i class="bi bi-arrow-repeat"></i>
+        </button>
+        <button type="button" class="btn btn-secondary" v-if="add" v-on:click="add" v-b-tooltip.hover :title="addTitle" :aria-label="addTitle">
+          <i class="bi bi-plus-square"></i>
+        </button>
       </div>
-    </template>
+    </div>
 
-    <b-list-group flush v-for="(resource, index) in resourcesFiltered" :key="index">
-      <b-list-group-item
-        class="list-group-item"
+    <ul class="list-group" flush v-for="(resource, index) in resourcesFiltered" :key="index">
+      <li class="list-group-item"
         :class="[{'active': resource == activeResource}, itemClass]"
         href="#"
         :for="'form-control' + index"
-        v-on:click="select(resource)">{{ resource }}</b-list-group-item>
-    </b-list-group>
-  </b-card>
+        v-on:click="select(resource)">{{ resource }}</li>
+    </ul>
+  </div>
 </template>
 
 <script>

@@ -6,7 +6,7 @@ import TermInput from './TermInput.vue'
 <template>
   <div>
     <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" :add="() => {$bvModal.show('add_graph')}" :selectResource="(graphIri) => {select(graphIri)}" :activeResource="graph_iri"/>
-    <b-modal id="add_graph" title="Create New Graph" :no-close-on-backdrop="true" @ok="add_graph()" size="lg">
+    <div class="modal" role="dialog" id="add_graph" title="Create New Graph" :no-close-on-backdrop="true" @ok="add_graph()" size="lg">
       <form>
         <div class="form-group">
           <label for="new_graph_iri">IRI</label>
@@ -15,7 +15,7 @@ import TermInput from './TermInput.vue'
           </div>
         </div>
       </form>
-    </b-modal>
+    </div>
   </div>
 </template>
 
