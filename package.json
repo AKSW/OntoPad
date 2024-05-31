@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "^1.6.8",
+    "n3": "^1.17.3",
     "pinia": "^2.1.7",
     "rdf-string": "^1.6.3",
     "sparqljs": "^3.7.1",
@@ -29,6 +30,7 @@
     "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
     "vite": "^5.2.8",
+    "vite-plugin-node-polyfills": "^0.22.0",
     "vitest": "^1.4.0"
   },
   "packageManager": "yarn@4.1.1+sha224.00f08619463229f8ba40c4ee90e8c2e4ced1f11c3115c26f3b98432e"
