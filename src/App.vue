@@ -1,14 +1,18 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import SparqlConnection from './components/SparqlConnection.vue'
+import GraphList from './components/GraphList.vue'
+import ClassList from './components/ClassList.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <SparqlConnection/>
+
+    <GraphList/>
+    <ClassList/>
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
