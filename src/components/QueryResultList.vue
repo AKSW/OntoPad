@@ -4,10 +4,10 @@
       <h6 class="mb-0">{{ title }}</h6>
       <div class="form-inline">
         <input type="text" class="form-control" v-if="search" v-model="filter" placeholder="Search …"></input>
-        <button type="button" class="btn btn-secondary" v-on:click="updateList" v-b-tooltip.hover title="Reload" aria-label="Reload">
+        <button type="button" class="btn btn-secondary" v-on:click="updateList" title="Reload" aria-label="Reload">
           <i class="bi bi-arrow-repeat"></i>
         </button>
-        <button type="button" class="btn btn-secondary" v-if="add" v-on:click="add" v-b-tooltip.hover :title="addTitle" :aria-label="addTitle">
+        <button type="button" class="btn btn-secondary" v-if="add" v-on:click="add" :title="addTitle" :aria-label="addTitle">
           <i class="bi bi-plus-square"></i>
         </button>
       </div>

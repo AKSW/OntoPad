@@ -5,14 +5,7 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite App</title>
-    <script>
-      const APP_CONFIG = <%
-        if (NODE_ENV != 'production')
-          { %><%= JSON.stringify(require('@/config/config.json')) %><% }
-        else
-          { %><%= 'null' %><% }
-        %>;
-    </script>
+    
   </head>
   <body>
     <div id="app"></div>
