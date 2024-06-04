@@ -1,15 +1,21 @@
 <template>
-  <div class="card" no-body>
-    <div class="d-flex justify-content-between align-items-center">
-      <h6 class="mb-0">{{ title }}</h6>
-      <div class="form-inline">
-        <input type="text" class="form-control" v-if="search" v-model="filter" placeholder="Search …"></input>
-        <button type="button" class="btn btn-secondary" v-on:click="updateList" title="Reload" aria-label="Reload">
-          <i class="bi bi-arrow-repeat"></i>
-        </button>
-        <button type="button" class="btn btn-secondary" v-if="add" v-on:click="add" :title="addTitle" :aria-label="addTitle">
-          <i class="bi bi-plus-square"></i>
-        </button>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+          <h6 class="mb-0">{{ title }}</h6>
+        </div>
+        <div class="col-12">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" v-if="search" v-model="filter" placeholder="Search …"></input>
+            <button type="button" class="btn btn-secondary" v-on:click="updateList" title="Reload" aria-label="Reload">
+              <i class="bi bi-arrow-repeat"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" v-if="add" v-on:click="add" :title="addTitle" :aria-label="addTitle">
+              <i class="bi bi-plus-square"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 

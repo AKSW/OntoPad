@@ -21,9 +21,9 @@ import TermInput from './TermInput.vue'
 
 <script>
 import { mapState } from 'pinia'
+import { useRdfStore } from '../stores/rdf'
 import { DataFactory } from 'n3'
 const { triple, namedNode } = DataFactory
-import { useRdfStore } from '../stores/rdf'
 
 export default {
   name: 'GraphList',
