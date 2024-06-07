@@ -1,32 +1,7 @@
 <template>
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
   <form inline class="col-12">
     <div class="btn-group col-1 mb-2 mr-sm-2 mb-sm-0" role="group">
-      <button type="button" class="btn btn-outline-secondary mb-0" @click="() => { visible_configure_endpoint = true }" title="Configure Endpoint" aria-label="Configure Endpoint">
+      <button type="button" class="btn btn-outline-secondary mb-0" @click="configure_endpoint_modal.show()" title="Configure Endpoint" aria-label="Configure Endpoint">
         <i class="bi bi-gear"></i>
       </button>
       <button type="button" class="btn btn-outline-secondary mb-0" v-if="store_capability.quit" @click="push()" title="Push To Remote Repository" aria-label="Push To Remote Repository">
@@ -40,38 +15,53 @@
     <input type="text" class="form-control col-2" id="graph_iri" v-model="graph_iri">
     <label for="select_url" class="col-1 mr-sm-2">Resource IRI</label>
     <input type="text" class="form-control col-6" id="resource_iri" v-model="resource_iri">
-    <div class="modal" role="dialog" id="configure_endpoint" title="Configure Endpoint" :no-close-on-backdrop="true" :visible="visible_configure_endpoint" @ok="configure_endpoint()" @show="get_endpoint_configuration()" size="lg">
-      <form>
-        <div class="form-group" label="Endpoint Type">
-          <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_only" value="query_only"><label class="form-check-label" for="query_only">Query only</label>
-          <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_update" value="query_update"><label class="form-check-label" for="query_update">Query &amp; Update</label>
-          <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="quit" value="quit"><label class="form-check-label" for="quit">Quit Store</label>
-        </div>
-        <div class="form-group" v-if="endpoint_type == 'quit'">
-          <label for="quit_url">Quit URL</label>
-          <div>
-            <input type="text" class="form-control" id="quit_url" v-model="quit_url" placeholder="http://your.quit.store.org/">
+    <div class="modal fade" ref="configure_endpoint" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" @show="get_endpoint_configuration()" size="lg">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Configure Endpoint</h5>
+            <button type="button" class="btn-close" @click="configure_endpoint_modal.hide()" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group" label="Endpoint Type">
+                <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_only" value="query_only"><label class="form-check-label" for="query_only">Query only</label>
+                <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_update" value="query_update"><label class="form-check-label" for="query_update">Query &amp; Update</label>
+                <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="quit" value="quit"><label class="form-check-label" for="quit">Quit Store</label>
+              </div>
+              <div class="form-group" v-if="endpoint_type == 'quit'">
+                <label for="quit_url">Quit URL</label>
+                <div>
+                  <input type="text" class="form-control" id="quit_url" v-model="quit_url" placeholder="http://your.quit.store.org/">
+                </div>
+              </div>
+              <div class="form-group" v-if="endpoint_type == 'query_only' || endpoint_type == 'query_update'">
+                <label for="query_url">Query URL</label>
+                <div>
+                  <input type="text" class="form-control" id="query_url" v-model="query_url" placeholder="http://your.sparql.store.org/query">
+                </div>
+              </div>
+              <div class="form-group" v-if="endpoint_type == 'query_update'">
+                <label for="update_url">Update URL</label>
+                <div>
+                  <input type="text" class="form-control" id="update_url" v-model="update_url" placeholder="http://your.sparql.store.org/update">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="configure_endpoint_modal.hide()">Close</button>
+            <button type="button" class="btn btn-primary" @click="configure_endpoint(); configure_endpoint_modal.hide()">Save changes</button>
           </div>
         </div>
-        <div class="form-group" v-if="endpoint_type == 'query_only' || endpoint_type == 'query_update'">
-          <label for="query_url">Query URL</label>
-          <div>
-            <input type="text" class="form-control" id="query_url" v-model="query_url" placeholder="http://your.sparql.store.org/query">
-          </div>
-        </div>
-        <div class="form-group" v-if="endpoint_type == 'query_update'">
-          <label for="update_url">Update URL</label>
-          <div>
-            <input type="text" class="form-control" id="update_url" v-model="update_url" placeholder="http://your.sparql.store.org/update">
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
   </form>
 </template>
 
 <script>
 import { useRdfStore } from '../stores/rdf'
+import { Modal } from 'bootstrap'
 
 export default {
   name: 'SparqlConnection',
@@ -81,12 +71,15 @@ export default {
   },
   data () {
     return {
-      visible_configure_endpoint: true,
+      configure_endpoint_modal: null,
       endpoint_type: 'quit',
       query_url: '',
       update_url: '',
       quit_url: ''
     }
+  },
+  mounted() {
+    this.configure_endpoint_modal = new Modal(this.$refs.configure_endpoint)
   },
   computed: {
     store_capability: {
