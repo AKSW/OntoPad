@@ -20,6 +20,7 @@
     "pinia": "^2.1.7",
     "rdf-string": "^1.6.3",
     "sparqljs": "^3.7.1",
+    "streamify-string": "^1.0.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

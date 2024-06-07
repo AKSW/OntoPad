@@ -42,6 +42,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["rdf-string", "npm:1.6.3"],\
           ["sparqljs", "npm:3.7.1"],\
+          ["streamify-string", "npm:1.0.1"],\
           ["vite", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.2.9"],\
           ["vite-plugin-node-polyfills", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:0.22.0"],\
           ["vitest", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:1.5.0"],\
@@ -3833,6 +3834,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["rdf-string", "npm:1.6.3"],\
           ["sparqljs", "npm:3.7.1"],\
+          ["streamify-string", "npm:1.0.1"],\
           ["vite", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.2.9"],\
           ["vite-plugin-node-polyfills", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:0.22.0"],\
           ["vitest", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:1.5.0"],\
@@ -4762,6 +4764,15 @@ const RAW_RUNTIME_STATE =
           ["inherits", "npm:2.0.4"],\
           ["readable-stream", "npm:3.6.2"],\
           ["xtend", "npm:4.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["streamify-string", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/streamify-string-npm-1.0.1-040d564551-10c0.zip/node_modules/streamify-string/",\
+        "packageDependencies": [\
+          ["streamify-string", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
