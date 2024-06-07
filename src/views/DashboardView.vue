@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import PropertyView from '@/components/PropertyView'
-import InstanceList from '@/components/InstanceList'
+import PropertyView from './PropertyView.vue'
+import InstanceList from '../components/InstanceList.vue'
 
 export default {
   name: 'DashboardView',

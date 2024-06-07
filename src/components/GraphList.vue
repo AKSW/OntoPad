@@ -1,8 +1,3 @@
-<script setup>
-import QueryResultList from './QueryResultList.vue'
-import TermInput from './TermInput.vue'
-</script>
-
 <template>
   <div>
     <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" :add="() => {$bvModal.show('add_graph')}" :selectResource="(graphIri) => {select(graphIri)}" :activeResource="graph_iri"/>
@@ -11,7 +6,7 @@ import TermInput from './TermInput.vue'
         <div class="form-group">
           <label for="new_graph_iri">IRI</label>
           <div>
-            <TermInput type="iri" id="new_graph_iri" v-model="new_graph_iri" />
+            <TermInput type="iri" id="new_graph_iri" v-model:term="new_graph_iri" />
           </div>
         </div>
       </form>
@@ -24,6 +19,9 @@ import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import { DataFactory } from 'n3'
 const { triple, namedNode } = DataFactory
+
+import QueryResultList from './QueryResultList.vue'
+import TermInput from './TermInput.vue'
 
 export default {
   name: 'GraphList',
