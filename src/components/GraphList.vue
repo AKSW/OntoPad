@@ -1,15 +1,29 @@
 <template>
   <div>
-    <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" :add="() => {$bvModal.show('add_graph')}" :selectResource="(graphIri) => {select(graphIri)}" :activeResource="graph_iri"/>
-    <div class="modal" role="dialog" id="add_graph" title="Create New Graph" :no-close-on-backdrop="true" @ok="add_graph()" size="lg">
-      <form>
-        <div class="form-group">
-          <label for="new_graph_iri">IRI</label>
-          <div>
-            <TermInput type="iri" id="new_graph_iri" v-model:term="new_graph_iri" />
+    <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" :add="() => {add_graph_modal.show()}" :selectResource="(graphIri) => {select(graphIri)}" :activeResource="graph_iri"/>
+    <div class="modal fade" ref="add_graph" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" size="lg">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Create New Graph</h5>
+            <button type="button" class="btn-close" @click="add_graph_modal.hide()" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="new_graph_iri">IRI</label>
+                <div>
+                  <TermInput type="iri" id="new_graph_iri" v-model:term="new_graph_iri" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="add_graph_modal.hide()">Close</button>
+            <button type="button" class="btn btn-primary" @click="add_graph()">Save changes</button>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +33,7 @@ import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import { DataFactory } from 'n3'
 const { triple, namedNode } = DataFactory
+import { Modal } from 'bootstrap'
 
 import QueryResultList from './QueryResultList.vue'
 import TermInput from './TermInput.vue'
@@ -36,8 +51,12 @@ export default {
   data () {
     return {
       graphs: [],
-      new_graph_iri: namedNode('')
+      new_graph_iri: namedNode(''),
+      add_graph_modal: null
     }
+  },
+  mounted() {
+    this.add_graph_modal = new Modal(this.$refs.add_graph)
   },
   computed: {
     ...mapState(useRdfStore, ['graph_iri'])
@@ -52,6 +71,7 @@ export default {
       console.log(this.new_graph_iri)
       try {
         await this.store.insertDeleteData({ insertArray: newGraphData, graphIri: this.new_graph_iri.id })
+        this.add_graph_modal.hide()
       } catch (e) {
         console.error(e)
       }
