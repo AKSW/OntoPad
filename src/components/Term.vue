@@ -15,9 +15,6 @@
 export default {
   name: 'Term',
   props: ['term'],
-  model: {
-    prop: 'term'
-  },
   methods: {
     selectResource: function (resourceIri) {
       this.$emit('click', resourceIri)
