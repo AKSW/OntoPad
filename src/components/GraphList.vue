@@ -44,14 +44,14 @@ export default {
   },
   methods: {
     select (graph) {
-      this.store.commit('changeGraphIri', graph)
-      this.store.commit('changeResourceIri', graph)
+      this.store.changeGraphIri(graph)
+      this.store.changeResourceIri(graph)
     },
     async add_graph () {
       const newGraphData = [triple(this.new_graph_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]
       console.log(this.new_graph_iri)
       try {
-        await this.store.commit('insertDeleteData', { insertArray: newGraphData, graphIri: this.new_graph_iri.id })
+        await this.store.insertDeleteData({ insertArray: newGraphData, graphIri: this.new_graph_iri.id })
       } catch (e) {
         console.error(e)
       }

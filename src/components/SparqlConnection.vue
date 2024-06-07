@@ -99,7 +99,7 @@ export default {
         return this.store.graph_iri
       },
       set (value) {
-        this.store.commit('changeGraphIri', value)
+        this.store.changeGraphIri(value)
       }
     },
     resource_iri: {
@@ -107,16 +107,16 @@ export default {
         return this.store.resource_iri
       },
       set (value) {
-        this.store.commit('changeResourceIri', value)
+        this.store.changeResourceIri(value)
       }
     }
   },
   methods: {
     push () {
-      this.store.commit('push')
+      this.store.push()
     },
     pull () {
-      this.store.commit('pull')
+      this.store.pull()
     },
     get_endpoint_configuration () {
       const ep = this.store.sparqlEndpoint
@@ -147,7 +147,7 @@ export default {
           endpointConfiguration.update_url = this.update_url
         }
       }
-      this.store.commit('updateEndpointConfiguration', endpointConfiguration)
+      this.store.updateEndpointConfiguration(endpointConfiguration)
     }
   }
 }
