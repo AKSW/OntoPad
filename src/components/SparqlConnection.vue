@@ -15,7 +15,7 @@
     <input type="text" class="form-control col-2" id="graph_iri" v-model="graph_iri">
     <label for="select_url" class="col-1 mr-sm-2">Resource IRI</label>
     <input type="text" class="form-control col-6" id="resource_iri" v-model="resource_iri">
-    <div class="modal fade" ref="configure_endpoint" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" @show="get_endpoint_configuration()" size="lg">
+    <div class="modal fade" ref="configure_endpoint" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" size="lg">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
@@ -80,6 +80,9 @@ export default {
   },
   mounted() {
     this.configure_endpoint_modal = new Modal(this.$refs.configure_endpoint)
+    this.$refs.configure_endpoint.addEventListener('show.bs.modal', event => {
+      this.get_endpoint_configuration()
+    })
   },
   computed: {
     store_capability: {
