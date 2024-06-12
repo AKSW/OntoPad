@@ -3238,8 +3238,8 @@ __metadata:
     pinia: "npm:^2.1.7"
     prettier: "npm:^3.2.5"
     rdf-string: "npm:^1.6.3"
+    readable-stream: "npm:^4.5.2"
     sparqljs: "npm:^3.7.1"
-    streamify-string: "npm:^1.0.1"
     vite: "npm:^5.2.8"
     vite-plugin-node-polyfills: "npm:^0.22.0"
     vitest: "npm:^1.4.0"
@@ -3721,7 +3721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^4.0.0":
+"readable-stream@npm:^4.0.0, readable-stream@npm:^4.5.2":
   version: 4.5.2
   resolution: "readable-stream@npm:4.5.2"
   dependencies:
@@ -4099,13 +4099,6 @@ __metadata:
     readable-stream: "npm:^3.6.0"
     xtend: "npm:^4.0.2"
   checksum: 10c0/f128fb8076d60cd548f229554b6a1a70c08a04b7b2afd4dbe7811d20f27f7d4112562eb8bce86d72a8691df3b50573228afcf1271e55e81f981536c67498bc41
-  languageName: node
-  linkType: hard
-
-"streamify-string@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "streamify-string@npm:1.0.1"
-  checksum: 10c0/d6b72771ab8a8a15e822a636e3bbe9debe34aa59901cc90a6b8e27cd6f02d52f0335704ed32c4cd69b2dab0a192f503877d53718a51282fe4901f7e9092c8b5b
   languageName: node
   linkType: hard
 

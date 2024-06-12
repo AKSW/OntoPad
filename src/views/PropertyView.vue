@@ -23,7 +23,7 @@
 
 <script>
 import Term from '../components/Term.vue'
-import Streamify from 'streamify-string'
+import { Readable } from 'readable-stream'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import { DataFactory, Store, StreamParser } from 'n3'
@@ -80,7 +80,7 @@ export default {
       this.store.getResource(this.resource_iri)
         .then(result => {
           const streamParser = new StreamParser()
-          Streamify(result.data).pipe(streamParser)
+          Readable.from([result.data]).pipe(streamParser)
 
           const n3_store = new Store()
           n3_store.import(streamParser).on('end', () => {

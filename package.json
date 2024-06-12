@@ -19,8 +19,8 @@
     "n3": "^1.17.3",
     "pinia": "^2.1.7",
     "rdf-string": "^1.6.3",
+    "readable-stream": "^4.5.2",
     "sparqljs": "^3.7.1",
-    "streamify-string": "^1.0.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
