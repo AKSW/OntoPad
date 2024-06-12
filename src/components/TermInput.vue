@@ -54,10 +54,6 @@ export default {
     id: String,
     term: String
   },
-  model: {
-    prop: 'term',
-    event: 'change'
-  },
   computed: {
     nodeType: {
       get: function () {
@@ -94,7 +90,7 @@ export default {
         }
         // https://www.w3.org/TR/json-ld11/#typed-values
       }
-      this.$emit('change', this.node)
+      this.$emit('update:term', this.node)
     },
     updateNode () {
       this.node = this.term
