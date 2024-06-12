@@ -81,9 +81,10 @@ export default {
         .then(result => {
           const streamParser = new StreamParser()
           Streamify(result.data).pipe(streamParser)
+
           const n3_store = new Store()
           n3_store.import(streamParser).on('end', () => {
-            this.dataModel = store
+            this.dataModel = n3_store
           })
         })
     },
