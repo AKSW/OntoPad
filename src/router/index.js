@@ -46,11 +46,11 @@ const router = createRouter({
     //   name: 'InputForm',
     //   component: () => import('../views/InputForm.vue')
     // },
-    // {
-    //   path: '/source',
-    //   name: 'Source',
-    //   component: () => import('../views/Source.vue')
-    // }
+    {
+      path: '/source',
+      name: 'Source',
+      component: () => import('../views/Source.vue')
+    }
   ]
 })
 
