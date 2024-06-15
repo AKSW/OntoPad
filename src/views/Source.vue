@@ -7,7 +7,7 @@
         <label for="sourceInput" class="">Turtle</label>
         <textarea id="sourceInput" class="form-control" v-model="resourceSource" rows="15"></textarea>
       </div>
-      <b-button variant="primary" @click="updateResource()">Submit</b-button>
+      <button type="button" class="btn btn-outline-primary mb-0" @click="updateResource()">Submit</button>
     </form>
     <a @click="debug = true" v-if="debug == false">(show debug)</a>
     <div v-if="debug">
