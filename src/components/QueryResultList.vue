@@ -19,8 +19,8 @@
       </div>
     </div>
 
-    <ul class="list-group" flush v-for="(resource, index) in resourcesFiltered" :key="index">
-      <li class="list-group-item"
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" v-for="(resource, index) in resourcesFiltered" :key="index"
         :class="[{'active': resource == activeResource}, itemClass]"
         href="#"
         :for="'form-control' + index"
@@ -104,3 +104,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.list-group-item {
+  cursor: pointer;
+}
+</style>
