@@ -31,21 +31,21 @@ const router = createRouter({
     //   name: 'VocPad',
     //   component: () => import('../views/VocPad.vue')
     // },
-    // {
-    //   path: '/edit',
-    //   name: 'EditForm',
-    //   component: () => import('../views/EditForm.vue')
-    // },
+    {
+      path: '/edit',
+      name: 'EditForm',
+      component: () => import('../views/EditForm.vue')
+    },
     // {
     //   path: '/rdform',
     //   name: 'RDFormDemo',
     //   component: () => import('../views/RDFormDemo.vue')
     // },
-    // {
-    //   path: '/add',
-    //   name: 'InputForm',
-    //   component: () => import('../views/InputForm.vue')
-    // },
+    {
+      path: '/add',
+      name: 'InputForm',
+      component: () => import('../views/InputForm.vue')
+    },
     {
       path: '/source',
       name: 'Source',
