@@ -2,7 +2,7 @@
     <div class="Form">
       <form>
         <label for="resourceUriInput">Resource IRI (Subject)</label>
-        <TermInput v-model="subject" type="iri" id="resourceUriInput" />
+        <TermInput v-model:term="subject" type="iri" id="resourceUriInput" />
         <table width="100%">
           <tr>
             <th scope="col" width="45%">Predicate</th>
@@ -10,16 +10,16 @@
             <th scope="col" width="90px"></th>
           </tr>
           <tr v-for="(triple, index) in dataModel" :key="index">
-            <td><TermInput :id="'form-pred-' + index" v-model="triple.predicate" type="iri" /></td>
-            <td><TermInput :id="'form-obj-' + index" v-model="triple.object" /></td>
+            <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
+            <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
             <td>
-              <b-button variant="outline-dark" @click="newTriple(index)">+</b-button>
-              <b-button variant="outline-dark" @click="delTriple(index)">-</b-button>
+              <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple(index)">+</button>
+              <button type="button" class="btn btn-outline-dark mb-0" @click="delTriple(index)">-</button>
             </td>
           </tr>
         </table>
-        <b-button variant="outline-dark" @click="newTriple()" v-if="dataModel.length < 1">+</b-button>
-        <b-button variant="primary" @click="updateResource">Update Resource</b-button>
+        <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple()" v-if="dataModel.length < 1">+</button>
+        <button type="button" class="btn btn-outline-primary mb-0" @click="updateResource">Update Resource</button>
       </form>
       <a @click="debug = true" v-if="debug == false">(show debug)</a>
       <div v-if="debug">
@@ -32,16 +32,20 @@
 </template>
 
 <script>
-import { extend } from 'jquery'
-import { mapState } from 'vuex'
-import TermInput from '@/components/TermInput'
+import TermInput from '../components/TermInput.vue'
 import { DataFactory, Parser } from 'n3'
-import { diff } from '@/helpers/n3-compare'
+import { diff } from '../helpers/n3-compare'
+import { mapState } from 'pinia'
+import { useRdfStore } from '../stores/rdf'
 // import * as jsonld from 'jsonld'
 const { triple, namedNode, blankNode } = DataFactory
 
 export default {
   name: 'EditForm',
+  setup () {
+    const store = useRdfStore();
+    return { store }
+  },
   components: {
     TermInput
   },
@@ -65,7 +69,9 @@ export default {
       ]
     }
   },
-  computed: mapState(['graph_iri', 'resource_iri']),
+  computed: {
+    ...mapState(useRdfStore, ['graph_iri', 'resource_iri']),
+  },
   methods: {
     newTriple (index) {
       if (!index) {
@@ -78,7 +84,7 @@ export default {
     },
     getResource () {
       this.subject = namedNode(this.resource_iri)
-      this.$store.dispatch('getResource', this.resource_iri)
+      this.store.getResource(this.resource_iri)
         .then(result => {
           const parser = new Parser()
           this.originalDataModel = []
@@ -88,7 +94,7 @@ export default {
               console.log(error)
             } else if (quad) {
               if (quad.subject.id === this.subject.id) {
-                this.originalDataModel.push(extend(true, {}, quad)) // clone quad
+                this.originalDataModel.push(structuredClone(quad)) // clone quad
                 this.dataModel.push(quad)
               } else {
                 console.log('skip')
@@ -108,7 +114,7 @@ export default {
       }
       const difference = diff(this.originalDataModel, this.dataModel)
       try {
-        await this.$store.commit('insertDeleteData', { insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+        await this.store.insertDeleteData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
         this.getResource()
       } catch (e) {
         console.error(e)
