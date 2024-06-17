@@ -43,6 +43,7 @@ const RAW_RUNTIME_STATE =
           ["rdf-string", "npm:1.6.3"],\
           ["readable-stream", "npm:4.5.2"],\
           ["sparqljs", "npm:3.7.1"],\
+          ["splitpanes", "npm:3.1.5"],\
           ["vite", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.2.9"],\
           ["vite-plugin-node-polyfills", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:0.22.0"],\
           ["vitest", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:1.5.0"],\
@@ -3835,6 +3836,7 @@ const RAW_RUNTIME_STATE =
           ["rdf-string", "npm:1.6.3"],\
           ["readable-stream", "npm:4.5.2"],\
           ["sparqljs", "npm:3.7.1"],\
+          ["splitpanes", "npm:3.1.5"],\
           ["vite", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.2.9"],\
           ["vite-plugin-node-polyfills", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:0.22.0"],\
           ["vitest", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:1.5.0"],\
@@ -4703,6 +4705,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["sparqljs", "npm:3.7.1"],\
           ["rdf-data-factory", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["splitpanes", [\
+      ["npm:3.1.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/splitpanes-npm-3.1.5-ef6ab11cff-10c0.zip/node_modules/splitpanes/",\
+        "packageDependencies": [\
+          ["splitpanes", "npm:3.1.5"]\
         ],\
         "linkType": "HARD"\
       }]\

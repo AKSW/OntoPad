@@ -3240,6 +3240,7 @@ __metadata:
     rdf-string: "npm:^1.6.3"
     readable-stream: "npm:^4.5.2"
     sparqljs: "npm:^3.7.1"
+    splitpanes: "npm:^3.1.5"
     vite: "npm:^5.2.8"
     vite-plugin-node-polyfills: "npm:^0.22.0"
     vitest: "npm:^1.4.0"
@@ -4047,6 +4048,13 @@ __metadata:
   bin:
     sparqljs: bin/sparql-to-json
   checksum: 10c0/457fea7e707292681cd4773bebf95fb55b22202957ad0a2b138903cbbe41aba8aaed61353ffbfc473e16b18906069a46b96f2dcfaaa098ea75e4681435ed2406
+  languageName: node
+  linkType: hard
+
+"splitpanes@npm:^3.1.5":
+  version: 3.1.5
+  resolution: "splitpanes@npm:3.1.5"
+  checksum: 10c0/de1127143cf9ae284d9a3fca1cd6523b3e3392715bdf570a28df6f230f2f2a0801408f60abffcbb3d3628d99efdfbbda7fc08b6556eb2d748b97c8be64321e0d
   languageName: node
   linkType: hard
 
