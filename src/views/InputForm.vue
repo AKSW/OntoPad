@@ -32,7 +32,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
+import { useRdfStore } from '../stores/rdf'
 import TermInput from '@/components/TermInput'
 import { DataFactory } from 'n3'
 // import * as jsonld from 'jsonld'
@@ -40,6 +41,10 @@ const { triple, namedNode, blankNode } = DataFactory
 
 export default {
   name: 'InputForm',
+  setup () {
+    const store = useRdfStore();
+    return { store }
+  },
   components: {
     TermInput
   },
@@ -52,7 +57,9 @@ export default {
       ]
     }
   },
-  computed: mapState(['graph_iri']),
+  computed: {
+    ...mapState(useRdfStore, ['graph_iri']),
+  },
   methods: {
     newTriple (index) {
       if (!index) {
@@ -68,7 +75,7 @@ export default {
         const statement = this.dataModel[index]
         statement.subject = this.subject
       }
-      this.$store.commit('insertDeleteData', { insertArray: this.dataModel, graphIri: this.graph_iri })
+      this.store.insertDeleteData({ insertArray: this.dataModel, graphIri: this.graph_iri })
     }
   }
 }
