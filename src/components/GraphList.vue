@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QueryResultList title="Graph List" query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" :add="() => {add_graph_modal.show()}" :selectResource="(graphIri) => {select(graphIri)}" :activeResource="graph_iri"/>
+    <QueryResultList title="Graph List" search query="select distinct ?graph { graph ?graph {?s ?p ?o}} order by ?graph" query-quads select-variable="graph" ref="classList" :add="() => {add_graph_modal.show()}" :selectResource="(graphIri) => {select(graphIri)}" :activeResource="graph_iri"/>
     <div class="modal fade" ref="add_graph" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" size="lg">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
