@@ -12,8 +12,8 @@ import ClassList from './components/ClassList.vue'
     </div>
     <div class="row">
     <div class="col-3">
-    <GraphList/>
-    <ClassList/>
+      <GraphList/>
+      <ClassList/>
     </div>
     <div class="col-9">
       <ul class="nav nav-tabs">
