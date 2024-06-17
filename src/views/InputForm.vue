@@ -34,7 +34,7 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
-import TermInput from '@/components/TermInput'
+import TermInput from '../components/TermInput.vue'
 import { DataFactory } from 'n3'
 // import * as jsonld from 'jsonld'
 const { triple, namedNode, blankNode } = DataFactory
