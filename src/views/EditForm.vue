@@ -10,8 +10,8 @@
             <th scope="col" width="90px"></th>
           </tr>
           <tr v-for="(triple, index) in dataModel" :key="index">
-            <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
-            <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
+            <td><TermInput :id="'form-pred-' + index" :term="triple.predicate" @update:term="newValue => dataModel[index] = updateTriple(triple, 1, newValue)" type="iri" /></td>
+            <td><TermInput :id="'form-obj-' + index" :term="triple.object" @update:term="newValue => dataModel[index] = updateTriple(triple, 2, newValue)" /></td>
             <td>
               <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple(index)">+</button>
               <button type="button" class="btn btn-outline-dark mb-0" @click="delTriple(index)">-</button>
@@ -119,6 +119,16 @@ export default {
       } catch (e) {
         console.error(e)
       }
+    },
+    updateTriple(tripleIn, pos, term) {
+      if (pos == 0) {
+        return triple(term, tripleIn.predicate, tripleIn.object)
+      } else if (pos == 1) {
+        return triple(tripleIn.subject, term, tripleIn.object)
+      } else if (pos == 2) {
+        return triple(tripleIn.subject, tripleIn.predicate, term)
+      }
+      return tripleIn
     }
   }
 }

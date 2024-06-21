@@ -32,7 +32,7 @@ import { DataFactory } from 'n3'
 export default {
   name: 'TermInput',
   mounted () {
-    // this.updateNode()
+    this.updateNode()
   },
   watch: {
     term (newValue) {
@@ -52,7 +52,7 @@ export default {
   props: {
     type: String,
     id: String,
-    term: String
+    term: Object
   },
   computed: {
     nodeType: {
