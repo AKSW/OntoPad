@@ -10,8 +10,8 @@
             <th scope="col" width="90px"></th>
           </tr>
           <tr v-for="(triple, index) in dataModel" :key="index">
-            <td><TermInput :id="'form-pred-' + index" :term="triple.predicate" @update:term="newValue => dataModel[index] = updateTriple(triple, 1, newValue)" type="iri" /></td>
-            <td><TermInput :id="'form-obj-' + index" :term="triple.object" @update:term="newValue => dataModel[index] = updateTriple(triple, 2, newValue)" /></td>
+            <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
+            <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
             <td>
               <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple(index)">+</button>
               <button type="button" class="btn btn-outline-dark mb-0" @click="delTriple(index)">-</button>
@@ -33,12 +33,12 @@
 
 <script>
 import TermInput from '../components/TermInput.vue'
-import { DataFactory, Parser } from 'n3'
+import { Parser } from 'n3'
 import { diff } from '../helpers/n3-compare'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 // import * as jsonld from 'jsonld'
-const { triple, namedNode, blankNode } = DataFactory
+import rdf from '@rdfjs/data-model'
 
 export default {
   name: 'EditForm',
@@ -60,12 +60,12 @@ export default {
   data () {
     return {
       debug: false,
-      subject: namedNode(''),
+      subject: rdf.namedNode(''),
       originalDataModel: [
-        triple(blankNode(''), namedNode(''), namedNode(''))
+        rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode(''))
       ],
       dataModel: [
-        triple(blankNode(''), namedNode(''), namedNode(''))
+        rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode(''))
       ]
     }
   },
@@ -77,13 +77,13 @@ export default {
       if (!index) {
         index = 0
       }
-      this.dataModel.splice(index + 1, 0, triple(blankNode(''), namedNode(''), namedNode('')))
+      this.dataModel.splice(index + 1, 0, rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode('')))
     },
     delTriple (index) {
       this.dataModel.splice(index, 1)
     },
     getResource () {
-      this.subject = namedNode(this.resource_iri)
+      this.subject = rdf.namedNode(this.resource_iri)
       this.store.getResource(this.resource_iri)
         .then(result => {
           const parser = new Parser()
@@ -93,13 +93,13 @@ export default {
             if (error) {
               console.log(error)
             } else if (quad) {
-              if (quad.subject.id === this.subject.id) {
-                this.originalDataModel.push(structuredClone(quad)) // clone quad
-                this.dataModel.push(quad)
+              if (quad.subject.value === this.subject.value) {
+                this.originalDataModel.push(quad)
+                this.dataModel.push(rdf.fromQuad(quad)) // clone quad
               } else {
                 console.log('skip')
-                console.log(quad.subject.id)
-                console.log(this.subject.id)
+                console.log(quad.subject.value)
+                console.log(this.subject.value)
               }
             } else {
               console.log('done')
@@ -120,16 +120,6 @@ export default {
         console.error(e)
       }
     },
-    updateTriple(tripleIn, pos, term) {
-      if (pos == 0) {
-        return triple(term, tripleIn.predicate, tripleIn.object)
-      } else if (pos == 1) {
-        return triple(tripleIn.subject, term, tripleIn.object)
-      } else if (pos == 2) {
-        return triple(tripleIn.subject, tripleIn.predicate, term)
-      }
-      return tripleIn
-    }
   }
 }
 

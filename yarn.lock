@@ -390,6 +390,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rdfjs/data-model@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@rdfjs/data-model@npm:2.0.2"
+  bin:
+    rdfjs-data-model-test: bin/test.js
+  checksum: 10c0/ed148e6246b6daf8fa34a8e20d3857aea8c96747f12c69aaf10b329bff7240f9009cff8a0e18e028d3d71a3bc749e0069b95e05906d781be515e933642990eca
+  languageName: node
+  linkType: hard
+
 "@rdfjs/types@npm:*":
   version: 1.1.0
   resolution: "@rdfjs/types@npm:1.1.0"
@@ -3224,6 +3233,7 @@ __metadata:
   resolution: "ontopad@workspace:."
   dependencies:
     "@popperjs/core": "npm:^2.11.8"
+    "@rdfjs/data-model": "npm:^2.0.2"
     "@rushstack/eslint-patch": "npm:^1.8.0"
     "@vitejs/plugin-vue": "npm:^5.0.4"
     "@vue/eslint-config-prettier": "npm:^9.0.0"

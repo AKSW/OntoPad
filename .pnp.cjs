@@ -27,6 +27,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@popperjs/core", "npm:2.11.8"],\
+          ["@rdfjs/data-model", "npm:2.0.2"],\
           ["@rushstack/eslint-patch", "npm:1.10.2"],\
           ["@vitejs/plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.0.4"],\
           ["@vue/eslint-config-prettier", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.0.0"],\
@@ -536,6 +537,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/@popperjs-core-npm-2.11.8-f1692e11a0-10c0.zip/node_modules/@popperjs/core/",\
         "packageDependencies": [\
           ["@popperjs/core", "npm:2.11.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rdfjs/data-model", [\
+      ["npm:2.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-data-model-npm-2.0.2-956df79d84-10c0.zip/node_modules/@rdfjs/data-model/",\
+        "packageDependencies": [\
+          ["@rdfjs/data-model", "npm:2.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3820,6 +3830,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["ontopad", "workspace:."],\
           ["@popperjs/core", "npm:2.11.8"],\
+          ["@rdfjs/data-model", "npm:2.0.2"],\
           ["@rushstack/eslint-patch", "npm:1.10.2"],\
           ["@vitejs/plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.0.4"],\
           ["@vue/eslint-config-prettier", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.0.0"],\
