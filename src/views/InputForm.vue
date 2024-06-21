@@ -13,13 +13,13 @@
             <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
             <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
             <td>
-              <button @click="newTriple(index)" class="btn btn-outline-dark">+</button>
-              <button @click="delTriple(index)" class="btn btn-outline-dark">-</button>
+              <button type="button" class="btn btn-outline-dark" @click="newTriple(index)">+</button>
+              <button type="button" class="btn btn-outline-dark" @click="delTriple(index)">-</button>
             </td>
           </tr>
         </table>
-        <button @click="newTriple()" v-if="dataModel.length < 1" class="btn btn-outline-dark">+</button>
-        <button class="btn btn-primary" @click="submit">Submit</button>
+        <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple()" v-if="dataModel.length < 1">+</button>
+        <button type="button" class="btn btn-outline-primary mb-0" @click="submit">Submit</button>
       </form>
       <a @click="debug = true" v-if="debug == false">(show debug)</a>
       <div v-if="debug">
