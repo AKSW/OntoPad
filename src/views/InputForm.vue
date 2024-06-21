@@ -2,7 +2,7 @@
     <div class="Form">
       <form>
         <label for="resourceUriInput">Resource IRI (Subject)</label>
-        <TermInput v-model="subject" type="iri" id="resourceUriInput" />
+        <TermInput v-model:term="subject" type="iri" id="resourceUriInput" />
         <table width="100%">
           <tr>
             <th scope="col" width="45%">Predicate</th>
@@ -10,8 +10,8 @@
             <th scope="col" width="90px"></th>
           </tr>
           <tr v-for="(triple, index) in dataModel" :key="index">
-            <td><TermInput :id="'form-pred-' + index" v-model="triple.predicate" type="iri" /></td>
-            <td><TermInput :id="'form-obj-' + index" v-model="triple.object" /></td>
+            <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
+            <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
             <td>
               <button @click="newTriple(index)" class="btn btn-outline-dark">+</button>
               <button @click="delTriple(index)" class="btn btn-outline-dark">-</button>
