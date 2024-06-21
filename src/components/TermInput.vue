@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { DataFactory } from 'n3'
+import rdf from '@rdfjs/data-model'
 
 export default {
   name: 'TermInput',
@@ -81,12 +81,12 @@ export default {
     },
     updateTerm () {
       if (this.dynamicNodetype === 'iri') {
-        this.node = DataFactory.namedNode(this.idValue)
+        this.node = rdf.namedNode(this.idValue)
       } else {
         if (this.literalType === 'language') {
-          this.node = DataFactory.literal(this.idValue, this.language)
+          this.node = rdf.literal(this.idValue, this.language)
         } else {
-          this.node = DataFactory.literal(this.idValue, DataFactory.namedNode(this.datatype))
+          this.node = rdf.literal(this.idValue, rdf.namedNode(this.datatype))
         }
         // https://www.w3.org/TR/json-ld11/#typed-values
       }

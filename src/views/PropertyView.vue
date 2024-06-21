@@ -26,8 +26,8 @@ import Term from '../components/Term.vue'
 import { Readable } from 'readable-stream'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
-import { DataFactory, Store, StreamParser } from 'n3'
-const { namedNode } = DataFactory
+import { Store, StreamParser } from 'n3'
+import rdf from '@rdfjs/data-model'
 
 export default {
   name: 'PropertyView',
@@ -41,14 +41,14 @@ export default {
   data () {
     return {
       dataModel: {},
-      subject: namedNode('')
+      subject: rdf.namedNode('')
     }
   },
   computed: {
     ...mapState(useRdfStore, ['resource_iri']),
     label () {
       if (this.dataModel.getQuads !== undefined) {
-        const label = this.dataModel.getQuads(namedNode(this.resource_iri), namedNode('http://www.w3.org/2000/01/rdf-schema#label'), null)[0]
+        const label = this.dataModel.getQuads(rdf.namedNode(this.resource_iri), rdf.namedNode('http://www.w3.org/2000/01/rdf-schema#label'), null)[0]
         if (label) {
           return label.object
         }
@@ -57,7 +57,7 @@ export default {
     },
     description () {
       if (this.dataModel.getQuads !== undefined) {
-        const description = this.dataModel.getQuads(namedNode(this.resource_iri), namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), null)[0]
+        const description = this.dataModel.getQuads(rdf.namedNode(this.resource_iri), rdf.namedNode('http://www.w3.org/2000/01/rdf-schema#comment'), null)[0]
         if (description) {
           return description.object
         }
@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     getResource () {
-      this.subject = namedNode(this.resource_iri)
+      this.subject = rdf.namedNode(this.resource_iri)
       console.log('get resource: ' + this.resource_iri)
       this.store.getResource(this.resource_iri)
         .then(result => {

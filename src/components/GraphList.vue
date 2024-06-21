@@ -31,9 +31,8 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
-import { DataFactory } from 'n3'
-const { triple, namedNode } = DataFactory
 import { Modal } from 'bootstrap'
+import rdf from '@rdfjs/data-model'
 
 import QueryResultList from './QueryResultList.vue'
 import TermInput from './TermInput.vue'
@@ -51,7 +50,7 @@ export default {
   data () {
     return {
       graphs: [],
-      new_graph_iri: namedNode(''),
+      new_graph_iri: rdf.namedNode(''),
       add_graph_modal: null
     }
   },
@@ -67,7 +66,7 @@ export default {
       this.store.changeResourceIri(graph)
     },
     async add_graph () {
-      const newGraphData = [triple(this.new_graph_iri, namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]
+      const newGraphData = [rdf.quad(this.new_graph_iri, rdf.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), rdf.namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]
       console.log(this.new_graph_iri)
       try {
         await this.store.insertDeleteData({ insertArray: newGraphData, graphIri: this.new_graph_iri.id })

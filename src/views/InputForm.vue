@@ -35,9 +35,8 @@
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import TermInput from '../components/TermInput.vue'
-import { DataFactory } from 'n3'
 // import * as jsonld from 'jsonld'
-const { triple, namedNode, blankNode } = DataFactory
+import rdf from '@rdfjs/data-model'
 
 export default {
   name: 'InputForm',
@@ -51,9 +50,9 @@ export default {
   data () {
     return {
       debug: false,
-      subject: namedNode(''),
+      subject: rdf.namedNode(''),
       dataModel: [
-        triple(blankNode(''), namedNode(''), namedNode(''))
+        rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode(''))
       ]
     }
   },
@@ -65,7 +64,7 @@ export default {
       if (!index) {
         index = 0
       }
-      this.dataModel.splice(index + 1, 0, triple(blankNode(''), namedNode(''), namedNode('')))
+      this.dataModel.splice(index + 1, 0, rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode('')))
     },
     delTriple (index) {
       this.dataModel.splice(index, 1)
