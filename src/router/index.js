@@ -26,11 +26,11 @@ const router = createRouter({
       name: 'InstanceList',
       component: () => import('../components/InstanceList.vue')
     },
-    // {
-    //   path: '/voc',
-    //   name: 'VocPad',
-    //   component: () => import('../views/VocPad.vue')
-    // },
+    {
+      path: '/voc',
+      name: 'VocPad',
+      component: () => import('../views/VocPad.vue')
+    },
     {
       path: '/edit',
       name: 'EditForm',
