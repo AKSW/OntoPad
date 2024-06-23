@@ -23,7 +23,9 @@
     "readable-stream": "^4.5.2",
     "sparqljs": "^3.7.1",
     "splitpanes": "^3.1.5",
+    "uuid": "^10.0.0",
     "vue": "^3.4.21",
+    "vue-diagrams": "^1.0.1",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
