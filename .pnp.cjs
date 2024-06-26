@@ -27,9 +27,11 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@comunica/query-sparql", "npm:3.1.2"],\
           ["@popperjs/core", "npm:2.11.8"],\
           ["@rdfjs/data-model", "npm:2.0.2"],\
           ["@rushstack/eslint-patch", "npm:1.10.2"],\
+          ["@ulb-darmstadt/shacl-form", "npm:1.4.3"],\
           ["@vitejs/plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.0.4"],\
           ["@vue/eslint-config-prettier", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.0.0"],\
           ["@vue/test-utils", "npm:2.4.5"],\
@@ -1989,7 +1991,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/helper-split-export-declaration", "npm:7.24.7"],\
           ["@babel/parser", "npm:7.24.7"],\
           ["@babel/types", "npm:7.24.7"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["globals", "npm:11.12.0"]\
         ],\
         "linkType": "HARD"\
@@ -2013,6 +2015,16 @@ const RAW_RUNTIME_STATE =
           ["@babel/helper-string-parser", "npm:7.24.7"],\
           ["@babel/helper-validator-identifier", "npm:7.24.7"],\
           ["to-fast-properties", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@bergos/jsonparse", [\
+      ["npm:1.4.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@bergos-jsonparse-npm-1.4.1-e7d02068db-10c0.zip/node_modules/@bergos/jsonparse/",\
+        "packageDependencies": [\
+          ["@bergos/jsonparse", "npm:1.4.1"],\
+          ["buffer", "npm:6.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2098,6 +2110,3023 @@ const RAW_RUNTIME_STATE =
           ["@codemirror/state", "npm:6.4.1"],\
           ["style-mod", "npm:4.1.2"],\
           ["w3c-keyname", "npm:2.2.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@colors/colors", [\
+      ["npm:1.6.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@colors-colors-npm-1.6.0-47f686c4e2-10c0.zip/node_modules/@colors/colors/",\
+        "packageDependencies": [\
+          ["@colors/colors", "npm:1.6.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-abstract-mediatyped", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-mediatyped-npm-2.10.0-685540615b-10c0.zip/node_modules/@comunica/actor-abstract-mediatyped/",\
+        "packageDependencies": [\
+          ["@comunica/actor-abstract-mediatyped", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-mediatyped-npm-3.1.0-8fced5508d-10c0.zip/node_modules/@comunica/actor-abstract-mediatyped/",\
+        "packageDependencies": [\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-abstract-parse", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-parse-npm-2.10.0-15c05699ac-10c0.zip/node_modules/@comunica/actor-abstract-parse/",\
+        "packageDependencies": [\
+          ["@comunica/actor-abstract-parse", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-parse-npm-3.1.0-9e2e19af77-10c0.zip/node_modules/@comunica/actor-abstract-parse/",\
+        "packageDependencies": [\
+          ["@comunica/actor-abstract-parse", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-abstract-path", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-path-npm-3.1.2-4eb5fe21ba-10c0.zip/node_modules/@comunica/actor-abstract-path/",\
+        "packageDependencies": [\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-context-preprocess-convert-shortcuts", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-convert-shortcuts-npm-3.1.2-2d04bedcc4-10c0.zip/node_modules/@comunica/actor-context-preprocess-convert-shortcuts/",\
+        "packageDependencies": [\
+          ["@comunica/actor-context-preprocess-convert-shortcuts", "npm:3.1.2"],\
+          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-context-preprocess-query-source-identify", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-query-source-identify-npm-3.1.2-567a1a9cca-10c0.zip/node_modules/@comunica/actor-context-preprocess-query-source-identify/",\
+        "packageDependencies": [\
+          ["@comunica/actor-context-preprocess-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
+          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["lru-cache", "npm:10.2.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-context-preprocess-query-source-skolemize", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-query-source-skolemize-npm-3.1.2-78b4248fb4-10c0.zip/node_modules/@comunica/actor-context-preprocess-query-source-skolemize/",\
+        "packageDependencies": [\
+          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.1.2"],\
+          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/data-factory", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-context-preprocess-set-defaults", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-set-defaults-npm-3.1.2-3c47987bed-10c0.zip/node_modules/@comunica/actor-context-preprocess-set-defaults/",\
+        "packageDependencies": [\
+          ["@comunica/actor-context-preprocess-set-defaults", "npm:3.1.2"],\
+          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-context-preprocess-source-to-destination", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-source-to-destination-npm-3.1.2-77dce85226-10c0.zip/node_modules/@comunica/actor-context-preprocess-source-to-destination/",\
+        "packageDependencies": [\
+          ["@comunica/actor-context-preprocess-source-to-destination", "npm:3.1.2"],\
+          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-dereference-fallback", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-fallback-npm-3.1.0-06a83b50d3-10c0.zip/node_modules/@comunica/actor-dereference-fallback/",\
+        "packageDependencies": [\
+          ["@comunica/actor-dereference-fallback", "npm:3.1.0"],\
+          ["@comunica/bus-dereference", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-dereference-http", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-http-npm-3.1.0-27f0305a23-10c0.zip/node_modules/@comunica/actor-dereference-http/",\
+        "packageDependencies": [\
+          ["@comunica/actor-dereference-http", "npm:3.1.0"],\
+          ["@comunica/bus-dereference", "npm:3.1.0"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["cross-fetch", "npm:4.0.0"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-dereference-rdf-parse", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-rdf-parse-npm-3.1.0-f749a8a6f1-10c0.zip/node_modules/@comunica/actor-dereference-rdf-parse/",\
+        "packageDependencies": [\
+          ["@comunica/actor-dereference-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/bus-dereference", "npm:3.1.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-hash-bindings-sha1", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-hash-bindings-sha1-npm-3.1.0-bba182a28f-10c0.zip/node_modules/@comunica/actor-hash-bindings-sha1/",\
+        "packageDependencies": [\
+          ["@comunica/actor-hash-bindings-sha1", "npm:3.1.0"],\
+          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["canonicalize", "npm:2.0.0"],\
+          ["hash.js", "npm:1.1.7"],\
+          ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-http-fetch", [\
+      ["npm:2.10.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-fetch-npm-2.10.2-779974bbab-10c0.zip/node_modules/@comunica/actor-http-fetch/",\
+        "packageDependencies": [\
+          ["@comunica/actor-http-fetch", "npm:2.10.2"],\
+          ["@comunica/bus-http", "npm:2.10.2"],\
+          ["@comunica/context-entries", "npm:2.10.0"],\
+          ["@comunica/mediatortype-time", "npm:2.10.0"],\
+          ["abort-controller", "npm:3.0.0"],\
+          ["cross-fetch", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-fetch-npm-3.1.0-6a888cd1ed-10c0.zip/node_modules/@comunica/actor-http-fetch/",\
+        "packageDependencies": [\
+          ["@comunica/actor-http-fetch", "npm:3.1.0"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/mediatortype-time", "npm:3.1.0"],\
+          ["abort-controller", "npm:3.0.0"],\
+          ["cross-fetch", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-http-proxy", [\
+      ["npm:2.10.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-proxy-npm-2.10.2-bcf579808d-10c0.zip/node_modules/@comunica/actor-http-proxy/",\
+        "packageDependencies": [\
+          ["@comunica/actor-http-proxy", "npm:2.10.2"],\
+          ["@comunica/bus-http", "npm:2.10.2"],\
+          ["@comunica/context-entries", "npm:2.10.0"],\
+          ["@comunica/mediatortype-time", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-proxy-npm-3.1.0-58830474de-10c0.zip/node_modules/@comunica/actor-http-proxy/",\
+        "packageDependencies": [\
+          ["@comunica/actor-http-proxy", "npm:3.1.0"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/mediatortype-time", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-http-wayback", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-wayback-npm-3.1.2-83a6e00e25-10c0.zip/node_modules/@comunica/actor-http-wayback/",\
+        "packageDependencies": [\
+          ["@comunica/actor-http-wayback", "npm:3.1.2"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["cross-fetch", "npm:4.0.0"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-init-query", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-init-query-npm-3.1.0-e453e03e76-10c0.zip/node_modules/@comunica/actor-init-query/",\
+        "packageDependencies": [\
+          ["@comunica/actor-init-query", "npm:3.1.0"],\
+          ["@comunica/actor-http-proxy", "npm:3.1.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
+          ["@comunica/bus-init", "npm:3.1.0"],\
+          ["@comunica/bus-query-process", "npm:3.1.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/logger-pretty", "npm:3.1.0"],\
+          ["@comunica/runner", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/yargs", "npm:17.0.32"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["negotiate", "npm:1.0.1"],\
+          ["process", "npm:0.11.10"],\
+          ["rdf-quad", "npm:1.5.0"],\
+          ["streamify-string", "npm:1.0.1"],\
+          ["yargs", "npm:17.7.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-assign-sources-exhaustive-npm-3.1.2-a6948a1f10-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-assign-sources-exhaustive/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", "npm:3.1.2"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-bgp-to-join", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-bgp-to-join-npm-3.1.0-b9ae6c4c40-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-bgp-to-join/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-bgp-to-join", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-describe-to-constructs-subject-npm-3.1.0-757c66016a-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-describe-to-constructs-subject/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-filter-pushdown", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-filter-pushdown-npm-3.1.0-945c4fbb40-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-filter-pushdown/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-filter-pushdown", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-group-sources", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-group-sources-npm-3.1.2-772161ca8a-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-group-sources/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-group-sources", "npm:3.1.2"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-join-bgp", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-join-bgp-npm-3.1.0-0944235e14-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-join-bgp/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-join-bgp", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-join-connected", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-join-connected-npm-3.1.0-70404843a4-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-join-connected/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-join-connected", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-prune-empty-source-operations-npm-3.1.2-eeca81bda7-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-prune-empty-source-operations/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", "npm:3.1.2"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-rewrite-add", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-add-npm-3.1.0-60c4db8b43-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-add/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-rewrite-add", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-rewrite-copy", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-copy-npm-3.1.0-d7a80355f2-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-copy/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-rewrite-copy", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-optimize-query-operation-rewrite-move", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-move-npm-3.1.0-d2d1b01d5d-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-move/",\
+        "packageDependencies": [\
+          ["@comunica/actor-optimize-query-operation-rewrite-move", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-ask", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-ask-npm-3.1.2-b8e36606ae-10c0.zip/node_modules/@comunica/actor-query-operation-ask/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-ask", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-bgp-join", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-bgp-join-npm-3.1.2-3f5dc82549-10c0.zip/node_modules/@comunica/actor-query-operation-bgp-join/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-bgp-join", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-construct", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-construct-npm-3.1.2-8e3feff775-10c0.zip/node_modules/@comunica/actor-query-operation-construct/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-construct", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-distinct-hash", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-distinct-hash-npm-3.1.2-e62908b712-10c0.zip/node_modules/@comunica/actor-query-operation-distinct-hash/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-distinct-hash", "npm:3.1.2"],\
+          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-extend", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-extend-npm-3.1.2-dd01b6055d-10c0.zip/node_modules/@comunica/actor-query-operation-extend/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-extend", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/expression-evaluator", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-filter", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-filter-npm-3.1.2-32c3c88f8e-10c0.zip/node_modules/@comunica/actor-query-operation-filter/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-filter", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/expression-evaluator", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-from-quad", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-from-quad-npm-3.1.2-d6a611570f-10c0.zip/node_modules/@comunica/actor-query-operation-from-quad/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-from-quad", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-group", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-group-npm-3.1.2-883a04a5df-10c0.zip/node_modules/@comunica/actor-query-operation-group/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-group", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/expression-evaluator", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-join", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-join-npm-3.1.2-841c08aaeb-10c0.zip/node_modules/@comunica/actor-query-operation-join/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-join", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-leftjoin", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-leftjoin-npm-3.1.2-8a790469e5-10c0.zip/node_modules/@comunica/actor-query-operation-leftjoin/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-leftjoin", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/expression-evaluator", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-minus", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-minus-npm-3.1.2-a5d1d68b55-10c0.zip/node_modules/@comunica/actor-query-operation-minus/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-minus", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-nop", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-nop-npm-3.1.2-871a74b2d4-10c0.zip/node_modules/@comunica/actor-query-operation-nop/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-nop", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-orderby", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-orderby-npm-3.1.2-fb55839168-10c0.zip/node_modules/@comunica/actor-query-operation-orderby/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-orderby", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/expression-evaluator", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-alt", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-alt-npm-3.1.2-a0d8097157-10c0.zip/node_modules/@comunica/actor-query-operation-path-alt/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-alt", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-union", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-inv", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-inv-npm-3.1.2-1e6684e494-10c0.zip/node_modules/@comunica/actor-query-operation-path-inv/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-inv", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-link", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-link-npm-3.1.2-b7957025fa-10c0.zip/node_modules/@comunica/actor-query-operation-path-link/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-link", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-nps", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-nps-npm-3.1.2-3f814c08f5-10c0.zip/node_modules/@comunica/actor-query-operation-path-nps/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-nps", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-one-or-more", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-one-or-more-npm-3.1.2-9396c7fc62-10c0.zip/node_modules/@comunica/actor-query-operation-path-one-or-more/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-one-or-more", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-seq", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-seq-npm-3.1.2-89a87e99e9-10c0.zip/node_modules/@comunica/actor-query-operation-path-seq/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-seq", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-zero-or-more", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-zero-or-more-npm-3.1.2-e52d51475f-10c0.zip/node_modules/@comunica/actor-query-operation-path-zero-or-more/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-zero-or-more", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-path-zero-or-one", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-zero-or-one-npm-3.1.2-e6766b8718-10c0.zip/node_modules/@comunica/actor-query-operation-path-zero-or-one/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-path-zero-or-one", "npm:3.1.2"],\
+          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-project", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-project-npm-3.1.2-5bb074bd49-10c0.zip/node_modules/@comunica/actor-query-operation-project/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-project", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/data-factory", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-reduced-hash", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-reduced-hash-npm-3.1.2-22d6a2accc-10c0.zip/node_modules/@comunica/actor-query-operation-reduced-hash/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-reduced-hash", "npm:3.1.2"],\
+          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["lru-cache", "npm:10.2.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-service", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-service-npm-3.1.2-9b30359d17-10c0.zip/node_modules/@comunica/actor-query-operation-service/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-service", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-slice", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-slice-npm-3.1.2-0c20293b85-10c0.zip/node_modules/@comunica/actor-query-operation-slice/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-slice", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-source", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-source-npm-3.1.2-963e29f6c8-10c0.zip/node_modules/@comunica/actor-query-operation-source/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-source", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-union", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-union-npm-3.1.2-ab5fbc6a89-10c0.zip/node_modules/@comunica/actor-query-operation-union/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-union", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-update-clear", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-clear-npm-3.1.2-887e824081-10c0.zip/node_modules/@comunica/actor-query-operation-update-clear/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-update-clear", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-update-compositeupdate", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-compositeupdate-npm-3.1.2-9a01a6cf20-10c0.zip/node_modules/@comunica/actor-query-operation-update-compositeupdate/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-update-compositeupdate", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-update-create", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-create-npm-3.1.2-dacca37fbc-10c0.zip/node_modules/@comunica/actor-query-operation-update-create/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-update-create", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-update-deleteinsert", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-deleteinsert-npm-3.1.2-08125c9712-10c0.zip/node_modules/@comunica/actor-query-operation-update-deleteinsert/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-update-deleteinsert", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-construct", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-update-drop", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-drop-npm-3.1.2-458d76c319-10c0.zip/node_modules/@comunica/actor-query-operation-update-drop/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-update-drop", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-update-load", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-load-npm-3.1.2-1e876196a0-10c0.zip/node_modules/@comunica/actor-query-operation-update-load/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-update-load", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-operation-values", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-values-npm-3.1.2-540eb1ce39-10c0.zip/node_modules/@comunica/actor-query-operation-values/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-operation-values", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-parse-graphql", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-parse-graphql-npm-3.1.0-37823df261-10c0.zip/node_modules/@comunica/actor-query-parse-graphql/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-parse-graphql", "npm:3.1.0"],\
+          ["@comunica/bus-query-parse", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["graphql-to-sparql", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-parse-sparql", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-parse-sparql-npm-3.1.0-9b06fa7961-10c0.zip/node_modules/@comunica/actor-query-parse-sparql/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-parse-sparql", "npm:3.1.0"],\
+          ["@comunica/bus-query-parse", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@types/sparqljs", "npm:3.1.10"],\
+          ["sparqlalgebrajs", "npm:4.3.7"],\
+          ["sparqljs", "npm:3.7.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-process-explain-logical", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-logical-npm-3.1.0-42955508c4-10c0.zip/node_modules/@comunica/actor-query-process-explain-logical/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-process-explain-logical", "npm:3.1.0"],\
+          ["@comunica/bus-query-process", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-process-explain-parsed", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-parsed-npm-3.1.0-f49b37f70e-10c0.zip/node_modules/@comunica/actor-query-process-explain-parsed/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-process-explain-parsed", "npm:3.1.0"],\
+          ["@comunica/bus-query-process", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-process-explain-physical", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-physical-npm-3.1.0-807a30e106-10c0.zip/node_modules/@comunica/actor-query-process-explain-physical/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-process-explain-physical", "npm:3.1.0"],\
+          ["@comunica/bus-query-process", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-process-sequential", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-sequential-npm-3.1.2-87575aa3d2-10c0.zip/node_modules/@comunica/actor-query-process-sequential/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-process-sequential", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-query-parse", "npm:3.1.0"],\
+          ["@comunica/bus-query-process", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-json", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-json-npm-3.1.2-ea1afba9f7-10c0.zip/node_modules/@comunica/actor-query-result-serialize-json/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-json", "npm:3.1.2"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-rdf", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-rdf-npm-3.1.0-6675c91b99-10c0.zip/node_modules/@comunica/actor-query-result-serialize-rdf/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-rdf", "npm:3.1.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-simple", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-simple-npm-3.1.2-e00997048d-10c0.zip/node_modules/@comunica/actor-query-result-serialize-simple/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-simple", "npm:3.1.2"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-sparql-csv", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-csv-npm-3.1.2-f244593cf2-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-csv/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-sparql-csv", "npm:3.1.2"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-sparql-json", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-json-npm-3.1.2-080ec47ece-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-json/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-sparql-json", "npm:3.1.2"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-sparql-tsv", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-tsv-npm-3.1.2-8cb6ff3eb5-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-tsv/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-sparql-tsv", "npm:3.1.2"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-string-ttl", "npm:1.3.2"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-sparql-xml", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-xml-npm-3.1.2-b3219ecdd4-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-xml/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-sparql-xml", "npm:3.1.2"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-stats", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-stats-npm-3.1.2-f6b2d16d48-10c0.zip/node_modules/@comunica/actor-query-result-serialize-stats/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-stats", "npm:3.1.2"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["process", "npm:0.11.10"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-table", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-table-npm-3.1.2-8d00b6cb94-10c0.zip/node_modules/@comunica/actor-query-result-serialize-table/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-table", "npm:3.1.2"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-result-serialize-tree", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-tree-npm-3.1.2-d8b8061dd6-10c0.zip/node_modules/@comunica/actor-query-result-serialize-tree/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-result-serialize-tree", "npm:3.1.2"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["sparqljson-to-tree", "npm:3.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-source-identify-hypermedia", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-npm-3.1.2-18845721da-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-source-identify-hypermedia", "npm:3.1.2"],\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["lru-cache", "npm:10.2.2"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-streaming-store", "npm:1.1.4"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-source-identify-hypermedia-none", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-none-npm-3.1.2-29335b3add-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-none/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-source-identify-hypermedia-none", "npm:3.1.2"],\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
+          ["rdf-store-stream", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-source-identify-hypermedia-qpf", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-qpf-npm-3.1.2-4f26dc4800-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-qpf/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-source-identify-hypermedia-qpf", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.1.0"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-string-ttl", "npm:1.3.2"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-source-identify-hypermedia-sparql", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-sparql-npm-3.1.0-36d2074d92-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-sparql/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-source-identify-hypermedia-sparql", "npm:3.1.0"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["fetch-sparql-endpoint", "npm:4.2.1"],\
+          ["lru-cache", "npm:10.2.2"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-source-identify-rdfjs", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-rdfjs-npm-3.1.2-e2db71ec1d-10c0.zip/node_modules/@comunica/actor-query-source-identify-rdfjs/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-query-source-identify-serialized", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-serialized-npm-3.1.2-37663d6751-10c0.zip/node_modules/@comunica/actor-query-source-identify-serialized/",\
+        "packageDependencies": [\
+          ["@comunica/actor-query-source-identify-serialized", "npm:3.1.2"],\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-store-stream", "npm:2.0.1"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-entries-sort-cardinality", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-entries-sort-cardinality-npm-3.1.0-2e33d66304-10c0.zip/node_modules/@comunica/actor-rdf-join-entries-sort-cardinality/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-entries-sort-cardinality", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-hash", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-hash-npm-3.1.2-36ad992236-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-hash/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-hash", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asyncjoin", "npm:1.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-multi-bind", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-bind-npm-3.1.2-fab9f8e1cd-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-bind/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-multi-bind-source", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-bind-source-npm-3.1.2-8e7b6c74a5-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-bind-source/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-multi-bind-source", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-multi-empty", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-empty-npm-3.1.2-7f73dd554a-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-empty/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-multi-empty", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-multi-smallest", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-smallest-npm-3.1.2-1a1de77622-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-smallest/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-multi-smallest", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-smallest-filter-bindings-npm-3.1.2-b7eb20ab25-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-nestedloop", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-nestedloop-npm-3.1.2-e7daeb86a0-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-nestedloop/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-nestedloop", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asyncjoin", "npm:1.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-none", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-none-npm-3.1.2-f68b8cf9fc-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-none/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-none", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-single", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-single-npm-3.1.2-4aa85e0d11-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-single/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-single", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-inner-symmetrichash", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-symmetrichash-npm-3.1.2-d8fff110fe-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-symmetrichash/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-inner-symmetrichash", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asyncjoin", "npm:1.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-minus-hash", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-minus-hash-npm-3.1.2-460fa5a06c-10c0.zip/node_modules/@comunica/actor-rdf-join-minus-hash/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-minus-hash", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-minus-hash-undef", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-minus-hash-undef-npm-3.1.2-ce3c7186b8-10c0.zip/node_modules/@comunica/actor-rdf-join-minus-hash-undef/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-minus-hash-undef", "npm:3.1.2"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-optional-bind", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-optional-bind-npm-3.1.2-d07d9d6d77-10c0.zip/node_modules/@comunica/actor-rdf-join-optional-bind/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-optional-bind", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-optional-nestedloop", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-optional-nestedloop-npm-3.1.2-32cc0e3685-10c0.zip/node_modules/@comunica/actor-rdf-join-optional-nestedloop/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-optional-nestedloop", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["asyncjoin", "npm:1.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-selectivity-variable-counting", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-selectivity-variable-counting-npm-3.1.0-754d70caa7-10c0.zip/node_modules/@comunica/actor-rdf-join-selectivity-variable-counting/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-selectivity-variable-counting", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-join-selectivity", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/mediatortype-accuracy", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-cancontainundefs-npm-3.1.0-53064c479b-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-cancontainundefs/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-accumulate-cardinality", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-cardinality-npm-3.1.0-c3f12aa7cf-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-cardinality/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-accumulate-cardinality", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-accumulate-pagesize", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-pagesize-npm-3.1.0-a2a46f5100-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-pagesize/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-accumulate-pagesize", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-accumulate-requesttime", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-requesttime-npm-3.1.0-9663b0dc3e-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-requesttime/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-accumulate-requesttime", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-all", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-all-npm-3.1.2-b284528c66-10c0.zip/node_modules/@comunica/actor-rdf-metadata-all/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-all", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-allow-http-methods", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-allow-http-methods-npm-3.1.0-41381a2887-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-allow-http-methods/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-allow-http-methods", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-hydra-controls", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-controls-npm-3.1.0-a77193e34d-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-controls/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/uritemplate", "npm:0.3.6"],\
+          ["uritemplate", "npm:0.3.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-hydra-count", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-count-npm-3.1.0-38ebe6b88c-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-count/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-hydra-count", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-pagesize-npm-3.1.0-f846a7605d-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-pagesize/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-patch-sparql-update-npm-3.1.0-5159a99a16-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-patch-sparql-update/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-put-accepted", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-put-accepted-npm-3.1.0-36658528e7-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-put-accepted/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-put-accepted", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-request-time", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-request-time-npm-3.1.0-9fb9b647f2-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-request-time/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-request-time", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-extract-sparql-service", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-sparql-service-npm-3.1.0-59365f75c1-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-sparql-service/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-extract-sparql-service", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-metadata-primary-topic", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-primary-topic-npm-3.1.0-2bcc229719-10c0.zip/node_modules/@comunica/actor-rdf-metadata-primary-topic/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-metadata-primary-topic", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-html", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-npm-2.10.0-1ea0c1b997-10c0.zip/node_modules/@comunica/actor-rdf-parse-html/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["htmlparser2", "npm:9.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-npm-3.1.2-1589e8b858-10c0.zip/node_modules/@comunica/actor-rdf-parse-html/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["htmlparser2", "npm:9.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-html-microdata", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-microdata-npm-2.10.0-454079c305-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-microdata/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html-microdata", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["microdata-rdf-streaming-parser", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-microdata-npm-3.1.0-de73bf1238-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-microdata/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html-microdata", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["microdata-rdf-streaming-parser", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-html-rdfa", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-rdfa-npm-2.10.0-a7b02f0dc3-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-rdfa/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html-rdfa", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["rdfa-streaming-parser", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-rdfa-npm-3.1.0-0a0b98eef0-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-rdfa/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html-rdfa", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["rdfa-streaming-parser", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-html-script", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-script-npm-2.10.0-ba1beb05d0-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-script/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html-script", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/context-entries", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-script-npm-3.1.0-d38b300f0f-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-script/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-html-script", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-jsonld", [\
+      ["npm:2.10.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-jsonld-npm-2.10.2-2dd68e2837-10c0.zip/node_modules/@comunica/actor-rdf-parse-jsonld/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-jsonld", "npm:2.10.2"],\
+          ["@comunica/bus-http", "npm:2.10.2"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/context-entries", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["jsonld-streaming-parser", "npm:3.4.0"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-jsonld-npm-3.1.0-a023ea84c2-10c0.zip/node_modules/@comunica/actor-rdf-parse-jsonld/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-jsonld", "npm:3.1.0"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["jsonld-streaming-parser", "npm:3.4.0"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-n3", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-n3-npm-2.10.0-73807bc83b-10c0.zip/node_modules/@comunica/actor-rdf-parse-n3/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-n3", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["n3", "npm:1.17.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-n3-npm-3.1.0-a2bb3b6025-10c0.zip/node_modules/@comunica/actor-rdf-parse-n3/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-n3", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["n3", "npm:1.17.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-rdfxml", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-rdfxml-npm-2.10.0-55ef6ffeda-10c0.zip/node_modules/@comunica/actor-rdf-parse-rdfxml/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-rdfxml", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["rdfxml-streaming-parser", "npm:2.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-rdfxml-npm-3.1.0-00e42f7b44-10c0.zip/node_modules/@comunica/actor-rdf-parse-rdfxml/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-rdfxml", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["rdfxml-streaming-parser", "npm:2.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-shaclc", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-shaclc-npm-2.10.0-9489ef4d47-10c0.zip/node_modules/@comunica/actor-rdf-parse-shaclc/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-shaclc", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["shaclc-parse", "npm:1.4.0"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-shaclc-npm-3.1.0-40f581c9b5-10c0.zip/node_modules/@comunica/actor-rdf-parse-shaclc/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-shaclc", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["shaclc-parse", "npm:1.4.0"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-parse-xml-rdfa", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-xml-rdfa-npm-2.10.0-0e1a08e7dd-10c0.zip/node_modules/@comunica/actor-rdf-parse-xml-rdfa/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["rdfa-streaming-parser", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-xml-rdfa-npm-3.1.0-5a5c813604-10c0.zip/node_modules/@comunica/actor-rdf-parse-xml-rdfa/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["rdfa-streaming-parser", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-resolve-hypermedia-links-next", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-resolve-hypermedia-links-next-npm-3.1.0-f6dfcf8545-10c0.zip/node_modules/@comunica/actor-rdf-resolve-hypermedia-links-next/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-next", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-resolve-hypermedia-links-queue-fifo-npm-3.1.0-8d1cc61b22-10c0.zip/node_modules/@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-serialize-jsonld", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-jsonld-npm-3.1.0-162a37fa11-10c0.zip/node_modules/@comunica/actor-rdf-serialize-jsonld/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-serialize-jsonld", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["jsonld-streaming-serializer", "npm:2.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-serialize-n3", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-n3-npm-3.1.0-253075572d-10c0.zip/node_modules/@comunica/actor-rdf-serialize-n3/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-serialize-n3", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["n3", "npm:1.17.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-serialize-shaclc", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-shaclc-npm-3.1.0-3d31c0f4a3-10c0.zip/node_modules/@comunica/actor-rdf-serialize-shaclc/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-serialize-shaclc", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["arrayify-stream", "npm:2.0.1"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["shaclc-write", "npm:1.4.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-patch-sparql-update-npm-3.1.2-dbcfaf8edd-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-patch-sparql-update/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", "npm:3.1.2"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["cross-fetch", "npm:4.0.0"],\
+          ["rdf-string-ttl", "npm:1.3.2"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-update-hypermedia-put-ldp", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-put-ldp-npm-3.1.2-1ac1c48887-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-put-ldp/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-update-hypermedia-put-ldp", "npm:3.1.2"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["cross-fetch", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-update-hypermedia-sparql", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-sparql-npm-3.1.2-b9857a44a7-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-sparql/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-update-hypermedia-sparql", "npm:3.1.2"],\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["fetch-sparql-endpoint", "npm:4.2.1"],\
+          ["rdf-string-ttl", "npm:1.3.2"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-update-quads-hypermedia", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-quads-hypermedia-npm-3.1.2-11641c0895-10c0.zip/node_modules/@comunica/actor-rdf-update-quads-hypermedia/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-update-quads-hypermedia", "npm:3.1.2"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["lru-cache", "npm:10.2.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-update-quads-rdfjs-store", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-quads-rdfjs-store-npm-3.1.2-e148f77d00-10c0.zip/node_modules/@comunica/actor-rdf-update-quads-rdfjs-store/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-update-quads-rdfjs-store", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["event-emitter-promisify", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bindings-factory", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bindings-factory-npm-3.1.0-76c022c3cc-10c0.zip/node_modules/@comunica/bindings-factory/",\
+        "packageDependencies": [\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["immutable", "npm:4.3.6"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-context-preprocess", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-context-preprocess-npm-3.1.2-9c5d482bd7-10c0.zip/node_modules/@comunica/bus-context-preprocess/",\
+        "packageDependencies": [\
+          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-dereference", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-dereference-npm-3.1.0-cfad700ff6-10c0.zip/node_modules/@comunica/bus-dereference/",\
+        "packageDependencies": [\
+          ["@comunica/bus-dereference", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-parse", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-dereference-rdf", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-dereference-rdf-npm-3.1.0-60da4654f3-10c0.zip/node_modules/@comunica/bus-dereference-rdf/",\
+        "packageDependencies": [\
+          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
+          ["@comunica/bus-dereference", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-hash-bindings", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-hash-bindings-npm-3.1.0-c521354f29-10c0.zip/node_modules/@comunica/bus-hash-bindings/",\
+        "packageDependencies": [\
+          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-http", [\
+      ["npm:2.10.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-http-npm-2.10.2-4f532dbb56-10c0.zip/node_modules/@comunica/bus-http/",\
+        "packageDependencies": [\
+          ["@comunica/bus-http", "npm:2.10.2"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@smessie/readable-web-to-node-stream", "npm:3.0.3"],\
+          ["is-stream", "npm:2.0.1"],\
+          ["readable-stream-node-to-web", "npm:1.0.1"],\
+          ["web-streams-ponyfill", "npm:1.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-http-npm-3.1.0-9286fdd94e-10c0.zip/node_modules/@comunica/bus-http/",\
+        "packageDependencies": [\
+          ["@comunica/bus-http", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["is-stream", "npm:2.0.1"],\
+          ["readable-from-web", "npm:1.0.0"],\
+          ["readable-stream-node-to-web", "npm:1.0.1"],\
+          ["stream-to-string", "npm:1.2.1"],\
+          ["web-streams-ponyfill", "npm:1.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-http-invalidate", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-http-invalidate-npm-3.1.0-9112fde21a-10c0.zip/node_modules/@comunica/bus-http-invalidate/",\
+        "packageDependencies": [\
+          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-init", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-init-npm-2.10.0-4e7346fc07-10c0.zip/node_modules/@comunica/bus-init/",\
+        "packageDependencies": [\
+          ["@comunica/bus-init", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-init-npm-3.1.0-8f37fc8326-10c0.zip/node_modules/@comunica/bus-init/",\
+        "packageDependencies": [\
+          ["@comunica/bus-init", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-merge-bindings-context", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-merge-bindings-context-npm-3.1.0-afca5a36fa-10c0.zip/node_modules/@comunica/bus-merge-bindings-context/",\
+        "packageDependencies": [\
+          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-optimize-query-operation", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-optimize-query-operation-npm-3.1.0-81d5ed5ddf-10c0.zip/node_modules/@comunica/bus-optimize-query-operation/",\
+        "packageDependencies": [\
+          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-query-operation", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-operation-npm-3.1.2-35648dca5a-10c0.zip/node_modules/@comunica/bus-query-operation/",\
+        "packageDependencies": [\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/data-factory", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-query-parse", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-parse-npm-3.1.0-7fdc809c57-10c0.zip/node_modules/@comunica/bus-query-parse/",\
+        "packageDependencies": [\
+          ["@comunica/bus-query-parse", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-query-process", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-process-npm-3.1.0-64cd44c4c6-10c0.zip/node_modules/@comunica/bus-query-process/",\
+        "packageDependencies": [\
+          ["@comunica/bus-query-process", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-query-result-serialize", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-result-serialize-npm-3.1.0-5b61d96602-10c0.zip/node_modules/@comunica/bus-query-result-serialize/",\
+        "packageDependencies": [\
+          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-query-source-identify", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-source-identify-npm-3.1.2-8a109542ed-10c0.zip/node_modules/@comunica/bus-query-source-identify/",\
+        "packageDependencies": [\
+          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/bindings-factory", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-query-source-identify-hypermedia", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-source-identify-hypermedia-npm-3.1.0-338dbaf971-10c0.zip/node_modules/@comunica/bus-query-source-identify-hypermedia/",\
+        "packageDependencies": [\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-join", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-npm-3.1.2-ac231b36ca-10c0.zip/node_modules/@comunica/bus-rdf-join/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-join-selectivity", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-join-entries-sort", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-entries-sort-npm-3.1.0-6104483db0-10c0.zip/node_modules/@comunica/bus-rdf-join-entries-sort/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-join-selectivity", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-selectivity-npm-3.1.0-2642aefb73-10c0.zip/node_modules/@comunica/bus-rdf-join-selectivity/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-join-selectivity", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/mediatortype-accuracy", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-metadata", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-npm-3.1.0-504e2e0f89-10c0.zip/node_modules/@comunica/bus-rdf-metadata/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-metadata-accumulate", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-accumulate-npm-3.1.0-253f0fb8c9-10c0.zip/node_modules/@comunica/bus-rdf-metadata-accumulate/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-metadata-extract", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-extract-npm-3.1.0-92f6baebd1-10c0.zip/node_modules/@comunica/bus-rdf-metadata-extract/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-parse", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-npm-2.10.0-64f5da6ca5-10c0.zip/node_modules/@comunica/bus-rdf-parse/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:2.10.0"],\
+          ["@comunica/actor-abstract-parse", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-npm-3.1.0-bcd2803944-10c0.zip/node_modules/@comunica/bus-rdf-parse/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-parse", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-parse-html", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-html-npm-2.10.0-c88b103280-10c0.zip/node_modules/@comunica/bus-rdf-parse-html/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-html-npm-3.1.0-c6911d9657-10c0.zip/node_modules/@comunica/bus-rdf-parse-html/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-resolve-hypermedia-links", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-resolve-hypermedia-links-npm-3.1.0-7f2369cf15-10c0.zip/node_modules/@comunica/bus-rdf-resolve-hypermedia-links/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-resolve-hypermedia-links-queue", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-resolve-hypermedia-links-queue-npm-3.1.0-5770d61506-10c0.zip/node_modules/@comunica/bus-rdf-resolve-hypermedia-links-queue/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-serialize", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-serialize-npm-3.1.0-18936b8be5-10c0.zip/node_modules/@comunica/bus-rdf-serialize/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-update-hypermedia", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-update-hypermedia-npm-3.1.2-2254823d3f-10c0.zip/node_modules/@comunica/bus-rdf-update-hypermedia/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/bus-rdf-update-quads", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-update-quads-npm-3.1.2-3429bc9f2f-10c0.zip/node_modules/@comunica/bus-rdf-update-quads/",\
+        "packageDependencies": [\
+          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
+          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/config-query-sparql", [\
+      ["npm:2.7.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-config-query-sparql-npm-2.7.0-db484ca6e4-10c0.zip/node_modules/@comunica/config-query-sparql/",\
+        "packageDependencies": [\
+          ["@comunica/config-query-sparql", "npm:2.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-config-query-sparql-npm-3.1.0-0881535821-10c0.zip/node_modules/@comunica/config-query-sparql/",\
+        "packageDependencies": [\
+          ["@comunica/config-query-sparql", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/context-entries", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-context-entries-npm-2.10.0-0ea6cfd463-10c0.zip/node_modules/@comunica/context-entries/",\
+        "packageDependencies": [\
+          ["@comunica/context-entries", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-context-entries-npm-3.1.0-030514faff-10c0.zip/node_modules/@comunica/context-entries/",\
+        "packageDependencies": [\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/core", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-core-npm-2.10.0-0fbaaa98f1-10c0.zip/node_modules/@comunica/core/",\
+        "packageDependencies": [\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["immutable", "npm:4.3.6"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-core-npm-3.1.0-3db77b4a91-10c0.zip/node_modules/@comunica/core/",\
+        "packageDependencies": [\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["immutable", "npm:4.3.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/data-factory", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-data-factory-npm-3.1.0-8a50d437d5-10c0.zip/node_modules/@comunica/data-factory/",\
+        "packageDependencies": [\
+          ["@comunica/data-factory", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/expression-evaluator", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-expression-evaluator-npm-3.1.0-30b8dbf70a-10c0.zip/node_modules/@comunica/expression-evaluator/",\
+        "packageDependencies": [\
+          ["@comunica/expression-evaluator", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/spark-md5", "npm:3.0.4"],\
+          ["@types/uuid", "npm:9.0.8"],\
+          ["bignumber.js", "npm:9.1.2"],\
+          ["hash.js", "npm:1.1.7"],\
+          ["lru-cache", "npm:10.2.2"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"],\
+          ["spark-md5", "npm:3.0.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"],\
+          ["uuid", "npm:9.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/logger-pretty", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-logger-pretty-npm-3.1.0-7283a17fe4-10c0.zip/node_modules/@comunica/logger-pretty/",\
+        "packageDependencies": [\
+          ["@comunica/logger-pretty", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["object-inspect", "npm:1.13.2"],\
+          ["process", "npm:0.11.10"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/logger-void", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-logger-void-npm-3.1.0-80b0ed4da0-10c0.zip/node_modules/@comunica/logger-void/",\
+        "packageDependencies": [\
+          ["@comunica/logger-void", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediator-all", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-all-npm-3.1.0-9fbf406342-10c0.zip/node_modules/@comunica/mediator-all/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-all", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediator-combine-pipeline", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-pipeline-npm-2.10.0-6d9f1bb1a6-10c0.zip/node_modules/@comunica/mediator-combine-pipeline/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-combine-pipeline", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/types", "npm:2.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-pipeline-npm-3.1.0-b73d341f6b-10c0.zip/node_modules/@comunica/mediator-combine-pipeline/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-combine-pipeline", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediator-combine-union", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-union-npm-2.10.0-74661cc6c6-10c0.zip/node_modules/@comunica/mediator-combine-union/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-combine-union", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-union-npm-3.1.0-8953e71040-10c0.zip/node_modules/@comunica/mediator-combine-union/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-combine-union", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediator-join-coefficients-fixed", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-join-coefficients-fixed-npm-3.1.2-8a6c997d48-10c0.zip/node_modules/@comunica/mediator-join-coefficients-fixed/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-join-coefficients-fixed", "npm:3.1.2"],\
+          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
+          ["@comunica/context-entries", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediator-number", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-number-npm-2.10.0-c87ea0f73a-10c0.zip/node_modules/@comunica/mediator-number/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-number", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-number-npm-3.1.0-5991eda033-10c0.zip/node_modules/@comunica/mediator-number/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-number", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediator-race", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-race-npm-2.10.0-b357d5b281-10c0.zip/node_modules/@comunica/mediator-race/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-race", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-race-npm-3.1.0-b119c41587-10c0.zip/node_modules/@comunica/mediator-race/",\
+        "packageDependencies": [\
+          ["@comunica/mediator-race", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediatortype-accuracy", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-accuracy-npm-3.1.0-a6411a03d2-10c0.zip/node_modules/@comunica/mediatortype-accuracy/",\
+        "packageDependencies": [\
+          ["@comunica/mediatortype-accuracy", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediatortype-join-coefficients", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-join-coefficients-npm-3.1.0-a1fda5ade3-10c0.zip/node_modules/@comunica/mediatortype-join-coefficients/",\
+        "packageDependencies": [\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/mediatortype-time", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-time-npm-2.10.0-38d5368819-10c0.zip/node_modules/@comunica/mediatortype-time/",\
+        "packageDependencies": [\
+          ["@comunica/mediatortype-time", "npm:2.10.0"],\
+          ["@comunica/core", "npm:2.10.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-time-npm-3.1.0-6ba190079a-10c0.zip/node_modules/@comunica/mediatortype-time/",\
+        "packageDependencies": [\
+          ["@comunica/mediatortype-time", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/metadata", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-metadata-npm-3.1.0-f7c5d85a49-10c0.zip/node_modules/@comunica/metadata/",\
+        "packageDependencies": [\
+          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/query-sparql", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-query-sparql-npm-3.1.2-087e95d887-10c0.zip/node_modules/@comunica/query-sparql/",\
+        "packageDependencies": [\
+          ["@comunica/query-sparql", "npm:3.1.2"],\
+          ["@comunica/actor-context-preprocess-convert-shortcuts", "npm:3.1.2"],\
+          ["@comunica/actor-context-preprocess-query-source-identify", "npm:3.1.2"],\
+          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.1.2"],\
+          ["@comunica/actor-context-preprocess-set-defaults", "npm:3.1.2"],\
+          ["@comunica/actor-context-preprocess-source-to-destination", "npm:3.1.2"],\
+          ["@comunica/actor-dereference-fallback", "npm:3.1.0"],\
+          ["@comunica/actor-dereference-http", "npm:3.1.0"],\
+          ["@comunica/actor-dereference-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/actor-hash-bindings-sha1", "npm:3.1.0"],\
+          ["@comunica/actor-http-fetch", "npm:3.1.0"],\
+          ["@comunica/actor-http-proxy", "npm:3.1.0"],\
+          ["@comunica/actor-http-wayback", "npm:3.1.2"],\
+          ["@comunica/actor-init-query", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", "npm:3.1.2"],\
+          ["@comunica/actor-optimize-query-operation-bgp-to-join", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-filter-pushdown", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-group-sources", "npm:3.1.2"],\
+          ["@comunica/actor-optimize-query-operation-join-bgp", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-join-connected", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", "npm:3.1.2"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-add", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-copy", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-move", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-ask", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-bgp-join", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-construct", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-distinct-hash", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-extend", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-filter", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-from-quad", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-group", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-join", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-leftjoin", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-minus", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-nop", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-orderby", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-alt", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-inv", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-link", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-nps", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-one-or-more", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-seq", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-zero-or-more", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-path-zero-or-one", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-project", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-reduced-hash", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-service", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-slice", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-source", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-union", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-update-clear", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-update-compositeupdate", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-update-create", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-update-deleteinsert", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-update-drop", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-update-load", "npm:3.1.2"],\
+          ["@comunica/actor-query-operation-values", "npm:3.1.2"],\
+          ["@comunica/actor-query-parse-graphql", "npm:3.1.0"],\
+          ["@comunica/actor-query-parse-sparql", "npm:3.1.0"],\
+          ["@comunica/actor-query-process-explain-logical", "npm:3.1.0"],\
+          ["@comunica/actor-query-process-explain-parsed", "npm:3.1.0"],\
+          ["@comunica/actor-query-process-explain-physical", "npm:3.1.0"],\
+          ["@comunica/actor-query-process-sequential", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-json", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-rdf", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-simple", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-sparql-csv", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-sparql-json", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-sparql-tsv", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-sparql-xml", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-stats", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-table", "npm:3.1.2"],\
+          ["@comunica/actor-query-result-serialize-tree", "npm:3.1.2"],\
+          ["@comunica/actor-query-source-identify-hypermedia", "npm:3.1.2"],\
+          ["@comunica/actor-query-source-identify-hypermedia-none", "npm:3.1.2"],\
+          ["@comunica/actor-query-source-identify-hypermedia-qpf", "npm:3.1.2"],\
+          ["@comunica/actor-query-source-identify-hypermedia-sparql", "npm:3.1.0"],\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
+          ["@comunica/actor-query-source-identify-serialized", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-entries-sort-cardinality", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-hash", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind-source", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-multi-empty", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-multi-smallest", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-nestedloop", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-none", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-single", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-inner-symmetrichash", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-minus-hash", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-minus-hash-undef", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-optional-bind", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-optional-nestedloop", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-join-selectivity-variable-counting", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-cardinality", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-pagesize", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-requesttime", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-all", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-metadata-extract-allow-http-methods", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-count", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-put-accepted", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-request-time", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-sparql-service", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-primary-topic", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-html", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-parse-html-microdata", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-html-rdfa", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-html-script", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-jsonld", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-n3", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-rdfxml", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-shaclc", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-next", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-serialize-jsonld", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-serialize-n3", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-serialize-shaclc", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-update-hypermedia-put-ldp", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-update-hypermedia-sparql", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-update-quads-hypermedia", "npm:3.1.2"],\
+          ["@comunica/actor-rdf-update-quads-rdfjs-store", "npm:3.1.2"],\
+          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.1.2"],\
+          ["@comunica/config-query-sparql", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/logger-void", "npm:3.1.0"],\
+          ["@comunica/mediator-all", "npm:3.1.0"],\
+          ["@comunica/mediator-combine-pipeline", "npm:3.1.0"],\
+          ["@comunica/mediator-combine-union", "npm:3.1.0"],\
+          ["@comunica/mediator-join-coefficients-fixed", "npm:3.1.2"],\
+          ["@comunica/mediator-number", "npm:3.1.0"],\
+          ["@comunica/mediator-race", "npm:3.1.0"],\
+          ["@comunica/runner", "npm:3.1.0"],\
+          ["@comunica/runner-cli", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["process", "npm:0.11.10"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/runner", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-runner-npm-3.1.0-2685643733-10c0.zip/node_modules/@comunica/runner/",\
+        "packageDependencies": [\
+          ["@comunica/runner", "npm:3.1.0"],\
+          ["@comunica/bus-init", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["componentsjs", "npm:6.0.1"],\
+          ["process", "npm:0.11.10"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/runner-cli", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-runner-cli-npm-3.1.0-e679b64fcf-10c0.zip/node_modules/@comunica/runner-cli/",\
+        "packageDependencies": [\
+          ["@comunica/runner-cli", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/runner", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["process", "npm:0.11.10"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/types", [\
+      ["npm:2.10.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-types-npm-2.10.0-b4570c61e9-10c0.zip/node_modules/@comunica/types/",\
+        "packageDependencies": [\
+          ["@comunica/types", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/yargs", "npm:17.0.32"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-types-npm-3.1.0-5eeb619353-10c0.zip/node_modules/@comunica/types/",\
+        "packageDependencies": [\
+          ["@comunica/types", "npm:3.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/yargs", "npm:17.0.32"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@dabh/diagnostics", [\
+      ["npm:2.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@dabh-diagnostics-npm-2.0.3-0f2cd64f24-10c0.zip/node_modules/@dabh/diagnostics/",\
+        "packageDependencies": [\
+          ["@dabh/diagnostics", "npm:2.0.3"],\
+          ["colorspace", "npm:1.1.4"],\
+          ["enabled", "npm:2.0.0"],\
+          ["kuler", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@digitalbazaar/http-client", [\
+      ["npm:3.4.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@digitalbazaar-http-client-npm-3.4.1-8f7eac0be7-10c0.zip/node_modules/@digitalbazaar/http-client/",\
+        "packageDependencies": [\
+          ["@digitalbazaar/http-client", "npm:3.4.1"],\
+          ["ky", "npm:0.33.3"],\
+          ["ky-universal", "virtual:8f7eac0be74664d725f06767d8b014c5441ef91d67e5f5b4d48b1eb4b262e4666123cac7be8dcbb99a7798fb4a21e6f4d9693a3957796c4a48c23e26af86514f#npm:0.11.0"],\
+          ["undici", "npm:5.28.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2508,7 +5537,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@eslint/eslintrc", "npm:2.1.4"],\
           ["ajv", "npm:6.12.6"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["espree", "npm:9.6.1"],\
           ["globals", "npm:13.24.0"],\
           ["ignore", "npm:5.3.1"],\
@@ -2525,6 +5554,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/@eslint-js-npm-8.57.0-00ead3710a-10c0.zip/node_modules/@eslint/js/",\
         "packageDependencies": [\
           ["@eslint/js", "npm:8.57.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@fastify/busboy", [\
+      ["npm:2.1.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@fastify-busboy-npm-2.1.1-455d8b6bf5-10c0.zip/node_modules/@fastify/busboy/",\
+        "packageDependencies": [\
+          ["@fastify/busboy", "npm:2.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2657,7 +5695,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@humanwhocodes/config-array", "npm:0.11.14"],\
           ["@humanwhocodes/object-schema", "npm:2.0.3"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["minimatch", "npm:3.1.2"]\
         ],\
         "linkType": "HARD"\
@@ -2711,6 +5749,17 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@jest/schemas", "npm:29.6.3"],\
           ["@sinclair/typebox", "npm:0.27.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@jeswr/prefixcc", [\
+      ["npm:1.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@jeswr-prefixcc-npm-1.2.1-34acde5e9e-10c0.zip/node_modules/@jeswr/prefixcc/",\
+        "packageDependencies": [\
+          ["@jeswr/prefixcc", "npm:1.2.1"],\
+          ["cross-fetch", "npm:3.1.8"],\
+          ["fsevents", "patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2813,6 +5862,168 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@lezer/lr", "npm:1.4.1"],\
           ["@lezer/common", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@lit-labs/ssr-dom-shim", [\
+      ["npm:1.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@lit-labs-ssr-dom-shim-npm-1.2.0-6bda8c35cb-10c0.zip/node_modules/@lit-labs/ssr-dom-shim/",\
+        "packageDependencies": [\
+          ["@lit-labs/ssr-dom-shim", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@lit/reactive-element", [\
+      ["npm:2.0.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@lit-reactive-element-npm-2.0.4-4836436301-10c0.zip/node_modules/@lit/reactive-element/",\
+        "packageDependencies": [\
+          ["@lit/reactive-element", "npm:2.0.4"],\
+          ["@lit-labs/ssr-dom-shim", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/extent", [\
+      ["npm:0.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-extent-npm-0.4.0-e08da1ef0e-10c0.zip/node_modules/@mapbox/extent/",\
+        "packageDependencies": [\
+          ["@mapbox/extent", "npm:0.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/geojson-area", [\
+      ["npm:0.2.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-geojson-area-npm-0.2.2-56885345d4-10c0.zip/node_modules/@mapbox/geojson-area/",\
+        "packageDependencies": [\
+          ["@mapbox/geojson-area", "npm:0.2.2"],\
+          ["wgs84", "npm:0.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/geojson-coords", [\
+      ["npm:0.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-geojson-coords-npm-0.0.2-aaa668f059-10c0.zip/node_modules/@mapbox/geojson-coords/",\
+        "packageDependencies": [\
+          ["@mapbox/geojson-coords", "npm:0.0.2"],\
+          ["@mapbox/geojson-normalize", "npm:0.0.1"],\
+          ["geojson-flatten", "npm:1.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/geojson-extent", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-geojson-extent-npm-1.0.1-d626b4d49d-10c0.zip/node_modules/@mapbox/geojson-extent/",\
+        "packageDependencies": [\
+          ["@mapbox/geojson-extent", "npm:1.0.1"],\
+          ["@mapbox/extent", "npm:0.4.0"],\
+          ["@mapbox/geojson-coords", "npm:0.0.2"],\
+          ["rw", "npm:0.1.4"],\
+          ["traverse", "npm:0.6.9"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/geojson-normalize", [\
+      ["npm:0.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-geojson-normalize-npm-0.0.1-35a3b6a897-10c0.zip/node_modules/@mapbox/geojson-normalize/",\
+        "packageDependencies": [\
+          ["@mapbox/geojson-normalize", "npm:0.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/jsonlint-lines-primitives", [\
+      ["npm:2.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-jsonlint-lines-primitives-npm-2.0.2-f48e04c479-10c0.zip/node_modules/@mapbox/jsonlint-lines-primitives/",\
+        "packageDependencies": [\
+          ["@mapbox/jsonlint-lines-primitives", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/mapbox-gl-draw", [\
+      ["npm:1.4.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-mapbox-gl-draw-npm-1.4.3-dda887e8dc-10c0.zip/node_modules/@mapbox/mapbox-gl-draw/",\
+        "packageDependencies": [\
+          ["@mapbox/mapbox-gl-draw", "npm:1.4.3"],\
+          ["@mapbox/geojson-area", "npm:0.2.2"],\
+          ["@mapbox/geojson-extent", "npm:1.0.1"],\
+          ["@mapbox/geojson-normalize", "npm:0.0.1"],\
+          ["@mapbox/point-geometry", "npm:0.1.0"],\
+          ["hat", "npm:0.0.3"],\
+          ["lodash.isequal", "npm:4.5.0"],\
+          ["xtend", "npm:4.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/mapbox-gl-supported", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-mapbox-gl-supported-npm-3.0.0-0dd620d48d-10c0.zip/node_modules/@mapbox/mapbox-gl-supported/",\
+        "packageDependencies": [\
+          ["@mapbox/mapbox-gl-supported", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/point-geometry", [\
+      ["npm:0.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-point-geometry-npm-0.1.0-d0fd1852be-10c0.zip/node_modules/@mapbox/point-geometry/",\
+        "packageDependencies": [\
+          ["@mapbox/point-geometry", "npm:0.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/tiny-sdf", [\
+      ["npm:2.0.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-tiny-sdf-npm-2.0.6-7a6b0597e9-10c0.zip/node_modules/@mapbox/tiny-sdf/",\
+        "packageDependencies": [\
+          ["@mapbox/tiny-sdf", "npm:2.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/unitbezier", [\
+      ["npm:0.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-unitbezier-npm-0.0.1-4d3f0f5e22-10c0.zip/node_modules/@mapbox/unitbezier/",\
+        "packageDependencies": [\
+          ["@mapbox/unitbezier", "npm:0.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/vector-tile", [\
+      ["npm:1.3.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-vector-tile-npm-1.3.1-c7cbcaf846-10c0.zip/node_modules/@mapbox/vector-tile/",\
+        "packageDependencies": [\
+          ["@mapbox/vector-tile", "npm:1.3.1"],\
+          ["@mapbox/point-geometry", "npm:0.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@mapbox/whoots-js", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@mapbox-whoots-js-npm-3.1.0-25c0fa7510-10c0.zip/node_modules/@mapbox/whoots-js/",\
+        "packageDependencies": [\
+          ["@mapbox/whoots-js", "npm:3.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@material/web", [\
+      ["npm:1.5.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@material-web-npm-1.5.1-da8b9f9eda-10c0.zip/node_modules/@material/web/",\
+        "packageDependencies": [\
+          ["@material/web", "npm:1.5.1"],\
+          ["lit", "npm:3.1.4"],\
+          ["tslib", "npm:2.6.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2978,6 +6189,63 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-data-model-npm-2.0.2-956df79d84-10c0.zip/node_modules/@rdfjs/data-model/",\
         "packageDependencies": [\
           ["@rdfjs/data-model", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rdfjs/dataset", [\
+      ["npm:2.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-dataset-npm-2.0.2-aaea77d765-10c0.zip/node_modules/@rdfjs/dataset/",\
+        "packageDependencies": [\
+          ["@rdfjs/dataset", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rdfjs/environment", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-environment-npm-1.0.0-fb53c58e9a-10c0.zip/node_modules/@rdfjs/environment/",\
+        "packageDependencies": [\
+          ["@rdfjs/environment", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rdfjs/namespace", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-namespace-npm-2.0.1-c5696d58cc-10c0.zip/node_modules/@rdfjs/namespace/",\
+        "packageDependencies": [\
+          ["@rdfjs/namespace", "npm:2.0.1"],\
+          ["@rdfjs/data-model", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rdfjs/term-map", [\
+      ["npm:2.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-term-map-npm-2.0.2-c513fd3211-10c0.zip/node_modules/@rdfjs/term-map/",\
+        "packageDependencies": [\
+          ["@rdfjs/term-map", "npm:2.0.2"],\
+          ["@rdfjs/to-ntriples", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rdfjs/term-set", [\
+      ["npm:2.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-term-set-npm-2.0.3-5786601025-10c0.zip/node_modules/@rdfjs/term-set/",\
+        "packageDependencies": [\
+          ["@rdfjs/term-set", "npm:2.0.3"],\
+          ["@rdfjs/to-ntriples", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rdfjs/to-ntriples", [\
+      ["npm:3.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rdfjs-to-ntriples-npm-3.0.1-14d3d2fa19-10c0.zip/node_modules/@rdfjs/to-ntriples/",\
+        "packageDependencies": [\
+          ["@rdfjs/to-ntriples", "npm:3.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3186,6 +6454,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@rubensworks/saxes", [\
+      ["npm:6.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@rubensworks-saxes-npm-6.0.1-6789f99590-10c0.zip/node_modules/@rubensworks/saxes/",\
+        "packageDependencies": [\
+          ["@rubensworks/saxes", "npm:6.0.1"],\
+          ["xmlchars", "npm:2.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@rushstack/eslint-patch", [\
       ["npm:1.10.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/@rushstack-eslint-patch-npm-1.10.2-fee9e481be-10c0.zip/node_modules/@rushstack/eslint-patch/",\
@@ -3276,11 +6554,36 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@smessie/readable-web-to-node-stream", [\
+      ["npm:3.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@smessie-readable-web-to-node-stream-npm-3.0.3-ecf5e160af-10c0.zip/node_modules/@smessie/readable-web-to-node-stream/",\
+        "packageDependencies": [\
+          ["@smessie/readable-web-to-node-stream", "npm:3.0.3"],\
+          ["process", "npm:0.11.10"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@tootallnate/once", [\
       ["npm:2.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/@tootallnate-once-npm-2.0.0-e36cf4f140-10c0.zip/node_modules/@tootallnate/once/",\
         "packageDependencies": [\
           ["@tootallnate/once", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@tpluscode/rdf-ns-builders", [\
+      ["npm:4.3.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@tpluscode-rdf-ns-builders-npm-4.3.0-e19ee31adc-10c0.zip/node_modules/@tpluscode/rdf-ns-builders/",\
+        "packageDependencies": [\
+          ["@tpluscode/rdf-ns-builders", "npm:4.3.0"],\
+          ["@rdfjs/data-model", "npm:2.0.2"],\
+          ["@rdfjs/namespace", "npm:2.0.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/rdfjs__namespace", "npm:2.0.10"],\
+          ["@zazuko/prefixes", "npm:2.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3344,6 +6647,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/http-link-header", [\
+      ["npm:1.0.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-http-link-header-npm-1.0.7-99db04e4cd-10c0.zip/node_modules/@types/http-link-header/",\
+        "packageDependencies": [\
+          ["@types/http-link-header", "npm:1.0.7"],\
+          ["@types/node", "npm:20.12.12"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/json-schema", [\
       ["npm:7.0.15", {\
         "packageLocation": "../../../../../.yarn/berry/cache/@types-json-schema-npm-7.0.15-fd16381786-10c0.zip/node_modules/@types/json-schema/",\
@@ -3382,12 +6695,173 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/minimist", [\
+      ["npm:1.2.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-minimist-npm-1.2.5-c85664a9d8-10c0.zip/node_modules/@types/minimist/",\
+        "packageDependencies": [\
+          ["@types/minimist", "npm:1.2.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/n3", [\
+      ["npm:1.16.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-n3-npm-1.16.4-6665807380-10c0.zip/node_modules/@types/n3/",\
+        "packageDependencies": [\
+          ["@types/n3", "npm:1.16.4"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/node", "npm:20.12.12"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/node", [\
+      ["npm:18.19.39", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-node-npm-18.19.39-7bb2593e13-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:18.19.39"],\
+          ["undici-types", "npm:5.26.5"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:20.12.12", {\
         "packageLocation": "../../../../../.yarn/berry/cache/@types-node-npm-20.12.12-3a45001f1f-10c0.zip/node_modules/@types/node/",\
         "packageDependencies": [\
           ["@types/node", "npm:20.12.12"],\
           ["undici-types", "npm:5.26.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/rdfjs__namespace", [\
+      ["npm:2.0.10", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-rdfjs__namespace-npm-2.0.10-f1ebaa7aa8-10c0.zip/node_modules/@types/rdfjs__namespace/",\
+        "packageDependencies": [\
+          ["@types/rdfjs__namespace", "npm:2.0.10"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/readable-stream", [\
+      ["npm:2.3.15", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-readable-stream-npm-2.3.15-d06d8380b8-10c0.zip/node_modules/@types/readable-stream/",\
+        "packageDependencies": [\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["@types/node", "npm:20.12.12"],\
+          ["safe-buffer", "npm:5.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.0.14", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-readable-stream-npm-4.0.14-4020e9bfef-10c0.zip/node_modules/@types/readable-stream/",\
+        "packageDependencies": [\
+          ["@types/readable-stream", "npm:4.0.14"],\
+          ["@types/node", "npm:20.12.12"],\
+          ["safe-buffer", "npm:5.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/semver", [\
+      ["npm:7.5.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-semver-npm-7.5.8-26073743d7-10c0.zip/node_modules/@types/semver/",\
+        "packageDependencies": [\
+          ["@types/semver", "npm:7.5.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/spark-md5", [\
+      ["npm:3.0.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-spark-md5-npm-3.0.4-cfdc4d3516-10c0.zip/node_modules/@types/spark-md5/",\
+        "packageDependencies": [\
+          ["@types/spark-md5", "npm:3.0.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/sparqljs", [\
+      ["npm:3.1.10", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-sparqljs-npm-3.1.10-5eeede2d8b-10c0.zip/node_modules/@types/sparqljs/",\
+        "packageDependencies": [\
+          ["@types/sparqljs", "npm:3.1.10"],\
+          ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/triple-beam", [\
+      ["npm:1.3.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-triple-beam-npm-1.3.5-0f1b823630-10c0.zip/node_modules/@types/triple-beam/",\
+        "packageDependencies": [\
+          ["@types/triple-beam", "npm:1.3.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/trusted-types", [\
+      ["npm:2.0.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-trusted-types-npm-2.0.7-a07fc44f59-10c0.zip/node_modules/@types/trusted-types/",\
+        "packageDependencies": [\
+          ["@types/trusted-types", "npm:2.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/uritemplate", [\
+      ["npm:0.3.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-uritemplate-npm-0.3.6-f4a9839432-10c0.zip/node_modules/@types/uritemplate/",\
+        "packageDependencies": [\
+          ["@types/uritemplate", "npm:0.3.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/uuid", [\
+      ["npm:9.0.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-uuid-npm-9.0.8-3eeeaa5abb-10c0.zip/node_modules/@types/uuid/",\
+        "packageDependencies": [\
+          ["@types/uuid", "npm:9.0.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/yargs", [\
+      ["npm:17.0.32", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-yargs-npm-17.0.32-38712e567a-10c0.zip/node_modules/@types/yargs/",\
+        "packageDependencies": [\
+          ["@types/yargs", "npm:17.0.32"],\
+          ["@types/yargs-parser", "npm:21.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/yargs-parser", [\
+      ["npm:21.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@types-yargs-parser-npm-21.0.3-1d265246a1-10c0.zip/node_modules/@types/yargs-parser/",\
+        "packageDependencies": [\
+          ["@types/yargs-parser", "npm:21.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@ulb-darmstadt/shacl-form", [\
+      ["npm:1.4.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@ulb-darmstadt-shacl-form-npm-1.4.3-476e83e6a5-10c0.zip/node_modules/@ulb-darmstadt/shacl-form/",\
+        "packageDependencies": [\
+          ["@ulb-darmstadt/shacl-form", "npm:1.4.3"],\
+          ["@mapbox/mapbox-gl-draw", "npm:1.4.3"],\
+          ["@material/web", "npm:1.5.1"],\
+          ["bootstrap", "virtual:476e83e6a53f937ee6004e1319596fc66fbbda9ecb4b5b7832f8e95aee23243c43ce71f2be34b132e3eeb6d73f5400ae99c9106c4fa7c951bfeeb9980385bba0#npm:5.3.3"],\
+          ["jsonld", "npm:8.3.2"],\
+          ["leaflet", "npm:1.9.4"],\
+          ["leaflet-editable", "npm:1.2.0"],\
+          ["leaflet.fullscreen", "npm:3.0.2"],\
+          ["mapbox-gl", "npm:3.4.0"],\
+          ["n3", "npm:1.17.3"],\
+          ["rdf-validate-shacl", "npm:0.5.5"],\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3532,6 +7006,28 @@ const RAW_RUNTIME_STATE =
           ["estree-walker", "npm:3.0.3"],\
           ["loupe", "npm:2.3.7"],\
           ["pretty-format", "npm:29.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@vocabulary/sh", [\
+      ["npm:1.1.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@vocabulary-sh-npm-1.1.5-4e89958210-10c0.zip/node_modules/@vocabulary/sh/",\
+        "packageDependencies": [\
+          ["@vocabulary/sh", "npm:1.1.5"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:8a1f883271f7c377338ecca202a6df0bcee79a122948f1dd5094830e1b5368078fa6d38bbdfda4f59cc3a29a682f7bdca5437470a00e46422ac54345edc7fff9#npm:1.1.5", {\
+        "packageLocation": "./.yarn/__virtual__/@vocabulary-sh-virtual-42de9602e5/6/.yarn/berry/cache/@vocabulary-sh-npm-1.1.5-4e89958210-10c0.zip/node_modules/@vocabulary/sh/",\
+        "packageDependencies": [\
+          ["@vocabulary/sh", "virtual:8a1f883271f7c377338ecca202a6df0bcee79a122948f1dd5094830e1b5368078fa6d38bbdfda4f59cc3a29a682f7bdca5437470a00e46422ac54345edc7fff9#npm:1.1.5"],\
+          ["@rdfjs/types", null],\
+          ["@types/rdfjs__types", null]\
+        ],\
+        "packagePeers": [\
+          "@rdfjs/types",\
+          "@types/rdfjs__types"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4128,6 +7624,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@zazuko/prefixes", [\
+      ["npm:2.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@zazuko-prefixes-npm-2.2.0-c191c6ce76-10c0.zip/node_modules/@zazuko/prefixes/",\
+        "packageDependencies": [\
+          ["@zazuko/prefixes", "npm:2.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["abab", [\
       ["npm:2.0.6", {\
         "packageLocation": "../../../../../.yarn/berry/cache/abab-npm-2.0.6-2662fba7f0-10c0.zip/node_modules/abab/",\
@@ -4249,7 +7754,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/agent-base-npm-6.0.2-428f325a93-10c0.zip/node_modules/agent-base/",\
         "packageDependencies": [\
           ["agent-base", "npm:6.0.2"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"]\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -4257,7 +7762,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/agent-base-npm-7.1.1-c9e1a4b59e-10c0.zip/node_modules/agent-base/",\
         "packageDependencies": [\
           ["agent-base", "npm:7.1.1"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"]\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4393,6 +7898,43 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["array-buffer-byte-length", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/array-buffer-byte-length-npm-1.0.1-e7afc30010-10c0.zip/node_modules/array-buffer-byte-length/",\
+        "packageDependencies": [\
+          ["array-buffer-byte-length", "npm:1.0.1"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["is-array-buffer", "npm:3.0.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["arraybuffer.prototype.slice", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/arraybuffer.prototype.slice-npm-1.0.3-97a993a091-10c0.zip/node_modules/arraybuffer.prototype.slice/",\
+        "packageDependencies": [\
+          ["arraybuffer.prototype.slice", "npm:1.0.3"],\
+          ["array-buffer-byte-length", "npm:1.0.1"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["es-abstract", "npm:1.23.3"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["get-intrinsic", "npm:1.2.4"],\
+          ["is-array-buffer", "npm:3.0.4"],\
+          ["is-shared-array-buffer", "npm:1.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["arrayify-stream", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/arrayify-stream-npm-2.0.1-3dca562b6f-10c0.zip/node_modules/arrayify-stream/",\
+        "packageDependencies": [\
+          ["arrayify-stream", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["asn1.js", [\
       ["npm:4.10.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/asn1.js-npm-4.10.1-e813eef12f-10c0.zip/node_modules/asn1.js/",\
@@ -4424,6 +7966,34 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/assertion-error-npm-1.1.0-66b893015e-10c0.zip/node_modules/assertion-error/",\
         "packageDependencies": [\
           ["assertion-error", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["async", [\
+      ["npm:3.2.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/async-npm-3.2.5-f5dbdabdfc-10c0.zip/node_modules/async/",\
+        "packageDependencies": [\
+          ["async", "npm:3.2.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["asynciterator", [\
+      ["npm:3.9.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/asynciterator-npm-3.9.0-e07b6846a0-10c0.zip/node_modules/asynciterator/",\
+        "packageDependencies": [\
+          ["asynciterator", "npm:3.9.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["asyncjoin", [\
+      ["npm:1.2.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/asyncjoin-npm-1.2.3-1fcb4b4bf6-10c0.zip/node_modules/asyncjoin/",\
+        "packageDependencies": [\
+          ["asyncjoin", "npm:1.2.3"],\
+          ["asynciterator", "npm:3.9.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4473,6 +8043,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/base64-js-npm-1.5.1-b2f7275641-10c0.zip/node_modules/base64-js/",\
         "packageDependencies": [\
           ["base64-js", "npm:1.5.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["bignumber.js", [\
+      ["npm:9.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/bignumber.js-npm-9.1.2-c2228c6a4a-10c0.zip/node_modules/bignumber.js/",\
+        "packageDependencies": [\
+          ["bignumber.js", "npm:9.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4527,6 +8106,19 @@ const RAW_RUNTIME_STATE =
           ["bootstrap", "npm:5.3.3"]\
         ],\
         "linkType": "SOFT"\
+      }],\
+      ["virtual:476e83e6a53f937ee6004e1319596fc66fbbda9ecb4b5b7832f8e95aee23243c43ce71f2be34b132e3eeb6d73f5400ae99c9106c4fa7c951bfeeb9980385bba0#npm:5.3.3", {\
+        "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-12966dcdc4/6/.yarn/berry/cache/bootstrap-npm-5.3.3-da08e2f0fe-10c0.zip/node_modules/bootstrap/",\
+        "packageDependencies": [\
+          ["bootstrap", "virtual:476e83e6a53f937ee6004e1319596fc66fbbda9ecb4b5b7832f8e95aee23243c43ce71f2be34b132e3eeb6d73f5400ae99c9106c4fa7c951bfeeb9980385bba0#npm:5.3.3"],\
+          ["@popperjs/core", null],\
+          ["@types/popperjs__core", null]\
+        ],\
+        "packagePeers": [\
+          "@popperjs/core",\
+          "@types/popperjs__core"\
+        ],\
+        "linkType": "HARD"\
       }],\
       ["virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.3.3", {\
         "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-04f6c3699e/6/.yarn/berry/cache/bootstrap-npm-5.3.3-da08e2f0fe-10c0.zip/node_modules/bootstrap/",\
@@ -4812,6 +8404,22 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["canonicalize", [\
+      ["npm:1.0.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/canonicalize-npm-1.0.8-e87a0e7ee4-10c0.zip/node_modules/canonicalize/",\
+        "packageDependencies": [\
+          ["canonicalize", "npm:1.0.8"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/canonicalize-npm-2.0.0-a4c91ec2bf-10c0.zip/node_modules/canonicalize/",\
+        "packageDependencies": [\
+          ["canonicalize", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["capital-case", [\
       ["npm:1.0.4", {\
         "packageLocation": "../../../../../.yarn/berry/cache/capital-case-npm-1.0.4-90f8a4641d-10c0.zip/node_modules/capital-case/",\
@@ -4882,6 +8490,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["cheap-ruler", [\
+      ["npm:3.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/cheap-ruler-npm-3.0.2-72e85c0338-10c0.zip/node_modules/cheap-ruler/",\
+        "packageDependencies": [\
+          ["cheap-ruler", "npm:3.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["check-error", [\
       ["npm:1.0.3", {\
         "packageLocation": "../../../../../.yarn/berry/cache/check-error-npm-1.0.3-137994eabc-10c0.zip/node_modules/check-error/",\
@@ -4947,6 +8564,41 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["cliui", [\
+      ["npm:8.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/cliui-npm-8.0.1-3b029092cf-10c0.zip/node_modules/cliui/",\
+        "packageDependencies": [\
+          ["cliui", "npm:8.0.1"],\
+          ["string-width", "npm:4.2.3"],\
+          ["strip-ansi", "npm:6.0.1"],\
+          ["wrap-ansi", "npm:7.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["clownface", [\
+      ["npm:2.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/clownface-npm-2.0.2-03567ae9e9-10c0.zip/node_modules/clownface/",\
+        "packageDependencies": [\
+          ["clownface", "npm:2.0.2"],\
+          ["@rdfjs/data-model", "npm:2.0.2"],\
+          ["@rdfjs/environment", "npm:1.0.0"],\
+          ["@rdfjs/namespace", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["color", [\
+      ["npm:3.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/color-npm-3.2.1-568cf1014f-10c0.zip/node_modules/color/",\
+        "packageDependencies": [\
+          ["color", "npm:3.2.1"],\
+          ["color-convert", "npm:1.9.3"],\
+          ["color-string", "npm:1.9.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["color-convert", [\
       ["npm:1.9.3", {\
         "packageLocation": "../../../../../.yarn/berry/cache/color-convert-npm-1.9.3-1fe690075e-10c0.zip/node_modules/color-convert/",\
@@ -4981,6 +8633,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["color-string", [\
+      ["npm:1.9.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/color-string-npm-1.9.1-dc020e56be-10c0.zip/node_modules/color-string/",\
+        "packageDependencies": [\
+          ["color-string", "npm:1.9.1"],\
+          ["color-name", "npm:1.1.4"],\
+          ["simple-swizzle", "npm:0.2.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["colorspace", [\
+      ["npm:1.1.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/colorspace-npm-1.1.4-f01655548a-10c0.zip/node_modules/colorspace/",\
+        "packageDependencies": [\
+          ["colorspace", "npm:1.1.4"],\
+          ["color", "npm:3.2.1"],\
+          ["text-hex", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["combined-stream", [\
       ["npm:1.0.8", {\
         "packageLocation": "../../../../../.yarn/berry/cache/combined-stream-npm-1.0.8-dc14d4a63a-10c0.zip/node_modules/combined-stream/",\
@@ -5010,6 +8684,29 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/commander-npm-9.5.0-993b3f2434-10c0.zip/node_modules/commander/",\
         "packageDependencies": [\
           ["commander", "npm:9.5.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["componentsjs", [\
+      ["npm:6.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/componentsjs-npm-6.0.1-da5f21d2e5-10c0.zip/node_modules/componentsjs/",\
+        "packageDependencies": [\
+          ["componentsjs", "npm:6.0.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/minimist", "npm:1.2.5"],\
+          ["@types/node", "npm:18.19.39"],\
+          ["@types/semver", "npm:7.5.8"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["minimist", "npm:1.2.8"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-object", "npm:1.14.0"],\
+          ["rdf-parse", "npm:2.3.3"],\
+          ["rdf-quad", "npm:1.5.0"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["semver", "npm:7.6.2"],\
+          ["winston", "npm:3.13.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5172,6 +8869,24 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["cross-fetch", [\
+      ["npm:3.1.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/cross-fetch-npm-3.1.8-71c3c05709-10c0.zip/node_modules/cross-fetch/",\
+        "packageDependencies": [\
+          ["cross-fetch", "npm:3.1.8"],\
+          ["node-fetch", "virtual:71c3c0570974c795b79987bb85d4a29514e196f75c7ca2bb56e80f88177e71cbbb73c9a0f02e781c6ccd33e5e8542eb2d0a05fb7aad876eea2872ec6993aa554#npm:2.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/cross-fetch-npm-4.0.0-9c67668db4-10c0.zip/node_modules/cross-fetch/",\
+        "packageDependencies": [\
+          ["cross-fetch", "npm:4.0.0"],\
+          ["node-fetch", "virtual:71c3c0570974c795b79987bb85d4a29514e196f75c7ca2bb56e80f88177e71cbbb73c9a0f02e781c6ccd33e5e8542eb2d0a05fb7aad876eea2872ec6993aa554#npm:2.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["cross-spawn", [\
       ["npm:7.0.3", {\
         "packageLocation": "../../../../../.yarn/berry/cache/cross-spawn-npm-7.0.3-e4ff3e65b3-10c0.zip/node_modules/cross-spawn/",\
@@ -5200,6 +8915,15 @@ const RAW_RUNTIME_STATE =
           ["public-encrypt", "npm:4.0.3"],\
           ["randombytes", "npm:2.1.0"],\
           ["randomfill", "npm:1.0.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["csscolorparser", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/csscolorparser-npm-1.0.3-cd8e162bc9-10c0.zip/node_modules/csscolorparser/",\
+        "packageDependencies": [\
+          ["csscolorparser", "npm:1.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5256,6 +8980,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["data-uri-to-buffer", [\
+      ["npm:4.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/data-uri-to-buffer-npm-4.0.1-5c66a78beb-10c0.zip/node_modules/data-uri-to-buffer/",\
+        "packageDependencies": [\
+          ["data-uri-to-buffer", "npm:4.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["data-urls", [\
       ["npm:3.0.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/data-urls-npm-3.0.2-c8b2050319-10c0.zip/node_modules/data-urls/",\
@@ -5273,6 +9006,42 @@ const RAW_RUNTIME_STATE =
           ["data-urls", "npm:5.0.0"],\
           ["whatwg-mimetype", "npm:4.0.0"],\
           ["whatwg-url", "npm:14.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["data-view-buffer", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/data-view-buffer-npm-1.0.1-d911beebce-10c0.zip/node_modules/data-view-buffer/",\
+        "packageDependencies": [\
+          ["data-view-buffer", "npm:1.0.1"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["is-data-view", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["data-view-byte-length", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/data-view-byte-length-npm-1.0.1-538a9e432e-10c0.zip/node_modules/data-view-byte-length/",\
+        "packageDependencies": [\
+          ["data-view-byte-length", "npm:1.0.1"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["is-data-view", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["data-view-byte-offset", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/data-view-byte-offset-npm-1.0.0-7112a24a4b-10c0.zip/node_modules/data-view-byte-offset/",\
+        "packageDependencies": [\
+          ["data-view-byte-offset", "npm:1.0.0"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["is-data-view", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5301,12 +9070,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-1040418e3c/6/.yarn/berry/cache/debug-npm-4.3.4-4513954577-10c0.zip/node_modules/debug/",\
+      ["virtual:55a75d6b53eecd7db4cd99f7cd21a62e8acccdc5f5ca6f93b58377ad5035bc5edd0b12c9d7bc7e9b2b35a852dfc912166d29b6102b57b60527bfcee563b1b4f6#npm:2.6.9", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-03dd9f9f13/6/.yarn/berry/cache/debug-npm-2.6.9-7d4cb597dc-10c0.zip/node_modules/debug/",\
         "packageDependencies": [\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:55a75d6b53eecd7db4cd99f7cd21a62e8acccdc5f5ca6f93b58377ad5035bc5edd0b12c9d7bc7e9b2b35a852dfc912166d29b6102b57b60527bfcee563b1b4f6#npm:2.6.9"],\
           ["@types/supports-color", null],\
-          ["ms", "npm:2.1.2"],\
+          ["ms", "npm:2.0.0"],\
           ["supports-color", null]\
         ],\
         "packagePeers": [\
@@ -5315,12 +9084,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["virtual:55a75d6b53eecd7db4cd99f7cd21a62e8acccdc5f5ca6f93b58377ad5035bc5edd0b12c9d7bc7e9b2b35a852dfc912166d29b6102b57b60527bfcee563b1b4f6#npm:2.6.9", {\
-        "packageLocation": "./.yarn/__virtual__/debug-virtual-03dd9f9f13/6/.yarn/berry/cache/debug-npm-2.6.9-7d4cb597dc-10c0.zip/node_modules/debug/",\
+      ["virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4", {\
+        "packageLocation": "./.yarn/__virtual__/debug-virtual-11377b508d/6/.yarn/berry/cache/debug-npm-4.3.4-4513954577-10c0.zip/node_modules/debug/",\
         "packageDependencies": [\
-          ["debug", "virtual:55a75d6b53eecd7db4cd99f7cd21a62e8acccdc5f5ca6f93b58377ad5035bc5edd0b12c9d7bc7e9b2b35a852dfc912166d29b6102b57b60527bfcee563b1b4f6#npm:2.6.9"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["@types/supports-color", null],\
-          ["ms", "npm:2.0.0"],\
+          ["ms", "npm:2.1.2"],\
           ["supports-color", null]\
         ],\
         "packagePeers": [\
@@ -5461,11 +9230,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["dom-serializer", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/dom-serializer-npm-2.0.0-378ebc7200-10c0.zip/node_modules/dom-serializer/",\
+        "packageDependencies": [\
+          ["dom-serializer", "npm:2.0.0"],\
+          ["domelementtype", "npm:2.3.0"],\
+          ["domhandler", "npm:5.0.3"],\
+          ["entities", "npm:4.5.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["domain-browser", [\
       ["npm:4.23.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/domain-browser-npm-4.23.0-77509c699b-10c0.zip/node_modules/domain-browser/",\
         "packageDependencies": [\
           ["domain-browser", "npm:4.23.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["domelementtype", [\
+      ["npm:2.3.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/domelementtype-npm-2.3.0-02de7cbfba-10c0.zip/node_modules/domelementtype/",\
+        "packageDependencies": [\
+          ["domelementtype", "npm:2.3.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5476,6 +9266,28 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["domexception", "npm:4.0.0"],\
           ["webidl-conversions", "npm:7.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["domhandler", [\
+      ["npm:5.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/domhandler-npm-5.0.3-3ede73dc10-10c0.zip/node_modules/domhandler/",\
+        "packageDependencies": [\
+          ["domhandler", "npm:5.0.3"],\
+          ["domelementtype", "npm:2.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["domutils", [\
+      ["npm:3.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/domutils-npm-3.1.0-66c92ef7eb-10c0.zip/node_modules/domutils/",\
+        "packageDependencies": [\
+          ["domutils", "npm:3.1.0"],\
+          ["dom-serializer", "npm:2.0.0"],\
+          ["domelementtype", "npm:2.3.0"],\
+          ["domhandler", "npm:5.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5496,6 +9308,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/draggable-vue-directive-npm-1.2.0-4d5552f4d5-10c0.zip/node_modules/draggable-vue-directive/",\
         "packageDependencies": [\
           ["draggable-vue-directive", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["earcut", [\
+      ["npm:2.2.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/earcut-npm-2.2.4-e823546b2f-10c0.zip/node_modules/earcut/",\
+        "packageDependencies": [\
+          ["earcut", "npm:2.2.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5572,6 +9393,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["enabled", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/enabled-npm-2.0.0-bf5d96c9d8-10c0.zip/node_modules/enabled/",\
+        "packageDependencies": [\
+          ["enabled", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["encodeurl", [\
       ["npm:1.0.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/encodeurl-npm-1.0.2-f8c8454c41-10c0.zip/node_modules/encodeurl/",\
@@ -5636,6 +9466,61 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["es-abstract", [\
+      ["npm:1.23.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/es-abstract-npm-1.23.3-ffd85665f7-10c0.zip/node_modules/es-abstract/",\
+        "packageDependencies": [\
+          ["es-abstract", "npm:1.23.3"],\
+          ["array-buffer-byte-length", "npm:1.0.1"],\
+          ["arraybuffer.prototype.slice", "npm:1.0.3"],\
+          ["available-typed-arrays", "npm:1.0.7"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["data-view-buffer", "npm:1.0.1"],\
+          ["data-view-byte-length", "npm:1.0.1"],\
+          ["data-view-byte-offset", "npm:1.0.0"],\
+          ["es-define-property", "npm:1.0.0"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["es-object-atoms", "npm:1.0.0"],\
+          ["es-set-tostringtag", "npm:2.0.3"],\
+          ["es-to-primitive", "npm:1.2.1"],\
+          ["function.prototype.name", "npm:1.1.6"],\
+          ["get-intrinsic", "npm:1.2.4"],\
+          ["get-symbol-description", "npm:1.0.2"],\
+          ["globalthis", "npm:1.0.4"],\
+          ["gopd", "npm:1.0.1"],\
+          ["has-property-descriptors", "npm:1.0.2"],\
+          ["has-proto", "npm:1.0.3"],\
+          ["has-symbols", "npm:1.0.3"],\
+          ["hasown", "npm:2.0.2"],\
+          ["internal-slot", "npm:1.0.7"],\
+          ["is-array-buffer", "npm:3.0.4"],\
+          ["is-callable", "npm:1.2.7"],\
+          ["is-data-view", "npm:1.0.1"],\
+          ["is-negative-zero", "npm:2.0.3"],\
+          ["is-regex", "npm:1.1.4"],\
+          ["is-shared-array-buffer", "npm:1.0.3"],\
+          ["is-string", "npm:1.0.7"],\
+          ["is-typed-array", "npm:1.1.13"],\
+          ["is-weakref", "npm:1.0.2"],\
+          ["object-inspect", "npm:1.13.1"],\
+          ["object-keys", "npm:1.1.1"],\
+          ["object.assign", "npm:4.1.5"],\
+          ["regexp.prototype.flags", "npm:1.5.2"],\
+          ["safe-array-concat", "npm:1.1.2"],\
+          ["safe-regex-test", "npm:1.0.3"],\
+          ["string.prototype.trim", "npm:1.2.9"],\
+          ["string.prototype.trimend", "npm:1.0.8"],\
+          ["string.prototype.trimstart", "npm:1.0.8"],\
+          ["typed-array-buffer", "npm:1.0.2"],\
+          ["typed-array-byte-length", "npm:1.0.1"],\
+          ["typed-array-byte-offset", "npm:1.0.2"],\
+          ["typed-array-length", "npm:1.0.6"],\
+          ["unbox-primitive", "npm:1.0.2"],\
+          ["which-typed-array", "npm:1.1.15"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["es-define-property", [\
       ["npm:1.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/es-define-property-npm-1.0.0-e23aa9b242-10c0.zip/node_modules/es-define-property/",\
@@ -5660,6 +9545,40 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/es-module-lexer-npm-1.5.3-af193ccb42-10c0.zip/node_modules/es-module-lexer/",\
         "packageDependencies": [\
           ["es-module-lexer", "npm:1.5.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["es-object-atoms", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/es-object-atoms-npm-1.0.0-c5cca6d760-10c0.zip/node_modules/es-object-atoms/",\
+        "packageDependencies": [\
+          ["es-object-atoms", "npm:1.0.0"],\
+          ["es-errors", "npm:1.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["es-set-tostringtag", [\
+      ["npm:2.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/es-set-tostringtag-npm-2.0.3-8a191fed13-10c0.zip/node_modules/es-set-tostringtag/",\
+        "packageDependencies": [\
+          ["es-set-tostringtag", "npm:2.0.3"],\
+          ["get-intrinsic", "npm:1.2.4"],\
+          ["has-tostringtag", "npm:1.0.2"],\
+          ["hasown", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["es-to-primitive", [\
+      ["npm:1.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/es-to-primitive-npm-1.2.1-b7a7eac6c5-10c0.zip/node_modules/es-to-primitive/",\
+        "packageDependencies": [\
+          ["es-to-primitive", "npm:1.2.1"],\
+          ["is-callable", "npm:1.2.7"],\
+          ["is-date-object", "npm:1.0.5"],\
+          ["is-symbol", "npm:1.0.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5789,7 +9708,7 @@ const RAW_RUNTIME_STATE =
           ["ajv", "npm:6.12.6"],\
           ["chalk", "npm:4.1.2"],\
           ["cross-spawn", "npm:7.0.3"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["doctrine", "npm:3.0.0"],\
           ["escape-string-regexp", "npm:4.0.0"],\
           ["eslint-scope", "npm:7.2.2"],\
@@ -6016,6 +9935,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["event-emitter-promisify", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/event-emitter-promisify-npm-1.1.0-b23efb3bd5-10c0.zip/node_modules/event-emitter-promisify/",\
+        "packageDependencies": [\
+          ["event-emitter-promisify", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["event-target-shim", [\
       ["npm:5.0.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/event-target-shim-npm-5.0.1-cb48709025-10c0.zip/node_modules/event-target-shim/",\
@@ -6143,6 +10071,58 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["fecha", [\
+      ["npm:4.2.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/fecha-npm-4.2.3-75248da3fd-10c0.zip/node_modules/fecha/",\
+        "packageDependencies": [\
+          ["fecha", "npm:4.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["fetch-blob", [\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/fetch-blob-npm-3.2.0-28e01becfc-10c0.zip/node_modules/fetch-blob/",\
+        "packageDependencies": [\
+          ["fetch-blob", "npm:3.2.0"],\
+          ["node-domexception", "npm:1.0.0"],\
+          ["web-streams-polyfill", "npm:3.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["fetch-sparql-endpoint", [\
+      ["npm:4.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/fetch-sparql-endpoint-npm-4.2.1-5d2e809287-10c0.zip/node_modules/fetch-sparql-endpoint/",\
+        "packageDependencies": [\
+          ["fetch-sparql-endpoint", "npm:4.2.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@smessie/readable-web-to-node-stream", "npm:3.0.3"],\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["@types/sparqljs", "npm:3.1.10"],\
+          ["abort-controller", "npm:3.0.0"],\
+          ["cross-fetch", "npm:3.1.8"],\
+          ["is-stream", "npm:2.0.1"],\
+          ["minimist", "npm:1.2.8"],\
+          ["n3", "npm:1.17.4"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["sparqljs", "npm:3.7.1"],\
+          ["sparqljson-parse", "npm:2.2.0"],\
+          ["sparqlxml-parse", "npm:2.1.1"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["fflate", [\
+      ["npm:0.8.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/fflate-npm-0.8.2-5129f303f0-10c0.zip/node_modules/fflate/",\
+        "packageDependencies": [\
+          ["fflate", "npm:0.8.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["file-entry-cache", [\
       ["npm:6.0.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/file-entry-cache-npm-6.0.1-31965cf0af-10c0.zip/node_modules/file-entry-cache/",\
@@ -6220,6 +10200,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["fn.name", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/fn.name-npm-1.1.0-b472333184-10c0.zip/node_modules/fn.name/",\
+        "packageDependencies": [\
+          ["fn.name", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["follow-redirects", [\
       ["npm:1.15.6", {\
         "packageLocation": "../../../../../.yarn/berry/cache/follow-redirects-npm-1.15.6-50635fe51d-10c0.zip/node_modules/follow-redirects/",\
@@ -6271,6 +10260,16 @@ const RAW_RUNTIME_STATE =
           ["asynckit", "npm:0.4.0"],\
           ["combined-stream", "npm:1.0.8"],\
           ["mime-types", "npm:2.1.35"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["formdata-polyfill", [\
+      ["npm:4.0.10", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/formdata-polyfill-npm-4.0.10-e03013c013-10c0.zip/node_modules/formdata-polyfill/",\
+        "packageDependencies": [\
+          ["formdata-polyfill", "npm:4.0.10"],\
+          ["fetch-blob", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6343,6 +10342,55 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["function.prototype.name", [\
+      ["npm:1.1.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/function.prototype.name-npm-1.1.6-fd3a6a5cdd-10c0.zip/node_modules/function.prototype.name/",\
+        "packageDependencies": [\
+          ["function.prototype.name", "npm:1.1.6"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["es-abstract", "npm:1.23.3"],\
+          ["functions-have-names", "npm:1.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["functions-have-names", [\
+      ["npm:1.2.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/functions-have-names-npm-1.2.3-e5cf1e2208-10c0.zip/node_modules/functions-have-names/",\
+        "packageDependencies": [\
+          ["functions-have-names", "npm:1.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["geojson-flatten", [\
+      ["npm:1.1.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/geojson-flatten-npm-1.1.1-7521a40ac9-10c0.zip/node_modules/geojson-flatten/",\
+        "packageDependencies": [\
+          ["geojson-flatten", "npm:1.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["geojson-vt", [\
+      ["npm:3.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/geojson-vt-npm-3.2.1-80c8f60496-10c0.zip/node_modules/geojson-vt/",\
+        "packageDependencies": [\
+          ["geojson-vt", "npm:3.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["get-caller-file", [\
+      ["npm:2.0.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/get-caller-file-npm-2.0.5-80e8a86305-10c0.zip/node_modules/get-caller-file/",\
+        "packageDependencies": [\
+          ["get-caller-file", "npm:2.0.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["get-func-name", [\
       ["npm:2.0.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/get-func-name-npm-2.0.2-409dbe3703-10c0.zip/node_modules/get-func-name/",\
@@ -6371,6 +10419,27 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/get-stream-npm-8.0.1-c921b4840e-10c0.zip/node_modules/get-stream/",\
         "packageDependencies": [\
           ["get-stream", "npm:8.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["get-symbol-description", [\
+      ["npm:1.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/get-symbol-description-npm-1.0.2-f8c332e0b5-10c0.zip/node_modules/get-symbol-description/",\
+        "packageDependencies": [\
+          ["get-symbol-description", "npm:1.0.2"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["get-intrinsic", "npm:1.2.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["gl-matrix", [\
+      ["npm:3.4.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/gl-matrix-npm-3.4.3-f2e6349faa-10c0.zip/node_modules/gl-matrix/",\
+        "packageDependencies": [\
+          ["gl-matrix", "npm:3.4.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6446,6 +10515,17 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["globalthis", [\
+      ["npm:1.0.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/globalthis-npm-1.0.4-de22ac6193-10c0.zip/node_modules/globalthis/",\
+        "packageDependencies": [\
+          ["globalthis", "npm:1.0.4"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["gopd", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["globby", [\
       ["npm:13.2.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/globby-npm-13.2.2-47efcd4a86-10c0.zip/node_modules/globby/",\
@@ -6488,6 +10568,30 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["graphql", [\
+      ["npm:15.9.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/graphql-npm-15.9.0-5ebe7a07df-10c0.zip/node_modules/graphql/",\
+        "packageDependencies": [\
+          ["graphql", "npm:15.9.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["graphql-to-sparql", [\
+      ["npm:3.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/graphql-to-sparql-npm-3.0.1-eeaee5254c-10c0.zip/node_modules/graphql-to-sparql/",\
+        "packageDependencies": [\
+          ["graphql-to-sparql", "npm:3.0.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["graphql", "npm:15.9.0"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["minimist", "npm:1.2.8"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["sparqlalgebrajs", "npm:4.3.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["gray-matter", [\
       ["npm:4.0.3", {\
         "packageLocation": "../../../../../.yarn/berry/cache/gray-matter-npm-4.0.3-852ae4f34c-10c0.zip/node_modules/gray-matter/",\
@@ -6497,6 +10601,24 @@ const RAW_RUNTIME_STATE =
           ["kind-of", "npm:6.0.3"],\
           ["section-matter", "npm:1.0.0"],\
           ["strip-bom-string", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["grid-index", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/grid-index-npm-1.1.0-fe69e26b3f-10c0.zip/node_modules/grid-index/",\
+        "packageDependencies": [\
+          ["grid-index", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["has-bigints", [\
+      ["npm:1.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/has-bigints-npm-1.0.2-52732e614d-10c0.zip/node_modules/has-bigints/",\
+        "packageDependencies": [\
+          ["has-bigints", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6593,6 +10715,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["hasown", "npm:2.0.2"],\
           ["function-bind", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["hat", [\
+      ["npm:0.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/hat-npm-0.0.3-7000159181-10c0.zip/node_modules/hat/",\
+        "packageDependencies": [\
+          ["hat", "npm:0.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6700,11 +10831,44 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["htmlparser2", [\
+      ["npm:8.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/htmlparser2-npm-8.0.2-5d9f901bb6-10c0.zip/node_modules/htmlparser2/",\
+        "packageDependencies": [\
+          ["htmlparser2", "npm:8.0.2"],\
+          ["domelementtype", "npm:2.3.0"],\
+          ["domhandler", "npm:5.0.3"],\
+          ["domutils", "npm:3.1.0"],\
+          ["entities", "npm:4.5.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/htmlparser2-npm-9.1.0-5ef8394060-10c0.zip/node_modules/htmlparser2/",\
+        "packageDependencies": [\
+          ["htmlparser2", "npm:9.1.0"],\
+          ["domelementtype", "npm:2.3.0"],\
+          ["domhandler", "npm:5.0.3"],\
+          ["domutils", "npm:3.1.0"],\
+          ["entities", "npm:4.5.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["http-cache-semantics", [\
       ["npm:4.1.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/http-cache-semantics-npm-4.1.1-1120131375-10c0.zip/node_modules/http-cache-semantics/",\
         "packageDependencies": [\
           ["http-cache-semantics", "npm:4.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["http-link-header", [\
+      ["npm:1.1.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/http-link-header-npm-1.1.3-640247edca-10c0.zip/node_modules/http-link-header/",\
+        "packageDependencies": [\
+          ["http-link-header", "npm:1.1.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6716,7 +10880,7 @@ const RAW_RUNTIME_STATE =
           ["http-proxy-agent", "npm:5.0.0"],\
           ["@tootallnate/once", "npm:2.0.0"],\
           ["agent-base", "npm:6.0.2"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"]\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -6725,7 +10889,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["http-proxy-agent", "npm:7.0.2"],\
           ["agent-base", "npm:7.1.1"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"]\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6745,7 +10909,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["https-proxy-agent", "npm:5.0.1"],\
           ["agent-base", "npm:6.0.2"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"]\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -6754,7 +10918,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["https-proxy-agent", "npm:7.0.4"],\
           ["agent-base", "npm:7.1.1"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"]\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6792,6 +10956,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/ignore-npm-5.3.1-f6947c5df7-10c0.zip/node_modules/ignore/",\
         "packageDependencies": [\
           ["ignore", "npm:5.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["immutable", [\
+      ["npm:4.3.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/immutable-npm-4.3.6-2cc137ece1-10c0.zip/node_modules/immutable/",\
+        "packageDependencies": [\
+          ["immutable", "npm:4.3.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6863,6 +11036,18 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["internal-slot", [\
+      ["npm:1.0.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/internal-slot-npm-1.0.7-6e3758af00-10c0.zip/node_modules/internal-slot/",\
+        "packageDependencies": [\
+          ["internal-slot", "npm:1.0.7"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["hasown", "npm:2.0.2"],\
+          ["side-channel", "npm:1.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["ip-address", [\
       ["npm:9.0.5", {\
         "packageLocation": "../../../../../.yarn/berry/cache/ip-address-npm-9.0.5-9fa024d42a-10c0.zip/node_modules/ip-address/",\
@@ -6885,12 +11070,53 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["is-array-buffer", [\
+      ["npm:3.0.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-array-buffer-npm-3.0.4-c1d4ec5b64-10c0.zip/node_modules/is-array-buffer/",\
+        "packageDependencies": [\
+          ["is-array-buffer", "npm:3.0.4"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["get-intrinsic", "npm:1.2.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-arrayish", [\
+      ["npm:0.3.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-arrayish-npm-0.3.2-f856180f79-10c0.zip/node_modules/is-arrayish/",\
+        "packageDependencies": [\
+          ["is-arrayish", "npm:0.3.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-bigint", [\
+      ["npm:1.0.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-bigint-npm-1.0.4-31c2eecbc9-10c0.zip/node_modules/is-bigint/",\
+        "packageDependencies": [\
+          ["is-bigint", "npm:1.0.4"],\
+          ["has-bigints", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["is-binary-path", [\
       ["npm:2.1.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/is-binary-path-npm-2.1.0-e61d46f557-10c0.zip/node_modules/is-binary-path/",\
         "packageDependencies": [\
           ["is-binary-path", "npm:2.1.0"],\
           ["binary-extensions", "npm:2.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-boolean-object", [\
+      ["npm:1.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-boolean-object-npm-1.1.2-ecbd575e6a-10c0.zip/node_modules/is-boolean-object/",\
+        "packageDependencies": [\
+          ["is-boolean-object", "npm:1.1.2"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["has-tostringtag", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6918,6 +11144,26 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["is-core-module", "npm:2.14.0"],\
           ["hasown", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-data-view", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-data-view-npm-1.0.1-d6136250e8-10c0.zip/node_modules/is-data-view/",\
+        "packageDependencies": [\
+          ["is-data-view", "npm:1.0.1"],\
+          ["is-typed-array", "npm:1.1.13"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-date-object", [\
+      ["npm:1.0.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-date-object-npm-1.0.5-88f3d08b5e-10c0.zip/node_modules/is-date-object/",\
+        "packageDependencies": [\
+          ["is-date-object", "npm:1.0.5"],\
+          ["has-tostringtag", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6989,11 +11235,30 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["is-negative-zero", [\
+      ["npm:2.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-negative-zero-npm-2.0.3-d06b09e322-10c0.zip/node_modules/is-negative-zero/",\
+        "packageDependencies": [\
+          ["is-negative-zero", "npm:2.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["is-number", [\
       ["npm:7.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/is-number-npm-7.0.0-060086935c-10c0.zip/node_modules/is-number/",\
         "packageDependencies": [\
           ["is-number", "npm:7.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-number-object", [\
+      ["npm:1.0.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-number-object-npm-1.0.7-539d0e274d-10c0.zip/node_modules/is-number-object/",\
+        "packageDependencies": [\
+          ["is-number-object", "npm:1.0.7"],\
+          ["has-tostringtag", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7016,11 +11281,59 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["is-regex", [\
+      ["npm:1.1.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-regex-npm-1.1.4-cca193ef11-10c0.zip/node_modules/is-regex/",\
+        "packageDependencies": [\
+          ["is-regex", "npm:1.1.4"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["has-tostringtag", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-shared-array-buffer", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-shared-array-buffer-npm-1.0.3-3b3b3142a6-10c0.zip/node_modules/is-shared-array-buffer/",\
+        "packageDependencies": [\
+          ["is-shared-array-buffer", "npm:1.0.3"],\
+          ["call-bind", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["is-stream", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-stream-npm-2.0.1-c802db55e7-10c0.zip/node_modules/is-stream/",\
+        "packageDependencies": [\
+          ["is-stream", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:3.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/is-stream-npm-3.0.0-a77ac9a62e-10c0.zip/node_modules/is-stream/",\
         "packageDependencies": [\
           ["is-stream", "npm:3.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-string", [\
+      ["npm:1.0.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-string-npm-1.0.7-9f7066daed-10c0.zip/node_modules/is-string/",\
+        "packageDependencies": [\
+          ["is-string", "npm:1.0.7"],\
+          ["has-tostringtag", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["is-symbol", [\
+      ["npm:1.0.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-symbol-npm-1.0.4-eb9baac703-10c0.zip/node_modules/is-symbol/",\
+        "packageDependencies": [\
+          ["is-symbol", "npm:1.0.4"],\
+          ["has-symbols", "npm:1.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7035,11 +11348,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["is-weakref", [\
+      ["npm:1.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/is-weakref-npm-1.0.2-ff80e8c314-10c0.zip/node_modules/is-weakref/",\
+        "packageDependencies": [\
+          ["is-weakref", "npm:1.0.2"],\
+          ["call-bind", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["isarray", [\
       ["npm:1.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/isarray-npm-1.0.0-db4f547720-10c0.zip/node_modules/isarray/",\
         "packageDependencies": [\
           ["isarray", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:2.0.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/isarray-npm-2.0.5-4ba522212d-10c0.zip/node_modules/isarray/",\
+        "packageDependencies": [\
+          ["isarray", "npm:2.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7346,6 +11676,75 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["jsonld", [\
+      ["npm:8.3.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/jsonld-npm-8.3.2-d6ca5071da-10c0.zip/node_modules/jsonld/",\
+        "packageDependencies": [\
+          ["jsonld", "npm:8.3.2"],\
+          ["@digitalbazaar/http-client", "npm:3.4.1"],\
+          ["canonicalize", "npm:1.0.8"],\
+          ["lru-cache", "npm:6.0.0"],\
+          ["rdf-canonize", "npm:3.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["jsonld-context-parser", [\
+      ["npm:2.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/jsonld-context-parser-npm-2.4.0-c7b30da879-10c0.zip/node_modules/jsonld-context-parser/",\
+        "packageDependencies": [\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["@types/http-link-header", "npm:1.0.7"],\
+          ["@types/node", "npm:18.19.39"],\
+          ["cross-fetch", "npm:3.1.8"],\
+          ["http-link-header", "npm:1.1.3"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["jsonld-streaming-parser", [\
+      ["npm:3.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/jsonld-streaming-parser-npm-3.4.0-b948b53eb3-10c0.zip/node_modules/jsonld-streaming-parser/",\
+        "packageDependencies": [\
+          ["jsonld-streaming-parser", "npm:3.4.0"],\
+          ["@bergos/jsonparse", "npm:1.4.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/http-link-header", "npm:1.0.7"],\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["buffer", "npm:6.0.3"],\
+          ["canonicalize", "npm:1.0.8"],\
+          ["http-link-header", "npm:1.1.3"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["jsonld-streaming-serializer", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/jsonld-streaming-serializer-npm-2.1.0-b33d503b6e-10c0.zip/node_modules/jsonld-streaming-serializer/",\
+        "packageDependencies": [\
+          ["jsonld-streaming-serializer", "npm:2.1.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["buffer", "npm:6.0.3"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["kdbush", [\
+      ["npm:4.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/kdbush-npm-4.0.2-e4894ed9f4-10c0.zip/node_modules/kdbush/",\
+        "packageDependencies": [\
+          ["kdbush", "npm:4.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["keyv", [\
       ["npm:4.5.4", {\
         "packageLocation": "../../../../../.yarn/berry/cache/keyv-npm-4.5.4-4c8e2cf7f7-10c0.zip/node_modules/keyv/",\
@@ -7374,6 +11773,52 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["kuler", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/kuler-npm-2.0.0-19e74c9695-10c0.zip/node_modules/kuler/",\
+        "packageDependencies": [\
+          ["kuler", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["ky", [\
+      ["npm:0.33.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/ky-npm-0.33.3-7d1cbfa9f4-10c0.zip/node_modules/ky/",\
+        "packageDependencies": [\
+          ["ky", "npm:0.33.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["ky-universal", [\
+      ["npm:0.11.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/ky-universal-npm-0.11.0-f343804243-10c0.zip/node_modules/ky-universal/",\
+        "packageDependencies": [\
+          ["ky-universal", "npm:0.11.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:8f7eac0be74664d725f06767d8b014c5441ef91d67e5f5b4d48b1eb4b262e4666123cac7be8dcbb99a7798fb4a21e6f4d9693a3957796c4a48c23e26af86514f#npm:0.11.0", {\
+        "packageLocation": "./.yarn/__virtual__/ky-universal-virtual-a0d11879db/6/.yarn/berry/cache/ky-universal-npm-0.11.0-f343804243-10c0.zip/node_modules/ky-universal/",\
+        "packageDependencies": [\
+          ["ky-universal", "virtual:8f7eac0be74664d725f06767d8b014c5441ef91d67e5f5b4d48b1eb4b262e4666123cac7be8dcbb99a7798fb4a21e6f4d9693a3957796c4a48c23e26af86514f#npm:0.11.0"],\
+          ["@types/ky", null],\
+          ["@types/web-streams-polyfill", null],\
+          ["abort-controller", "npm:3.0.0"],\
+          ["ky", "npm:0.33.3"],\
+          ["node-fetch", "npm:3.3.2"],\
+          ["web-streams-polyfill", null]\
+        ],\
+        "packagePeers": [\
+          "@types/ky",\
+          "@types/web-streams-polyfill",\
+          "ky",\
+          "web-streams-polyfill"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["launch-editor", [\
       ["npm:2.8.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/launch-editor-npm-2.8.0-4c524f1ef3-10c0.zip/node_modules/launch-editor/",\
@@ -7381,6 +11826,33 @@ const RAW_RUNTIME_STATE =
           ["launch-editor", "npm:2.8.0"],\
           ["picocolors", "npm:1.0.0"],\
           ["shell-quote", "npm:1.8.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["leaflet", [\
+      ["npm:1.9.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/leaflet-npm-1.9.4-8d372b0fe6-10c0.zip/node_modules/leaflet/",\
+        "packageDependencies": [\
+          ["leaflet", "npm:1.9.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["leaflet-editable", [\
+      ["npm:1.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/leaflet-editable-npm-1.2.0-6b7f5cde54-10c0.zip/node_modules/leaflet-editable/",\
+        "packageDependencies": [\
+          ["leaflet-editable", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["leaflet.fullscreen", [\
+      ["npm:3.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/leaflet.fullscreen-npm-3.0.2-d333b6e96f-10c0.zip/node_modules/leaflet.fullscreen/",\
+        "packageDependencies": [\
+          ["leaflet.fullscreen", "npm:3.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7402,6 +11874,40 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["linkify-it", "npm:3.0.3"],\
           ["uc.micro", "npm:1.0.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lit", [\
+      ["npm:3.1.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/lit-npm-3.1.4-b7dcc2d5a3-10c0.zip/node_modules/lit/",\
+        "packageDependencies": [\
+          ["lit", "npm:3.1.4"],\
+          ["@lit/reactive-element", "npm:2.0.4"],\
+          ["lit-element", "npm:4.0.6"],\
+          ["lit-html", "npm:3.1.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lit-element", [\
+      ["npm:4.0.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/lit-element-npm-4.0.6-bfca4f9870-10c0.zip/node_modules/lit-element/",\
+        "packageDependencies": [\
+          ["lit-element", "npm:4.0.6"],\
+          ["@lit-labs/ssr-dom-shim", "npm:1.2.0"],\
+          ["@lit/reactive-element", "npm:2.0.4"],\
+          ["lit-html", "npm:3.1.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["lit-html", [\
+      ["npm:3.1.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/lit-html-npm-3.1.4-58e56c5010-10c0.zip/node_modules/lit-html/",\
+        "packageDependencies": [\
+          ["lit-html", "npm:3.1.4"],\
+          ["@types/trusted-types", "npm:2.0.7"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7445,6 +11951,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["lodash.clonedeep", [\
+      ["npm:4.5.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/lodash.clonedeep-npm-4.5.0-fbc3cda4e5-10c0.zip/node_modules/lodash.clonedeep/",\
+        "packageDependencies": [\
+          ["lodash.clonedeep", "npm:4.5.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["lodash.get", [\
       ["npm:4.4.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/lodash.get-npm-4.4.2-7bda64ed87-10c0.zip/node_modules/lodash.get/",\
@@ -7468,6 +11983,21 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/lodash.merge-npm-4.6.2-77cb4416bf-10c0.zip/node_modules/lodash.merge/",\
         "packageDependencies": [\
           ["lodash.merge", "npm:4.6.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["logform", [\
+      ["npm:2.6.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/logform-npm-2.6.0-1b87e8d90b-10c0.zip/node_modules/logform/",\
+        "packageDependencies": [\
+          ["logform", "npm:2.6.0"],\
+          ["@colors/colors", "npm:1.6.0"],\
+          ["@types/triple-beam", "npm:1.3.5"],\
+          ["fecha", "npm:4.2.3"],\
+          ["ms", "npm:2.1.3"],\
+          ["safe-stable-stringify", "npm:2.4.3"],\
+          ["triple-beam", "npm:1.4.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7497,6 +12027,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/lru-cache-npm-10.2.0-b9f6b44740-10c0.zip/node_modules/lru-cache/",\
         "packageDependencies": [\
           ["lru-cache", "npm:10.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:10.2.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/lru-cache-npm-10.2.2-c54b721fc3-10c0.zip/node_modules/lru-cache/",\
+        "packageDependencies": [\
+          ["lru-cache", "npm:10.2.2"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -7552,6 +12089,42 @@ const RAW_RUNTIME_STATE =
           ["negotiator", "npm:0.6.3"],\
           ["promise-retry", "npm:2.0.1"],\
           ["ssri", "npm:10.0.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["mapbox-gl", [\
+      ["npm:3.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/mapbox-gl-npm-3.4.0-2de1b05df3-10c0.zip/node_modules/mapbox-gl/",\
+        "packageDependencies": [\
+          ["mapbox-gl", "npm:3.4.0"],\
+          ["@mapbox/jsonlint-lines-primitives", "npm:2.0.2"],\
+          ["@mapbox/mapbox-gl-supported", "npm:3.0.0"],\
+          ["@mapbox/point-geometry", "npm:0.1.0"],\
+          ["@mapbox/tiny-sdf", "npm:2.0.6"],\
+          ["@mapbox/unitbezier", "npm:0.0.1"],\
+          ["@mapbox/vector-tile", "npm:1.3.1"],\
+          ["@mapbox/whoots-js", "npm:3.1.0"],\
+          ["cheap-ruler", "npm:3.0.2"],\
+          ["csscolorparser", "npm:1.0.3"],\
+          ["earcut", "npm:2.2.4"],\
+          ["fflate", "npm:0.8.2"],\
+          ["geojson-vt", "npm:3.2.1"],\
+          ["gl-matrix", "npm:3.4.3"],\
+          ["grid-index", "npm:1.1.0"],\
+          ["kdbush", "npm:4.0.2"],\
+          ["lodash.clonedeep", "npm:4.5.0"],\
+          ["murmurhash-js", "npm:1.0.0"],\
+          ["pbf", "npm:3.2.1"],\
+          ["potpack", "npm:2.0.0"],\
+          ["quickselect", "npm:2.0.0"],\
+          ["rw", "npm:1.3.3"],\
+          ["serialize-to-js", "npm:3.1.2"],\
+          ["supercluster", "npm:8.0.1"],\
+          ["tiny-lru", "npm:11.2.6"],\
+          ["tinyqueue", "npm:2.0.3"],\
+          ["tweakpane", "npm:4.0.3"],\
+          ["vt-pbf", "npm:3.1.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7671,6 +12244,20 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["microdata-rdf-streaming-parser", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/microdata-rdf-streaming-parser-npm-2.0.1-90d727d70f-10c0.zip/node_modules/microdata-rdf-streaming-parser/",\
+        "packageDependencies": [\
+          ["microdata-rdf-streaming-parser", "npm:2.0.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["htmlparser2", "npm:8.0.2"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["micromatch", [\
       ["npm:4.0.7", {\
         "packageLocation": "../../../../../.yarn/berry/cache/micromatch-npm-4.0.7-28fb7387ee-10c0.zip/node_modules/micromatch/",\
@@ -7769,6 +12356,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["minimatch", "npm:9.0.4"],\
           ["brace-expansion", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["minimist", [\
+      ["npm:1.2.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/minimist-npm-1.2.8-d7af7b1dce-10c0.zip/node_modules/minimist/",\
+        "packageDependencies": [\
+          ["minimist", "npm:1.2.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7933,6 +12529,13 @@ const RAW_RUNTIME_STATE =
           ["ms", "npm:2.1.2"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:2.1.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/ms-npm-2.1.3-81ff3cfac1-10c0.zip/node_modules/ms/",\
+        "packageDependencies": [\
+          ["ms", "npm:2.1.3"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["muggle-string", [\
@@ -7944,11 +12547,30 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["murmurhash-js", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/murmurhash-js-npm-1.0.0-b1fa804bc0-10c0.zip/node_modules/murmurhash-js/",\
+        "packageDependencies": [\
+          ["murmurhash-js", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["n3", [\
       ["npm:1.17.3", {\
         "packageLocation": "../../../../../.yarn/berry/cache/n3-npm-1.17.3-f7bbfa3a5c-10c0.zip/node_modules/n3/",\
         "packageDependencies": [\
           ["n3", "npm:1.17.3"],\
+          ["queue-microtask", "npm:1.2.3"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.17.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/n3-npm-1.17.4-9b416ca2ea-10c0.zip/node_modules/n3/",\
+        "packageDependencies": [\
+          ["n3", "npm:1.17.4"],\
+          ["buffer", "npm:6.0.3"],\
           ["queue-microtask", "npm:1.2.3"],\
           ["readable-stream", "npm:4.5.2"]\
         ],\
@@ -7969,6 +12591,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/natural-compare-npm-1.4.0-97b75b362d-10c0.zip/node_modules/natural-compare/",\
         "packageDependencies": [\
           ["natural-compare", "npm:1.4.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["negotiate", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/negotiate-npm-1.0.1-1ecded6ce1-10c0.zip/node_modules/negotiate/",\
+        "packageDependencies": [\
+          ["negotiate", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7998,6 +12629,48 @@ const RAW_RUNTIME_STATE =
           ["no-case", "npm:3.0.4"],\
           ["lower-case", "npm:2.0.2"],\
           ["tslib", "npm:2.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["node-domexception", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/node-domexception-npm-1.0.0-e1e813b76f-10c0.zip/node_modules/node-domexception/",\
+        "packageDependencies": [\
+          ["node-domexception", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["node-fetch", [\
+      ["npm:2.7.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/node-fetch-npm-2.7.0-587d57004e-10c0.zip/node_modules/node-fetch/",\
+        "packageDependencies": [\
+          ["node-fetch", "npm:2.7.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["npm:3.3.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/node-fetch-npm-3.3.2-5267e015f2-10c0.zip/node_modules/node-fetch/",\
+        "packageDependencies": [\
+          ["node-fetch", "npm:3.3.2"],\
+          ["data-uri-to-buffer", "npm:4.0.1"],\
+          ["fetch-blob", "npm:3.2.0"],\
+          ["formdata-polyfill", "npm:4.0.10"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:71c3c0570974c795b79987bb85d4a29514e196f75c7ca2bb56e80f88177e71cbbb73c9a0f02e781c6ccd33e5e8542eb2d0a05fb7aad876eea2872ec6993aa554#npm:2.7.0", {\
+        "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-749a5a9668/6/.yarn/berry/cache/node-fetch-npm-2.7.0-587d57004e-10c0.zip/node_modules/node-fetch/",\
+        "packageDependencies": [\
+          ["node-fetch", "virtual:71c3c0570974c795b79987bb85d4a29514e196f75c7ca2bb56e80f88177e71cbbb73c9a0f02e781c6ccd33e5e8542eb2d0a05fb7aad876eea2872ec6993aa554#npm:2.7.0"],\
+          ["@types/encoding", null],\
+          ["encoding", null],\
+          ["whatwg-url", "npm:5.0.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/encoding",\
+          "encoding"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8128,6 +12801,13 @@ const RAW_RUNTIME_STATE =
           ["object-inspect", "npm:1.13.1"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:1.13.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/object-inspect-npm-1.13.2-3c6e11a536-10c0.zip/node_modules/object-inspect/",\
+        "packageDependencies": [\
+          ["object-inspect", "npm:1.13.2"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["object-is", [\
@@ -8183,6 +12863,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["one-time", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/one-time-npm-1.0.0-aeaad5e524-10c0.zip/node_modules/one-time/",\
+        "packageDependencies": [\
+          ["one-time", "npm:1.0.0"],\
+          ["fn.name", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["onetime", [\
       ["npm:6.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/onetime-npm-6.0.0-4f3684e29a-10c0.zip/node_modules/onetime/",\
@@ -8198,9 +12888,11 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["ontopad", "workspace:."],\
+          ["@comunica/query-sparql", "npm:3.1.2"],\
           ["@popperjs/core", "npm:2.11.8"],\
           ["@rdfjs/data-model", "npm:2.0.2"],\
           ["@rushstack/eslint-patch", "npm:1.10.2"],\
+          ["@ulb-darmstadt/shacl-form", "npm:1.4.3"],\
           ["@vitejs/plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.0.4"],\
           ["@vue/eslint-config-prettier", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.0.0"],\
           ["@vue/test-utils", "npm:2.4.5"],\
@@ -8466,6 +13158,17 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["pbf", [\
+      ["npm:3.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/pbf-npm-3.2.1-d33be8e429-10c0.zip/node_modules/pbf/",\
+        "packageDependencies": [\
+          ["pbf", "npm:3.2.1"],\
+          ["ieee754", "npm:1.2.1"],\
+          ["resolve-protobuf-schema", "npm:2.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["pbkdf2", [\
       ["npm:3.1.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/pbkdf2-npm-3.1.2-d67bbb584f-10c0.zip/node_modules/pbkdf2/",\
@@ -8601,6 +13304,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["potpack", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/potpack-npm-2.0.0-751304d85e-10c0.zip/node_modules/potpack/",\
+        "packageDependencies": [\
+          ["potpack", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["prelude-ls", [\
       ["npm:1.2.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/prelude-ls-npm-1.2.1-3e4d272a55-10c0.zip/node_modules/prelude-ls/",\
@@ -8668,6 +13380,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["promise-polyfill", [\
+      ["npm:1.1.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/promise-polyfill-npm-1.1.6-3234b29d20-10c0.zip/node_modules/promise-polyfill/",\
+        "packageDependencies": [\
+          ["promise-polyfill", "npm:1.1.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["promise-retry", [\
       ["npm:2.0.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/promise-retry-npm-2.0.1-871f0b01b7-10c0.zip/node_modules/promise-retry/",\
@@ -8684,6 +13405,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/proto-list-npm-1.2.4-a96a43df28-10c0.zip/node_modules/proto-list/",\
         "packageDependencies": [\
           ["proto-list", "npm:1.2.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["protocol-buffers-schema", [\
+      ["npm:3.6.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/protocol-buffers-schema-npm-3.6.0-af2f375e69-10c0.zip/node_modules/protocol-buffers-schema/",\
+        "packageDependencies": [\
+          ["protocol-buffers-schema", "npm:3.6.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8774,6 +13504,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["quickselect", [\
+      ["npm:2.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/quickselect-npm-2.0.0-620eb59fdc-10c0.zip/node_modules/quickselect/",\
+        "packageDependencies": [\
+          ["quickselect", "npm:2.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["randombytes", [\
       ["npm:2.1.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/randombytes-npm-2.1.0-e3da76bccf-10c0.zip/node_modules/randombytes/",\
@@ -8795,12 +13534,146 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["rdf-canonize", [\
+      ["npm:3.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-canonize-npm-3.4.0-87bb945794-10c0.zip/node_modules/rdf-canonize/",\
+        "packageDependencies": [\
+          ["rdf-canonize", "npm:3.4.0"],\
+          ["setimmediate", "npm:1.0.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["rdf-data-factory", [\
       ["npm:1.1.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/rdf-data-factory-npm-1.1.2-aed00316e2-10c0.zip/node_modules/rdf-data-factory/",\
         "packageDependencies": [\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["@rdfjs/types", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-isomorphic", [\
+      ["npm:1.3.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-isomorphic-npm-1.3.1-689c7b5af2-10c0.zip/node_modules/rdf-isomorphic/",\
+        "packageDependencies": [\
+          ["rdf-isomorphic", "npm:1.3.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["hash.js", "npm:1.1.7"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-literal", [\
+      ["npm:1.3.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-literal-npm-1.3.2-65808d0a65-10c0.zip/node_modules/rdf-literal/",\
+        "packageDependencies": [\
+          ["rdf-literal", "npm:1.3.2"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-object", [\
+      ["npm:1.14.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-object-npm-1.14.0-4d4a969e8d-10c0.zip/node_modules/rdf-object/",\
+        "packageDependencies": [\
+          ["rdf-object", "npm:1.14.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["jsonld-context-parser", "npm:2.4.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["streamify-array", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-parse", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-parse-npm-2.3.3-693e59f159-10c0.zip/node_modules/rdf-parse/",\
+        "packageDependencies": [\
+          ["rdf-parse", "npm:2.3.3"],\
+          ["@comunica/actor-http-fetch", "npm:2.10.2"],\
+          ["@comunica/actor-http-proxy", "npm:2.10.2"],\
+          ["@comunica/actor-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/actor-rdf-parse-html-microdata", "npm:2.10.0"],\
+          ["@comunica/actor-rdf-parse-html-rdfa", "npm:2.10.0"],\
+          ["@comunica/actor-rdf-parse-html-script", "npm:2.10.0"],\
+          ["@comunica/actor-rdf-parse-jsonld", "npm:2.10.2"],\
+          ["@comunica/actor-rdf-parse-n3", "npm:2.10.0"],\
+          ["@comunica/actor-rdf-parse-rdfxml", "npm:2.10.0"],\
+          ["@comunica/actor-rdf-parse-shaclc", "npm:2.10.0"],\
+          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:2.10.0"],\
+          ["@comunica/bus-http", "npm:2.10.2"],\
+          ["@comunica/bus-init", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse", "npm:2.10.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:2.10.0"],\
+          ["@comunica/config-query-sparql", "npm:2.7.0"],\
+          ["@comunica/core", "npm:2.10.0"],\
+          ["@comunica/mediator-combine-pipeline", "npm:2.10.0"],\
+          ["@comunica/mediator-combine-union", "npm:2.10.0"],\
+          ["@comunica/mediator-number", "npm:2.10.0"],\
+          ["@comunica/mediator-race", "npm:2.10.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["stream-to-string", "npm:1.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-quad", [\
+      ["npm:1.5.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-quad-npm-1.5.0-115a6a7cec-10c0.zip/node_modules/rdf-quad/",\
+        "packageDependencies": [\
+          ["rdf-quad", "npm:1.5.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-literal", "npm:1.3.2"],\
+          ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-store-stream", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-store-stream-npm-2.0.1-c84a1974a7-10c0.zip/node_modules/rdf-store-stream/",\
+        "packageDependencies": [\
+          ["rdf-store-stream", "npm:2.0.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-stores", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-stores", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-stores-npm-1.0.0-a8826aea24-10c0.zip/node_modules/rdf-stores/",\
+        "packageDependencies": [\
+          ["rdf-stores", "npm:1.0.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-streaming-store", [\
+      ["npm:1.1.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-streaming-store-npm-1.1.4-c24140171a-10c0.zip/node_modules/rdf-streaming-store/",\
+        "packageDependencies": [\
+          ["rdf-streaming-store", "npm:1.1.4"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/n3", "npm:1.16.4"],\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["n3", "npm:1.17.4"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8816,11 +13689,106 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["rdf-string-ttl", [\
+      ["npm:1.3.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-string-ttl-npm-1.3.2-b2e94dcffa-10c0.zip/node_modules/rdf-string-ttl/",\
+        "packageDependencies": [\
+          ["rdf-string-ttl", "npm:1.3.2"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-terms", [\
+      ["npm:1.11.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-terms-npm-1.11.0-452a95ed98-10c0.zip/node_modules/rdf-terms/",\
+        "packageDependencies": [\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-validate-datatype", [\
+      ["npm:0.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-validate-datatype-npm-0.2.1-fd790591c0-10c0.zip/node_modules/rdf-validate-datatype/",\
+        "packageDependencies": [\
+          ["rdf-validate-datatype", "npm:0.2.1"],\
+          ["@rdfjs/term-map", "npm:2.0.2"],\
+          ["@tpluscode/rdf-ns-builders", "npm:4.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-validate-shacl", [\
+      ["npm:0.5.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-validate-shacl-npm-0.5.5-8a1f883271-10c0.zip/node_modules/rdf-validate-shacl/",\
+        "packageDependencies": [\
+          ["rdf-validate-shacl", "npm:0.5.5"],\
+          ["@rdfjs/data-model", "npm:2.0.2"],\
+          ["@rdfjs/dataset", "npm:2.0.2"],\
+          ["@rdfjs/environment", "npm:1.0.0"],\
+          ["@rdfjs/namespace", "npm:2.0.1"],\
+          ["@rdfjs/term-set", "npm:2.0.3"],\
+          ["@vocabulary/sh", "virtual:8a1f883271f7c377338ecca202a6df0bcee79a122948f1dd5094830e1b5368078fa6d38bbdfda4f59cc3a29a682f7bdca5437470a00e46422ac54345edc7fff9#npm:1.1.5"],\
+          ["clownface", "npm:2.0.2"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
+          ["rdf-literal", "npm:1.3.2"],\
+          ["rdf-validate-datatype", "npm:0.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdfa-streaming-parser", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdfa-streaming-parser-npm-2.0.1-cbb238ad10-10c0.zip/node_modules/rdfa-streaming-parser/",\
+        "packageDependencies": [\
+          ["rdfa-streaming-parser", "npm:2.0.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["htmlparser2", "npm:8.0.2"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdfxml-streaming-parser", [\
+      ["npm:2.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdfxml-streaming-parser-npm-2.4.0-c9c671ae4a-10c0.zip/node_modules/rdfxml-streaming-parser/",\
+        "packageDependencies": [\
+          ["rdfxml-streaming-parser", "npm:2.4.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@rubensworks/saxes", "npm:6.0.1"],\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["buffer", "npm:6.0.3"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["readable-stream", "npm:4.5.2"],\
+          ["relative-to-absolute-iri", "npm:1.0.7"],\
+          ["validate-iri", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-is", [\
       ["npm:18.2.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/react-is-npm-18.2.0-0cc5edb910-10c0.zip/node_modules/react-is/",\
         "packageDependencies": [\
           ["react-is", "npm:18.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["readable-from-web", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/readable-from-web-npm-1.0.0-63b939ae7e-10c0.zip/node_modules/readable-from-web/",\
+        "packageDependencies": [\
+          ["readable-from-web", "npm:1.0.0"],\
+          ["@types/readable-stream", "npm:4.0.14"],\
+          ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8859,6 +13827,15 @@ const RAW_RUNTIME_STATE =
           ["events", "npm:3.3.0"],\
           ["process", "npm:0.11.10"],\
           ["string_decoder", "npm:1.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["readable-stream-node-to-web", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/readable-stream-node-to-web-npm-1.0.1-473d9efc2a-10c0.zip/node_modules/readable-stream-node-to-web/",\
+        "packageDependencies": [\
+          ["readable-stream-node-to-web", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8911,6 +13888,19 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["regexp.prototype.flags", [\
+      ["npm:1.5.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/regexp.prototype.flags-npm-1.5.2-a44e05d7d9-10c0.zip/node_modules/regexp.prototype.flags/",\
+        "packageDependencies": [\
+          ["regexp.prototype.flags", "npm:1.5.2"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["set-function-name", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["regexpu-core", [\
       ["npm:5.3.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/regexpu-core-npm-5.3.2-89effc52a2-10c0.zip/node_modules/regexpu-core/",\
@@ -8932,6 +13922,24 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["regjsparser", "npm:0.9.1"],\
           ["jsesc", "npm:0.5.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["relative-to-absolute-iri", [\
+      ["npm:1.0.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/relative-to-absolute-iri-npm-1.0.7-a0ae6b2ccd-10c0.zip/node_modules/relative-to-absolute-iri/",\
+        "packageDependencies": [\
+          ["relative-to-absolute-iri", "npm:1.0.7"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["require-directory", [\
+      ["npm:2.1.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/require-directory-npm-2.1.1-8608aee50b-10c0.zip/node_modules/require-directory/",\
+        "packageDependencies": [\
+          ["require-directory", "npm:2.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8971,6 +13979,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/resolve-from-npm-4.0.0-f758ec21bf-10c0.zip/node_modules/resolve-from/",\
         "packageDependencies": [\
           ["resolve-from", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["resolve-protobuf-schema", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/resolve-protobuf-schema-npm-2.1.0-56c0d37a08-10c0.zip/node_modules/resolve-protobuf-schema/",\
+        "packageDependencies": [\
+          ["resolve-protobuf-schema", "npm:2.1.0"],\
+          ["protocol-buffers-schema", "npm:3.6.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9060,12 +14078,41 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["rw", [\
+      ["npm:0.1.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rw-npm-0.1.4-b315accc9e-10c0.zip/node_modules/rw/",\
+        "packageDependencies": [\
+          ["rw", "npm:0.1.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.3.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rw-npm-1.3.3-2197930a8d-10c0.zip/node_modules/rw/",\
+        "packageDependencies": [\
+          ["rw", "npm:1.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["sade", [\
       ["npm:1.8.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/sade-npm-1.8.1-4759dc74c1-10c0.zip/node_modules/sade/",\
         "packageDependencies": [\
           ["sade", "npm:1.8.1"],\
           ["mri", "npm:1.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["safe-array-concat", [\
+      ["npm:1.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/safe-array-concat-npm-1.1.2-f9c09c1a31-10c0.zip/node_modules/safe-array-concat/",\
+        "packageDependencies": [\
+          ["safe-array-concat", "npm:1.1.2"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["get-intrinsic", "npm:1.2.4"],\
+          ["has-symbols", "npm:1.0.3"],\
+          ["isarray", "npm:2.0.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9082,6 +14129,27 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/safe-buffer-npm-5.2.1-3481c8aa9b-10c0.zip/node_modules/safe-buffer/",\
         "packageDependencies": [\
           ["safe-buffer", "npm:5.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["safe-regex-test", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/safe-regex-test-npm-1.0.3-97fe5cc608-10c0.zip/node_modules/safe-regex-test/",\
+        "packageDependencies": [\
+          ["safe-regex-test", "npm:1.0.3"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["is-regex", "npm:1.1.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["safe-stable-stringify", [\
+      ["npm:2.4.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/safe-stable-stringify-npm-2.4.3-d895741b40-10c0.zip/node_modules/safe-stable-stringify/",\
+        "packageDependencies": [\
+          ["safe-stable-stringify", "npm:2.4.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9189,6 +14257,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["serialize-to-js", [\
+      ["npm:3.1.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/serialize-to-js-npm-3.1.2-7d355f6fc1-10c0.zip/node_modules/serialize-to-js/",\
+        "packageDependencies": [\
+          ["serialize-to-js", "npm:3.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["set-function-length", [\
       ["npm:1.2.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/set-function-length-npm-1.2.2-243073748b-10c0.zip/node_modules/set-function-length/",\
@@ -9199,6 +14276,19 @@ const RAW_RUNTIME_STATE =
           ["function-bind", "npm:1.1.2"],\
           ["get-intrinsic", "npm:1.2.4"],\
           ["gopd", "npm:1.0.1"],\
+          ["has-property-descriptors", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["set-function-name", [\
+      ["npm:2.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/set-function-name-npm-2.0.2-3d9a2d8899-10c0.zip/node_modules/set-function-name/",\
+        "packageDependencies": [\
+          ["set-function-name", "npm:2.0.2"],\
+          ["define-data-property", "npm:1.1.4"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["functions-have-names", "npm:1.2.3"],\
           ["has-property-descriptors", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
@@ -9220,6 +14310,29 @@ const RAW_RUNTIME_STATE =
           ["sha.js", "npm:2.4.11"],\
           ["inherits", "npm:2.0.4"],\
           ["safe-buffer", "npm:5.2.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["shaclc-parse", [\
+      ["npm:1.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/shaclc-parse-npm-1.4.0-9c94cac2dc-10c0.zip/node_modules/shaclc-parse/",\
+        "packageDependencies": [\
+          ["shaclc-parse", "npm:1.4.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["n3", "npm:1.17.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["shaclc-write", [\
+      ["npm:1.4.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/shaclc-write-npm-1.4.3-14b94a710c-10c0.zip/node_modules/shaclc-write/",\
+        "packageDependencies": [\
+          ["shaclc-write", "npm:1.4.3"],\
+          ["@jeswr/prefixcc", "npm:1.2.1"],\
+          ["n3", "npm:1.17.4"],\
+          ["rdf-string-ttl", "npm:1.3.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9305,6 +14418,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["simple-swizzle", [\
+      ["npm:0.2.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/simple-swizzle-npm-0.2.2-8dee37fad1-10c0.zip/node_modules/simple-swizzle/",\
+        "packageDependencies": [\
+          ["simple-swizzle", "npm:0.2.2"],\
+          ["is-arrayish", "npm:0.3.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["sirv", [\
       ["npm:2.0.4", {\
         "packageLocation": "../../../../../.yarn/berry/cache/sirv-npm-2.0.4-cace6fe955-10c0.zip/node_modules/sirv/",\
@@ -9363,7 +14486,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["socks-proxy-agent", "npm:8.0.3"],\
           ["agent-base", "npm:7.1.1"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["socks", "npm:2.8.3"]\
         ],\
         "linkType": "HARD"\
@@ -9398,12 +14521,80 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["spark-md5", [\
+      ["npm:3.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/spark-md5-npm-3.0.2-1983a5b179-10c0.zip/node_modules/spark-md5/",\
+        "packageDependencies": [\
+          ["spark-md5", "npm:3.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["sparqlalgebrajs", [\
+      ["npm:4.3.7", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/sparqlalgebrajs-npm-4.3.7-b06a7c7d91-10c0.zip/node_modules/sparqlalgebrajs/",\
+        "packageDependencies": [\
+          ["sparqlalgebrajs", "npm:4.3.7"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/sparqljs", "npm:3.1.10"],\
+          ["fast-deep-equal", "npm:3.1.3"],\
+          ["minimist", "npm:1.2.8"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-isomorphic", "npm:1.3.1"],\
+          ["rdf-string", "npm:1.6.3"],\
+          ["rdf-terms", "npm:1.11.0"],\
+          ["sparqljs", "npm:3.7.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["sparqljs", [\
       ["npm:3.7.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/sparqljs-npm-3.7.1-46ddeff3ad-10c0.zip/node_modules/sparqljs/",\
         "packageDependencies": [\
           ["sparqljs", "npm:3.7.1"],\
           ["rdf-data-factory", "npm:1.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["sparqljson-parse", [\
+      ["npm:2.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/sparqljson-parse-npm-2.2.0-303f6eb977-10c0.zip/node_modules/sparqljson-parse/",\
+        "packageDependencies": [\
+          ["sparqljson-parse", "npm:2.2.0"],\
+          ["@bergos/jsonparse", "npm:1.4.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["readable-stream", "npm:4.5.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["sparqljson-to-tree", [\
+      ["npm:3.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/sparqljson-to-tree-npm-3.0.2-3308722ca9-10c0.zip/node_modules/sparqljson-to-tree/",\
+        "packageDependencies": [\
+          ["sparqljson-to-tree", "npm:3.0.2"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["rdf-literal", "npm:1.3.2"],\
+          ["sparqljson-parse", "npm:2.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["sparqlxml-parse", [\
+      ["npm:2.1.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/sparqlxml-parse-npm-2.1.1-967a32f8f2-10c0.zip/node_modules/sparqlxml-parse/",\
+        "packageDependencies": [\
+          ["sparqlxml-parse", "npm:2.1.1"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["@rubensworks/saxes", "npm:6.0.1"],\
+          ["@types/readable-stream", "npm:2.3.15"],\
+          ["buffer", "npm:6.0.3"],\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9439,6 +14630,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["ssri", "npm:10.0.5"],\
           ["minipass", "npm:7.0.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["stack-trace", [\
+      ["npm:0.0.10", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/stack-trace-npm-0.0.10-9460b173e1-10c0.zip/node_modules/stack-trace/",\
+        "packageDependencies": [\
+          ["stack-trace", "npm:0.0.10"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9494,6 +14694,34 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["stream-to-string", [\
+      ["npm:1.2.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/stream-to-string-npm-1.2.1-2655b8b9fd-10c0.zip/node_modules/stream-to-string/",\
+        "packageDependencies": [\
+          ["stream-to-string", "npm:1.2.1"],\
+          ["promise-polyfill", "npm:1.1.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["streamify-array", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/streamify-array-npm-1.0.1-584cd1cbc6-10c0.zip/node_modules/streamify-array/",\
+        "packageDependencies": [\
+          ["streamify-array", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["streamify-string", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/streamify-string-npm-1.0.1-040d564551-10c0.zip/node_modules/streamify-string/",\
+        "packageDependencies": [\
+          ["streamify-string", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["string-argv", [\
       ["npm:0.3.2", {\
         "packageLocation": "../../../../../.yarn/berry/cache/string-argv-npm-0.3.2-6e057a88f1-10c0.zip/node_modules/string-argv/",\
@@ -9521,6 +14749,43 @@ const RAW_RUNTIME_STATE =
           ["eastasianwidth", "npm:0.2.0"],\
           ["emoji-regex", "npm:9.2.2"],\
           ["strip-ansi", "npm:7.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["string.prototype.trim", [\
+      ["npm:1.2.9", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/string.prototype.trim-npm-1.2.9-7b24b35971-10c0.zip/node_modules/string.prototype.trim/",\
+        "packageDependencies": [\
+          ["string.prototype.trim", "npm:1.2.9"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["es-abstract", "npm:1.23.3"],\
+          ["es-object-atoms", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["string.prototype.trimend", [\
+      ["npm:1.0.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/string.prototype.trimend-npm-1.0.8-9c0ed19266-10c0.zip/node_modules/string.prototype.trimend/",\
+        "packageDependencies": [\
+          ["string.prototype.trimend", "npm:1.0.8"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["es-object-atoms", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["string.prototype.trimstart", [\
+      ["npm:1.0.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/string.prototype.trimstart-npm-1.0.8-8c6b16ba6e-10c0.zip/node_modules/string.prototype.trimstart/",\
+        "packageDependencies": [\
+          ["string.prototype.trimstart", "npm:1.0.8"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["es-object-atoms", "npm:1.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9603,6 +14868,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/style-mod-npm-4.1.2-eeaff827c6-10c0.zip/node_modules/style-mod/",\
         "packageDependencies": [\
           ["style-mod", "npm:4.1.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["supercluster", [\
+      ["npm:8.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/supercluster-npm-8.0.1-32b2d8d364-10c0.zip/node_modules/supercluster/",\
+        "packageDependencies": [\
+          ["supercluster", "npm:8.0.1"],\
+          ["kdbush", "npm:4.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9754,6 +15029,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["text-hex", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/text-hex-npm-1.0.0-22389e4d56-10c0.zip/node_modules/text-hex/",\
+        "packageDependencies": [\
+          ["text-hex", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["text-table", [\
       ["npm:0.2.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/text-table-npm-0.2.0-d92a778b59-10c0.zip/node_modules/text-table/",\
@@ -9773,6 +15057,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["tiny-lru", [\
+      ["npm:11.2.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/tiny-lru-npm-11.2.6-35c2061d7c-10c0.zip/node_modules/tiny-lru/",\
+        "packageDependencies": [\
+          ["tiny-lru", "npm:11.2.6"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["tinybench", [\
       ["npm:2.7.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/tinybench-npm-2.7.0-5fed377a2b-10c0.zip/node_modules/tinybench/",\
@@ -9787,6 +15080,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/tinypool-npm-0.8.4-043dfecb16-10c0.zip/node_modules/tinypool/",\
         "packageDependencies": [\
           ["tinypool", "npm:0.8.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["tinyqueue", [\
+      ["npm:2.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/tinyqueue-npm-2.0.3-ceed389145-10c0.zip/node_modules/tinyqueue/",\
+        "packageDependencies": [\
+          ["tinyqueue", "npm:2.0.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9853,6 +15155,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["tr46", [\
+      ["npm:0.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/tr46-npm-0.0.3-de53018915-10c0.zip/node_modules/tr46/",\
+        "packageDependencies": [\
+          ["tr46", "npm:0.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:3.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/tr46-npm-3.0.0-e1ae1ea7c9-10c0.zip/node_modules/tr46/",\
         "packageDependencies": [\
@@ -9866,6 +15175,27 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["tr46", "npm:5.0.0"],\
           ["punycode", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["traverse", [\
+      ["npm:0.6.9", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/traverse-npm-0.6.9-1eef6e6615-10c0.zip/node_modules/traverse/",\
+        "packageDependencies": [\
+          ["traverse", "npm:0.6.9"],\
+          ["gopd", "npm:1.0.1"],\
+          ["typedarray.prototype.slice", "npm:1.0.3"],\
+          ["which-typed-array", "npm:1.1.15"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["triple-beam", [\
+      ["npm:1.4.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/triple-beam-npm-1.4.1-d21ba5346a-10c0.zip/node_modules/triple-beam/",\
+        "packageDependencies": [\
+          ["triple-beam", "npm:1.4.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -9895,6 +15225,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["tweakpane", [\
+      ["npm:4.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/tweakpane-npm-4.0.3-907a4e874e-10c0.zip/node_modules/tweakpane/",\
+        "packageDependencies": [\
+          ["tweakpane", "npm:4.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["type-check", [\
       ["npm:0.4.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/type-check-npm-0.4.0-60565800ce-10c0.zip/node_modules/type-check/",\
@@ -9919,6 +15258,77 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/type-fest-npm-0.20.2-b36432617f-10c0.zip/node_modules/type-fest/",\
         "packageDependencies": [\
           ["type-fest", "npm:0.20.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["typed-array-buffer", [\
+      ["npm:1.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/typed-array-buffer-npm-1.0.2-31e458f38d-10c0.zip/node_modules/typed-array-buffer/",\
+        "packageDependencies": [\
+          ["typed-array-buffer", "npm:1.0.2"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["is-typed-array", "npm:1.1.13"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["typed-array-byte-length", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/typed-array-byte-length-npm-1.0.1-9ab0891fb8-10c0.zip/node_modules/typed-array-byte-length/",\
+        "packageDependencies": [\
+          ["typed-array-byte-length", "npm:1.0.1"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["for-each", "npm:0.3.3"],\
+          ["gopd", "npm:1.0.1"],\
+          ["has-proto", "npm:1.0.3"],\
+          ["is-typed-array", "npm:1.1.13"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["typed-array-byte-offset", [\
+      ["npm:1.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/typed-array-byte-offset-npm-1.0.2-14b64ee0e1-10c0.zip/node_modules/typed-array-byte-offset/",\
+        "packageDependencies": [\
+          ["typed-array-byte-offset", "npm:1.0.2"],\
+          ["available-typed-arrays", "npm:1.0.7"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["for-each", "npm:0.3.3"],\
+          ["gopd", "npm:1.0.1"],\
+          ["has-proto", "npm:1.0.3"],\
+          ["is-typed-array", "npm:1.1.13"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["typed-array-length", [\
+      ["npm:1.0.6", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/typed-array-length-npm-1.0.6-867a36a1ac-10c0.zip/node_modules/typed-array-length/",\
+        "packageDependencies": [\
+          ["typed-array-length", "npm:1.0.6"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["for-each", "npm:0.3.3"],\
+          ["gopd", "npm:1.0.1"],\
+          ["has-proto", "npm:1.0.3"],\
+          ["is-typed-array", "npm:1.1.13"],\
+          ["possible-typed-array-names", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["typedarray.prototype.slice", [\
+      ["npm:1.0.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/typedarray.prototype.slice-npm-1.0.3-658646c112-10c0.zip/node_modules/typedarray.prototype.slice/",\
+        "packageDependencies": [\
+          ["typedarray.prototype.slice", "npm:1.0.3"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["define-properties", "npm:1.2.1"],\
+          ["es-abstract", "npm:1.23.3"],\
+          ["es-errors", "npm:1.3.0"],\
+          ["typed-array-buffer", "npm:1.0.2"],\
+          ["typed-array-byte-offset", "npm:1.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -10001,6 +15411,29 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/ufo-npm-1.5.3-8c9d710312-10c0.zip/node_modules/ufo/",\
         "packageDependencies": [\
           ["ufo", "npm:1.5.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["unbox-primitive", [\
+      ["npm:1.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/unbox-primitive-npm-1.0.2-cb56a05066-10c0.zip/node_modules/unbox-primitive/",\
+        "packageDependencies": [\
+          ["unbox-primitive", "npm:1.0.2"],\
+          ["call-bind", "npm:1.0.7"],\
+          ["has-bigints", "npm:1.0.2"],\
+          ["has-symbols", "npm:1.0.3"],\
+          ["which-boxed-primitive", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["undici", [\
+      ["npm:5.28.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/undici-npm-5.28.4-63fa65e206-10c0.zip/node_modules/undici/",\
+        "packageDependencies": [\
+          ["undici", "npm:5.28.4"],\
+          ["@fastify/busboy", "npm:2.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -10158,6 +15591,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["uritemplate", [\
+      ["npm:0.3.4", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/uritemplate-npm-0.3.4-02ca1dd5c3-10c0.zip/node_modules/uritemplate/",\
+        "packageDependencies": [\
+          ["uritemplate", "npm:0.3.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["url", [\
       ["npm:0.11.3", {\
         "packageLocation": "../../../../../.yarn/berry/cache/url-npm-0.11.3-d3652df78a-10c0.zip/node_modules/url/",\
@@ -10217,6 +15659,22 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/uuid-npm-10.0.0-4872b46ff8-10c0.zip/node_modules/uuid/",\
         "packageDependencies": [\
           ["uuid", "npm:10.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:9.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/uuid-npm-9.0.1-39a8442bc6-10c0.zip/node_modules/uuid/",\
+        "packageDependencies": [\
+          ["uuid", "npm:9.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["validate-iri", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/validate-iri-npm-1.0.1-ff128e38c5-10c0.zip/node_modules/validate-iri/",\
+        "packageDependencies": [\
+          ["validate-iri", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -10330,7 +15788,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["vite-node", "npm:0.34.7"],\
           ["cac", "npm:6.7.14"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["mlly", "npm:1.7.1"],\
           ["pathe", "npm:1.1.2"],\
           ["picocolors", "npm:1.0.0"],\
@@ -10343,7 +15801,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["vite-node", "npm:1.5.0"],\
           ["cac", "npm:6.7.14"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["pathe", "npm:1.1.2"],\
           ["picocolors", "npm:1.0.0"],\
           ["vite", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.2.9"]\
@@ -10368,7 +15826,7 @@ const RAW_RUNTIME_STATE =
           ["@types/typescript", null],\
           ["@types/vite", null],\
           ["@vue/language-core", "virtual:e9815546032cd71fae2f997a7b2abcc89918eec15df985074e227300700a505341b839cbf0a34b8b922972ad7a0c7df4c1ae915a0ceb82f9b3684a8825e7b80a#npm:1.8.27"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["kolorist", "npm:1.8.0"],\
           ["magic-string", "npm:0.30.10"],\
           ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"],\
@@ -10436,7 +15894,7 @@ const RAW_RUNTIME_STATE =
           ["@vitest/utils", "npm:1.5.0"],\
           ["acorn-walk", "npm:8.3.2"],\
           ["chai", "npm:4.4.1"],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["execa", "npm:8.0.1"],\
           ["happy-dom", null],\
           ["jsdom", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:24.0.0"],\
@@ -10491,6 +15949,18 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/vscode-textmate-npm-8.0.0-2deb0cc7cf-10c0.zip/node_modules/vscode-textmate/",\
         "packageDependencies": [\
           ["vscode-textmate", "npm:8.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["vt-pbf", [\
+      ["npm:3.1.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/vt-pbf-npm-3.1.3-6b659628e6-10c0.zip/node_modules/vt-pbf/",\
+        "packageDependencies": [\
+          ["vt-pbf", "npm:3.1.3"],\
+          ["@mapbox/point-geometry", "npm:0.1.0"],\
+          ["@mapbox/vector-tile", "npm:1.3.1"],\
+          ["pbf", "npm:3.2.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -10621,7 +16091,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["vue-eslint-parser", "virtual:5c99fd55a41f3795a4498b3e6967685b4bfaf8d24b26fa80199adfd03d30cf53f758b663774a01283c5ac95801521fc2bdb3ee7fbdbbf385f5646366aa64d15f#npm:9.4.2"],\
           ["@types/eslint", null],\
-          ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
+          ["debug", "virtual:c9e1a4b59e37cb479517edede3bf2093b28c0ca1a9d0e517f3c345075bd1e468980b94b4957e389116607ee7155441dfd7d09e19a4229d5d09bcf06244401590#npm:4.3.4"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-scope", "npm:7.2.2"],\
           ["eslint-visitor-keys", "npm:3.4.3"],\
@@ -10744,7 +16214,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["web-streams-polyfill", [\
+      ["npm:3.3.3", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/web-streams-polyfill-npm-3.3.3-f24b9f8c34-10c0.zip/node_modules/web-streams-polyfill/",\
+        "packageDependencies": [\
+          ["web-streams-polyfill", "npm:3.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["web-streams-ponyfill", [\
+      ["npm:1.4.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/web-streams-ponyfill-npm-1.4.2-0b79b5f7e5-10c0.zip/node_modules/web-streams-ponyfill/",\
+        "packageDependencies": [\
+          ["web-streams-ponyfill", "npm:1.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["webidl-conversions", [\
+      ["npm:3.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/webidl-conversions-npm-3.0.1-60310f6a2b-10c0.zip/node_modules/webidl-conversions/",\
+        "packageDependencies": [\
+          ["webidl-conversions", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:7.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/webidl-conversions-npm-7.0.0-e8c8e30c68-10c0.zip/node_modules/webidl-conversions/",\
         "packageDependencies": [\
@@ -10808,6 +16303,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["wgs84", [\
+      ["npm:0.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/wgs84-npm-0.0.0-364d052ae6-10c0.zip/node_modules/wgs84/",\
+        "packageDependencies": [\
+          ["wgs84", "npm:0.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["whatwg-encoding", [\
       ["npm:2.0.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/whatwg-encoding-npm-2.0.0-d7451f51b4-10c0.zip/node_modules/whatwg-encoding/",\
@@ -10860,6 +16364,15 @@ const RAW_RUNTIME_STATE =
           ["webidl-conversions", "npm:7.0.0"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:5.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/whatwg-url-npm-5.0.0-374fb45e60-10c0.zip/node_modules/whatwg-url/",\
+        "packageDependencies": [\
+          ["whatwg-url", "npm:5.0.0"],\
+          ["tr46", "npm:0.0.3"],\
+          ["webidl-conversions", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["which", [\
@@ -10876,6 +16389,20 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["which", "npm:4.0.0"],\
           ["isexe", "npm:3.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["which-boxed-primitive", [\
+      ["npm:1.0.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/which-boxed-primitive-npm-1.0.2-e214f9ae5a-10c0.zip/node_modules/which-boxed-primitive/",\
+        "packageDependencies": [\
+          ["which-boxed-primitive", "npm:1.0.2"],\
+          ["is-bigint", "npm:1.0.4"],\
+          ["is-boolean-object", "npm:1.1.2"],\
+          ["is-number-object", "npm:1.0.7"],\
+          ["is-string", "npm:1.0.7"],\
+          ["is-symbol", "npm:1.0.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -10901,6 +16428,38 @@ const RAW_RUNTIME_STATE =
           ["why-is-node-running", "npm:2.2.2"],\
           ["siginfo", "npm:2.0.0"],\
           ["stackback", "npm:0.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["winston", [\
+      ["npm:3.13.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/winston-npm-3.13.0-5a89c5f1c1-10c0.zip/node_modules/winston/",\
+        "packageDependencies": [\
+          ["winston", "npm:3.13.0"],\
+          ["@colors/colors", "npm:1.6.0"],\
+          ["@dabh/diagnostics", "npm:2.0.3"],\
+          ["async", "npm:3.2.5"],\
+          ["is-stream", "npm:2.0.1"],\
+          ["logform", "npm:2.6.0"],\
+          ["one-time", "npm:1.0.0"],\
+          ["readable-stream", "npm:3.6.2"],\
+          ["safe-stable-stringify", "npm:2.4.3"],\
+          ["stack-trace", "npm:0.0.10"],\
+          ["triple-beam", "npm:1.4.1"],\
+          ["winston-transport", "npm:4.7.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["winston-transport", [\
+      ["npm:4.7.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/winston-transport-npm-4.7.0-dd2c1f2107-10c0.zip/node_modules/winston-transport/",\
+        "packageDependencies": [\
+          ["winston-transport", "npm:4.7.0"],\
+          ["logform", "npm:2.6.0"],\
+          ["readable-stream", "npm:3.6.2"],\
+          ["triple-beam", "npm:1.4.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11020,6 +16579,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["y18n", [\
+      ["npm:5.0.8", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/y18n-npm-5.0.8-5f3a0a7e62-10c0.zip/node_modules/y18n/",\
+        "packageDependencies": [\
+          ["y18n", "npm:5.0.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["yallist", [\
       ["npm:3.1.1", {\
         "packageLocation": "../../../../../.yarn/berry/cache/yallist-npm-3.1.1-a568a556b4-10c0.zip/node_modules/yallist/",\
@@ -11032,6 +16600,31 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/yallist-npm-4.0.0-b493d9e907-10c0.zip/node_modules/yallist/",\
         "packageDependencies": [\
           ["yallist", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["yargs", [\
+      ["npm:17.7.2", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/yargs-npm-17.7.2-80b62638e1-10c0.zip/node_modules/yargs/",\
+        "packageDependencies": [\
+          ["yargs", "npm:17.7.2"],\
+          ["cliui", "npm:8.0.1"],\
+          ["escalade", "npm:3.1.2"],\
+          ["get-caller-file", "npm:2.0.5"],\
+          ["require-directory", "npm:2.1.1"],\
+          ["string-width", "npm:4.2.3"],\
+          ["y18n", "npm:5.0.8"],\
+          ["yargs-parser", "npm:21.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["yargs-parser", [\
+      ["npm:21.1.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/yargs-parser-npm-21.1.1-8fdc003314-10c0.zip/node_modules/yargs-parser/",\
+        "packageDependencies": [\
+          ["yargs-parser", "npm:21.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\

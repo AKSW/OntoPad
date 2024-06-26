@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@comunica/query-sparql": "^3.1.2",
     "@popperjs/core": "^2.11.8",
     "@rdfjs/data-model": "^2.0.2",
     "@ulb-darmstadt/shacl-form": "^1.4.3",
