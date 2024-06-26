@@ -36,11 +36,11 @@ const router = createRouter({
       name: 'EditForm',
       component: () => import('../views/EditForm.vue')
     },
-    // {
-    //   path: '/rdform',
-    //   name: 'RDFormDemo',
-    //   component: () => import('../views/RDFormDemo.vue')
-    // },
+    {
+      path: '/form',
+      name: 'FormDemo',
+      component: () => import('../views/FormDemo.vue')
+    },
     {
       path: '/add',
       name: 'InputForm',

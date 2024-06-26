@@ -31,9 +31,10 @@ import 'splitpanes/dist/splitpanes.css'
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/instances">Instances</RouterLink></li>
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/voc">Vocabulary</RouterLink></li>
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/edit">Edit</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/rdform">Form</RouterLink></li>
+            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/form">Form</RouterLink></li>
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/add">Add</RouterLink></li>
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/source">Source</RouterLink></li>
+            
           </ul>
           <RouterView />
         </pane>
