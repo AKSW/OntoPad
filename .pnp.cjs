@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable */
+// @ts-nocheck
 "use strict";
 
 const RAW_RUNTIME_STATE =
@@ -3754,7 +3755,7 @@ const RAW_RUNTIME_STATE =
           ["minimatch", "npm:9.0.4"],\
           ["muggle-string", "npm:0.3.1"],\
           ["path-browserify", "npm:1.0.1"],\
-          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c"],\
+          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"],\
           ["vue-template-compiler", "npm:2.7.16"]\
         ],\
         "packagePeers": [\
@@ -9939,7 +9940,7 @@ const RAW_RUNTIME_STATE =
           ["marked", "npm:4.3.0"],\
           ["minimatch", "npm:9.0.4"],\
           ["shiki", "npm:0.14.7"],\
-          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -9978,10 +9979,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/typescript-patch-2b02f17773-10c0.zip/node_modules/typescript/",\
+      ["patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/typescript-patch-7885ea9a13-10c0.zip/node_modules/typescript/",\
         "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -10370,7 +10371,7 @@ const RAW_RUNTIME_STATE =
           ["debug", "virtual:1ff4b5f90832ba0a9c93ba1223af226e44ba70c1126a3740d93562b97bc36544e896a5e95908196f7458713e6a6089a34bfc67362fc6df7fa093bd06c878be47#npm:4.3.4"],\
           ["kolorist", "npm:1.8.0"],\
           ["magic-string", "npm:0.30.10"],\
-          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c"],\
+          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"],\
           ["vite", "virtual:936c0abfe6c6f3d48ce4df167ac004199be8c0a79d8e927ac261c157b1902c38da1e1dd776d0e679dedc843d744bdedf24739447232a7dec6e3853a506579af8#npm:5.3.1"],\
           ["vue-tsc", "virtual:e9815546032cd71fae2f997a7b2abcc89918eec15df985074e227300700a505341b839cbf0a34b8b922972ad7a0c7df4c1ae915a0ceb82f9b3684a8825e7b80a#npm:1.8.27"]\
         ],\
@@ -10519,7 +10520,7 @@ const RAW_RUNTIME_STATE =
           ["@vue/runtime-dom", "npm:3.4.30"],\
           ["@vue/server-renderer", "virtual:614ebd9d175fbf7a3b103f6d14e858d31c75d9553faa07639bf379ada3dc36bac3da70a828967304f9452034e2c386d1ffd417867355f36b614cc56ba099aa82#npm:3.4.30"],\
           ["@vue/shared", "npm:3.4.30"],\
-          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -10597,7 +10598,7 @@ const RAW_RUNTIME_STATE =
           ["svg-pan-zoom", "npm:3.6.1"],\
           ["typedoc", "virtual:936c0abfe6c6f3d48ce4df167ac004199be8c0a79d8e927ac261c157b1902c38da1e1dd776d0e679dedc843d744bdedf24739447232a7dec6e3853a506579af8#npm:0.25.13"],\
           ["typedoc-plugin-vue", "virtual:936c0abfe6c6f3d48ce4df167ac004199be8c0a79d8e927ac261c157b1902c38da1e1dd776d0e679dedc843d744bdedf24739447232a7dec6e3853a506579af8#npm:1.2.0"],\
-          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c"],\
+          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"],\
           ["vite", "virtual:936c0abfe6c6f3d48ce4df167ac004199be8c0a79d8e927ac261c157b1902c38da1e1dd776d0e679dedc843d744bdedf24739447232a7dec6e3853a506579af8#npm:5.3.1"],\
           ["vite-plugin-dts", "virtual:936c0abfe6c6f3d48ce4df167ac004199be8c0a79d8e927ac261c157b1902c38da1e1dd776d0e679dedc843d744bdedf24739447232a7dec6e3853a506579af8#npm:3.9.1"],\
           ["vue", "virtual:936c0abfe6c6f3d48ce4df167ac004199be8c0a79d8e927ac261c157b1902c38da1e1dd776d0e679dedc843d744bdedf24739447232a7dec6e3853a506579af8#npm:3.4.30"],\
@@ -10696,7 +10697,7 @@ const RAW_RUNTIME_STATE =
           ["@volar/typescript", "npm:1.11.1"],\
           ["@vue/language-core", "virtual:e9815546032cd71fae2f997a7b2abcc89918eec15df985074e227300700a505341b839cbf0a34b8b922972ad7a0c7df4c1ae915a0ceb82f9b3684a8825e7b80a#npm:1.8.27"],\
           ["semver", "npm:7.6.2"],\
-          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -12389,6 +12390,12 @@ class ProxiedFS extends FakeFS {
   rmdirSync(p, opts) {
     return this.baseFs.rmdirSync(this.mapToBase(p), opts);
   }
+  async rmPromise(p, opts) {
+    return this.baseFs.rmPromise(this.mapToBase(p), opts);
+  }
+  rmSync(p, opts) {
+    return this.baseFs.rmSync(this.mapToBase(p), opts);
+  }
   async linkPromise(existingP, newP) {
     return this.baseFs.linkPromise(this.mapToBase(existingP), this.mapToBase(newP));
   }
@@ -12769,6 +12776,18 @@ class NodeFS extends BasePortableFakeFS {
   }
   rmdirSync(p, opts) {
     return this.realFs.rmdirSync(npath.fromPortablePath(p), opts);
+  }
+  async rmPromise(p, opts) {
+    return await new Promise((resolve, reject) => {
+      if (opts) {
+        this.realFs.rm(npath.fromPortablePath(p), opts, this.makeCallback(resolve, reject));
+      } else {
+        this.realFs.rm(npath.fromPortablePath(p), this.makeCallback(resolve, reject));
+      }
+    });
+  }
+  rmSync(p, opts) {
+    return this.realFs.rmSync(npath.fromPortablePath(p), opts);
   }
   async linkPromise(existingP, newP) {
     return await new Promise((resolve, reject) => {
@@ -13425,6 +13444,20 @@ class MountFS extends BasePortableFakeFS {
       return mountFs.rmdirSync(subPath, opts);
     });
   }
+  async rmPromise(p, opts) {
+    return await this.makeCallPromise(p, async () => {
+      return await this.baseFs.rmPromise(p, opts);
+    }, async (mountFs, { subPath }) => {
+      return await mountFs.rmPromise(subPath, opts);
+    });
+  }
+  rmSync(p, opts) {
+    return this.makeCallSync(p, () => {
+      return this.baseFs.rmSync(p, opts);
+    }, (mountFs, { subPath }) => {
+      return mountFs.rmSync(subPath, opts);
+    });
+  }
   async linkPromise(existingP, newP) {
     return await this.makeCallPromise(newP, async () => {
       return await this.baseFs.linkPromise(existingP, newP);
@@ -14063,6 +14096,7 @@ const SYNC_IMPLEMENTATIONS = /* @__PURE__ */ new Set([
   `realpathSync`,
   `renameSync`,
   `rmdirSync`,
+  `rmSync`,
   `statSync`,
   `symlinkSync`,
   `truncateSync`,
@@ -14098,6 +14132,7 @@ const ASYNC_IMPLEMENTATIONS = /* @__PURE__ */ new Set([
   `readlinkPromise`,
   `renamePromise`,
   `rmdirPromise`,
+  `rmPromise`,
   `statPromise`,
   `symlinkPromise`,
   `truncatePromise`,
@@ -16121,6 +16156,27 @@ class ZipFS extends BasePortableFakeFS {
     const index = this.entries.get(resolvedP);
     if (typeof index === `undefined`)
       throw EINVAL(`rmdir '${p}'`);
+    this.deleteEntry(p, index);
+  }
+  async rmPromise(p, opts) {
+    return this.rmSync(p, opts);
+  }
+  rmSync(p, { recursive = false } = {}) {
+    if (this.readOnly)
+      throw EROFS(`rm '${p}'`);
+    if (recursive) {
+      this.removeSync(p);
+      return;
+    }
+    const resolvedP = this.resolveFilename(`rm '${p}'`, p);
+    const directoryListing = this.listings.get(resolvedP);
+    if (!directoryListing)
+      throw ENOTDIR(`rm '${p}'`);
+    if (directoryListing.size > 0)
+      throw ENOTEMPTY(`rm '${p}'`);
+    const index = this.entries.get(resolvedP);
+    if (typeof index === `undefined`)
+      throw EINVAL(`rm '${p}'`);
     this.deleteEntry(p, index);
   }
   hydrateDirectory(resolvedP) {
