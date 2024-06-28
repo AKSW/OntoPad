@@ -3,8 +3,8 @@
     <dl>
       <dt>IRI</dt>
       <dd>{{ resource_iri }}</dd>
-      <dt>Label</dt>
-      <dd><Term v-model:term="label" @click="selectResource"/></dd>
+      <dt>Type</dt>
+      <dd><Term v-model:term="res_type" @click="selectResource"/></dd>
     </dl>
   </div>
 
@@ -28,8 +28,11 @@
 </template>
 
 <script>
+import Term from '../components/Term.vue'
+import { Readable } from 'readable-stream'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { Store, StreamParser } from 'n3'
 
 import { registerPlugin } from '@ulb-darmstadt/shacl-form'
 // import { LeafletPlugin } from '@ulb-darmstadt/shacl-form/plugins/leaflet.js'
@@ -43,21 +46,48 @@ export default {
     return { store }
   },
   components: {
-    
+    Term
   },
   mounted () {
-    
+    this.getResource()
   },
   
   data () {
     return {
+      dataModel: {},
       subject: rdf.namedNode(''),
     }
   },
   computed: {
     ...mapState(useRdfStore, ['graph_iri', 'resource_iri']),
+    res_type () {
+      if (this.dataModel.getQuads !== undefined) {
+        const res_type = this.dataModel.getQuads(rdf.namedNode(this.resource_iri), rdf.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), null)[0]
+        if (res_type) {
+          return res_type.object
+        }
+      }
+      return ''
+    }
   },
   methods: {
+    getResource () {
+      this.subject = rdf.namedNode(this.resource_iri)
+      console.log('get resource: ' + this.resource_iri)
+      this.store.getResource(this.resource_iri)
+        .then(result => {
+          const streamParser = new StreamParser()
+          Readable.from([result.data]).pipe(streamParser)
+
+          const n3_store = new Store()
+          n3_store.import(streamParser).on('end', () => {
+            this.dataModel = n3_store
+          })
+        })
+    },
+    selectResource (resourceIri) {
+      this.store.changeResourceIri(resourceIri)
+    }
   }
 }
 
