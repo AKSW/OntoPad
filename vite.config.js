@@ -10,7 +10,13 @@ export default defineConfig({
     nodePolyfills({
       include: ['buffer'],
     }),
-    vue(),
+    vue({ 
+      template: { 
+          compilerOptions: {
+              isCustomElement: (tag) => ['shacl-form'].includes(tag),
+         
+          }
+      }}),
   ],
   resolve: {
     alias: {
