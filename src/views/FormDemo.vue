@@ -51,7 +51,11 @@ export default {
   mounted () {
     this.getResource()
   },
-  
+  watch: {
+    resource_iri (value) {
+      this.getResource()
+    }
+  },
   data () {
     return {
       dataModel: {},
@@ -87,7 +91,7 @@ export default {
     },
     selectResource (resourceIri) {
       this.store.changeResourceIri(resourceIri)
-    }
+    } 
   }
 }
 
