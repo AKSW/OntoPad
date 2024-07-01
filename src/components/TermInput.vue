@@ -1,28 +1,28 @@
 <template>
   <div class="input-group">
-    <div v-if="type === undefined" class="input-group-prepend" id="nodetype-selection">
+    <template v-if="type === undefined">
       <button @click="setType('iri')" class="btn btn-outline-secondary" v-bind:class="{'active': nodeType == 'iri'}" type="button">IRI</button>
       <button @click="setType('literal')" class="btn btn-outline-secondary" v-bind:class="{'active': nodeType == 'literal'}" type="button">Lit</button>
-    </div>
-    <div v-if="nodeType === 'iri'" class="input-group-prepend">
+    </template>
+    <template v-if="nodeType === 'iri'">
       <span class="input-group-text">&lt;</span>
-    </div>
-    <div v-else-if="nodeType === 'literal'" class="input-group-prepend">
+    </template>
+    <template v-else-if="nodeType === 'literal'">
       <span class="input-group-text">&quot;</span>
-    </div>
+    </template>
     <input :id="'value-' + this.id" v-model="idValue" @input="notify" type="text" class="form-control">
-    <div v-if="nodeType === 'iri'" class="input-group-append">
+    <template v-if="nodeType === 'iri'" class="input-group-append">
       <span class="input-group-text">&gt;</span>
-    </div>
-    <div v-else-if="nodeType === 'literal' && literalType === 'language'" class="input-group-append">
-      <span @click="setLiteralType('datatype')" class="input-group-text btn">&quot;@</span>
+    </template>
+    <template v-else-if="nodeType === 'literal' && literalType === 'language'">
+      <span @click="setLiteralType('datatype')" class="input-group-text btn btn-outline-secondary">&quot;@</span>
       <input :id="'language-' + this.id" v-model="language" @input="notify" type="text" class="form-control">
-    </div>
-    <div v-else-if="nodeType === 'literal' && literalType === 'datatype'" class="input-group-append">
-      <span @click="setLiteralType('language')" class="input-group-text btn">&quot;^^&lt;</span>
+    </template>
+    <template v-else-if="nodeType === 'literal' && literalType === 'datatype'">
+      <span @click="setLiteralType('language')" class="input-group-text btn btn-outline-secondary">&quot;^^&lt;</span>
       <input :id="'datatype-' + this.id" v-model="datatype" @input="notify" type="text" class="form-control">
       <span class="input-group-text">&gt;</span>
-    </div>
+    </template>
   </div>
 </template>
 
