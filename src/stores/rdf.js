@@ -2,8 +2,8 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { EndpointFactory } from '@/api/endpoint.js'
 import { Generator } from 'sparqljs'
-import { quadToStringQuad } from 'rdf-string'
 import config from '@/config'
+import rdf from '@rdfjs/data-model'
 
 export const useRdfStore = defineStore('rdf', {
   state: () => ({
@@ -74,7 +74,7 @@ export const useRdfStore = defineStore('rdf', {
     insertDeleteData (payload) {
       const insertArray = payload.insertArray
       const deleteArray = payload.deleteArray
-      const graphIri = payload.graphIri
+      const graphIri = rdf.namedNode(payload.graphIri)
 
       const updateStructure = {
         type: 'update',
@@ -84,7 +84,7 @@ export const useRdfStore = defineStore('rdf', {
       // Delete has to come first, to not later remove stuff, we've just added
       if (deleteArray) {
         const deleteBGP = {
-          triples: deleteArray.map(quadToStringQuad)
+          triples: deleteArray
         }
         if (graphIri === undefined) {
           deleteBGP.type = 'bgp'
@@ -102,7 +102,7 @@ export const useRdfStore = defineStore('rdf', {
 
       if (insertArray) {
         const insertBGP = {
-          triples: insertArray.map(quadToStringQuad)
+          triples: insertArray
         }
         if (graphIri === undefined) {
           insertBGP.type = 'bgp'

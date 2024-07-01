@@ -69,7 +69,7 @@ export default {
       const newGraphData = [rdf.quad(this.new_graph_iri, rdf.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), rdf.namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]
       console.log(this.new_graph_iri)
       try {
-        await this.store.insertDeleteData({ insertArray: newGraphData, graphIri: this.new_graph_iri.id })
+        await this.store.insertDeleteData({ insertArray: newGraphData, graphIri: this.new_graph_iri.value })
         this.add_graph_modal.hide()
       } catch (e) {
         console.error(e)
