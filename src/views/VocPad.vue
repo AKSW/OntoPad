@@ -1,94 +1,120 @@
 <template>
   <div class="row">
-    <div class="col-3" style="height:80vh; overflow-y:scroll;" v-b-hover="hoverTerms">
-      <b-card no-body>
-        <template v-slot:header>
-          <div class="d-flex justify-content-between align-items-center">
-            <h6 class="mb-0">Class List</h6>
-            <div>
-              <b-button class="mb-0" v-on:click="getLists" v-b-tooltip.hover title="Reload" aria-label="Reload">
-                <b-icon icon="arrow-repeat"></b-icon>
-              </b-button>
-              <b-button v-b-modal.add_class v-b-tooltip.hover title="Create Class" aria-label="Create Class">
-                <b-icon icon="plus-square"></b-icon>
-              </b-button>
-            </div>
+    <div class="col-3" style="height:80vh; overflow-y:scroll;">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h6 class="mb-0">Class List</h6>
+          <div>
+            <button type="button" class="btn btn-secondary" v-on:click="getLists" title="Reload" aria-label="Reload">
+              <i class="bi bi-arrow-repeat"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" v-on:click="() => {add_class_modal.show()}" title="Create Class" aria-label="Create Class">
+              <i class="bi bi-plus-square"></i>
+            </button>
           </div>
-        </template>
-        <b-list-group flush v-for="(rdfClass, index) in classes" :key="'class-' + index">
-          <b-list-group-item
-            class="list-group-item py-2"
+        </div>
+        <div class="list-group list-group-flush" v-for="(rdfClass, index) in classes" :key="'class-' + index">
+          <li class="list-group-item py-2"
             :for="'class-' + index"
             style="cursor: move"
             draggable="true"
             @dragstart='startDrag($event, rdfClass)'
-            v-b-tooltip.hover :title="rdfClass.iri"
-            v-on:click="select(rdfClass.iri)">{{ shortenIri(rdfClass.iri) }}</b-list-group-item>
-        </b-list-group>
-      </b-card>
-      <b-card no-body>
-        <template v-slot:header>
+            :title="rdfClass.iri"
+            v-on:click="select(rdfClass.iri)">{{ shortenIri(rdfClass.iri) }}</li>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
           <div class="d-flex justify-content-between align-items-center">
             <h6 class="mb-0">Property List</h6>
-            <b-button v-b-modal.add_property v-b-tooltip.hover title="Create Property" aria-label="Create Property">
-              <b-icon icon="plus-square"></b-icon>
-            </b-button>
+            <button type="button" class="btn btn-secondary" v-on:click="() => {add_property_modal.show()}" title="Create Property" aria-label="Create Property">
+              <i class="bi bi-plus-square"></i>
+            </button>
           </div>
-        </template>
-        <b-list-group flush v-for="(rdfProperty, index) in properties" :key="'property-' + index">
-          <b-list-group-item
-            class="list-group-item py-2"
+        </div>
+        <div class="list-group list-group-flush" v-for="(rdfProperty, index) in properties" :key="'property-' + index">
+          <li class="list-group-item py-2"
             :for="'property-' + index"
             style="cursor: move"
-            draggable @dragstart='startDrag($event, rdfProperty)'
-            v-on:click="select(rdfProperty.iri)">{{ shortenIri(rdfProperty.iri) }}</b-list-group-item>
-        </b-list-group>
-      </b-card>
-      <b-modal id="add_class" title="Add Class" :no-close-on-backdrop="true" @ok="add_term('class')" size="lg">
-        <form>
-          <div class="form-group">
-            <label for="class_iri">Class IRI</label>
-            <div>
-              <TermInput type="iri" id="class_iri" v-model:term="class_iri" />
+            draggable="true"
+            :title="rdfProperty.iri"
+            @dragstart='startDrag($event, rdfProperty)'
+            v-on:click="select(rdfProperty.iri)">{{ shortenIri(rdfProperty.iri) }}</li>
+        </div>
+      </div>
+      <div class="modal" ref="add_class" data-bs-backdrop="static">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Class</h5>
+              <button type="button" class="btn-close" @click="add_class_modal.hide()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="class_iri">Class IRI</label>
+                  <div>
+                    <TermInput type="iri" id="class_iri" v-model:term="class_iri" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="class_label">Label (rdfs:label)</label>
+                  <div>
+                    <TermInput type="literal" id="class_label" v-model:term="class_label" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="class_comment">Comment (rdfs:comment)</label>
+                  <div>
+                    <TermInput type="literal" id="class_comment" v-model:term="class_comment" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" @click="add_class_modal.hide()">Close</button>
+              <button type="button" class="btn btn-primary" @click="add_term('class')">Save changes</button>
             </div>
           </div>
-          <div class="form-group">
-            <label for="class_label">Label (rdfs:label)</label>
-            <div>
-              <TermInput type="literal" id="class_label" v-model:term="class_label" />
+        </div>
+      </div>
+      <div class="modal fade" ref="add_property" data-bs-backdrop="static">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Property</h5>
+              <button type="button" class="btn-close" @click="add_property_modal.hide()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="property_iri">Property IRI</label>
+                  <div>
+                    <TermInput type="iri" id="property_iri" v-model:term="property_iri" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="property_label">Label (rdfs:label)</label>
+                  <div>
+                    <TermInput type="literal" id="property_label" v-model:term="property_label" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="property_comment">Comment (rdfs:comment)</label>
+                  <div>
+                    <TermInput type="literal" id="property_comment" v-model:term="property_comment" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" @click="add_property_modal.hide()">Close</button>
+              <button type="button" class="btn btn-primary" @click="add_term('property')">Save changes</button>
             </div>
           </div>
-          <div class="form-group">
-            <label for="class_comment">Comment (rdfs:comment)</label>
-            <div>
-              <TermInput type="literal" id="class_comment" v-model:term="class_comment" />
-            </div>
-          </div>
-        </form>
-      </b-modal>
-      <b-modal id="add_property" title="Add Property" :no-close-on-backdrop="true" @ok="add_term('property')" size="lg">
-        <form>
-          <div class="form-group">
-            <label for="property_iri">Property IRI</label>
-            <div>
-              <TermInput type="iri" id="property_iri" v-model:term="property_iri" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="property_label">Label (rdfs:label)</label>
-            <div>
-              <TermInput type="literal" id="property_label" v-model:term="property_label" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="property_comment">Comment (rdfs:comment)</label>
-            <div>
-              <TermInput type="literal" id="property_comment" v-model:term="property_comment" />
-            </div>
-          </div>
-        </form>
-      </b-modal>
-      <b-modal id="configure_property" title="Configure Property Shape" :no-close-on-backdrop="true" @ok="editProp()" size="lg">
+        </div>
+      </div>
+      <div class="modal" ref="configure_property" title="Configure Property Shape" :no-close-on-backdrop="true" @ok="editProp()" size="lg">
         <form>
           <div class="form-group">
             <label for="property_iri">Type</label>
@@ -115,29 +141,23 @@
             </div>
           </div>
         </form>
-      </b-modal>
+      </div>
     </div>
     <div class="col-9">
-      <b-card no-body>
-        <template v-slot:header>
-          <div class="d-flex justify-content-between align-items-center">
-            <h6 class="mb-0">Shape Composer</h6>
-            <div>
-              <b-button class="mb-0" v-on:click="getShapes" v-b-tooltip.hover title="Reload" aria-label="Reload">
-                <b-icon icon="arrow-repeat"></b-icon>
-              </b-button>
-              <b-button v-on:click="saveShapes" v-b-tooltip.hover title="Save Schema/Shapes" aria-label="Save Schema/Shapes">
-                <b-iconstack>
-                  <b-icon icon="hdd"></b-icon>
-                  <b-icon icon="arrow-down" scale="0.8" shift-v="4.5"></b-icon>
-                </b-iconstack>
-                <!-- <b-icon icon="journal-arrow-down" v-b-tooltip.hover title="Save Schema/Shapes" aria-label="Save Schema/Shapes"></b-icon> -->
-              </b-button>
-            </div>
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h6 class="mb-0">Shape Composer</h6>
+          <div>
+            <button type="button" class="btn btn-secondary mb-0" v-on:click="getShapes" title="Reload" aria-label="Reload">
+              <i class="bi bi-arrow-repeat"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" v-on:click="saveShapes" title="Save Schema/Shapes" aria-label="Save Schema/Shapes">
+              <i class="bi bi-save"></i>
+            </button>
           </div>
-        </template>
+        </div>
         <diagram :model="model" width="100%" height="600" @drop='onDrop($event)' @dropNode='onDropNode' @configurePort='configureProperty'></diagram>
-      </b-card>
+      </div>
     </div>
   </div>
 </template>
@@ -146,6 +166,7 @@
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 
+import { Modal } from 'bootstrap'
 import { Diagram } from 'vue-diagrams'
 import { v4 as uuidv4 } from 'uuid'
 import TermInput from '../components/TermInput.vue'
@@ -190,7 +211,9 @@ export default {
       },
       next_x: null,
       next_y: null,
-      hover_note_shown: false
+      hover_note_shown: false,
+      add_class_modal: null,
+      add_property_modal: null,
     }
   },
   computed: {
@@ -199,6 +222,8 @@ export default {
   mounted () {
     this.getLists()
     this.getShapes()
+    this.add_class_modal = new Modal(this.$refs.add_class)
+    this.add_property_modal = new Modal(this.$refs.add_property)
   },
   watch: {
     graph_iri (value) {
