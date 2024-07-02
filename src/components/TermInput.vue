@@ -93,6 +93,9 @@ export default {
       this.$emit('update:term', this.node)
     },
     updateNode () {
+      if (this.term == undefined) {
+        return
+      }
       this.node = this.term
       if (this.term.termType === 'NamedNode') {
         this.dynamicNodetype = 'iri'
