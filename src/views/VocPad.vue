@@ -165,6 +165,7 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { usePrefixesStore } from '../stores/prefixes'
 
 import { Modal } from 'bootstrap'
 import { Diagram } from 'vue-diagrams'
@@ -199,16 +200,6 @@ export default {
       model: new Diagram.Model(),
       originalDataModel: [],
       // dataModel: [],
-      prefixes: {
-        'http://example.org/': 'ex:',
-        'http://example.org/classes#': 'exc:',
-        'http://example.org/properties#': 'exp:',
-        'http://www.w3.org/1999/02/22-rdf-syntax-ns#': 'rdf:',
-        'http://www.w3.org/2000/01/rdf-schema#': 'rdfs:',
-        'http://www.w3.org/2001/XMLSchema#': 'xsd:',
-        'http://xmlns.com/foaf/0.1/': 'foaf:',
-        'http://www.w3.org/ns/shacl#': 'sh:'
-      },
       next_x: null,
       next_y: null,
       hover_note_shown: false,
@@ -324,23 +315,8 @@ export default {
       console.log(port)
       console.log('configure ' + node.object.shapeIri.id + ' port' + port.object.shapeIri.id)
     },
-    shortenIri (iriIn) {
-      const iri = new URL(iriIn)
-      let identifier = iri.toString()
-      let rest = ''
-      if (iri.hash) {
-        const hashPos = identifier.lastIndexOf('#')
-        rest = identifier.substr(0, hashPos + 1)
-        identifier = iri.hash.substr(1)
-      } else if (iri.pathname) {
-        const slashPos = identifier.lastIndexOf('/')
-        rest = identifier.substr(0, slashPos + 1)
-        identifier = identifier.substr(slashPos + 1)
-      }
-      if (this.prefixes[rest] && identifier.indexOf('#') < 0 && identifier.indexOf(':') < 0 && identifier.indexOf('/') < 0) {
-        return this.prefixes[rest] + identifier
-      }
-      return iri.toString()
+    shortenIri (resource) {
+      return usePrefixesStore().shortenIri(resource)
     },
     getShapeByPortId (portId) {
       return namedNode(this.portIds[portId])

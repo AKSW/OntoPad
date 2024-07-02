@@ -24,13 +24,15 @@
         :class="[{'active': resource == activeResource}, itemClass]"
         href="#"
         :for="'form-control' + index"
-        v-on:click="select(resource)">{{ resource }}</li>
+        :title="resource"
+        v-on:click="select(resource)">{{ shortenIri(resource) }}</li>
     </ul>
   </div>
 </template>
 
 <script>
 import { useRdfStore } from '../stores/rdf'
+import { usePrefixesStore } from '../stores/prefixes'
 
 export default {
   name: 'QueryResultList',
@@ -99,6 +101,9 @@ export default {
             this.resources.push(bindings[key][this.selectVariable].value)
           }
         })
+    },
+    shortenIri (resource) {
+      return usePrefixesStore().shortenIri(resource)
     }
   }
 }
