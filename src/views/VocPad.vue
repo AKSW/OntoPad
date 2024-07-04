@@ -15,8 +15,9 @@
             </button>
           </div>
         </div>
-        <div class="list-group list-group-flush" v-for="(rdfClass, index) in classes" :key="'class-' + index">
+        <div class="list-group list-group-flush">
           <li class="list-group-item py-2"
+            v-for="(rdfClass, index) in classes" :key="'class-' + index"
             :for="'class-' + index"
             style="cursor: move"
             draggable="true"
@@ -35,8 +36,9 @@
             </button>
           </div>
         </div>
-        <div class="list-group list-group-flush" v-for="(rdfProperty, index) in properties" :key="'property-' + index">
+        <div class="list-group list-group-flush">
           <li class="list-group-item py-2"
+            v-for="(rdfProperty, index) in properties" :key="'property-' + index"
             :for="'property-' + index"
             style="cursor: move"
             draggable="true"
