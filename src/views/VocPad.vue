@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="card-body">
-          <diagram :model="model" width="100%" height="600" @drop='onDrop($event)' @dropNode='onDropNode' @configurePort='configureProperty'></diagram>
+          <diagram :model="model" width="100%" height="600" @drop='onDrop($event)' @dropNode='onDropNode' @configurePort='configureProperty' @dragover.prevent="() => {}"></diagram>
         </div>
       </div>
     </div>
