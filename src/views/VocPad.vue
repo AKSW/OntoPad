@@ -1,6 +1,8 @@
 <template>
+  <!-- Layout -->
   <div class="row">
     <div class="col-3" style="height:80vh; overflow-y:scroll;">
+      <!-- Class List -->
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h6 class="mb-0">Class List</h6>
@@ -23,6 +25,7 @@
             v-on:click="select(rdfClass.iri)">{{ shortenIri(rdfClass.iri) }}</li>
         </div>
       </div>
+      <!-- Property List -->
       <div class="card">
         <div class="card-header">
           <div class="d-flex justify-content-between align-items-center">
@@ -42,79 +45,112 @@
             v-on:click="select(rdfProperty.iri)">{{ shortenIri(rdfProperty.iri) }}</li>
         </div>
       </div>
-      <div class="modal" ref="add_class" data-bs-backdrop="static">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Add Class</h5>
-              <button type="button" class="btn-close" @click="add_class_modal.hide()" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="class_iri">Class IRI</label>
-                  <div>
-                    <TermInput type="iri" id="class_iri" v-model:term="class_iri" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="class_label">Label (rdfs:label)</label>
-                  <div>
-                    <TermInput type="literal" id="class_label" v-model:term="class_label" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="class_comment">Comment (rdfs:comment)</label>
-                  <div>
-                    <TermInput type="literal" id="class_comment" v-model:term="class_comment" />
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" @click="add_class_modal.hide()">Close</button>
-              <button type="button" class="btn btn-primary" @click="add_term('class')">Save changes</button>
-            </div>
+    </div>
+    <div class="col-9">
+      <!-- Shape Composer -->
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h6 class="mb-0">Shape Composer</h6>
+          <div>
+            <button type="button" class="btn btn-secondary mb-0" v-on:click="getShapes" title="Reload" aria-label="Reload">
+              <i class="bi bi-arrow-repeat"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" v-on:click="saveShapes" title="Save Schema/Shapes" aria-label="Save Schema/Shapes">
+              <i class="bi bi-save"></i>
+            </button>
           </div>
         </div>
-      </div>
-      <div class="modal fade" ref="add_property" data-bs-backdrop="static">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Add Property</h5>
-              <button type="button" class="btn-close" @click="add_property_modal.hide()" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="property_iri">Property IRI</label>
-                  <div>
-                    <TermInput type="iri" id="property_iri" v-model:term="property_iri" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="property_label">Label (rdfs:label)</label>
-                  <div>
-                    <TermInput type="literal" id="property_label" v-model:term="property_label" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="property_comment">Comment (rdfs:comment)</label>
-                  <div>
-                    <TermInput type="literal" id="property_comment" v-model:term="property_comment" />
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" @click="add_property_modal.hide()">Close</button>
-              <button type="button" class="btn btn-primary" @click="add_term('property')">Save changes</button>
-            </div>
-          </div>
+        <div class="card-body">
+          <diagram :model="model" width="100%" height="600" @drop='onDrop($event)' @dropNode='onDropNode' @configurePort='configureProperty'></diagram>
         </div>
       </div>
-      <div class="modal" ref="configure_property" title="Configure Property Shape" :no-close-on-backdrop="true" @ok="editProp()" size="lg">
+    </div>
+  </div>
+  <!-- End Layout -->
+
+  <!-- Modals -->
+  <!-- Add Class Modal -->
+  <div class="modal" ref="add_class" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Class</h5>
+          <button type="button" class="btn-close" @click="add_class_modal.hide()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="class_iri">Class IRI</label>
+              <div>
+                <TermInput type="iri" id="class_iri" v-model:term="class_iri" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="class_label">Label (rdfs:label)</label>
+              <div>
+                <TermInput type="literal" id="class_label" v-model:term="class_label" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="class_comment">Comment (rdfs:comment)</label>
+              <div>
+                <TermInput type="literal" id="class_comment" v-model:term="class_comment" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" @click="add_class_modal.hide()">Close</button>
+          <button type="button" class="btn btn-primary" @click="add_term('class')">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add Property Modal -->
+  <div class="modal fade" ref="add_property" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Property</h5>
+          <button type="button" class="btn-close" @click="add_property_modal.hide()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="property_iri">Property IRI</label>
+              <div>
+                <TermInput type="iri" id="property_iri" v-model:term="property_iri" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="property_label">Label (rdfs:label)</label>
+              <div>
+                <TermInput type="literal" id="property_label" v-model:term="property_label" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="property_comment">Comment (rdfs:comment)</label>
+              <div>
+                <TermInput type="literal" id="property_comment" v-model:term="property_comment" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" @click="add_property_modal.hide()">Close</button>
+          <button type="button" class="btn btn-primary" @click="add_term('property')">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Configure Property Shape Modal -->
+  <div class="modal fade" ref="configure_property" data-bs-backdrop="static">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Configure Property Shape</h5>
+        <button type="button" class="btn-close" @click="configure_property.hide()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         <form>
           <div class="form-group">
             <label for="property_iri">Type</label>
@@ -142,24 +178,13 @@
           </div>
         </form>
       </div>
-    </div>
-    <div class="col-9">
-      <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-          <h6 class="mb-0">Shape Composer</h6>
-          <div>
-            <button type="button" class="btn btn-secondary mb-0" v-on:click="getShapes" title="Reload" aria-label="Reload">
-              <i class="bi bi-arrow-repeat"></i>
-            </button>
-            <button type="button" class="btn btn-secondary" v-on:click="saveShapes" title="Save Schema/Shapes" aria-label="Save Schema/Shapes">
-              <i class="bi bi-save"></i>
-            </button>
-          </div>
-        </div>
-        <diagram :model="model" width="100%" height="600" @drop='onDrop($event)' @dropNode='onDropNode' @configurePort='configureProperty'></diagram>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" @click="configure_property.hide()">Close</button>
+        <button type="button" class="btn btn-primary" @click="editProp()">Save changes</button>
       </div>
     </div>
   </div>
+  <!-- End Modals -->
 </template>
 
 <script>
