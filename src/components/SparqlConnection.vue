@@ -61,13 +61,15 @@
 
 <script>
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import { Modal } from 'bootstrap'
 
 export default {
   name: 'SparqlConnection',
   setup () {
     const store = useRdfStore();
-    return { store }
+    const selection = useSelectionStore();
+    return { store, selection }
   },
   data () {
     return {
@@ -92,7 +94,7 @@ export default {
     },
     graph_iri: {
       get () {
-        return this.store.graph_iri
+        return this.selection.graph_iri
       },
       set (value) {
         this.store.changeGraphIri(value)
@@ -100,10 +102,10 @@ export default {
     },
     resource_iri: {
       get () {
-        return this.store.resource_iri
+        return this.selection.resource_iri
       },
       set (value) {
-        this.store.changeResourceIri(value)
+        this.selection.changeResourceIri(value)
       }
     }
   },

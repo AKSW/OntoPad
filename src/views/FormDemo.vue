@@ -32,6 +32,7 @@ import Term from '../components/Term.vue'
 import { Readable } from 'readable-stream'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import { Store, StreamParser } from 'n3'
 
 import { registerPlugin } from '@ulb-darmstadt/shacl-form'
@@ -43,7 +44,8 @@ export default {
   name: 'FormDemo',
   setup () {
     const store = useRdfStore();
-    return { store }
+    const selection = useSelectionStore();
+    return { store, selection }
   },
   components: {
     Term
@@ -63,7 +65,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useRdfStore, ['graph_iri', 'resource_iri']),
+    ...mapState(useSelectionStore, ['graph_iri', 'resource_iri']),
     res_type () {
       if (this.dataModel.getQuads !== undefined) {
         const res_type = this.dataModel.getQuads(rdf.namedNode(this.resource_iri), rdf.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), null)[0]
@@ -90,8 +92,8 @@ export default {
         })
     },
     selectResource (resourceIri) {
-      this.store.changeResourceIri(resourceIri)
-    } 
+      this.selection.changeResourceIri(resourceIri)
+    }
   }
 }
 

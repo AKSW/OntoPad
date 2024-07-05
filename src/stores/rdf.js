@@ -2,13 +2,12 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { EndpointFactory } from '@/api/endpoint.js'
 import { Generator } from 'sparqljs'
+import { useSelectionStore } from '../stores/selection'
 import config from '@/config'
 import rdf from '@rdfjs/data-model'
 
 export const useRdfStore = defineStore('rdf', {
   state: () => ({
-      graph_iri: config.graph_iri,
-      resource_iri: config.resource_iri,
       sparqlEndpoint: EndpointFactory.create(config.endpoint)
   }),
   actions: {
@@ -26,7 +25,7 @@ export const useRdfStore = defineStore('rdf', {
       let queryString = ''
       if (typeof query === 'string') {
         queryString = query
-        defaultGraph = [this.graph_iri]
+        defaultGraph = [useSelectionStore().graph_iri]
       } else if (query instanceof Object) {
         queryString = query.query
         if (query.queryQuads !== undefined) {
@@ -34,7 +33,7 @@ export const useRdfStore = defineStore('rdf', {
         } else if (query.defaultGraph !== undefined) {
           defaultGraph = query.defaultGraph
         } else {
-          defaultGraph = [this.graph_iri]
+          defaultGraph = [useSelectionStore().graph_iri]
         }
       } else {
         console.error('can process query')
@@ -44,7 +43,7 @@ export const useRdfStore = defineStore('rdf', {
     },
     getResource (resourceUri, defaultGraph) {
       if (defaultGraph === undefined) {
-        defaultGraph = [this.graph_iri]
+        defaultGraph = [useSelectionStore().graph_iri]
       }
       const queryString = 'construct where {<' + resourceUri + '> ?p ?o}'
       return this.sparqlEndpoint.query(queryString, defaultGraph, true)
@@ -122,19 +121,6 @@ export const useRdfStore = defineStore('rdf', {
       var updateString = generator.stringify(updateStructure)
       console.log('updatestring: ' + updateString)
       return this.sparqlEndpoint.update(updateString)
-    },
-    changeGraphIri (graphIri) {
-      console.log('Change graph Iri to ' + graphIri)
-      this.graph_iri = graphIri
-    },
-    changeResourceIri (resourceIri) {
-      console.log('Change resource Iri to ' + resourceIri)
-      this.resource_iri = resourceIri
-    },
-    updateEndpointConfiguration (configuration) {
-      console.log('Change SPARQL Endpoint configuration.')
-      console.log(configuration)
-      this.sparqlEndpoint = EndpointFactory.create(configuration)
     }
   },
 })

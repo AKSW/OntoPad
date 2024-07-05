@@ -32,13 +32,15 @@
 
 <script>
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import { usePrefixesStore } from '../stores/prefixes'
 
 export default {
   name: 'QueryResultList',
   setup () {
     const store = useRdfStore();
-    return { store }
+    const selection = useSelectionStore();
+    return { store, selection }
   },
   mounted () {
     this.updateList()
@@ -88,7 +90,7 @@ export default {
       if (this.selectResource) {
         this.selectResource(resource)
       } else {
-        this.store.changeResourceIri(resource)
+        this.selection.changeResourceIri(resource)
       }
     },
     updateList () {

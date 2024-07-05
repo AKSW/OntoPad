@@ -34,6 +34,7 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import TermInput from '../components/TermInput.vue'
 // import * as jsonld from 'jsonld'
 import rdf from '@rdfjs/data-model'
@@ -57,7 +58,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useRdfStore, ['graph_iri']),
+    ...mapState(useSelectionStore, ['graph_iri']),
   },
   methods: {
     newTriple (index) {

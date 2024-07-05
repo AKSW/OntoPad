@@ -1,7 +1,7 @@
 <script setup>
 import QueryResultList from './QueryResultList.vue'
 import { mapState } from 'pinia'
-import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 </script>
 
 <template>
@@ -22,7 +22,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useRdfStore, ['graph_iri', 'resource_iri'])
+    ...mapState(useSelectionStore, ['graph_iri', 'resource_iri'])
   }
 }
 

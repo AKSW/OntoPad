@@ -26,6 +26,7 @@ import Term from '../components/Term.vue'
 import { Readable } from 'readable-stream'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import { Store, StreamParser } from 'n3'
 import rdf from '@rdfjs/data-model'
 
@@ -33,7 +34,8 @@ export default {
   name: 'PropertyView',
   setup () {
     const store = useRdfStore();
-    return { store }
+    const selection = useSelectionStore();
+    return { store, selection }
   },
   components: {
     Term
@@ -45,7 +47,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useRdfStore, ['resource_iri']),
+    ...mapState(useSelectionStore, ['resource_iri']),
     label () {
       if (this.dataModel.getQuads !== undefined) {
         const label = this.dataModel.getQuads(rdf.namedNode(this.resource_iri), rdf.namedNode('http://www.w3.org/2000/01/rdf-schema#label'), null)[0]
@@ -89,7 +91,7 @@ export default {
         })
     },
     selectResource (resourceIri) {
-      this.store.changeResourceIri(resourceIri)
+      this.selection.changeResourceIri(resourceIri)
     }
   }
 }

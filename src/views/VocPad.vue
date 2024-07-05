@@ -192,6 +192,7 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import { usePrefixesStore } from '../stores/prefixes'
 
 import { Modal } from 'bootstrap'
@@ -206,7 +207,8 @@ export default {
   name: 'VocPad',
   setup () {
     const store = useRdfStore();
-    return { store }
+    const selection = useSelectionStore();
+    return { store, selection }
   },
   components: {
     TermInput,
@@ -235,7 +237,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useRdfStore, ['graph_iri'])
+    ...mapState(useSelectionStore, ['graph_iri'])
   },
   mounted () {
     this.getLists()
@@ -253,7 +255,7 @@ export default {
   methods: {
     select (rdfClass) {
       console.log(rdfClass)
-      this.store.changeResourceIri(rdfClass)
+      this.selection.changeResourceIri(rdfClass)
     },
     getLists () {
       this.store.sendQuery(

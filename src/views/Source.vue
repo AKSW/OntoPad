@@ -20,6 +20,7 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import { Parser, Writer } from 'n3'
 import { diff } from '../helpers/n3-compare'
 
@@ -38,7 +39,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useRdfStore, ['graph_iri', 'resource_iri'])
+    ...mapState(useSelectionStore, ['graph_iri', 'resource_iri'])
   },
   data () {
     return {

@@ -31,6 +31,7 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 import { Modal } from 'bootstrap'
 import rdf from '@rdfjs/data-model'
 
@@ -41,7 +42,8 @@ export default {
   name: 'GraphList',
   setup () {
     const store = useRdfStore();
-    return { store }
+    const selection = useSelectionStore();
+    return { store, selection }
   },
   components: {
     TermInput,
@@ -58,12 +60,12 @@ export default {
     this.add_graph_modal = new Modal(this.$refs.add_graph)
   },
   computed: {
-    ...mapState(useRdfStore, ['graph_iri'])
+    ...mapState(useSelectionStore, ['graph_iri'])
   },
   methods: {
     select (graph) {
-      this.store.changeGraphIri(graph)
-      this.store.changeResourceIri(graph)
+      this.selection.changeGraphIri(graph)
+      this.selection.changeResourceIri(graph)
     },
     async add_graph () {
       const newGraphData = [rdf.quad(this.new_graph_iri, rdf.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), rdf.namedNode('http://www.w3.org/2000/01/rdf-schema#Graph'))]

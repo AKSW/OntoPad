@@ -5,7 +5,7 @@
 <script>
 import QueryResultList from './QueryResultList.vue'
 import { mapState } from 'pinia'
-import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 
 export default {
   name: 'InstanceList',
@@ -13,7 +13,7 @@ export default {
     QueryResultList
   },
   computed: {
-    ...mapState(useRdfStore, ['resource_iri'])
+    ...mapState(useSelectionStore, ['resource_iri'])
   },
 }
 

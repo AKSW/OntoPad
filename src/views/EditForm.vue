@@ -37,6 +37,7 @@ import { Parser } from 'n3'
 import { diff } from '../helpers/n3-compare'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
+import { useSelectionStore } from '../stores/selection'
 // import * as jsonld from 'jsonld'
 import rdf from '@rdfjs/data-model'
 
@@ -70,7 +71,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(useRdfStore, ['graph_iri', 'resource_iri']),
+    ...mapState(useSelectionStore, ['graph_iri', 'resource_iri']),
   },
   methods: {
     newTriple (index) {
