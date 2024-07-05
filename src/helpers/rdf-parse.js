@@ -1,12 +1,14 @@
 'use strict'
 
-import { Parser } from 'n3'
+import { Store, Parser, StreamWriter, StreamParser } from 'n3'
+import { Readable } from 'readable-stream'
+import { promisifyEventEmitter } from 'event-emitter-promisify';
 
 // parse to objects
 // rdfString: the rdf string to parse
 // subject: the resource to take from the rdf string
 // returns [resultDataModel, prefixes]
-async function parseRDFtoRDFJS (rdfString, subject = undefined) {
+export async function parseRDFtoRDFJS (rdfString, subject = undefined) {
   return await new Promise((resolve, reject) => {
     const resultDataModel = []
     const parser = new Parser()
@@ -30,4 +32,33 @@ async function parseRDFtoRDFJS (rdfString, subject = undefined) {
   })
 }
 
-export { parseRDFtoRDFJS }
+// Takes a String and return a stream of quads
+export async function stringToQuadStream(string, options) {
+  const streamParser = new StreamParser(options)
+  Readable.from([string]).pipe(streamParser)
+
+  const store = new Store();
+  return promisifyEventEmitter(store.import(streamParser), store);
+}
+
+// Takes a Stream of Quads as first argument
+export async function quadStreamToString(quadStream, options) {
+  const streamWriter = new StreamWriter(options);
+  streamWriter.import(quadStream)
+
+  const chunks = [];
+
+  for await (const chunk of streamWriter) {
+    chunks.push(Buffer.from(chunk));
+  }
+
+  return Buffer.concat(chunks).toString();
+}
+
+// from https://github.com/jeswr/rdf-dereference-store.js/blob/872301fefe1dfeafd6d5aacc12068966cb90e208/lib/index.ts#L14-L18
+// Takes a Stream of Quads as first argument
+export function quadStreamToStore(quadStream) {
+  const res = { store: new Store(), prefixes: {} }; //  as Record<string, string>
+  quadStream.on('prefix', (prefix, ns) => { res.prefixes[prefix] = typeof ns === 'string' ? ns : ns.value; });
+  return promisifyEventEmitter(res.store.import(quadStream), res);
+}
