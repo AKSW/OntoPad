@@ -8,7 +8,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [
     nodePolyfills({
-      include: ['buffer'],
+      include: ['buffer', 'events'],
     }),
     vue({ 
       template: { 
