@@ -27,7 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@comunica/query-sparql", "npm:3.1.2"],\
+          ["@comunica/query-sparql", "npm:3.2.0"],\
           ["@popperjs/core", "npm:2.11.8"],\
           ["@rdfjs/data-model", "npm:2.0.2"],\
           ["@rushstack/eslint-patch", "npm:1.10.2"],\
@@ -2133,12 +2133,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-mediatyped-npm-3.1.0-8fced5508d-10c0.zip/node_modules/@comunica/actor-abstract-mediatyped/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-mediatyped-npm-3.2.0-40bd4a7d3f-10c0.zip/node_modules/@comunica/actor-abstract-mediatyped/",\
         "packageDependencies": [\
-          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2153,26 +2153,26 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-parse-npm-3.1.0-9e2e19af77-10c0.zip/node_modules/@comunica/actor-abstract-parse/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-parse-npm-3.2.0-97ed8d6607-10c0.zip/node_modules/@comunica/actor-abstract-parse/",\
         "packageDependencies": [\
-          ["@comunica/actor-abstract-parse", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-parse", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-abstract-path", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-path-npm-3.1.2-4eb5fe21ba-10c0.zip/node_modules/@comunica/actor-abstract-path/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-abstract-path-npm-3.2.0-ae9f56a6bd-10c0.zip/node_modules/@comunica/actor-abstract-path/",\
         "packageDependencies": [\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -2183,44 +2183,44 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-context-preprocess-convert-shortcuts", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-convert-shortcuts-npm-3.1.2-2d04bedcc4-10c0.zip/node_modules/@comunica/actor-context-preprocess-convert-shortcuts/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-convert-shortcuts-npm-3.2.0-9561108eaa-10c0.zip/node_modules/@comunica/actor-context-preprocess-convert-shortcuts/",\
         "packageDependencies": [\
-          ["@comunica/actor-context-preprocess-convert-shortcuts", "npm:3.1.2"],\
-          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/actor-context-preprocess-convert-shortcuts", "npm:3.2.0"],\
+          ["@comunica/bus-context-preprocess", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-context-preprocess-query-source-identify", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-query-source-identify-npm-3.1.2-567a1a9cca-10c0.zip/node_modules/@comunica/actor-context-preprocess-query-source-identify/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-query-source-identify-npm-3.2.0-8278672f49-10c0.zip/node_modules/@comunica/actor-context-preprocess-query-source-identify/",\
         "packageDependencies": [\
-          ["@comunica/actor-context-preprocess-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
-          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-context-preprocess-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/bus-context-preprocess", "npm:3.2.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["lru-cache", "npm:10.2.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-context-preprocess-query-source-skolemize", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-query-source-skolemize-npm-3.1.2-78b4248fb4-10c0.zip/node_modules/@comunica/actor-context-preprocess-query-source-skolemize/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-query-source-skolemize-npm-3.2.0-24420b57de-10c0.zip/node_modules/@comunica/actor-context-preprocess-query-source-skolemize/",\
         "packageDependencies": [\
-          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.1.2"],\
-          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.2.0"],\
+          ["@comunica/bus-context-preprocess", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/data-factory", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -2231,51 +2231,51 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-context-preprocess-set-defaults", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-set-defaults-npm-3.1.2-3c47987bed-10c0.zip/node_modules/@comunica/actor-context-preprocess-set-defaults/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-set-defaults-npm-3.2.0-87be88100c-10c0.zip/node_modules/@comunica/actor-context-preprocess-set-defaults/",\
         "packageDependencies": [\
-          ["@comunica/actor-context-preprocess-set-defaults", "npm:3.1.2"],\
-          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-context-preprocess-set-defaults", "npm:3.2.0"],\
+          ["@comunica/bus-context-preprocess", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-context-preprocess-source-to-destination", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-source-to-destination-npm-3.1.2-77dce85226-10c0.zip/node_modules/@comunica/actor-context-preprocess-source-to-destination/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-context-preprocess-source-to-destination-npm-3.2.0-a5bcee7cdf-10c0.zip/node_modules/@comunica/actor-context-preprocess-source-to-destination/",\
         "packageDependencies": [\
-          ["@comunica/actor-context-preprocess-source-to-destination", "npm:3.1.2"],\
-          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/actor-context-preprocess-source-to-destination", "npm:3.2.0"],\
+          ["@comunica/bus-context-preprocess", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-dereference-fallback", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-fallback-npm-3.1.0-06a83b50d3-10c0.zip/node_modules/@comunica/actor-dereference-fallback/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-fallback-npm-3.2.0-c30b429a99-10c0.zip/node_modules/@comunica/actor-dereference-fallback/",\
         "packageDependencies": [\
-          ["@comunica/actor-dereference-fallback", "npm:3.1.0"],\
-          ["@comunica/bus-dereference", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-dereference-fallback", "npm:3.2.0"],\
+          ["@comunica/bus-dereference", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-dereference-http", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-http-npm-3.1.0-27f0305a23-10c0.zip/node_modules/@comunica/actor-dereference-http/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-http-npm-3.2.0-e5e3fd1bb4-10c0.zip/node_modules/@comunica/actor-dereference-http/",\
         "packageDependencies": [\
-          ["@comunica/actor-dereference-http", "npm:3.1.0"],\
-          ["@comunica/bus-dereference", "npm:3.1.0"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-dereference-http", "npm:3.2.0"],\
+          ["@comunica/bus-dereference", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["cross-fetch", "npm:4.0.0"],\
           ["relative-to-absolute-iri", "npm:1.0.7"],\
           ["stream-to-string", "npm:1.2.1"]\
@@ -2284,24 +2284,24 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-dereference-rdf-parse", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-rdf-parse-npm-3.1.0-f749a8a6f1-10c0.zip/node_modules/@comunica/actor-dereference-rdf-parse/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-dereference-rdf-parse-npm-3.2.0-420f851794-10c0.zip/node_modules/@comunica/actor-dereference-rdf-parse/",\
         "packageDependencies": [\
-          ["@comunica/actor-dereference-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/bus-dereference", "npm:3.1.0"],\
-          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"]\
+          ["@comunica/actor-dereference-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/bus-dereference", "npm:3.2.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-hash-bindings-sha1", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-hash-bindings-sha1-npm-3.1.0-bba182a28f-10c0.zip/node_modules/@comunica/actor-hash-bindings-sha1/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-hash-bindings-sha1-npm-3.2.0-f06795b599-10c0.zip/node_modules/@comunica/actor-hash-bindings-sha1/",\
         "packageDependencies": [\
-          ["@comunica/actor-hash-bindings-sha1", "npm:3.1.0"],\
-          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-hash-bindings-sha1", "npm:3.2.0"],\
+          ["@comunica/bus-hash-bindings", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["canonicalize", "npm:2.0.0"],\
           ["hash.js", "npm:1.1.7"],\
           ["rdf-string", "npm:1.6.3"]\
@@ -2322,13 +2322,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-fetch-npm-3.1.0-6a888cd1ed-10c0.zip/node_modules/@comunica/actor-http-fetch/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-fetch-npm-3.2.0-1af1e2ca25-10c0.zip/node_modules/@comunica/actor-http-fetch/",\
         "packageDependencies": [\
-          ["@comunica/actor-http-fetch", "npm:3.1.0"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/mediatortype-time", "npm:3.1.0"],\
+          ["@comunica/actor-http-fetch", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/mediatortype-time", "npm:3.2.0"],\
           ["abort-controller", "npm:3.0.0"],\
           ["cross-fetch", "npm:4.0.0"]\
         ],\
@@ -2347,26 +2347,26 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-proxy-npm-3.1.0-58830474de-10c0.zip/node_modules/@comunica/actor-http-proxy/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-proxy-npm-3.2.0-3ac4546dfe-10c0.zip/node_modules/@comunica/actor-http-proxy/",\
         "packageDependencies": [\
-          ["@comunica/actor-http-proxy", "npm:3.1.0"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/mediatortype-time", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/actor-http-proxy", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/mediatortype-time", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-http-wayback", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-wayback-npm-3.1.2-83a6e00e25-10c0.zip/node_modules/@comunica/actor-http-wayback/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-http-wayback-npm-3.2.0-a6ddeef9eb-10c0.zip/node_modules/@comunica/actor-http-wayback/",\
         "packageDependencies": [\
-          ["@comunica/actor-http-wayback", "npm:3.1.2"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-http-wayback", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["cross-fetch", "npm:4.0.0"],\
           ["stream-to-string", "npm:1.2.1"]\
         ],\
@@ -2374,20 +2374,20 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-init-query", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-init-query-npm-3.1.0-e453e03e76-10c0.zip/node_modules/@comunica/actor-init-query/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-init-query-npm-3.2.0-ecba4961e0-10c0.zip/node_modules/@comunica/actor-init-query/",\
         "packageDependencies": [\
-          ["@comunica/actor-init-query", "npm:3.1.0"],\
-          ["@comunica/actor-http-proxy", "npm:3.1.0"],\
-          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
-          ["@comunica/bus-init", "npm:3.1.0"],\
-          ["@comunica/bus-query-process", "npm:3.1.0"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/logger-pretty", "npm:3.1.0"],\
-          ["@comunica/runner", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-init-query", "npm:3.2.0"],\
+          ["@comunica/actor-http-proxy", "npm:3.2.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.2.0"],\
+          ["@comunica/bus-init", "npm:3.2.0"],\
+          ["@comunica/bus-query-process", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/logger-pretty", "npm:3.2.0"],\
+          ["@comunica/runner", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["@types/yargs", "npm:17.0.32"],\
           ["asynciterator", "npm:3.9.0"],\
@@ -2401,40 +2401,40 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-assign-sources-exhaustive-npm-3.1.2-a6948a1f10-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-assign-sources-exhaustive/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-assign-sources-exhaustive-npm-3.2.0-3c72738092-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-assign-sources-exhaustive/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", "npm:3.1.2"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-bgp-to-join", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-bgp-to-join-npm-3.1.0-b9ae6c4c40-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-bgp-to-join/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-bgp-to-join-npm-3.2.0-70c89c79c8-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-bgp-to-join/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-bgp-to-join", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-bgp-to-join", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-describe-to-constructs-subject-npm-3.1.0-757c66016a-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-describe-to-constructs-subject/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-describe-to-constructs-subject-npm-3.2.0-1b2d5e7b04-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-describe-to-constructs-subject/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2442,13 +2442,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-filter-pushdown", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-filter-pushdown-npm-3.1.0-945c4fbb40-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-filter-pushdown/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-filter-pushdown-npm-3.2.0-412a352257-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-filter-pushdown/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-filter-pushdown", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-filter-pushdown", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-terms", "npm:1.11.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -2457,53 +2457,53 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-group-sources", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-group-sources-npm-3.1.2-772161ca8a-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-group-sources/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-group-sources-npm-3.2.0-69120fba6b-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-group-sources/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-group-sources", "npm:3.1.2"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-group-sources", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-join-bgp", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-join-bgp-npm-3.1.0-0944235e14-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-join-bgp/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-join-bgp-npm-3.2.0-142fcb3871-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-join-bgp/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-join-bgp", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-join-bgp", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-join-connected", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-join-connected-npm-3.1.0-70404843a4-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-join-connected/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-join-connected-npm-3.2.0-19ca11b2f3-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-join-connected/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-join-connected", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-join-connected", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-prune-empty-source-operations-npm-3.1.2-eeca81bda7-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-prune-empty-source-operations/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-prune-empty-source-operations-npm-3.2.0-528d10c390-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-prune-empty-source-operations/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", "npm:3.1.2"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2511,12 +2511,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-rewrite-add", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-add-npm-3.1.0-60c4db8b43-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-add/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-add-npm-3.2.0-a3f2e74003-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-add/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-rewrite-add", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-add", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -2525,63 +2525,63 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-rewrite-copy", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-copy-npm-3.1.0-d7a80355f2-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-copy/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-copy-npm-3.2.0-b6118432ae-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-copy/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-rewrite-copy", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-copy", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-optimize-query-operation-rewrite-move", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-move-npm-3.1.0-d2d1b01d5d-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-move/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-optimize-query-operation-rewrite-move-npm-3.2.0-8dd41e19d6-10c0.zip/node_modules/@comunica/actor-optimize-query-operation-rewrite-move/",\
         "packageDependencies": [\
-          ["@comunica/actor-optimize-query-operation-rewrite-move", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-move", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-ask", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-ask-npm-3.1.2-b8e36606ae-10c0.zip/node_modules/@comunica/actor-query-operation-ask/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-ask-npm-3.2.0-c767251a53-10c0.zip/node_modules/@comunica/actor-query-operation-ask/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-ask", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-ask", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-bgp-join", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-bgp-join-npm-3.1.2-3f5dc82549-10c0.zip/node_modules/@comunica/actor-query-operation-bgp-join/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-bgp-join-npm-3.2.0-83d6cc7aaa-10c0.zip/node_modules/@comunica/actor-query-operation-bgp-join/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-bgp-join", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-bgp-join", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-construct", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-construct-npm-3.1.2-8e3feff775-10c0.zip/node_modules/@comunica/actor-query-operation-construct/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-construct-npm-3.2.0-d96d6f178b-10c0.zip/node_modules/@comunica/actor-query-operation-construct/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-construct", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-construct", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -2592,59 +2592,59 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-distinct-hash", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-distinct-hash-npm-3.1.2-e62908b712-10c0.zip/node_modules/@comunica/actor-query-operation-distinct-hash/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-distinct-hash-npm-3.2.0-5e055c0381-10c0.zip/node_modules/@comunica/actor-query-operation-distinct-hash/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-distinct-hash", "npm:3.1.2"],\
-          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-distinct-hash", "npm:3.2.0"],\
+          ["@comunica/bus-hash-bindings", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-extend", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-extend-npm-3.1.2-dd01b6055d-10c0.zip/node_modules/@comunica/actor-query-operation-extend/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-extend-npm-3.2.0-10c70b87d0-10c0.zip/node_modules/@comunica/actor-query-operation-extend/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-extend", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-extend", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/expression-evaluator", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-filter", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-filter-npm-3.1.2-32c3c88f8e-10c0.zip/node_modules/@comunica/actor-query-operation-filter/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-filter-npm-3.2.0-9f8704bb38-10c0.zip/node_modules/@comunica/actor-query-operation-filter/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-filter", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-filter", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/expression-evaluator", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-from-quad", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-from-quad-npm-3.1.2-d6a611570f-10c0.zip/node_modules/@comunica/actor-query-operation-from-quad/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-from-quad-npm-3.2.0-bf1b915d43-10c0.zip/node_modules/@comunica/actor-query-operation-from-quad/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-from-quad", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-from-quad", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2652,17 +2652,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-group", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-group-npm-3.1.2-883a04a5df-10c0.zip/node_modules/@comunica/actor-query-operation-group/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-group-npm-3.2.0-8d68d951c8-10c0.zip/node_modules/@comunica/actor-query-operation-group/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-group", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-group", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-hash-bindings", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/expression-evaluator", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -2672,61 +2672,61 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-join", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-join-npm-3.1.2-841c08aaeb-10c0.zip/node_modules/@comunica/actor-query-operation-join/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-join-npm-3.2.0-ad98b274db-10c0.zip/node_modules/@comunica/actor-query-operation-join/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-join", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-join", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-leftjoin", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-leftjoin-npm-3.1.2-8a790469e5-10c0.zip/node_modules/@comunica/actor-query-operation-leftjoin/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-leftjoin-npm-3.2.0-6bf20ddedf-10c0.zip/node_modules/@comunica/actor-query-operation-leftjoin/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-leftjoin", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-leftjoin", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/expression-evaluator", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-minus", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-minus-npm-3.1.2-a5d1d68b55-10c0.zip/node_modules/@comunica/actor-query-operation-minus/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-minus-npm-3.2.0-9438ac35d7-10c0.zip/node_modules/@comunica/actor-query-operation-minus/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-minus", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-minus", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-nop", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-nop-npm-3.1.2-871a74b2d4-10c0.zip/node_modules/@comunica/actor-query-operation-nop/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-nop-npm-3.2.0-c76878bd7b-10c0.zip/node_modules/@comunica/actor-query-operation-nop/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-nop", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-nop", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -2735,16 +2735,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-orderby", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-orderby-npm-3.1.2-fb55839168-10c0.zip/node_modules/@comunica/actor-query-operation-orderby/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-orderby-npm-3.2.0-88d92ff36b-10c0.zip/node_modules/@comunica/actor-query-operation-orderby/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-orderby", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-orderby", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/expression-evaluator", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2752,15 +2752,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-alt", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-alt-npm-3.1.2-a0d8097157-10c0.zip/node_modules/@comunica/actor-query-operation-path-alt/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-alt-npm-3.2.0-2f14490e76-10c0.zip/node_modules/@comunica/actor-query-operation-path-alt/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-alt", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-union", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-alt", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-union", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2768,54 +2768,54 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-inv", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-inv-npm-3.1.2-1e6684e494-10c0.zip/node_modules/@comunica/actor-query-operation-path-inv/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-inv-npm-3.2.0-d99d50a90d-10c0.zip/node_modules/@comunica/actor-query-operation-path-inv/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-inv", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-inv", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-link", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-link-npm-3.1.2-b7957025fa-10c0.zip/node_modules/@comunica/actor-query-operation-path-link/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-link-npm-3.2.0-152853f207-10c0.zip/node_modules/@comunica/actor-query-operation-path-link/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-link", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-link", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-nps", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-nps-npm-3.1.2-3f814c08f5-10c0.zip/node_modules/@comunica/actor-query-operation-path-nps/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-nps-npm-3.2.0-d5510e6c27-10c0.zip/node_modules/@comunica/actor-query-operation-path-nps/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-nps", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-nps", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-one-or-more", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-one-or-more-npm-3.1.2-9396c7fc62-10c0.zip/node_modules/@comunica/actor-query-operation-path-one-or-more/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-one-or-more-npm-3.2.0-c8db16a82b-10c0.zip/node_modules/@comunica/actor-query-operation-path-one-or-more/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-one-or-more", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-one-or-more", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2823,29 +2823,29 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-seq", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-seq-npm-3.1.2-89a87e99e9-10c0.zip/node_modules/@comunica/actor-query-operation-path-seq/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-seq-npm-3.2.0-f77bbcb22c-10c0.zip/node_modules/@comunica/actor-query-operation-path-seq/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-seq", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-seq", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-zero-or-more", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-zero-or-more-npm-3.1.2-e52d51475f-10c0.zip/node_modules/@comunica/actor-query-operation-path-zero-or-more/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-zero-or-more-npm-3.2.0-c62826df0b-10c0.zip/node_modules/@comunica/actor-query-operation-path-zero-or-more/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-zero-or-more", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-zero-or-more", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-string", "npm:1.6.3"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -2854,16 +2854,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-path-zero-or-one", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-zero-or-one-npm-3.1.2-e6766b8718-10c0.zip/node_modules/@comunica/actor-query-operation-path-zero-or-one/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-path-zero-or-one-npm-3.2.0-04f4b7843d-10c0.zip/node_modules/@comunica/actor-query-operation-path-zero-or-one/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-path-zero-or-one", "npm:3.1.2"],\
-          ["@comunica/actor-abstract-path", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-path-zero-or-one", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-path", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2871,14 +2871,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-project", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-project-npm-3.1.2-5bb074bd49-10c0.zip/node_modules/@comunica/actor-query-operation-project/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-project-npm-3.2.0-0c15a1c56b-10c0.zip/node_modules/@comunica/actor-query-operation-project/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-project", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-project", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/data-factory", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -2887,14 +2887,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-reduced-hash", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-reduced-hash-npm-3.1.2-22d6a2accc-10c0.zip/node_modules/@comunica/actor-query-operation-reduced-hash/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-reduced-hash-npm-3.2.0-1ac8ca4163-10c0.zip/node_modules/@comunica/actor-query-operation-reduced-hash/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-reduced-hash", "npm:3.1.2"],\
-          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-reduced-hash", "npm:3.2.0"],\
+          ["@comunica/bus-hash-bindings", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["lru-cache", "npm:10.2.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2902,17 +2902,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-service", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-service-npm-3.1.2-9b30359d17-10c0.zip/node_modules/@comunica/actor-query-operation-service/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-service-npm-3.2.0-bbb3e10f5b-10c0.zip/node_modules/@comunica/actor-query-operation-service/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-service", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-service", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -2920,44 +2920,44 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-slice", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-slice-npm-3.1.2-0c20293b85-10c0.zip/node_modules/@comunica/actor-query-operation-slice/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-slice-npm-3.2.0-a73f6b1d80-10c0.zip/node_modules/@comunica/actor-query-operation-slice/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-slice", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-slice", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-source", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-source-npm-3.1.2-963e29f6c8-10c0.zip/node_modules/@comunica/actor-query-operation-source/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-source-npm-3.2.0-0532180e43-10c0.zip/node_modules/@comunica/actor-query-operation-source/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-source", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-source", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-union", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-union-npm-3.1.2-ab5fbc6a89-10c0.zip/node_modules/@comunica/actor-query-operation-union/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-union-npm-3.2.0-7a141d79a4-10c0.zip/node_modules/@comunica/actor-query-operation-union/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-union", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-union", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-terms", "npm:1.11.0"],\
@@ -2967,14 +2967,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-update-clear", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-clear-npm-3.1.2-887e824081-10c0.zip/node_modules/@comunica/actor-query-operation-update-clear/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-clear-npm-3.2.0-a4f1b57bc6-10c0.zip/node_modules/@comunica/actor-query-operation-update-clear/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-update-clear", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-update-clear", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -2983,44 +2983,44 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-update-compositeupdate", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-compositeupdate-npm-3.1.2-9a01a6cf20-10c0.zip/node_modules/@comunica/actor-query-operation-update-compositeupdate/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-compositeupdate-npm-3.2.0-53592aebf9-10c0.zip/node_modules/@comunica/actor-query-operation-update-compositeupdate/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-update-compositeupdate", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-update-compositeupdate", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-update-create", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-create-npm-3.1.2-dacca37fbc-10c0.zip/node_modules/@comunica/actor-query-operation-update-create/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-create-npm-3.2.0-8af2363b3b-10c0.zip/node_modules/@comunica/actor-query-operation-update-create/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-update-create", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-update-create", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-operation-update-deleteinsert", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-deleteinsert-npm-3.1.2-08125c9712-10c0.zip/node_modules/@comunica/actor-query-operation-update-deleteinsert/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-deleteinsert-npm-3.2.0-86d4f0b700-10c0.zip/node_modules/@comunica/actor-query-operation-update-deleteinsert/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-update-deleteinsert", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-construct", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-update-deleteinsert", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-construct", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -3029,14 +3029,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-update-drop", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-drop-npm-3.1.2-458d76c319-10c0.zip/node_modules/@comunica/actor-query-operation-update-drop/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-drop-npm-3.2.0-7f01506f41-10c0.zip/node_modules/@comunica/actor-query-operation-update-drop/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-update-drop", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-update-drop", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -3045,16 +3045,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-update-load", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-load-npm-3.1.2-1e876196a0-10c0.zip/node_modules/@comunica/actor-query-operation-update-load/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-update-load-npm-3.2.0-560a789a8c-10c0.zip/node_modules/@comunica/actor-query-operation-update-load/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-update-load", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-update-load", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -3062,16 +3062,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-operation-values", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-values-npm-3.1.2-540eb1ce39-10c0.zip/node_modules/@comunica/actor-query-operation-values/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-operation-values-npm-3.2.0-09eb9d0a30-10c0.zip/node_modules/@comunica/actor-query-operation-values/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-operation-values", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-operation-values", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -3080,25 +3080,25 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-parse-graphql", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-parse-graphql-npm-3.1.0-37823df261-10c0.zip/node_modules/@comunica/actor-query-parse-graphql/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-parse-graphql-npm-3.2.0-f2f090a271-10c0.zip/node_modules/@comunica/actor-query-parse-graphql/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-parse-graphql", "npm:3.1.0"],\
-          ["@comunica/bus-query-parse", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-parse-graphql", "npm:3.2.0"],\
+          ["@comunica/bus-query-parse", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["graphql-to-sparql", "npm:3.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-parse-sparql", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-parse-sparql-npm-3.1.0-9b06fa7961-10c0.zip/node_modules/@comunica/actor-query-parse-sparql/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-parse-sparql-npm-3.2.0-21e1e5f607-10c0.zip/node_modules/@comunica/actor-query-parse-sparql/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-parse-sparql", "npm:3.1.0"],\
-          ["@comunica/bus-query-parse", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-query-parse-sparql", "npm:3.2.0"],\
+          ["@comunica/bus-query-parse", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@types/sparqljs", "npm:3.1.10"],\
           ["sparqlalgebrajs", "npm:4.3.7"],\
           ["sparqljs", "npm:3.7.1"]\
@@ -3107,60 +3107,59 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-process-explain-logical", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-logical-npm-3.1.0-42955508c4-10c0.zip/node_modules/@comunica/actor-query-process-explain-logical/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-logical-npm-3.2.0-cd65679447-10c0.zip/node_modules/@comunica/actor-query-process-explain-logical/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-process-explain-logical", "npm:3.1.0"],\
-          ["@comunica/bus-query-process", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-query-process-explain-logical", "npm:3.2.0"],\
+          ["@comunica/bus-query-process", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-process-explain-parsed", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-parsed-npm-3.1.0-f49b37f70e-10c0.zip/node_modules/@comunica/actor-query-process-explain-parsed/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-parsed-npm-3.2.0-61dfdc4b93-10c0.zip/node_modules/@comunica/actor-query-process-explain-parsed/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-process-explain-parsed", "npm:3.1.0"],\
-          ["@comunica/bus-query-process", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-query-process-explain-parsed", "npm:3.2.0"],\
+          ["@comunica/bus-query-process", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-process-explain-physical", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-physical-npm-3.1.0-807a30e106-10c0.zip/node_modules/@comunica/actor-query-process-explain-physical/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-explain-physical-npm-3.2.0-b12ec713db-10c0.zip/node_modules/@comunica/actor-query-process-explain-physical/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-process-explain-physical", "npm:3.1.0"],\
-          ["@comunica/bus-query-process", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-process-explain-physical", "npm:3.2.0"],\
+          ["@comunica/bus-query-process", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
-          ["rdf-string", "npm:1.6.3"],\
-          ["sparqlalgebrajs", "npm:4.3.7"]\
+          ["rdf-string", "npm:1.6.3"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-process-sequential", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-sequential-npm-3.1.2-87575aa3d2-10c0.zip/node_modules/@comunica/actor-query-process-sequential/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-process-sequential-npm-3.2.0-93daf50a57-10c0.zip/node_modules/@comunica/actor-query-process-sequential/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-process-sequential", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-query-parse", "npm:3.1.0"],\
-          ["@comunica/bus-query-process", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-process-sequential", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-context-preprocess", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-parse", "npm:3.2.0"],\
+          ["@comunica/bus-query-process", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -3168,12 +3167,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-json", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-json-npm-3.1.2-ea1afba9f7-10c0.zip/node_modules/@comunica/actor-query-result-serialize-json/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-json-npm-3.2.0-3523cbd0f8-10c0.zip/node_modules/@comunica/actor-query-result-serialize-json/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-json", "npm:3.1.2"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-json", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-string", "npm:1.6.3"],\
           ["readable-stream", "npm:4.5.2"]\
@@ -3182,25 +3181,25 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-rdf", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-rdf-npm-3.1.0-6675c91b99-10c0.zip/node_modules/@comunica/actor-query-result-serialize-rdf/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-rdf-npm-3.2.0-a958aa26fd-10c0.zip/node_modules/@comunica/actor-query-result-serialize-rdf/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-rdf", "npm:3.1.0"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/actor-query-result-serialize-rdf", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-simple", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-simple-npm-3.1.2-e00997048d-10c0.zip/node_modules/@comunica/actor-query-result-serialize-simple/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-simple-npm-3.2.0-76cf67fd1a-10c0.zip/node_modules/@comunica/actor-query-result-serialize-simple/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-simple", "npm:3.1.2"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-simple", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-string", "npm:1.6.3"],\
@@ -3210,12 +3209,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-sparql-csv", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-csv-npm-3.1.2-f244593cf2-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-csv/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-csv-npm-3.2.0-16a7a00362-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-csv/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-sparql-csv", "npm:3.1.2"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-csv", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["readable-stream", "npm:4.5.2"]\
         ],\
@@ -3223,15 +3222,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-sparql-json", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-json-npm-3.1.2-080ec47ece-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-json/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-json-npm-3.2.0-6c73dc8a61-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-json/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-sparql-json", "npm:3.1.2"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-json", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["readable-stream", "npm:4.5.2"]\
@@ -3240,12 +3239,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-sparql-tsv", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-tsv-npm-3.1.2-8cb6ff3eb5-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-tsv/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-tsv-npm-3.2.0-f485f0d2ef-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-tsv/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-sparql-tsv", "npm:3.1.2"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-tsv", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-string-ttl", "npm:1.3.2"],\
           ["readable-stream", "npm:4.5.2"]\
@@ -3254,12 +3253,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-sparql-xml", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-xml-npm-3.1.2-b3219ecdd4-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-xml/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-sparql-xml-npm-3.2.0-b555d354ac-10c0.zip/node_modules/@comunica/actor-query-result-serialize-sparql-xml/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-sparql-xml", "npm:3.1.2"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-xml", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["readable-stream", "npm:4.5.2"]\
@@ -3268,15 +3267,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-stats", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-stats-npm-3.1.2-f6b2d16d48-10c0.zip/node_modules/@comunica/actor-query-result-serialize-stats/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-stats-npm-3.2.0-8eab9d036f-10c0.zip/node_modules/@comunica/actor-query-result-serialize-stats/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-stats", "npm:3.1.2"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-stats", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["process", "npm:0.11.10"],\
           ["readable-stream", "npm:4.5.2"]\
@@ -3285,12 +3284,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-table", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-table-npm-3.1.2-8d00b6cb94-10c0.zip/node_modules/@comunica/actor-query-result-serialize-table/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-table-npm-3.2.0-86d6a681b7-10c0.zip/node_modules/@comunica/actor-query-result-serialize-table/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-table", "npm:3.1.2"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-table", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["rdf-string", "npm:1.6.3"],\
@@ -3301,14 +3300,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-result-serialize-tree", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-tree-npm-3.1.2-d8b8061dd6-10c0.zip/node_modules/@comunica/actor-query-result-serialize-tree/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-result-serialize-tree-npm-3.2.0-934982d588-10c0.zip/node_modules/@comunica/actor-query-result-serialize-tree/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-result-serialize-tree", "npm:3.1.2"],\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-result-serialize-tree", "npm:3.2.0"],\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["readable-stream", "npm:4.5.2"],\
           ["sparqljson-to-tree", "npm:3.0.2"]\
         ],\
@@ -3316,26 +3315,26 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-source-identify-hypermedia", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-npm-3.1.2-18845721da-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-npm-3.2.0-29b14c5861-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-source-identify-hypermedia", "npm:3.1.2"],\
-          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["lru-cache", "npm:10.2.2"],\
@@ -3348,34 +3347,34 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-source-identify-hypermedia-none", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-none-npm-3.1.2-29335b3add-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-none/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-none-npm-3.2.0-5e18790c0b-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-none/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-source-identify-hypermedia-none", "npm:3.1.2"],\
-          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia-none", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.2.0"],\
           ["rdf-store-stream", "npm:2.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-query-source-identify-hypermedia-qpf", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-qpf-npm-3.1.2-4f26dc4800-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-qpf/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-qpf-npm-3.2.0-03edb9f387-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-qpf/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-source-identify-hypermedia-qpf", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.1.0"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia-qpf", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -3388,16 +3387,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-source-identify-hypermedia-sparql", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-sparql-npm-3.1.0-36d2074d92-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-sparql/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-hypermedia-sparql-npm-3.2.0-9aed9fc304-10c0.zip/node_modules/@comunica/actor-query-source-identify-hypermedia-sparql/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-source-identify-hypermedia-sparql", "npm:3.1.0"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia-sparql", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["fetch-sparql-endpoint", "npm:4.2.1"],\
@@ -3409,17 +3408,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-source-identify-rdfjs", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-rdfjs-npm-3.1.2-e2db71ec1d-10c0.zip/node_modules/@comunica/actor-query-source-identify-rdfjs/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-rdfjs-npm-3.2.0-b74ef25942-10c0.zip/node_modules/@comunica/actor-query-source-identify-rdfjs/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -3430,14 +3429,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-query-source-identify-serialized", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-serialized-npm-3.1.2-37663d6751-10c0.zip/node_modules/@comunica/actor-query-source-identify-serialized/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-query-source-identify-serialized-npm-3.2.0-3fd4c74fd9-10c0.zip/node_modules/@comunica/actor-query-source-identify-serialized/",\
         "packageDependencies": [\
-          ["@comunica/actor-query-source-identify-serialized", "npm:3.1.2"],\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-query-source-identify-serialized", "npm:3.2.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-store-stream", "npm:2.0.1"],\
           ["readable-stream", "npm:4.5.2"]\
@@ -3446,42 +3445,42 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-join-entries-sort-cardinality", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-entries-sort-cardinality-npm-3.1.0-2e33d66304-10c0.zip/node_modules/@comunica/actor-rdf-join-entries-sort-cardinality/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-entries-sort-cardinality-npm-3.2.0-6babdf6ce7-10c0.zip/node_modules/@comunica/actor-rdf-join-entries-sort-cardinality/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-entries-sort-cardinality", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-join-entries-sort-cardinality", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-hash", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-hash-npm-3.1.2-36ad992236-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-hash/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-hash-npm-3.2.0-6f0233e2de-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-hash/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-hash", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-hash", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asyncjoin", "npm:1.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-multi-bind", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-bind-npm-3.1.2-fab9f8e1cd-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-bind/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-bind-npm-3.2.0-e2b12c3ee4-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-bind/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -3489,15 +3488,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-multi-bind-source", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-bind-source-npm-3.1.2-8e7b6c74a5-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-bind-source/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-bind-source-npm-3.2.0-6e8faba60b-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-bind-source/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-multi-bind-source", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind-source", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -3506,14 +3505,14 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-multi-empty", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-empty-npm-3.1.2-7f73dd554a-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-empty/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-empty-npm-3.2.0-a5ae2ce0ca-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-empty/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-multi-empty", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-empty", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"]\
         ],\
@@ -3521,32 +3520,32 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-multi-smallest", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-smallest-npm-3.1.2-1a1de77622-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-smallest/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-smallest-npm-3.2.0-013ee5f0a4-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-smallest/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-multi-smallest", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-smallest", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-smallest-filter-bindings-npm-3.1.2-b7eb20ab25-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-multi-smallest-filter-bindings-npm-3.2.0-71692ce3db-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -3555,28 +3554,28 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-nestedloop", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-nestedloop-npm-3.1.2-e7daeb86a0-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-nestedloop/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-nestedloop-npm-3.2.0-029931684d-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-nestedloop/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-nestedloop", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-nestedloop", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asyncjoin", "npm:1.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-none", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-none-npm-3.1.2-f68b8cf9fc-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-none/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-none-npm-3.2.0-6ab2dc9662-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-none/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-none", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-none", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"]\
         ],\
@@ -3584,52 +3583,52 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-single", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-single-npm-3.1.2-4aa85e0d11-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-single/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-single-npm-3.2.0-8917a9533e-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-single/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-single", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-join-inner-single", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-inner-symmetrichash", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-symmetrichash-npm-3.1.2-d8fff110fe-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-symmetrichash/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-inner-symmetrichash-npm-3.2.0-dec628ec3d-10c0.zip/node_modules/@comunica/actor-rdf-join-inner-symmetrichash/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-inner-symmetrichash", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-inner-symmetrichash", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asyncjoin", "npm:1.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-minus-hash", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-minus-hash-npm-3.1.2-460fa5a06c-10c0.zip/node_modules/@comunica/actor-rdf-join-minus-hash/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-minus-hash-npm-3.2.0-e57e479a4c-10c0.zip/node_modules/@comunica/actor-rdf-join-minus-hash/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-minus-hash", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-minus-hash", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-minus-hash-undef", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-minus-hash-undef-npm-3.1.2-ce3c7186b8-10c0.zip/node_modules/@comunica/actor-rdf-join-minus-hash-undef/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-minus-hash-undef-npm-3.2.0-5bd403a8f6-10c0.zip/node_modules/@comunica/actor-rdf-join-minus-hash-undef/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-minus-hash-undef", "npm:3.1.2"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-minus-hash-undef", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-string", "npm:1.6.3"]\
         ],\
@@ -3637,124 +3636,140 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-join-optional-bind", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-optional-bind-npm-3.1.2-d07d9d6d77-10c0.zip/node_modules/@comunica/actor-rdf-join-optional-bind/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-optional-bind-npm-3.2.0-7e118da2a3-10c0.zip/node_modules/@comunica/actor-rdf-join-optional-bind/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-optional-bind", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-optional-bind", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@comunica/actor-rdf-join-optional-nestedloop", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-optional-nestedloop-npm-3.1.2-32cc0e3685-10c0.zip/node_modules/@comunica/actor-rdf-join-optional-nestedloop/",\
+    ["@comunica/actor-rdf-join-optional-hash", [\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-optional-hash-npm-3.2.0-f153b9b03a-10c0.zip/node_modules/@comunica/actor-rdf-join-optional-hash/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-optional-nestedloop", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-optional-hash", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
+          ["@rdfjs/types", "npm:1.1.0"],\
+          ["asynciterator", "npm:3.9.0"],\
+          ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@comunica/actor-rdf-join-optional-nestedloop", [\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-optional-nestedloop-npm-3.2.0-49cdd2f722-10c0.zip/node_modules/@comunica/actor-rdf-join-optional-nestedloop/",\
+        "packageDependencies": [\
+          ["@comunica/actor-rdf-join-optional-nestedloop", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["asyncjoin", "npm:1.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-join-selectivity-variable-counting", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-selectivity-variable-counting-npm-3.1.0-754d70caa7-10c0.zip/node_modules/@comunica/actor-rdf-join-selectivity-variable-counting/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-join-selectivity-variable-counting-npm-3.2.0-1b53ea1b63-10c0.zip/node_modules/@comunica/actor-rdf-join-selectivity-variable-counting/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-join-selectivity-variable-counting", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-join-selectivity", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/mediatortype-accuracy", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-join-selectivity-variable-counting", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-selectivity", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/mediatortype-accuracy", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-cancontainundefs-npm-3.1.0-53064c479b-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-cancontainundefs/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-cancontainundefs-npm-3.2.0-5909c9db4a-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-cancontainundefs/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-accumulate-cardinality", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-cardinality-npm-3.1.0-c3f12aa7cf-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-cardinality/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-cardinality-npm-3.2.0-58ca074f57-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-cardinality/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-accumulate-cardinality", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-accumulate-cardinality", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-accumulate-pagesize", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-pagesize-npm-3.1.0-a2a46f5100-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-pagesize/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-pagesize-npm-3.2.0-6528fad4ee-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-pagesize/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-accumulate-pagesize", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-accumulate-pagesize", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-accumulate-requesttime", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-requesttime-npm-3.1.0-9663b0dc3e-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-requesttime/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-accumulate-requesttime-npm-3.2.0-44dff7a4f0-10c0.zip/node_modules/@comunica/actor-rdf-metadata-accumulate-requesttime/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-accumulate-requesttime", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-accumulate-requesttime", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-all", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-all-npm-3.1.2-b284528c66-10c0.zip/node_modules/@comunica/actor-rdf-metadata-all/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-all-npm-3.2.0-7e90dd33f1-10c0.zip/node_modules/@comunica/actor-rdf-metadata-all/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-all", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-all", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-allow-http-methods", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-allow-http-methods-npm-3.1.0-41381a2887-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-allow-http-methods/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-allow-http-methods-npm-3.2.0-e6135a0471-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-allow-http-methods/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-allow-http-methods", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-extract-allow-http-methods", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-hydra-controls", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-controls-npm-3.1.0-a77193e34d-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-controls/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-controls-npm-3.2.0-e0653e31d4-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-controls/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["@types/uritemplate", "npm:0.3.6"],\
           ["uritemplate", "npm:0.3.4"]\
@@ -3763,79 +3778,79 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-hydra-count", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-count-npm-3.1.0-38ebe6b88c-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-count/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-count-npm-3.2.0-794f03caf6-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-count/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-hydra-count", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-extract-hydra-count", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-pagesize-npm-3.1.0-f846a7605d-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-pagesize/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-hydra-pagesize-npm-3.2.0-c11dc897b3-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-hydra-pagesize/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-patch-sparql-update-npm-3.1.0-5159a99a16-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-patch-sparql-update/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-patch-sparql-update-npm-3.2.0-46faf1fc53-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-patch-sparql-update/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-put-accepted", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-put-accepted-npm-3.1.0-36658528e7-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-put-accepted/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-put-accepted-npm-3.2.0-c5092127e6-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-put-accepted/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-put-accepted", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-extract-put-accepted", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-request-time", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-request-time-npm-3.1.0-9fb9b647f2-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-request-time/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-request-time-npm-3.2.0-52196efc3f-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-request-time/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-request-time", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-metadata-extract-request-time", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-extract-sparql-service", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-sparql-service-npm-3.1.0-59365f75c1-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-sparql-service/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-extract-sparql-service-npm-3.2.0-f275df201b-10c0.zip/node_modules/@comunica/actor-rdf-metadata-extract-sparql-service/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-extract-sparql-service", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-extract-sparql-service", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["relative-to-absolute-iri", "npm:1.0.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-metadata-primary-topic", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-primary-topic-npm-3.1.0-2bcc229719-10c0.zip/node_modules/@comunica/actor-rdf-metadata-primary-topic/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-metadata-primary-topic-npm-3.2.0-bfc31257d8-10c0.zip/node_modules/@comunica/actor-rdf-metadata-primary-topic/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-metadata-primary-topic", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-metadata-primary-topic", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["readable-stream", "npm:4.5.2"]\
         ],\
@@ -3857,14 +3872,14 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-npm-3.1.2-1589e8b858-10c0.zip/node_modules/@comunica/actor-rdf-parse-html/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-npm-3.2.0-e72643ce15-10c0.zip/node_modules/@comunica/actor-rdf-parse-html/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-html", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-html", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["htmlparser2", "npm:9.1.0"],\
           ["readable-stream", "npm:4.5.2"]\
@@ -3883,12 +3898,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-microdata-npm-3.1.0-de73bf1238-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-microdata/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-microdata-npm-3.2.0-1967e1efcc-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-microdata/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-html-microdata", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-html-microdata", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["microdata-rdf-streaming-parser", "npm:2.0.1"]\
         ],\
         "linkType": "HARD"\
@@ -3905,12 +3920,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-rdfa-npm-3.1.0-0a0b98eef0-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-rdfa/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-rdfa-npm-3.2.0-5b40b128f6-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-rdfa/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-html-rdfa", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-html-rdfa", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["rdfa-streaming-parser", "npm:2.0.1"]\
         ],\
         "linkType": "HARD"\
@@ -3932,15 +3947,15 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-script-npm-3.1.0-d38b300f0f-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-script/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-html-script-npm-3.2.0-ce7be397fa-10c0.zip/node_modules/@comunica/actor-rdf-parse-html-script/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-html-script", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-html-script", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["readable-stream", "npm:4.5.2"],\
           ["relative-to-absolute-iri", "npm:1.0.7"]\
@@ -3964,15 +3979,15 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-jsonld-npm-3.1.0-a023ea84c2-10c0.zip/node_modules/@comunica/actor-rdf-parse-jsonld/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-jsonld-npm-3.2.0-a2d9e62322-10c0.zip/node_modules/@comunica/actor-rdf-parse-jsonld/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-jsonld", "npm:3.1.0"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-jsonld", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["jsonld-context-parser", "npm:2.4.0"],\
           ["jsonld-streaming-parser", "npm:3.4.0"],\
           ["stream-to-string", "npm:1.2.1"]\
@@ -3991,12 +4006,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-n3-npm-3.1.0-a2bb3b6025-10c0.zip/node_modules/@comunica/actor-rdf-parse-n3/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-n3-npm-3.2.0-e42054e93a-10c0.zip/node_modules/@comunica/actor-rdf-parse-n3/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-n3", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-n3", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["n3", "npm:1.17.4"]\
         ],\
         "linkType": "HARD"\
@@ -4013,11 +4028,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-rdfxml-npm-3.1.0-00e42f7b44-10c0.zip/node_modules/@comunica/actor-rdf-parse-rdfxml/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-rdfxml-npm-3.2.0-bec4112781-10c0.zip/node_modules/@comunica/actor-rdf-parse-rdfxml/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-rdfxml", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-rdfxml", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
           ["rdfxml-streaming-parser", "npm:2.4.0"]\
         ],\
         "linkType": "HARD"\
@@ -4038,12 +4053,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-shaclc-npm-3.1.0-40f581c9b5-10c0.zip/node_modules/@comunica/actor-rdf-parse-shaclc/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-shaclc-npm-3.2.0-d1f00184fd-10c0.zip/node_modules/@comunica/actor-rdf-parse-shaclc/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-shaclc", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-shaclc", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["readable-stream", "npm:4.5.2"],\
@@ -4064,69 +4079,69 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-xml-rdfa-npm-3.1.0-5a5c813604-10c0.zip/node_modules/@comunica/actor-rdf-parse-xml-rdfa/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-parse-xml-rdfa-npm-3.2.0-7a510a9fcf-10c0.zip/node_modules/@comunica/actor-rdf-parse-xml-rdfa/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["rdfa-streaming-parser", "npm:2.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-resolve-hypermedia-links-next", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-resolve-hypermedia-links-next-npm-3.1.0-f6dfcf8545-10c0.zip/node_modules/@comunica/actor-rdf-resolve-hypermedia-links-next/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-resolve-hypermedia-links-next-npm-3.2.0-bb143af306-10c0.zip/node_modules/@comunica/actor-rdf-resolve-hypermedia-links-next/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-resolve-hypermedia-links-next", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-next", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-resolve-hypermedia-links-queue-fifo-npm-3.1.0-8d1cc61b22-10c0.zip/node_modules/@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-resolve-hypermedia-links-queue-fifo-npm-3.2.0-bae6d352f4-10c0.zip/node_modules/@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-serialize-jsonld", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-jsonld-npm-3.1.0-162a37fa11-10c0.zip/node_modules/@comunica/actor-rdf-serialize-jsonld/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-jsonld-npm-3.2.0-61d6886eba-10c0.zip/node_modules/@comunica/actor-rdf-serialize-jsonld/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-serialize-jsonld", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-serialize-jsonld", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["jsonld-streaming-serializer", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-serialize-n3", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-n3-npm-3.1.0-253075572d-10c0.zip/node_modules/@comunica/actor-rdf-serialize-n3/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-n3-npm-3.2.0-085835c8bb-10c0.zip/node_modules/@comunica/actor-rdf-serialize-n3/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-serialize-n3", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-serialize-n3", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.2.0"],\
           ["n3", "npm:1.17.4"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-serialize-shaclc", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-shaclc-npm-3.1.0-3d31c0f4a3-10c0.zip/node_modules/@comunica/actor-rdf-serialize-shaclc/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-serialize-shaclc-npm-3.2.0-e8dfebbb66-10c0.zip/node_modules/@comunica/actor-rdf-serialize-shaclc/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-serialize-shaclc", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-serialize-shaclc", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.2.0"],\
           ["arrayify-stream", "npm:2.0.1"],\
           ["readable-stream", "npm:4.5.2"],\
           ["shaclc-write", "npm:1.4.3"]\
@@ -4135,15 +4150,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-patch-sparql-update-npm-3.1.2-dbcfaf8edd-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-patch-sparql-update/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-patch-sparql-update-npm-3.2.0-2cbc7fe8f1-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-patch-sparql-update/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", "npm:3.1.2"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["cross-fetch", "npm:4.0.0"],\
@@ -4154,16 +4169,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-update-hypermedia-put-ldp", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-put-ldp-npm-3.1.2-1ac1c48887-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-put-ldp/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-put-ldp-npm-3.2.0-3f248fab26-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-put-ldp/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-update-hypermedia-put-ldp", "npm:3.1.2"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-update-hypermedia-put-ldp", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["cross-fetch", "npm:4.0.0"]\
@@ -4172,15 +4187,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-update-hypermedia-sparql", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-sparql-npm-3.1.2-b9857a44a7-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-sparql/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-hypermedia-sparql-npm-3.2.0-fda77f4f6f-10c0.zip/node_modules/@comunica/actor-rdf-update-hypermedia-sparql/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-update-hypermedia-sparql", "npm:3.1.2"],\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-update-hypermedia-sparql", "npm:3.2.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["fetch-sparql-endpoint", "npm:4.2.1"],\
@@ -4191,31 +4206,31 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/actor-rdf-update-quads-hypermedia", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-quads-hypermedia-npm-3.1.2-11641c0895-10c0.zip/node_modules/@comunica/actor-rdf-update-quads-hypermedia/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-quads-hypermedia-npm-3.2.0-b28a9afd4e-10c0.zip/node_modules/@comunica/actor-rdf-update-quads-hypermedia/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-update-quads-hypermedia", "npm:3.1.2"],\
-          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
-          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-update-quads-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.2.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["lru-cache", "npm:10.2.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/actor-rdf-update-quads-rdfjs-store", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-quads-rdfjs-store-npm-3.1.2-e148f77d00-10c0.zip/node_modules/@comunica/actor-rdf-update-quads-rdfjs-store/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-actor-rdf-update-quads-rdfjs-store-npm-3.2.0-6e230c236b-10c0.zip/node_modules/@comunica/actor-rdf-update-quads-rdfjs-store/",\
         "packageDependencies": [\
-          ["@comunica/actor-rdf-update-quads-rdfjs-store", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/actor-rdf-update-quads-rdfjs-store", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["event-emitter-promisify", "npm:1.1.0"],\
@@ -4226,13 +4241,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/bindings-factory", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bindings-factory-npm-3.1.0-76c022c3cc-10c0.zip/node_modules/@comunica/bindings-factory/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bindings-factory-npm-3.2.0-f412ff50af-10c0.zip/node_modules/@comunica/bindings-factory/",\
         "packageDependencies": [\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["immutable", "npm:4.3.6"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -4242,51 +4257,51 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/bus-context-preprocess", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-context-preprocess-npm-3.1.2-9c5d482bd7-10c0.zip/node_modules/@comunica/bus-context-preprocess/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-context-preprocess-npm-3.2.0-861d0effbb-10c0.zip/node_modules/@comunica/bus-context-preprocess/",\
         "packageDependencies": [\
-          ["@comunica/bus-context-preprocess", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/bus-context-preprocess", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-dereference", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-dereference-npm-3.1.0-cfad700ff6-10c0.zip/node_modules/@comunica/bus-dereference/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-dereference-npm-3.2.0-db072c4a5a-10c0.zip/node_modules/@comunica/bus-dereference/",\
         "packageDependencies": [\
-          ["@comunica/bus-dereference", "npm:3.1.0"],\
-          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
-          ["@comunica/actor-abstract-parse", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-dereference", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-parse", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-dereference-rdf", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-dereference-rdf-npm-3.1.0-60da4654f3-10c0.zip/node_modules/@comunica/bus-dereference-rdf/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-dereference-rdf-npm-3.2.0-21c3fba346-10c0.zip/node_modules/@comunica/bus-dereference-rdf/",\
         "packageDependencies": [\
-          ["@comunica/bus-dereference-rdf", "npm:3.1.0"],\
-          ["@comunica/bus-dereference", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-dereference-rdf", "npm:3.2.0"],\
+          ["@comunica/bus-dereference", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-hash-bindings", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-hash-bindings-npm-3.1.0-c521354f29-10c0.zip/node_modules/@comunica/bus-hash-bindings/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-hash-bindings-npm-3.2.0-8aad729255-10c0.zip/node_modules/@comunica/bus-hash-bindings/",\
         "packageDependencies": [\
-          ["@comunica/bus-hash-bindings", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/bus-hash-bindings", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4304,11 +4319,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-http-npm-3.1.0-9286fdd94e-10c0.zip/node_modules/@comunica/bus-http/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-http-npm-3.2.0-296e240cb2-10c0.zip/node_modules/@comunica/bus-http/",\
         "packageDependencies": [\
-          ["@comunica/bus-http", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-http", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["is-stream", "npm:2.0.1"],\
           ["readable-from-web", "npm:1.0.0"],\
           ["readable-stream-node-to-web", "npm:1.0.1"],\
@@ -4319,11 +4334,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/bus-http-invalidate", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-http-invalidate-npm-3.1.0-9112fde21a-10c0.zip/node_modules/@comunica/bus-http-invalidate/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-http-invalidate-npm-3.2.0-619455f74d-10c0.zip/node_modules/@comunica/bus-http-invalidate/",\
         "packageDependencies": [\
-          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/bus-http-invalidate", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4338,50 +4353,50 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-init-npm-3.1.0-8f37fc8326-10c0.zip/node_modules/@comunica/bus-init/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-init-npm-3.2.0-50113e9398-10c0.zip/node_modules/@comunica/bus-init/",\
         "packageDependencies": [\
-          ["@comunica/bus-init", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-init", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-merge-bindings-context", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-merge-bindings-context-npm-3.1.0-afca5a36fa-10c0.zip/node_modules/@comunica/bus-merge-bindings-context/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-merge-bindings-context-npm-3.2.0-bf5267c842-10c0.zip/node_modules/@comunica/bus-merge-bindings-context/",\
         "packageDependencies": [\
-          ["@comunica/bus-merge-bindings-context", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/bus-merge-bindings-context", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-optimize-query-operation", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-optimize-query-operation-npm-3.1.0-81d5ed5ddf-10c0.zip/node_modules/@comunica/bus-optimize-query-operation/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-optimize-query-operation-npm-3.2.0-5bfe5f8efc-10c0.zip/node_modules/@comunica/bus-optimize-query-operation/",\
         "packageDependencies": [\
-          ["@comunica/bus-optimize-query-operation", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-optimize-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-query-operation", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-operation-npm-3.1.2-35648dca5a-10c0.zip/node_modules/@comunica/bus-query-operation/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-operation-npm-3.2.0-44a7efe4dd-10c0.zip/node_modules/@comunica/bus-query-operation/",\
         "packageDependencies": [\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@comunica/data-factory", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -4393,11 +4408,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/bus-query-parse", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-parse-npm-3.1.0-7fdc809c57-10c0.zip/node_modules/@comunica/bus-query-parse/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-parse-npm-3.2.0-a68f6d614a-10c0.zip/node_modules/@comunica/bus-query-parse/",\
         "packageDependencies": [\
-          ["@comunica/bus-query-parse", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-query-parse", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
@@ -4405,39 +4420,39 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/bus-query-process", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-process-npm-3.1.0-64cd44c4c6-10c0.zip/node_modules/@comunica/bus-query-process/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-process-npm-3.2.0-cce9514d12-10c0.zip/node_modules/@comunica/bus-query-process/",\
         "packageDependencies": [\
-          ["@comunica/bus-query-process", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-query-process", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-query-result-serialize", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-result-serialize-npm-3.1.0-5b61d96602-10c0.zip/node_modules/@comunica/bus-query-result-serialize/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-result-serialize-npm-3.2.0-8f3022debe-10c0.zip/node_modules/@comunica/bus-query-result-serialize/",\
         "packageDependencies": [\
-          ["@comunica/bus-query-result-serialize", "npm:3.1.0"],\
-          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/bus-query-result-serialize", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-query-source-identify", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-source-identify-npm-3.1.2-8a109542ed-10c0.zip/node_modules/@comunica/bus-query-source-identify/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-source-identify-npm-3.2.0-f57cac943e-10c0.zip/node_modules/@comunica/bus-query-source-identify/",\
         "packageDependencies": [\
-          ["@comunica/bus-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/bindings-factory", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/bindings-factory", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
@@ -4449,87 +4464,88 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/bus-query-source-identify-hypermedia", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-source-identify-hypermedia-npm-3.1.0-338dbaf971-10c0.zip/node_modules/@comunica/bus-query-source-identify-hypermedia/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-query-source-identify-hypermedia-npm-3.2.0-380d9edd40-10c0.zip/node_modules/@comunica/bus-query-source-identify-hypermedia/",\
         "packageDependencies": [\
-          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-query-source-identify-hypermedia", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-join", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-npm-3.1.2-ac231b36ca-10c0.zip/node_modules/@comunica/bus-rdf-join/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-npm-3.2.0-6ceae80b2c-10c0.zip/node_modules/@comunica/bus-rdf-join/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-join-selectivity", "npm:3.1.0"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join-selectivity", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"],\
-          ["rdf-data-factory", "npm:1.1.2"]\
+          ["rdf-data-factory", "npm:1.1.2"],\
+          ["rdf-string", "npm:1.6.3"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-join-entries-sort", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-entries-sort-npm-3.1.0-6104483db0-10c0.zip/node_modules/@comunica/bus-rdf-join-entries-sort/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-entries-sort-npm-3.2.0-793af383f9-10c0.zip/node_modules/@comunica/bus-rdf-join-entries-sort/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-join-entries-sort", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/bus-rdf-join-entries-sort", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-join-selectivity", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-selectivity-npm-3.1.0-2642aefb73-10c0.zip/node_modules/@comunica/bus-rdf-join-selectivity/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-join-selectivity-npm-3.2.0-ec537fd620-10c0.zip/node_modules/@comunica/bus-rdf-join-selectivity/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-join-selectivity", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/mediatortype-accuracy", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/bus-rdf-join-selectivity", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/mediatortype-accuracy", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-metadata", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-npm-3.1.0-504e2e0f89-10c0.zip/node_modules/@comunica/bus-rdf-metadata/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-npm-3.2.0-50d2307f47-10c0.zip/node_modules/@comunica/bus-rdf-metadata/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-metadata", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-metadata-accumulate", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-accumulate-npm-3.1.0-253f0fb8c9-10c0.zip/node_modules/@comunica/bus-rdf-metadata-accumulate/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-accumulate-npm-3.2.0-0340102274-10c0.zip/node_modules/@comunica/bus-rdf-metadata-accumulate/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/bus-rdf-metadata-accumulate", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-metadata-extract", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-extract-npm-3.1.0-92f6baebd1-10c0.zip/node_modules/@comunica/bus-rdf-metadata-extract/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-metadata-extract-npm-3.2.0-9156276bad-10c0.zip/node_modules/@comunica/bus-rdf-metadata-extract/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-metadata-extract", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-metadata-extract", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
@@ -4547,13 +4563,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-npm-3.1.0-bcd2803944-10c0.zip/node_modules/@comunica/bus-rdf-parse/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-npm-3.2.0-1c4886ae84-10c0.zip/node_modules/@comunica/bus-rdf-parse/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
-          ["@comunica/actor-abstract-parse", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-parse", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
@@ -4569,71 +4585,71 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-html-npm-3.1.0-c6911d9657-10c0.zip/node_modules/@comunica/bus-rdf-parse-html/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-parse-html-npm-3.2.0-b58be7d84c-10c0.zip/node_modules/@comunica/bus-rdf-parse-html/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-parse-html", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-parse-html", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-resolve-hypermedia-links", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-resolve-hypermedia-links-npm-3.1.0-7f2369cf15-10c0.zip/node_modules/@comunica/bus-rdf-resolve-hypermedia-links/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-resolve-hypermedia-links-npm-3.2.0-8e457f35cc-10c0.zip/node_modules/@comunica/bus-rdf-resolve-hypermedia-links/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-resolve-hypermedia-links-queue", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-resolve-hypermedia-links-queue-npm-3.1.0-5770d61506-10c0.zip/node_modules/@comunica/bus-rdf-resolve-hypermedia-links-queue/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-resolve-hypermedia-links-queue-npm-3.2.0-dcbd92ded4-10c0.zip/node_modules/@comunica/bus-rdf-resolve-hypermedia-links-queue/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.1.0"],\
-          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/bus-rdf-resolve-hypermedia-links-queue", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-resolve-hypermedia-links", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-serialize", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-serialize-npm-3.1.0-18936b8be5-10c0.zip/node_modules/@comunica/bus-rdf-serialize/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-serialize-npm-3.2.0-f0987afb9f-10c0.zip/node_modules/@comunica/bus-rdf-serialize/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-serialize", "npm:3.1.0"],\
-          ["@comunica/actor-abstract-mediatyped", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-serialize", "npm:3.2.0"],\
+          ["@comunica/actor-abstract-mediatyped", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-update-hypermedia", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-update-hypermedia-npm-3.1.2-2254823d3f-10c0.zip/node_modules/@comunica/bus-rdf-update-hypermedia/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-update-hypermedia-npm-3.2.0-11f94e61ef-10c0.zip/node_modules/@comunica/bus-rdf-update-hypermedia/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-update-hypermedia", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/bus-rdf-update-hypermedia", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/bus-rdf-update-quads", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-update-quads-npm-3.1.2-3429bc9f2f-10c0.zip/node_modules/@comunica/bus-rdf-update-quads/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-bus-rdf-update-quads-npm-3.2.0-ae5375a248-10c0.zip/node_modules/@comunica/bus-rdf-update-quads/",\
         "packageDependencies": [\
-          ["@comunica/bus-rdf-update-quads", "npm:3.1.2"],\
-          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/bus-rdf-update-quads", "npm:3.2.0"],\
+          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"]\
         ],\
@@ -4648,10 +4664,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-config-query-sparql-npm-3.1.0-0881535821-10c0.zip/node_modules/@comunica/config-query-sparql/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-config-query-sparql-npm-3.2.0-9959628ed9-10c0.zip/node_modules/@comunica/config-query-sparql/",\
         "packageDependencies": [\
-          ["@comunica/config-query-sparql", "npm:3.1.0"]\
+          ["@comunica/config-query-sparql", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4669,12 +4685,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-context-entries-npm-3.1.0-030514faff-10c0.zip/node_modules/@comunica/context-entries/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-context-entries-npm-3.2.0-1f4131426c-10c0.zip/node_modules/@comunica/context-entries/",\
         "packageDependencies": [\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["jsonld-context-parser", "npm:2.4.0"],\
           ["sparqlalgebrajs", "npm:4.3.7"]\
@@ -4692,11 +4708,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-core-npm-3.1.0-3db77b4a91-10c0.zip/node_modules/@comunica/core/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-core-npm-3.2.0-0ad9d026ee-10c0.zip/node_modules/@comunica/core/",\
         "packageDependencies": [\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["immutable", "npm:4.3.6"]\
         ],\
         "linkType": "HARD"\
@@ -4734,11 +4750,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/logger-pretty", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-logger-pretty-npm-3.1.0-7283a17fe4-10c0.zip/node_modules/@comunica/logger-pretty/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-logger-pretty-npm-3.2.0-b2304d85c8-10c0.zip/node_modules/@comunica/logger-pretty/",\
         "packageDependencies": [\
-          ["@comunica/logger-pretty", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/logger-pretty", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["object-inspect", "npm:1.13.2"],\
           ["process", "npm:0.11.10"]\
         ],\
@@ -4746,21 +4762,21 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/logger-void", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-logger-void-npm-3.1.0-80b0ed4da0-10c0.zip/node_modules/@comunica/logger-void/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-logger-void-npm-3.2.0-f3d1c22ab1-10c0.zip/node_modules/@comunica/logger-void/",\
         "packageDependencies": [\
-          ["@comunica/logger-void", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/logger-void", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/mediator-all", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-all-npm-3.1.0-9fbf406342-10c0.zip/node_modules/@comunica/mediator-all/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-all-npm-3.2.0-207d6599d7-10c0.zip/node_modules/@comunica/mediator-all/",\
         "packageDependencies": [\
-          ["@comunica/mediator-all", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/mediator-all", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4775,12 +4791,12 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-pipeline-npm-3.1.0-b73d341f6b-10c0.zip/node_modules/@comunica/mediator-combine-pipeline/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-pipeline-npm-3.2.0-a2c92e36f6-10c0.zip/node_modules/@comunica/mediator-combine-pipeline/",\
         "packageDependencies": [\
-          ["@comunica/mediator-combine-pipeline", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/mediator-combine-pipeline", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4794,25 +4810,25 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-union-npm-3.1.0-8953e71040-10c0.zip/node_modules/@comunica/mediator-combine-union/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-combine-union-npm-3.2.0-ad2c038537-10c0.zip/node_modules/@comunica/mediator-combine-union/",\
         "packageDependencies": [\
-          ["@comunica/mediator-combine-union", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/mediator-combine-union", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/mediator-join-coefficients-fixed", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-join-coefficients-fixed-npm-3.1.2-8a6c997d48-10c0.zip/node_modules/@comunica/mediator-join-coefficients-fixed/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-join-coefficients-fixed-npm-3.2.0-6c130666e7-10c0.zip/node_modules/@comunica/mediator-join-coefficients-fixed/",\
         "packageDependencies": [\
-          ["@comunica/mediator-join-coefficients-fixed", "npm:3.1.2"],\
-          ["@comunica/bus-rdf-join", "npm:3.1.2"],\
-          ["@comunica/context-entries", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"]\
+          ["@comunica/mediator-join-coefficients-fixed", "npm:3.2.0"],\
+          ["@comunica/bus-rdf-join", "npm:3.2.0"],\
+          ["@comunica/context-entries", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4826,11 +4842,11 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-number-npm-3.1.0-5991eda033-10c0.zip/node_modules/@comunica/mediator-number/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-number-npm-3.2.0-b092a2055a-10c0.zip/node_modules/@comunica/mediator-number/",\
         "packageDependencies": [\
-          ["@comunica/mediator-number", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/mediator-number", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4844,31 +4860,31 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-race-npm-3.1.0-b119c41587-10c0.zip/node_modules/@comunica/mediator-race/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediator-race-npm-3.2.0-f96705403d-10c0.zip/node_modules/@comunica/mediator-race/",\
         "packageDependencies": [\
-          ["@comunica/mediator-race", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/mediator-race", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/mediatortype-accuracy", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-accuracy-npm-3.1.0-a6411a03d2-10c0.zip/node_modules/@comunica/mediatortype-accuracy/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-accuracy-npm-3.2.0-a0f8880eb9-10c0.zip/node_modules/@comunica/mediatortype-accuracy/",\
         "packageDependencies": [\
-          ["@comunica/mediatortype-accuracy", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/mediatortype-accuracy", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/mediatortype-join-coefficients", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-join-coefficients-npm-3.1.0-a1fda5ade3-10c0.zip/node_modules/@comunica/mediatortype-join-coefficients/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-join-coefficients-npm-3.2.0-d3fa5d345e-10c0.zip/node_modules/@comunica/mediatortype-join-coefficients/",\
         "packageDependencies": [\
-          ["@comunica/mediatortype-join-coefficients", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/mediatortype-join-coefficients", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
@@ -4883,21 +4899,21 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-time-npm-3.1.0-6ba190079a-10c0.zip/node_modules/@comunica/mediatortype-time/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-mediatortype-time-npm-3.2.0-84c698c9dc-10c0.zip/node_modules/@comunica/mediatortype-time/",\
         "packageDependencies": [\
-          ["@comunica/mediatortype-time", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"]\
+          ["@comunica/mediatortype-time", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/metadata", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-metadata-npm-3.1.0-f7c5d85a49-10c0.zip/node_modules/@comunica/metadata/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-metadata-npm-3.2.0-46cb56329a-10c0.zip/node_modules/@comunica/metadata/",\
         "packageDependencies": [\
-          ["@comunica/metadata", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/metadata", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["asynciterator", "npm:3.9.0"]\
         ],\
@@ -4905,165 +4921,166 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/query-sparql", [\
-      ["npm:3.1.2", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-query-sparql-npm-3.1.2-087e95d887-10c0.zip/node_modules/@comunica/query-sparql/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-query-sparql-npm-3.2.0-55a95bc71c-10c0.zip/node_modules/@comunica/query-sparql/",\
         "packageDependencies": [\
-          ["@comunica/query-sparql", "npm:3.1.2"],\
-          ["@comunica/actor-context-preprocess-convert-shortcuts", "npm:3.1.2"],\
-          ["@comunica/actor-context-preprocess-query-source-identify", "npm:3.1.2"],\
-          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.1.2"],\
-          ["@comunica/actor-context-preprocess-set-defaults", "npm:3.1.2"],\
-          ["@comunica/actor-context-preprocess-source-to-destination", "npm:3.1.2"],\
-          ["@comunica/actor-dereference-fallback", "npm:3.1.0"],\
-          ["@comunica/actor-dereference-http", "npm:3.1.0"],\
-          ["@comunica/actor-dereference-rdf-parse", "npm:3.1.0"],\
-          ["@comunica/actor-hash-bindings-sha1", "npm:3.1.0"],\
-          ["@comunica/actor-http-fetch", "npm:3.1.0"],\
-          ["@comunica/actor-http-proxy", "npm:3.1.0"],\
-          ["@comunica/actor-http-wayback", "npm:3.1.2"],\
-          ["@comunica/actor-init-query", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", "npm:3.1.2"],\
-          ["@comunica/actor-optimize-query-operation-bgp-to-join", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-filter-pushdown", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-group-sources", "npm:3.1.2"],\
-          ["@comunica/actor-optimize-query-operation-join-bgp", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-join-connected", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", "npm:3.1.2"],\
-          ["@comunica/actor-optimize-query-operation-rewrite-add", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-rewrite-copy", "npm:3.1.0"],\
-          ["@comunica/actor-optimize-query-operation-rewrite-move", "npm:3.1.0"],\
-          ["@comunica/actor-query-operation-ask", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-bgp-join", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-construct", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-distinct-hash", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-extend", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-filter", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-from-quad", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-group", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-join", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-leftjoin", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-minus", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-nop", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-orderby", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-alt", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-inv", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-link", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-nps", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-one-or-more", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-seq", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-zero-or-more", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-path-zero-or-one", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-project", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-reduced-hash", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-service", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-slice", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-source", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-union", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-update-clear", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-update-compositeupdate", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-update-create", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-update-deleteinsert", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-update-drop", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-update-load", "npm:3.1.2"],\
-          ["@comunica/actor-query-operation-values", "npm:3.1.2"],\
-          ["@comunica/actor-query-parse-graphql", "npm:3.1.0"],\
-          ["@comunica/actor-query-parse-sparql", "npm:3.1.0"],\
-          ["@comunica/actor-query-process-explain-logical", "npm:3.1.0"],\
-          ["@comunica/actor-query-process-explain-parsed", "npm:3.1.0"],\
-          ["@comunica/actor-query-process-explain-physical", "npm:3.1.0"],\
-          ["@comunica/actor-query-process-sequential", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-json", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-rdf", "npm:3.1.0"],\
-          ["@comunica/actor-query-result-serialize-simple", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-sparql-csv", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-sparql-json", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-sparql-tsv", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-sparql-xml", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-stats", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-table", "npm:3.1.2"],\
-          ["@comunica/actor-query-result-serialize-tree", "npm:3.1.2"],\
-          ["@comunica/actor-query-source-identify-hypermedia", "npm:3.1.2"],\
-          ["@comunica/actor-query-source-identify-hypermedia-none", "npm:3.1.2"],\
-          ["@comunica/actor-query-source-identify-hypermedia-qpf", "npm:3.1.2"],\
-          ["@comunica/actor-query-source-identify-hypermedia-sparql", "npm:3.1.0"],\
-          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.1.2"],\
-          ["@comunica/actor-query-source-identify-serialized", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-entries-sort-cardinality", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-join-inner-hash", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-multi-bind-source", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-multi-empty", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-multi-smallest", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-nestedloop", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-none", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-single", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-inner-symmetrichash", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-minus-hash", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-minus-hash-undef", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-optional-bind", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-optional-nestedloop", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-join-selectivity-variable-counting", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-accumulate-cardinality", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-accumulate-pagesize", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-accumulate-requesttime", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-all", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-metadata-extract-allow-http-methods", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-extract-hydra-count", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-extract-put-accepted", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-extract-request-time", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-extract-sparql-service", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-metadata-primary-topic", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-html", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-parse-html-microdata", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-html-rdfa", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-html-script", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-jsonld", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-n3", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-rdfxml", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-shaclc", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-resolve-hypermedia-links-next", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-serialize-jsonld", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-serialize-n3", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-serialize-shaclc", "npm:3.1.0"],\
-          ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-update-hypermedia-put-ldp", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-update-hypermedia-sparql", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-update-quads-hypermedia", "npm:3.1.2"],\
-          ["@comunica/actor-rdf-update-quads-rdfjs-store", "npm:3.1.2"],\
-          ["@comunica/bus-http-invalidate", "npm:3.1.0"],\
-          ["@comunica/bus-query-operation", "npm:3.1.2"],\
-          ["@comunica/config-query-sparql", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/logger-void", "npm:3.1.0"],\
-          ["@comunica/mediator-all", "npm:3.1.0"],\
-          ["@comunica/mediator-combine-pipeline", "npm:3.1.0"],\
-          ["@comunica/mediator-combine-union", "npm:3.1.0"],\
-          ["@comunica/mediator-join-coefficients-fixed", "npm:3.1.2"],\
-          ["@comunica/mediator-number", "npm:3.1.0"],\
-          ["@comunica/mediator-race", "npm:3.1.0"],\
-          ["@comunica/runner", "npm:3.1.0"],\
-          ["@comunica/runner-cli", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/query-sparql", "npm:3.2.0"],\
+          ["@comunica/actor-context-preprocess-convert-shortcuts", "npm:3.2.0"],\
+          ["@comunica/actor-context-preprocess-query-source-identify", "npm:3.2.0"],\
+          ["@comunica/actor-context-preprocess-query-source-skolemize", "npm:3.2.0"],\
+          ["@comunica/actor-context-preprocess-set-defaults", "npm:3.2.0"],\
+          ["@comunica/actor-context-preprocess-source-to-destination", "npm:3.2.0"],\
+          ["@comunica/actor-dereference-fallback", "npm:3.2.0"],\
+          ["@comunica/actor-dereference-http", "npm:3.2.0"],\
+          ["@comunica/actor-dereference-rdf-parse", "npm:3.2.0"],\
+          ["@comunica/actor-hash-bindings-sha1", "npm:3.2.0"],\
+          ["@comunica/actor-http-fetch", "npm:3.2.0"],\
+          ["@comunica/actor-http-proxy", "npm:3.2.0"],\
+          ["@comunica/actor-http-wayback", "npm:3.2.0"],\
+          ["@comunica/actor-init-query", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-assign-sources-exhaustive", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-bgp-to-join", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-describe-to-constructs-subject", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-filter-pushdown", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-group-sources", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-join-bgp", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-join-connected", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-prune-empty-source-operations", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-add", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-copy", "npm:3.2.0"],\
+          ["@comunica/actor-optimize-query-operation-rewrite-move", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-ask", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-bgp-join", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-construct", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-distinct-hash", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-extend", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-filter", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-from-quad", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-group", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-join", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-leftjoin", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-minus", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-nop", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-orderby", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-alt", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-inv", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-link", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-nps", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-one-or-more", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-seq", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-zero-or-more", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-path-zero-or-one", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-project", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-reduced-hash", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-service", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-slice", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-source", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-union", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-update-clear", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-update-compositeupdate", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-update-create", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-update-deleteinsert", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-update-drop", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-update-load", "npm:3.2.0"],\
+          ["@comunica/actor-query-operation-values", "npm:3.2.0"],\
+          ["@comunica/actor-query-parse-graphql", "npm:3.2.0"],\
+          ["@comunica/actor-query-parse-sparql", "npm:3.2.0"],\
+          ["@comunica/actor-query-process-explain-logical", "npm:3.2.0"],\
+          ["@comunica/actor-query-process-explain-parsed", "npm:3.2.0"],\
+          ["@comunica/actor-query-process-explain-physical", "npm:3.2.0"],\
+          ["@comunica/actor-query-process-sequential", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-json", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-rdf", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-simple", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-csv", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-json", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-tsv", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-sparql-xml", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-stats", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-table", "npm:3.2.0"],\
+          ["@comunica/actor-query-result-serialize-tree", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia-none", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia-qpf", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-hypermedia-sparql", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-rdfjs", "npm:3.2.0"],\
+          ["@comunica/actor-query-source-identify-serialized", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-entries-sort-cardinality", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-hash", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-bind-source", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-empty", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-smallest", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-multi-smallest-filter-bindings", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-nestedloop", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-none", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-single", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-inner-symmetrichash", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-minus-hash", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-minus-hash-undef", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-optional-bind", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-optional-hash", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-optional-nestedloop", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-join-selectivity-variable-counting", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-cancontainundefs", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-cardinality", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-pagesize", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-accumulate-requesttime", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-all", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-allow-http-methods", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-controls", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-count", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-hydra-pagesize", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-patch-sparql-update", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-put-accepted", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-request-time", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-extract-sparql-service", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-metadata-primary-topic", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-html", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-html-microdata", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-html-rdfa", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-html-script", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-jsonld", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-n3", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-rdfxml", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-shaclc", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-parse-xml-rdfa", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-next", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-resolve-hypermedia-links-queue-fifo", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-serialize-jsonld", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-serialize-n3", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-serialize-shaclc", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-update-hypermedia-patch-sparql-update", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-update-hypermedia-put-ldp", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-update-hypermedia-sparql", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-update-quads-hypermedia", "npm:3.2.0"],\
+          ["@comunica/actor-rdf-update-quads-rdfjs-store", "npm:3.2.0"],\
+          ["@comunica/bus-http-invalidate", "npm:3.2.0"],\
+          ["@comunica/bus-query-operation", "npm:3.2.0"],\
+          ["@comunica/config-query-sparql", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/logger-void", "npm:3.2.0"],\
+          ["@comunica/mediator-all", "npm:3.2.0"],\
+          ["@comunica/mediator-combine-pipeline", "npm:3.2.0"],\
+          ["@comunica/mediator-combine-union", "npm:3.2.0"],\
+          ["@comunica/mediator-join-coefficients-fixed", "npm:3.2.0"],\
+          ["@comunica/mediator-number", "npm:3.2.0"],\
+          ["@comunica/mediator-race", "npm:3.2.0"],\
+          ["@comunica/runner", "npm:3.2.0"],\
+          ["@comunica/runner-cli", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["process", "npm:0.11.10"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@comunica/runner", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-runner-npm-3.1.0-2685643733-10c0.zip/node_modules/@comunica/runner/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-runner-npm-3.2.0-4bd308fbc0-10c0.zip/node_modules/@comunica/runner/",\
         "packageDependencies": [\
-          ["@comunica/runner", "npm:3.1.0"],\
-          ["@comunica/bus-init", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
+          ["@comunica/runner", "npm:3.2.0"],\
+          ["@comunica/bus-init", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
           ["componentsjs", "npm:6.0.1"],\
           ["process", "npm:0.11.10"]\
         ],\
@@ -5071,13 +5088,13 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@comunica/runner-cli", [\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-runner-cli-npm-3.1.0-e679b64fcf-10c0.zip/node_modules/@comunica/runner-cli/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-runner-cli-npm-3.2.0-f348b6c614-10c0.zip/node_modules/@comunica/runner-cli/",\
         "packageDependencies": [\
-          ["@comunica/runner-cli", "npm:3.1.0"],\
-          ["@comunica/core", "npm:3.1.0"],\
-          ["@comunica/runner", "npm:3.1.0"],\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/runner-cli", "npm:3.2.0"],\
+          ["@comunica/core", "npm:3.2.0"],\
+          ["@comunica/runner", "npm:3.2.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["process", "npm:0.11.10"]\
         ],\
         "linkType": "HARD"\
@@ -5095,10 +5112,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.1.0", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-types-npm-3.1.0-5eeb619353-10c0.zip/node_modules/@comunica/types/",\
+      ["npm:3.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/@comunica-types-npm-3.2.0-7b561a8caa-10c0.zip/node_modules/@comunica/types/",\
         "packageDependencies": [\
-          ["@comunica/types", "npm:3.1.0"],\
+          ["@comunica/types", "npm:3.2.0"],\
           ["@rdfjs/types", "npm:1.1.0"],\
           ["@types/yargs", "npm:17.0.32"],\
           ["asynciterator", "npm:3.9.0"],\
@@ -12888,7 +12905,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["ontopad", "workspace:."],\
-          ["@comunica/query-sparql", "npm:3.1.2"],\
+          ["@comunica/query-sparql", "npm:3.2.0"],\
           ["@popperjs/core", "npm:2.11.8"],\
           ["@rdfjs/data-model", "npm:2.0.2"],\
           ["@rushstack/eslint-patch", "npm:1.10.2"],\
