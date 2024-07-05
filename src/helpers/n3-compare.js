@@ -2,11 +2,16 @@
 
 import { quadToStringQuad } from 'rdf-string'
 
-function diff (oldData, newData) {
-  // Copy the incomming data
-  const _newArray = newData.slice(0)
-  const _oldArray = oldData.slice(0)
+export function diff_n3 (oldData, newData) {
+  return _diff(oldData.getQuads(), newData.getQuads())
+}
 
+export function diff (oldData, newData) {
+  // Copy the incomming data
+  return _diff(oldData.slice(0), newData.slice(0))
+}
+
+function _diff (_oldArray, _newArray) {
   // Sort the data arrays to make the comparison easier
   _newArray.sort(sortFunction)
   _oldArray.sort(sortFunction)
@@ -53,10 +58,8 @@ function diff (oldData, newData) {
   return { add: insertArray, del: deleteArray }
 }
 
-function sortFunction (a, b) {
+export function sortFunction (a, b) {
   const x = JSON.stringify(quadToStringQuad(a))
   const y = JSON.stringify(quadToStringQuad(b))
   return x < y ? -1 : x > y ? 1 : 0
 }
-
-export { diff, sortFunction }
