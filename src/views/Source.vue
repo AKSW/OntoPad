@@ -21,6 +21,7 @@
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import { useSelectionStore } from '../stores/selection'
+import { usePrefixesStore } from '../stores/prefixes'
 import { quadStreamToString, quadStreamToStore, stringToQuadStream } from '../helpers/rdf-parse'
 import { diff_n3 } from '../helpers/n3-compare'
 
@@ -39,17 +40,14 @@ export default {
     }
   },
   computed: {
-    ...mapState(useSelectionStore, ['graph_iri', 'resource_iri'])
+    ...mapState(useSelectionStore, ['graph_iri', 'resource_iri']),
+    ...mapState(usePrefixesStore, ['prefixes_flat']),
   },
   data () {
     return {
       debug: false,
       originalData: {},
-      resourceSource: '',
-      prefixes: {
-        foaf: 'http://xmlns.com/foaf/0.1/',
-        ex: 'http://example.org/'
-      }
+      resourceSource: ''
     }
   },
   methods: {
@@ -58,11 +56,10 @@ export default {
       const resourceData = await this.store.getResource_comunica(this.resource_iri)
       const storeAndPrefix = await quadStreamToStore(resourceData)
       this.originalData = storeAndPrefix.store
-      this.resourceSource = await quadStreamToString(this.originalData.match(), { format: 'text/turtle', prefixes: this.prefixes })
+      this.resourceSource = await quadStreamToString(this.originalData.match(), { format: 'text/turtle', prefixes: this.prefixes_flat })
     },
     async updateResource () {
       const newDataModel = await stringToQuadStream(this.resourceSource)
-
       const difference = diff_n3(this.originalData, newDataModel)
       this.store.insertDeleteData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
     }
