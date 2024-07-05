@@ -48,6 +48,17 @@ export const useRdfStore = defineStore('rdf', {
       const queryString = 'construct where {<' + resourceUri + '> ?p ?o}'
       return this.sparqlEndpoint.query(queryString, defaultGraph, true)
     },
+    getResource_comunica (resourceUri, defaultGraph) {
+      if (defaultGraph === undefined) {
+        defaultGraph = [useSelectionStore().graph_iri]
+      }
+      let datasetClause = ""
+      for (const graph of defaultGraph) {
+        datasetClause += `from <${defaultGraph}>`
+      }
+      const queryString = `construct {<${resourceUri}> ?p ?o} ${datasetClause} where {<${resourceUri}> ?p ?o}`
+      return this.sparqlEndpoint.query_comunica_quads(queryString, defaultGraph)
+    },
     sendUpdate (updateString) {
       this.sparqlEndpoint.update(updateString)
         .then(function (response) {

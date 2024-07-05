@@ -1,8 +1,11 @@
 import axios from 'axios'
+import { QueryEngine } from '@comunica/query-sparql'
 
 class SparqlEndpoint {
   constructor (queryEndpoint, updateEndpoint) {
+    this.queryEngine = new QueryEngine()
     this.HTTPQuery = axios.create({ baseURL: queryEndpoint })
+    this.sources = [{ type: 'sparql', value: queryEndpoint }]
     this.type = 'query_only'
     this.capability = {
       query: true,
@@ -11,6 +14,7 @@ class SparqlEndpoint {
     }
     if (updateEndpoint) {
       this.HTTPUpdate = axios.create({ baseURL: updateEndpoint })
+      this.destination = [{ type: 'sparql', value: updateEndpoint }]
       this.type = 'query_update'
       this.capability.update = true
     }
@@ -36,6 +40,28 @@ class SparqlEndpoint {
       }
     })
   }
+
+  query_comunica_bindings (queryString) {
+    console.log(`Send bindings query (${queryString}) via comunica to ${this.sources}`);
+    return this.queryEngine.queryBindings(queryString, {
+      sources: this.sources
+    })
+  }
+
+  query_comunica_quads (queryString) {
+    console.log(`Send quads query (${queryString}) via comunica to ${this.sources}`);
+    return this.queryEngine.queryQuads(queryString, {
+      sources: this.sources
+    })
+  }
+
+  query_comunica (queryString) {
+    console.log(`Send any query (${queryString}) via comunica to ${this.sources}`);
+    return this.queryEngine.query(queryString, {
+      sources: this.sources
+    })
+  }
+
 
   update (updateString) {
     return this.HTTPUpdate.post('', updateString, {
