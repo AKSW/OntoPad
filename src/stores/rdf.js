@@ -36,7 +36,7 @@ export const useRdfStore = defineStore('rdf', {
           defaultGraph = [useSelectionStore().graph_iri]
         }
       } else {
-        console.error('can process query')
+        console.error('cant process query')
         console.error(query)
       }
       return this.sparqlEndpoint.query(queryString, defaultGraph, data)
