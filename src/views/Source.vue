@@ -21,8 +21,8 @@
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import { useSelectionStore } from '../stores/selection'
-import { Parser, Writer } from 'n3'
-import { diff } from '../helpers/n3-compare'
+import { quadStreamToString, quadStreamToStore, stringToQuadStream } from '../helpers/rdf-parse'
+import { diff_n3 } from '../helpers/n3-compare'
 
 export default {
   name: 'Source',
@@ -44,7 +44,7 @@ export default {
   data () {
     return {
       debug: false,
-      originalSource: '',
+      originalData: {},
       resourceSource: '',
       prefixes: {
         foaf: 'http://xmlns.com/foaf/0.1/',
@@ -55,58 +55,16 @@ export default {
   methods: {
     async getResource () {
       console.log('get resource')
-      const resourceRDF = await this.store.getResource(this.resource_iri)
-      console.log('parse resource')
-      console.log(resourceRDF)
-      const resourceData = await this.parse(resourceRDF.data, { format: 'application/n-triples' })
-      console.log('serialize')
-      this.originalSource = this.resourceSource = await this.serialize(resourceData, { format: 'text/turtle', prefixes: this.prefixes })
-      console.log('serialized')
-      console.log(this.originalSource)
-      console.log(this.resourceSource)
+      const resourceData = await this.store.getResource_comunica(this.resource_iri)
+      const storeAndPrefix = await quadStreamToStore(resourceData)
+      this.originalData = storeAndPrefix.store
+      this.resourceSource = await quadStreamToString(this.originalData.match(), { format: 'text/turtle', prefixes: this.prefixes })
     },
     async updateResource () {
-      const a = this.parse(this.originalSource)
-      const b = this.parse(this.resourceSource)
+      const newDataModel = await stringToQuadStream(this.resourceSource)
 
-      const [originalDataModel, newDataModel] = await Promise.all([a, b])
-      const difference = diff(originalDataModel, newDataModel)
+      const difference = diff_n3(this.originalData, newDataModel)
       this.store.insertDeleteData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
-    },
-    parse (source, parserConfig = {}) {
-      const dataModel = []
-      return new Promise((resolve, reject) => {
-        const resourceParser = new Parser(parserConfig)
-        resourceParser.parse(source, (error, quad, prefixes) => {
-          if (error) {
-            if (error === 'input is null') {
-              resolve(dataModel)
-            } else {
-              reject(error)
-            }
-          } else if (quad) {
-            dataModel.push(quad)
-          } else {
-            this.prefixes = { ...prefixes, ...this.prefixes }
-            resolve(dataModel)
-          }
-        })
-      })
-    },
-    serialize (data, serializerConfig = {}) {
-      return new Promise((resolve, reject) => {
-        const rdfWriter = new Writer(serializerConfig)
-        data.forEach((quad) => {
-          console.log(quad)
-          rdfWriter.addQuad(quad)
-        })
-        rdfWriter.end((error, result) => {
-          if (error !== null) {
-            reject(error)
-          }
-          resolve(result)
-        })
-      })
     }
   }
 }
