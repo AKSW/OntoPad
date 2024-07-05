@@ -10868,6 +10868,7 @@ __metadata:
     bootstrap-icons: "npm:^1.11.3"
     eslint: "npm:^8.57.0"
     eslint-plugin-vue: "npm:^9.23.0"
+    event-emitter-promisify: "npm:^1.1.0"
     jsdom: "npm:^24.0.0"
     n3: "npm:^1.17.3"
     pinia: "npm:^2.1.7"
