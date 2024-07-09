@@ -21,6 +21,7 @@ class SparqlEndpoint {
   }
 
   query (queryString, defaultGraph = undefined, data = false) {
+    console.warn("The query method is deprecated in favour of the query_comunica_bindings, query_comunica_quads, and query_comunica methods for now.");
     const params = new URLSearchParams()
     if (defaultGraph === 'quads') {
     } else if (defaultGraph !== undefined) {
