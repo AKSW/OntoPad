@@ -33,6 +33,7 @@
 
 <script>
 import TermInput from '../components/TermInput.vue'
+import { cloneDeep } from 'lodash';
 import { Parser } from 'n3'
 import { diff } from '../helpers/n3-compare'
 import { mapState } from 'pinia'
@@ -62,12 +63,8 @@ export default {
     return {
       debug: false,
       subject: rdf.namedNode(''),
-      originalDataModel: [
-        rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode(''))
-      ],
-      dataModel: [
-        rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode(''))
-      ]
+      originalDataModel: [],
+      dataModel: []
     }
   },
   computed: {
@@ -83,30 +80,10 @@ export default {
     delTriple (index) {
       this.dataModel.splice(index, 1)
     },
-    getResource () {
+    async getResource () {
       this.subject = rdf.namedNode(this.resource_iri)
-      this.store.getResource(this.resource_iri)
-        .then(result => {
-          const parser = new Parser()
-          this.originalDataModel = []
-          this.dataModel = []
-          parser.parse(result.data, (error, quad, prefixes) => {
-            if (error) {
-              console.log(error)
-            } else if (quad) {
-              if (quad.subject.value === this.subject.value) {
-                this.originalDataModel.push(quad)
-                this.dataModel.push(rdf.fromQuad(quad)) // clone quad
-              } else {
-                console.log('skip')
-                console.log(quad.subject.value)
-                console.log(this.subject.value)
-              }
-            } else {
-              console.log('done')
-            }
-          })
-        })
+      this.originalDataModel = await (await this.store.getResource_comunica(this.resource_iri)).toArray()
+      this.dataModel = cloneDeep(this.originalDataModel)
     },
     async updateResource () {
       for (const index in this.dataModel) {
