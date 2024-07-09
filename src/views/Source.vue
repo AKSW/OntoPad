@@ -54,8 +54,7 @@ export default {
     async getResource () {
       console.log('get resource')
       const resourceData = await this.store.getResource_comunica(this.resource_iri)
-      const storeAndPrefix = await quadStreamToStore(resourceData)
-      this.originalData = storeAndPrefix.store
+      this.originalData = (await quadStreamToStore(resourceData)).store
       this.resourceSource = await quadStreamToString(this.originalData.match(), { format: 'text/turtle', prefixes: this.prefixes_flat })
     },
     async updateResource () {
