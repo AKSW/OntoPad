@@ -1,34 +1,49 @@
 <template>
-    <div class="Form">
-      <form>
-        <label for="resourceUriInput">Resource IRI (Subject)</label>
-        <TermInput v-model:term="subject" type="iri" id="resourceUriInput" />
-        <table width="100%">
-          <tr>
-            <th scope="col" width="45%">Predicate</th>
-            <th scope="col" width="auto">Object</th>
-            <th scope="col" width="90px"></th>
-          </tr>
-          <tr v-for="(triple, index) in dataModel" :key="index">
-            <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
-            <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
-            <td>
-              <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple(index)">+</button>
-              <button type="button" class="btn btn-outline-dark mb-0" @click="delTriple(index)">-</button>
-            </td>
-          </tr>
-        </table>
-        <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple()" v-if="dataModel.length < 1">+</button>
-        <button type="button" class="btn btn-outline-primary mb-0" @click="updateResource">Update Resource</button>
-      </form>
-      <a @click="debug = true" v-if="debug == false">(show debug)</a>
-      <div v-if="debug">
-      <a @click="debug = false">(hide debug)</a>
-      <pre>subject: {{ subject }}
+  <div class="Form">
+    <form>
+      <label for="resourceUriInput">Resource IRI (Subject)</label>
+      <TermInput v-model:term="subject" type="iri" id="resourceUriInput" />
+      <table width="100%">
+        <tr>
+          <th scope="col" width="45%">Predicate</th>
+          <th scope="col" width="auto">Object</th>
+          <th scope="col" width="90px"></th>
+        </tr>
+        <tr v-for="(triple, index) in dataModel" :key="index">
+          <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
+          <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
+          <td>
+            <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple(index)">+</button>
+            <button type="button" class="btn btn-outline-dark mb-0" @click="delTriple(index)">-</button>
+          </td>
+        </tr>
+      </table>
+      <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple()" v-if="dataModel.length < 1">+</button>
+      <button type="button" class="btn btn-outline-primary mb-0" @click="updateResource">Update Resource</button>
+    </form>
+  </div>
+  <a @click="debug = true" v-if="debug == false">(show debug)</a>
+  <div v-if="debug">
+    <a @click="debug = false">(hide debug)</a>
+    <div style="overflow: scroll; height: 400px">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          new
+          <pre>subject: {{ subject }}
 {{dataModel}}
-      </pre>
+          </pre>
+        </div>
+        <div class="col">
+          old
+          <pre>subject: {{ subject }}
+{{originalDataModel}}
+          </pre>
+        </div>
       </div>
     </div>
+    </div>
+  </div>
 </template>
 
 <script>
