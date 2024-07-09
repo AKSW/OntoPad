@@ -1,6 +1,7 @@
 'use strict'
 
 import { quadToStringQuad } from 'rdf-string'
+import { cloneDeep } from 'lodash';
 
 export function diff_n3 (oldData, newData) {
   return _diff(oldData.getQuads(), newData.getQuads())
@@ -8,7 +9,7 @@ export function diff_n3 (oldData, newData) {
 
 export function diff (oldData, newData) {
   // Copy the incomming data
-  return _diff(oldData.slice(0), newData.slice(0))
+  return _diff(cloneDeep(oldData), cloneDeep(newData))
 }
 
 function _diff (_oldArray, _newArray) {
