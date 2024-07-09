@@ -10870,6 +10870,7 @@ __metadata:
     eslint-plugin-vue: "npm:^9.23.0"
     event-emitter-promisify: "npm:^1.1.0"
     jsdom: "npm:^24.0.0"
+    lodash: "npm:^4.17.21"
     n3: "npm:^1.17.3"
     pinia: "npm:^2.1.7"
     prettier: "npm:^3.2.5"

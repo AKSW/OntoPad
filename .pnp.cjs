@@ -42,6 +42,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.25.0"],\
           ["event-emitter-promisify", "npm:1.1.0"],\
           ["jsdom", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:24.0.0"],\
+          ["lodash", "npm:4.17.21"],\
           ["n3", "npm:1.17.3"],\
           ["pinia", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:2.1.7"],\
           ["prettier", "npm:3.2.5"],\
@@ -12921,6 +12922,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.25.0"],\
           ["event-emitter-promisify", "npm:1.1.0"],\
           ["jsdom", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:24.0.0"],\
+          ["lodash", "npm:4.17.21"],\
           ["n3", "npm:1.17.3"],\
           ["pinia", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:2.1.7"],\
           ["prettier", "npm:3.2.5"],\
