@@ -41,14 +41,6 @@ export const useRdfStore = defineStore('rdf', {
       }
       return this.sparqlEndpoint.query(queryString, defaultGraph, data)
     },
-    getResource (resourceUri, defaultGraph) {
-      console.warn("The getResource method is deprecated in favour of the getResource_comunica method for now.");
-      if (defaultGraph === undefined) {
-        defaultGraph = [useSelectionStore().graph_iri]
-      }
-      const queryString = 'construct where {<' + resourceUri + '> ?p ?o}'
-      return this.sparqlEndpoint.query(queryString, defaultGraph, true)
-    },
     getResource_comunica (resourceUri, defaultGraph) {
       if (defaultGraph === undefined) {
         defaultGraph = [useSelectionStore().graph_iri]
