@@ -57,6 +57,7 @@ import { useSelectionStore } from '../stores/selection'
 import { Store, StreamParser, Parser, Writer } from 'n3'
 import { registerPlugin } from '@ulb-darmstadt/shacl-form'
 import { getShapeQuery4Target, getShapeQuery4Instance } from '../helpers/queries'
+import { quadStreamToStore } from '../helpers/rdf-parse'
 // import { LeafletPlugin } from '@ulb-darmstadt/shacl-form/plugins/leaflet.js'
 // import * as jsonld from 'jsonld'
 import rdf from '@rdfjs/data-model'
@@ -102,16 +103,8 @@ export default {
     getResource () {
       this.subject = rdf.namedNode(this.resource_iri)
       console.log('get resource: ' + this.resource_iri)
-      this.store.getResource(this.resource_iri)
-        .then(result => {
-          const streamParser = new StreamParser()
-          Readable.from([result.data]).pipe(streamParser)
-
-          const n3_store = new Store()
-          n3_store.import(streamParser).on('end', () => {
-            this.dataModel = n3_store
-          })
-        })
+      const resourceData = await this.store.getResource_comunica(this.resource_iri)
+      this.dataModel = (await quadStreamToStore(resourceData)).store
     },
     async getShape () {
       console.log('Get shape for target class')
