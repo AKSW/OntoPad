@@ -100,7 +100,7 @@ export default {
     }
   },
   methods: {
-    getResource () {
+    async getResource () {
       this.subject = rdf.namedNode(this.resource_iri)
       console.log('get resource: ' + this.resource_iri)
       const resourceData = await this.store.getResource_comunica(this.resource_iri)
