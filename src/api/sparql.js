@@ -63,16 +63,6 @@ class SparqlEndpoint {
     })
   }
 
-  update (updateString) {
-    console.warn("The update method is deprecated in favour of the update_comunica method for now.");
-    return this.HTTPUpdate.post('', updateString, {
-      headers: {
-        'Content-Type': 'application/sparql-update',
-        Accept: 'application/sparql-results+json'
-      }
-    })
-  }
-
   update_comunica (updateString) {
     console.log(`Send update query (${updateString}) via comunica to ${this.sources}`);
     return this.queryEngine.queryVoid(updateString, {

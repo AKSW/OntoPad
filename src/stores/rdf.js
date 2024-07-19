@@ -76,58 +76,6 @@ export const useRdfStore = defineStore('rdf', {
           })
       }
     },
-    insertDeleteData (payload) {
-      const insertArray = payload.insertArray
-      const deleteArray = payload.deleteArray
-      const graphIri = rdf.namedNode(payload.graphIri)
-
-      const updateStructure = {
-        type: 'update',
-        updates: []
-      }
-
-      // Delete has to come first, to not later remove stuff, we've just added
-      if (deleteArray) {
-        const deleteBGP = {
-          triples: deleteArray
-        }
-        if (graphIri === undefined) {
-          deleteBGP.type = 'bgp'
-        } else {
-          deleteBGP.type = 'graph'
-          deleteBGP.name = graphIri
-        }
-        updateStructure.updates.push(
-          {
-            updateType: 'delete',
-            delete: [deleteBGP]
-          }
-        )
-      }
-
-      if (insertArray) {
-        const insertBGP = {
-          triples: insertArray
-        }
-        if (graphIri === undefined) {
-          insertBGP.type = 'bgp'
-        } else {
-          insertBGP.type = 'graph'
-          insertBGP.name = graphIri
-        }
-        updateStructure.updates.push(
-          {
-            updateType: 'insert',
-            insert: [insertBGP]
-          }
-        )
-      }
-
-      var generator = new Generator()
-      var updateString = generator.stringify(updateStructure)
-      console.log('updatestring: ' + updateString)
-      return this.sparqlEndpoint.update(updateString)
-    },
     deleteInsertData_comunica (payload) {
       let deleteArray = payload.deleteArray
       let insertArray = payload.insertArray
