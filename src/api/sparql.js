@@ -63,7 +63,6 @@ class SparqlEndpoint {
     })
   }
 
-
   update (updateString) {
     return this.HTTPUpdate.post('', updateString, {
       headers: {
