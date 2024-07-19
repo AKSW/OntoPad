@@ -75,7 +75,7 @@ export default {
         const statement = this.dataModel[index]
         statement.subject = this.subject
       }
-      this.store.insertDeleteData({ insertArray: this.dataModel, graphIri: this.graph_iri })
+      this.store.deleteInsertData_comunica({ insertArray: this.dataModel, graphIri: this.graph_iri })
     }
   }
 }

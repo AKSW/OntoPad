@@ -60,7 +60,7 @@ export default {
     async updateResource () {
       const newDataModel = await stringToQuadStream(this.resourceSource)
       const difference = diff_n3(this.originalData, newDataModel)
-      this.store.insertDeleteData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+      this.store.deleteInsertData_comunica({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
     }
   }
 }

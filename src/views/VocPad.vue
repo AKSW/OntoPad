@@ -307,7 +307,7 @@ export default {
         ]
       }
       try {
-        await this.store.insertDeleteData({ insertArray: newTerm, graphIri: this.graph_iri })
+        await this.store.deleteInsertData_comunica({ insertArray: newTerm, graphIri: this.graph_iri })
         this.getLists()
       } catch (e) {
         console.error(e)
@@ -395,7 +395,7 @@ export default {
       const difference = diff(this.originalDataModel, newSchema)
       console.log(difference)
       try {
-        await this.store.insertDeleteData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+        await this.store.deleteInsertData_comunica({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
         this.$bvToast.toast('Shapes where saved to the store', {
           title: 'Save Shapes',
           autoHideDelay: 500
