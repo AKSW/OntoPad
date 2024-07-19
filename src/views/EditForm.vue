@@ -107,7 +107,7 @@ export default {
       }
       const difference = diff(this.originalDataModel, this.dataModel)
       try {
-        await this.store.insertDeleteData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+        await this.store.deleteInsertData_comunica({ deleteArray: difference.del, insertArray: difference.add, graphIri: this.graph_iri })
         this.getResource()
       } catch (e) {
         console.error(e)

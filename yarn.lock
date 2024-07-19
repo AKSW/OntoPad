@@ -10874,6 +10874,7 @@ __metadata:
     n3: "npm:^1.17.3"
     pinia: "npm:^2.1.7"
     prettier: "npm:^3.2.5"
+    rdf-sparql-builder: "git+https://github.com/white-gecko/rdf-sparql-builder#feaature/smartAddPatternsWithQuads"
     rdf-string: "npm:^1.6.3"
     readable-stream: "npm:^4.5.2"
     sparqljs: "npm:^3.7.1"
@@ -11504,6 +11505,17 @@ __metadata:
     rdf-literal: "npm:^1.2.0"
     rdf-string: "npm:^1.5.0"
   checksum: 10c0/21cfada7da7fb521b8ac2b525f63da80dd4edc15cc5369c04720e7c54ab9ae1961a84d6ee07ed1fd1d282422d1ef7b5b0695ea021768defc00f173ba6c708124
+  languageName: node
+  linkType: hard
+
+"rdf-sparql-builder@git+https://github.com/white-gecko/rdf-sparql-builder#feaature/smartAddPatternsWithQuads":
+  version: 0.2.3
+  resolution: "rdf-sparql-builder@https://github.com/white-gecko/rdf-sparql-builder.git#commit=d2c86c600c614fa50e651545af72341687fb8a9f"
+  dependencies:
+    "@rdfjs/data-model": "npm:^2.0.1"
+    "@rdfjs/to-ntriples": "npm:^3.0.1"
+    lodash: "npm:^4.17.21"
+  checksum: 10c0/8d3d74a903bfc66b76c7ec69f8c71e9b063627772763b751838d42ec8e4042bd92c1c3605f4f77add0dedd73221fec2c2c153cd3dce30fcb0858dc0a4b5721ae
   languageName: node
   linkType: hard
 

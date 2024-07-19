@@ -2,9 +2,11 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { EndpointFactory } from '@/api/endpoint.js'
 import { Generator } from 'sparqljs'
+import * as sparql from 'rdf-sparql-builder'
 import { useSelectionStore } from '../stores/selection'
 import config from '@/config'
 import rdf from '@rdfjs/data-model'
+
 
 export const useRdfStore = defineStore('rdf', {
   state: () => ({
@@ -125,6 +127,36 @@ export const useRdfStore = defineStore('rdf', {
       var updateString = generator.stringify(updateStructure)
       console.log('updatestring: ' + updateString)
       return this.sparqlEndpoint.update(updateString)
+    },
+    deleteInsertData_comunica (payload) {
+      let deleteArray = payload.deleteArray
+      let insertArray = payload.insertArray
+
+      const updates = []
+
+      if (payload.graphIri !== undefined) {
+        // graphIri needs to be a namedNode
+        const graphIri = rdf.namedNode(payload.graphIri)
+
+        if (deleteArray) {
+          deleteArray = [sparql.graph(graphIri, deleteArray)]
+        }
+        if (insertArray) {
+          insertArray = [sparql.graph(graphIri, insertArray)]
+        }
+      }
+
+      // Delete has to come first, to not later remove stuff, we've just added
+      if (deleteArray) {
+        updates.push(sparql.deleteData(deleteArray).toString())
+      }
+      if (insertArray) {
+        updates.push(sparql.insertData(insertArray).toString())
+      }
+
+      const updateString = updates.join(";")
+
+      return this.sparqlEndpoint.update_comunica(updateString)
     }
   },
 })

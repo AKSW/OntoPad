@@ -73,6 +73,13 @@ class SparqlEndpoint {
     })
   }
 
+  update_comunica (updateString) {
+    console.log(`Send update query (${updateString}) via comunica to ${this.sources}`);
+    return this.queryEngine.queryVoid(updateString, {
+      sources: this.sources
+    })
+  }
+
   get queryUrl () {
     return this.HTTPQuery.defaults.baseURL
   }

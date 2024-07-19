@@ -46,6 +46,7 @@ const RAW_RUNTIME_STATE =
           ["n3", "npm:1.17.3"],\
           ["pinia", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:2.1.7"],\
           ["prettier", "npm:3.2.5"],\
+          ["rdf-sparql-builder", "https://github.com/white-gecko/rdf-sparql-builder.git#commit=d2c86c600c614fa50e651545af72341687fb8a9f"],\
           ["rdf-string", "npm:1.6.3"],\
           ["readable-stream", "npm:4.5.2"],\
           ["sparqljs", "npm:3.7.1"],\
@@ -12926,6 +12927,7 @@ const RAW_RUNTIME_STATE =
           ["n3", "npm:1.17.3"],\
           ["pinia", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:2.1.7"],\
           ["prettier", "npm:3.2.5"],\
+          ["rdf-sparql-builder", "https://github.com/white-gecko/rdf-sparql-builder.git#commit=d2c86c600c614fa50e651545af72341687fb8a9f"],\
           ["rdf-string", "npm:1.6.3"],\
           ["readable-stream", "npm:4.5.2"],\
           ["sparqljs", "npm:3.7.1"],\
@@ -13654,6 +13656,18 @@ const RAW_RUNTIME_STATE =
           ["rdf-data-factory", "npm:1.1.2"],\
           ["rdf-literal", "npm:1.3.2"],\
           ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-sparql-builder", [\
+      ["https://github.com/white-gecko/rdf-sparql-builder.git#commit=d2c86c600c614fa50e651545af72341687fb8a9f", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-sparql-builder-https-649e18bba0-10c0.zip/node_modules/rdf-sparql-builder/",\
+        "packageDependencies": [\
+          ["rdf-sparql-builder", "https://github.com/white-gecko/rdf-sparql-builder.git#commit=d2c86c600c614fa50e651545af72341687fb8a9f"],\
+          ["@rdfjs/data-model", "npm:2.0.2"],\
+          ["@rdfjs/to-ntriples", "npm:3.0.1"],\
+          ["lodash", "npm:4.17.21"]\
         ],\
         "linkType": "HARD"\
       }]\
