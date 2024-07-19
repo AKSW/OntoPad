@@ -64,6 +64,7 @@ class SparqlEndpoint {
   }
 
   update (updateString) {
+    console.warn("The update method is deprecated in favour of the update_comunica method for now.");
     return this.HTTPUpdate.post('', updateString, {
       headers: {
         'Content-Type': 'application/sparql-update',
