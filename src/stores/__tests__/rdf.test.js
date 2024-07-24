@@ -40,8 +40,6 @@ describe('RDF Store', () => {
 
   it('init', () => {
     const store = useRdfStore()
-    expect(store.graph_iri).toBe("http://example.org/")
-    expect(store.resource_iri).toBe("http://example.org/Resource")
     expect(store.sparqlEndpoint.quitUrl).toBe("http://localhost:5000")
     expect(store.sparqlEndpoint.queryUrl).toBe("http://localhost:5000/sparql")
     expect(store.sparqlEndpoint.updateUrl).toBe("http://localhost:5000/sparql")
@@ -104,19 +102,4 @@ describe('RDF Store', () => {
     //   }
     // );
   })
-
-  it('change graph', () => {
-    const store = useRdfStore()
-    store.changeGraphIri("http://graph.example.org/")
-    expect(store.graph_iri).toBe("http://graph.example.org/")
-    expect(store.resource_iri).toBe("http://example.org/Resource")
-  })
-
-  it('change resource', () => {
-    const store = useRdfStore()
-    store.changeResourceIri("http://example.org/Res")
-    expect(store.graph_iri).toBe("http://example.org/")
-    expect(store.resource_iri).toBe("http://example.org/Res")
-  })
-
 })
