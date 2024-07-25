@@ -1,4 +1,3 @@
-// stores/counter.spec.ts
 import { describe, it, vi, expect, assert, beforeEach, afterEach } from 'vitest'
 
 import axios from 'axios';
