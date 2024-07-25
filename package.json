@@ -25,6 +25,7 @@
     "pinia": "^2.1.7",
     "rdf-sparql-builder": "git+https://github.com/white-gecko/rdf-sparql-builder#feaature/smartAddPatternsWithQuads",
     "rdf-string": "^1.6.3",
+    "rdf-transform-triple-to-quad": "^2.0.1",
     "readable-stream": "^4.5.2",
     "sparqljs": "^3.7.1",
     "splitpanes": "^3.1.5",

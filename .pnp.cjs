@@ -48,6 +48,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["rdf-sparql-builder", "https://github.com/white-gecko/rdf-sparql-builder.git#commit=d2c86c600c614fa50e651545af72341687fb8a9f"],\
           ["rdf-string", "npm:1.6.3"],\
+          ["rdf-transform-triple-to-quad", "npm:2.0.1"],\
           ["readable-stream", "npm:4.5.2"],\
           ["sparqljs", "npm:3.7.1"],\
           ["splitpanes", "npm:3.1.5"],\
@@ -12929,6 +12930,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["rdf-sparql-builder", "https://github.com/white-gecko/rdf-sparql-builder.git#commit=d2c86c600c614fa50e651545af72341687fb8a9f"],\
           ["rdf-string", "npm:1.6.3"],\
+          ["rdf-transform-triple-to-quad", "npm:2.0.1"],\
           ["readable-stream", "npm:4.5.2"],\
           ["sparqljs", "npm:3.7.1"],\
           ["splitpanes", "npm:3.1.5"],\
@@ -13743,6 +13745,17 @@ const RAW_RUNTIME_STATE =
           ["@rdfjs/types", "npm:1.1.0"],\
           ["rdf-data-factory", "npm:1.1.2"],\
           ["rdf-string", "npm:1.6.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["rdf-transform-triple-to-quad", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/rdf-transform-triple-to-quad-npm-2.0.1-1aed51bbc5-10c0.zip/node_modules/rdf-transform-triple-to-quad/",\
+        "packageDependencies": [\
+          ["rdf-transform-triple-to-quad", "npm:2.0.1"],\
+          ["@rdfjs/data-model", "npm:2.0.2"],\
+          ["readable-stream", "npm:4.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\

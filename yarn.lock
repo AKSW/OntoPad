@@ -10876,6 +10876,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     rdf-sparql-builder: "git+https://github.com/white-gecko/rdf-sparql-builder#feaature/smartAddPatternsWithQuads"
     rdf-string: "npm:^1.6.3"
+    rdf-transform-triple-to-quad: "npm:^2.0.1"
     readable-stream: "npm:^4.5.2"
     sparqljs: "npm:^3.7.1"
     splitpanes: "npm:^3.1.5"
@@ -11585,6 +11586,16 @@ __metadata:
     rdf-data-factory: "npm:^1.1.0"
     rdf-string: "npm:^1.6.0"
   checksum: 10c0/9603eef8b05c8254f1d12a75db894de85eb291fd1cff167d5dd4a3854ff7677ad6baea9ebbb164bc0ad0cbe37ab4317e96de61e98297937ea9237956ac951fab
+  languageName: node
+  linkType: hard
+
+"rdf-transform-triple-to-quad@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "rdf-transform-triple-to-quad@npm:2.0.1"
+  dependencies:
+    "@rdfjs/data-model": "npm:^2.0.2"
+    readable-stream: "npm:^4.5.2"
+  checksum: 10c0/c99be16b898f134ffacd1c4d1bf068728a3aac45f6a6a69cd1ba06612c0586ef58f13b98e2afc4b5de9590f29f15f589484414016d4a065962b61e2924470831
   languageName: node
   linkType: hard
 
