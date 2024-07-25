@@ -33,7 +33,7 @@ export async function parseRDFtoRDFJS (rdfString, subject = undefined) {
 }
 
 // Takes a String and return a stream of quads
-export async function stringToQuadStream(string, options) {
+export async function stringToStore(string, options) {
   const streamParser = new StreamParser(options)
   Readable.from([string]).pipe(streamParser)
 
