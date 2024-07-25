@@ -86,19 +86,19 @@ export const useRdfStore = defineStore('rdf', {
         // graphIri needs to be a namedNode
         const graphIri = rdf.namedNode(payload.graphIri)
 
-        if (deleteArray) {
+        if (deleteArray && deleteArray.length > 0) {
           deleteArray = [sparql.graph(graphIri, deleteArray)]
         }
-        if (insertArray) {
+        if (insertArray && insertArray.length > 0) {
           insertArray = [sparql.graph(graphIri, insertArray)]
         }
       }
 
       // Delete has to come first, to not later remove stuff, we've just added
-      if (deleteArray) {
+      if (deleteArray && deleteArray.length > 0) {
         updates.push(sparql.deleteData(deleteArray).toString())
       }
-      if (insertArray) {
+      if (insertArray && insertArray.length > 0) {
         updates.push(sparql.insertData(insertArray).toString())
       }
 
