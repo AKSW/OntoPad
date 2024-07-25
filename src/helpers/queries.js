@@ -11,12 +11,12 @@ function getShapeQuery4Target (targetClassIri) {
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   CONSTRUCT {
     ?node_s ?node_p ?node_o .
-    ?prop_s ?prop_p ?prop_o . 
+    ?prop_s ?prop_p ?prop_o .
     ?s sh:in ?list .
     ?elt rdf:rest ?rest .
     ?elt rdf:first ?val .
-  } WHERE { 
-    GRAPH ?g { 
+  } WHERE {
+    GRAPH ?g {
       {
         ?node_s sh:targetClass <${targetClassIri}> .
         ?node_s ?node_p ?node_o .
@@ -49,13 +49,13 @@ function getShapeQuery4Instance (instanceIri) {
   PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
   CONSTRUCT {
     ?node_s ?node_p ?node_o .
-    ?prop_s ?prop_p ?prop_o . 
+    ?prop_s ?prop_p ?prop_o .
     ?node_s ?p ?o .
     ?s sh:in ?list .
     ?elt rdf:rest ?rest .
     ?elt rdf:first ?val .
-  } WHERE { 
-    GRAPH ?g { 
+  } WHERE {
+    GRAPH ?g {
       <${instanceIri}> rdf:type ?class .
         ?node_s ?p ?o .
       {
