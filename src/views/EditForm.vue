@@ -90,7 +90,7 @@ export default {
       if (!index) {
         index = 0
       }
-      this.dataModel.splice(index + 1, 0, rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode('')))
+      this.dataModel.splice(index + 1, 0, rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode(''), rdf.namedNode('')))
     },
     delTriple (index) {
       this.dataModel.splice(index, 1)
