@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 import { EndpointFactory } from '@/api/endpoint.js'
 import { Generator } from 'sparqljs'
 import * as sparql from 'rdf-sparql-builder'
+import { Readable } from 'readable-stream';
+import TripleToQuad from 'rdf-transform-triple-to-quad'
 import { useSelectionStore } from '../stores/selection'
 import config from '@/config'
 import rdf from '@rdfjs/data-model'
@@ -153,21 +155,22 @@ export const useRdfStore = defineStore('rdf', {
           })
       }
     },
-    deleteInsertData_comunica (payload) {
+    async deleteInsertData_comunica (payload) {
       let deleteArray = payload.deleteArray
       let insertArray = payload.insertArray
 
       const updates = []
 
       if (payload.graphIri !== undefined) {
+        // If a graphIri is given, overwrite the graph context for each quad.
         // graphIri needs to be a namedNode
-        const graphIri = rdf.namedNode(payload.graphIri)
+        const graph = rdf.namedNode(payload.graphIri)
 
         if (deleteArray && deleteArray.length > 0) {
-          deleteArray = [sparql.graph(graphIri, deleteArray)]
+          deleteArray = await Readable.from(deleteArray).pipe(new TripleToQuad(graph)).toArray()
         }
         if (insertArray && insertArray.length > 0) {
-          insertArray = [sparql.graph(graphIri, insertArray)]
+          insertArray = await Readable.from(insertArray).pipe(new TripleToQuad(graph)).toArray()
         }
       }
 
