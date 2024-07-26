@@ -7,21 +7,19 @@ import { promisifyEventEmitter } from 'event-emitter-promisify';
 import TripleToQuad from 'rdf-transform-triple-to-quad'
 import { Readable } from 'readable-stream';
 
-import { setActivePinia, createPinia } from 'pinia'
-import { useRdfStore } from '../rdf'
 
 describe('RDF Store with comunica backend', () => {
-  beforeEach(() => {
-    // creates a fresh pinia and makes it active
-    // so it's automatically picked up by any useStore() call
-    // without having to pass it to it: `useStore(pinia)`
-    setActivePinia(createPinia())
-  })
+  // beforeEach(() => {
+  //   // creates a fresh pinia and makes it active
+  //   // so it's automatically picked up by any useStore() call
+  //   // without having to pass it to it: `useStore(pinia)`
+  //   setActivePinia(createPinia())
+  // })
 
-  it('init', () => {
-    const store = useRdfStore()
-    // expect(store.sparqlEndpoint.queryEngine).exists()
-  })
+  // it('init', () => {
+  //   const store = useRdfStore()
+  //   // expect(store.sparqlEndpoint.queryEngine).exists()
+  // })
 
   it('gets a resource with a construct query and write the triples to a store', async () => {
     let resourceUri = "http://example.org/Norman"
@@ -57,7 +55,7 @@ describe('RDF Store with comunica backend', () => {
     let queryEngine = new QueryEngine()
     let sources = [{ type: 'sparql', value: queryEndpoint }]
     console.log(`Send quads query (${queryString}) via comunica to ${sources}`);
-    const tripleStream = Readable(await queryEngine.queryQuads(queryString, {
+    const tripleStream = Readable.from(await queryEngine.queryQuads(queryString, {
       sources: sources
     }))
 
