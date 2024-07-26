@@ -134,12 +134,6 @@ export const useRdfStore = defineStore('rdf', {
       const graph = rdf.namedNode(defaultGraph[0])
       return Readable.from(tripleStream).pipe(new TripleToQuad(graph))
     },
-    sendUpdate (updateString) {
-      this.sparqlEndpoint.update(updateString)
-        .then(function (response) {
-          console.log(response)
-        })
-    },
     push () {
       if (this.sparqlEndpoint.push !== undefined) {
         this.sparqlEndpoint.push()
