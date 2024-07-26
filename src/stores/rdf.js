@@ -6,6 +6,7 @@ import * as sparql from 'rdf-sparql-builder'
 import { Readable } from 'readable-stream';
 import TripleToQuad from 'rdf-transform-triple-to-quad'
 import { useSelectionStore } from '../stores/selection'
+import { injectDefaultGraph } from '../helpers/queries'
 import config from '@/config'
 import rdf from '@rdfjs/data-model'
 

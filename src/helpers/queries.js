@@ -1,5 +1,6 @@
 'use strict'
 
+import { Parser, Generator } from 'sparqljs'
 
 // This method takes an IRI of a taget class and returns
 // a query string to construct a NodeShape matching the
@@ -80,4 +81,11 @@ function getShapeQuery4Instance (instanceIri) {
   }`
 }
 
-export { getShapeQuery4Target, getShapeQuery4Instance }
+function injectDefaultGraph(query, defaultGraph) {
+  const parser = new Parser()
+  const parsedQuery = parser.parse(query)
+  console.log(parsedQuery)
+  return query
+}
+
+export { getShapeQuery4Target, getShapeQuery4Instance, injectDefaultGraph }
