@@ -17,6 +17,7 @@ export const useRdfStore = defineStore('rdf', {
   }),
   actions: {
     sendQuery (payload) {
+      console.warn("The sendQuery method is deprecated in favour of the sendQuery_comunica method for now.");
       let query = ''
       let data = false
       if (typeof payload === 'object') {
