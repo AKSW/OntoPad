@@ -90,7 +90,7 @@ export default {
       if (!index) {
         index = 0
       }
-      this.dataModel.splice(index + 1, 0, rdf.quad(rdf.blankNode(''), rdf.namedNode(''), rdf.namedNode(''), rdf.namedNode('')))
+      this.dataModel.splice(index + 1, 0, rdf.quad(this.subject, rdf.namedNode(''), rdf.namedNode(''), rdf.namedNode(this.graph_iri)))
     },
     delTriple (index) {
       this.dataModel.splice(index, 1)
@@ -101,13 +101,9 @@ export default {
       this.dataModel = cloneDeep(this.originalDataModel)
     },
     async updateResource () {
-      for (const index in this.dataModel) {
-        const statement = this.dataModel[index]
-        statement.subject = this.subject
-      }
       const difference = diff(this.originalDataModel, this.dataModel)
       try {
-        await this.store.deleteInsertData_comunica({ deleteArray: difference.del, insertArray: difference.add, graphIri: this.graph_iri })
+        await this.store.deleteInsertData_comunica({ deleteArray: difference.del, insertArray: difference.add })
         this.getResource()
       } catch (e) {
         console.error(e)
