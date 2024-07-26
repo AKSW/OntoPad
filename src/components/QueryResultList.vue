@@ -74,7 +74,6 @@ export default {
   data () {
     return {
       _bindings: [],
-      resources: [],
       filter: ''
     }
   },
@@ -85,10 +84,12 @@ export default {
       }
       return this.resources
     },
-    resources: function* () {
-      for (const key in bindings) {
-        yield this._bindings[key].get(this.selectVariable).value
+    resources () {
+      const list = []
+      for (const key in this._bindings) {
+        list.push(this._bindings[key].get(this.selectVariable).value)
       }
+      return list
     }
   },
   methods: {
