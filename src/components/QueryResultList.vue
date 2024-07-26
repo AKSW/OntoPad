@@ -73,6 +73,7 @@ export default {
   },
   data () {
     return {
+      _bindings: [],
       resources: [],
       filter: ''
     }
@@ -83,6 +84,11 @@ export default {
         return this.resources.filter(resource => resource.toLowerCase().includes(this.filter.toLowerCase()))
       }
       return this.resources
+    },
+    resources: function* () {
+      for (const key in bindings) {
+        yield this._bindings[key].get(this.selectVariable).value
+      }
     }
   },
   methods: {
@@ -93,16 +99,12 @@ export default {
         this.selection.changeResourceIri(resource)
       }
     },
-    updateList () {
-      this.store.sendQuery(
-        { query: this.query, queryQuads: this.queryQuads })
-        .then(result => {
-          const bindings = result.data.results.bindings
-          this.resources = []
-          for (const key in bindings) {
-            this.resources.push(bindings[key][this.selectVariable].value)
-          }
-        })
+    async updateList () {
+      const result = await this.store.sendQuery_comunica({ query: this.query })
+      if (result.resultType === 'bindings') {
+        const bindingsStream = await result.execute()
+        this._bindings = await bindingsStream.toArray()
+      }
     },
     shortenIri (resource) {
       return usePrefixesStore().shortenIri(resource)

@@ -46,47 +46,6 @@ export const useRdfStore = defineStore('rdf', {
       }
       return this.sparqlEndpoint.query(queryString, defaultGraph, data)
     },
-    sendQuery_bindings_comunica (payload) {
-      /**
-       payload can be:
-       a string: which is the query
-       an object
-       - with a property data
-       - - which tells if we query for quads (data=true) or bindings (data=false)
-       - with a property query that can be:
-       - - a string: which is the query
-       - - an object:
-       - - - with the property query: which is the query
-       - - - with a property queryQuads: true if we use graph patterns in the query or false, if not
-       - - - with a property defaultGraph: to query a specific graph
-       */
-      let defaultGraph
-      let queryString = ''
-      let query = ''
-      let data = false
-      if (typeof payload === 'object') {
-        query = payload.query
-        data = payload.data
-      } else {
-        query = payload
-      }
-      console.log(`send query query: ${query} (data: ${data})`)
-      if (typeof query === 'string') {
-        queryString = query
-        defaultGraph = [useSelectionStore().graph_iri]
-      } else if (typeof query === 'object') {
-        queryString = query.query
-        if (query.defaultGraph !== undefined) {
-          defaultGraph = query.defaultGraph
-        } else {
-          defaultGraph = [useSelectionStore().graph_iri]
-        }
-      } else {
-        console.error('cant process query')
-        console.error(query)
-      }
-      return this.sparqlEndpoint.query_comunica(queryString, defaultGraph)
-    },
     sendQuery_comunica (payload) {
       /**
       Query for quads (construct query)
@@ -117,8 +76,9 @@ export const useRdfStore = defineStore('rdf', {
         console.error(payload)
       }
       // TODO inject defaultGraph
-      queryString = injectDefaultGraph(queryString)
-      return this.sparqlEndpoint.query_comunica(queryString)
+      const query = injectDefaultGraph(queryString, defaultGraph)
+      const generator = new Generator()
+      return this.sparqlEndpoint.query_comunica(generator.stringify(query))
     },
     async getResource_comunica (resourceUri, defaultGraph) {
       if (defaultGraph === undefined) {
