@@ -63,7 +63,7 @@ export const useRdfStore = defineStore('rdf', {
       let queryString = ''
       console.log(`send query: ${payload}`)
       if (typeof payload === 'string') {
-        queryString = query
+        queryString = payload
         defaultGraph = [useSelectionStore().graph_iri]
       } else if (typeof payload === 'object') {
         queryString = payload.query
