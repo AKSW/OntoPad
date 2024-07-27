@@ -73,7 +73,7 @@ export default {
   },
   data () {
     return {
-      _bindings: [],
+      resources: [],
       filter: ''
     }
   },
@@ -84,13 +84,6 @@ export default {
       }
       return this.resources
     },
-    resources () {
-      const list = []
-      for (const key in this._bindings) {
-        list.push(this._bindings[key].get(this.selectVariable).value)
-      }
-      return list
-    }
   },
   methods: {
     select (resource) {
@@ -104,7 +97,10 @@ export default {
       const result = await this.store.sendQuery({ query: this.query })
       if (result.resultType === 'bindings') {
         const bindingsStream = await result.execute()
-        this._bindings = await bindingsStream.toArray()
+        this.resources = []
+        for await (const bindings of bindingsStream) {
+          this.resources.push(bindings.get(this.selectVariable).value)
+        }
       }
     },
     shortenIri (resource) {
