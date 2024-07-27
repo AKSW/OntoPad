@@ -494,9 +494,9 @@ export default {
         }
         this.nextPosition(true)
       })
-      this.store.sendQuery({
+      this.store.sendQuery_comunica(
         // eslint-disable-next-line
-        query: `PREFIX sh: <http://www.w3.org/ns/shacl#>
+        `PREFIX sh: <http://www.w3.org/ns/shacl#>
           construct {
             ?nodeShape a sh:NodeShape ;
               sh:targetClass ?targetClass ;
@@ -519,23 +519,11 @@ export default {
                 ?propertyShape a ?propertyShapeType .
               }
             }
-          }`,
-        data: true
-      }
-      )
-        .then(result => {
-          const parser = new Parser()
-          this.originalDataModel = []
-          parser.parse(result.data, (error, quad, prefixes) => {
-            if (error) {
-              console.log(error)
-            } else if (quad) {
-              this.originalDataModel.push(quad)
-            } else {
-              console.log('done')
-            }
-          })
-        })
+          }`).then(async result => {
+        if (result.resultType === 'quads') {
+          this.originalDataModel = await (await result.execute()).toArray()
+        }
+      })
     },
     hoverTerms (isHovered) {
       if (isHovered && !this.hover_note_shown) {
