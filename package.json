@@ -19,6 +19,7 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "dedent-js": "^1.0.1",
     "event-emitter-promisify": "^1.1.0",
     "lodash": "^4.17.21",
     "n3": "^1.17.3",

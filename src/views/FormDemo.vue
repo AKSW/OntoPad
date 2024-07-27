@@ -61,6 +61,7 @@ import { quadStreamToStore } from '../helpers/rdf-parse'
 // import { LeafletPlugin } from '@ulb-darmstadt/shacl-form/plugins/leaflet.js'
 // import * as jsonld from 'jsonld'
 import rdf from '@rdfjs/data-model'
+import dedent from 'dedent-js'
 
 export default {
   name: 'FormDemo',
@@ -126,7 +127,7 @@ export default {
 
       if (shapeData.length < 1) {
         console.log('Use default shape')
-        this.shapeTurtle = `
+        this.shapeTurtle = dedent(`
           @prefix sh: <http://www.w3.org/ns/shacl#> .
           @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
           @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -144,7 +145,7 @@ export default {
               sh:name 'label' ;
               sh:path rdfs:label ;
               sh:maxCount 1 ;
-            ] .`
+            ] .`)
       } else {
         console.log('Use found shape')
         this.shapeTurtle = await this.serialize(shapeData, { format: 'text/turtle', prefixes: this.prefixes })

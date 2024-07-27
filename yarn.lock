@@ -7427,6 +7427,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dedent-js@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "dedent-js@npm:1.0.1"
+  checksum: 10c0/a8cff2e02d5a1ce64615c5c53c9789e7ef1abb9ae7bf2322dc991fcbaf08d901ace1a679c1e021de15a85db7787b8ccfb02011e1f394afef0f698fc857a47009
+  languageName: node
+  linkType: hard
+
 "deep-eql@npm:^4.1.3":
   version: 4.1.3
   resolution: "deep-eql@npm:4.1.3"
@@ -10866,6 +10873,7 @@ __metadata:
     axios: "npm:^1.6.8"
     bootstrap: "npm:^5.3.3"
     bootstrap-icons: "npm:^1.11.3"
+    dedent-js: "npm:^1.0.1"
     eslint: "npm:^8.57.0"
     eslint-plugin-vue: "npm:^9.23.0"
     event-emitter-promisify: "npm:^1.1.0"

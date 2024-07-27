@@ -38,6 +38,7 @@ const RAW_RUNTIME_STATE =
           ["axios", "npm:1.6.8"],\
           ["bootstrap", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.3.3"],\
           ["bootstrap-icons", "npm:1.11.3"],\
+          ["dedent-js", "npm:1.0.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.25.0"],\
           ["event-emitter-promisify", "npm:1.1.0"],\
@@ -9129,6 +9130,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["dedent-js", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/dedent-js-npm-1.0.1-ddf8ce03f4-10c0.zip/node_modules/dedent-js/",\
+        "packageDependencies": [\
+          ["dedent-js", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["deep-eql", [\
       ["npm:4.1.3", {\
         "packageLocation": "../../../../../.yarn/berry/cache/deep-eql-npm-4.1.3-020a64f862-10c0.zip/node_modules/deep-eql/",\
@@ -12920,6 +12930,7 @@ const RAW_RUNTIME_STATE =
           ["axios", "npm:1.6.8"],\
           ["bootstrap", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:5.3.3"],\
           ["bootstrap-icons", "npm:1.11.3"],\
+          ["dedent-js", "npm:1.0.1"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-plugin-vue", "virtual:f72e9c9c51cc36d8fb68775b655fad0d1ef137be742260300f2801b18b44616a65c3638519313cd53cbd70202a8107f75a4cb183e8c2f73d8c171bfc8a9a030d#npm:9.25.0"],\
           ["event-emitter-promisify", "npm:1.1.0"],\
