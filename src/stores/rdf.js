@@ -110,6 +110,11 @@ export const useRdfStore = defineStore('rdf', {
       const updateString = updates.join(";")
 
       return this.sparqlEndpoint.update_comunica(updateString)
+    },
+    updateEndpointConfiguration (configuration) {
+      console.log('Change SPARQL Endpoint configuration.')
+      console.log(configuration)
+      this.sparqlEndpoint = EndpointFactory.create(configuration)
     }
   },
 })
