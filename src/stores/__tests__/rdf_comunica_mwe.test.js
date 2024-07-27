@@ -65,4 +65,85 @@ describe('MWE RDF Store with comunica backend', () => {
     tripleStream.pipe(new TripleToQuad(graph_node))
   })
 
+  it('gets some bindings with a union and unbound variables', async () => {
+    let resourceUri = "http://ex.org/Mickey"
+    let graph = "http://example.org/"
+    const queryString = `select ?a ?b where { { ?a ?p ?o } union {?b ?p ?o } }`
+
+    let source_store = new Store()
+    source_store.add(
+      rdf.quad(
+        rdf.namedNode('http://ex.org/Mickey'),
+        rdf.namedNode('http://ex.org/type'),
+        rdf.namedNode('http://ex.org/Mouse')
+      )
+    )
+
+    let queryEngine = new QueryEngine()
+
+    const bindingsStream = await queryEngine.queryBindings(queryString, {
+      sources: [source_store]
+    })
+
+    console.log(bindingsStream)
+    console.log(Object.prototype.toString.call(bindingsStream))
+    console.log(await bindingsStream.toArray())
+
+  })
+
+  it('gets some bindings', async () => {
+    let resourceUri = "http://ex.org/Mickey"
+    let graph = "http://example.org/"
+    const queryString = `select ?a where { ?a ?p ?o }`
+
+    let source_store = new Store()
+    source_store.add(
+      rdf.quad(
+        rdf.namedNode('http://ex.org/Mickey'),
+        rdf.namedNode('http://ex.org/type'),
+        rdf.namedNode('http://ex.org/Mouse')
+      )
+    )
+
+    let queryEngine = new QueryEngine()
+
+    const bindingsStream = await queryEngine.queryBindings(queryString, {
+      sources: [source_store]
+    })
+
+    console.log(bindingsStream)
+    console.log(Object.prototype.toString.call(bindingsStream))
+    console.log(bindingsStream.size)
+    console.log(bindingsStream.count)
+    console.log(bindingsStream.length)
+    console.log(count(bindingsStream))
+
+  })
+
+  it('query that returns no data', async () => {
+    let resourceUri = "http://ex.org/Mickey"
+    let graph = "http://example.org/"
+    const queryString = `select ?a where { ?a <urn:nothing> ?o }`
+
+    let source_store = new Store()
+    source_store.add(
+      rdf.quad(
+        rdf.namedNode('http://ex.org/Mickey'),
+        rdf.namedNode('http://ex.org/type'),
+        rdf.namedNode('http://ex.org/Mouse')
+      )
+    )
+
+    let queryEngine = new QueryEngine()
+
+    const bindingsStream = await queryEngine.queryBindings(queryString, {
+      sources: [source_store]
+    })
+
+    console.log(bindingsStream)
+    console.log(Object.prototype.toString.call(bindingsStream))
+    console.log(bindingsStream.size)
+
+  })
+
 })
