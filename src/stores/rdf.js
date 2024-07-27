@@ -16,37 +16,6 @@ export const useRdfStore = defineStore('rdf', {
       sparqlEndpoint: EndpointFactory.create(config.endpoint)
   }),
   actions: {
-    sendQuery (payload) {
-      console.warn("The sendQuery method is deprecated in favour of the sendQuery_comunica method for now.");
-      let query = ''
-      let data = false
-      if (typeof payload === 'object') {
-        query = payload.query
-        data = payload.data
-      } else {
-        query = payload
-      }
-      console.log('send query with data=' + data + ' query: ' + query)
-      let defaultGraph
-      let queryString = ''
-      if (typeof query === 'string') {
-        queryString = query
-        defaultGraph = [useSelectionStore().graph_iri]
-      } else if (query instanceof Object) {
-        queryString = query.query
-        if (query.queryQuads !== undefined) {
-          defaultGraph = undefined
-        } else if (query.defaultGraph !== undefined) {
-          defaultGraph = query.defaultGraph
-        } else {
-          defaultGraph = [useSelectionStore().graph_iri]
-        }
-      } else {
-        console.error('cant process query')
-        console.error(query)
-      }
-      return this.sparqlEndpoint.query(queryString, defaultGraph, data)
-    },
     sendQuery_comunica (payload) {
       /**
       Query for quads (construct query)

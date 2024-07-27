@@ -44,6 +44,7 @@ describe('RDF Store', () => {
     expect(store.sparqlEndpoint.updateUrl).toBe("http://localhost:5000/sparql")
   })
 
+  // this one does not work, we need new tests for comunica
   it('send query', async () => {
     // setup
     //${store.sparqlEndpoint.queryUrl}
