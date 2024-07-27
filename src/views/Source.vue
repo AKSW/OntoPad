@@ -53,14 +53,14 @@ export default {
   methods: {
     async getResource () {
       console.log('get resource')
-      const resourceData = await this.store.getResource_comunica(this.resource_iri)
+      const resourceData = await this.store.getResource(this.resource_iri)
       this.originalData = (await quadStreamToStore(resourceData)).store
       this.resourceSource = await quadStreamToString(this.originalData.match(), { format: 'text/turtle', prefixes: this.prefixes_flat })
     },
     async updateResource () {
       const newDataModel = await stringToStore(this.resourceSource)
       const difference = diff_n3(this.originalData, newDataModel)
-      this.store.deleteInsertData_comunica({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+      this.store.deleteInsertData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
     }
   }
 }

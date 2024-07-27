@@ -285,7 +285,7 @@ export default {
         } order by ?resourceIri`, "property").then(list => { this.properties = list } )
     },
     async getList (query, termType_) {
-      const result = await this.store.sendQuery_comunica(query)
+      const result = await this.store.sendQuery(query)
       if (result.resultType === 'bindings') {
         const list = []
         const bindingsStream = await result.execute()
@@ -313,7 +313,7 @@ export default {
         ]
       }
       try {
-        await this.store.deleteInsertData_comunica({ insertArray: newTerm, graphIri: this.graph_iri })
+        await this.store.deleteInsertData({ insertArray: newTerm, graphIri: this.graph_iri })
         this.getLists()
       } catch (e) {
         console.error(e)
@@ -401,7 +401,7 @@ export default {
       const difference = diff(this.originalDataModel, newSchema)
       console.log(difference)
       try {
-        await this.store.deleteInsertData_comunica({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
+        await this.store.deleteInsertData({ insertArray: difference.add, deleteArray: difference.del, graphIri: this.graph_iri })
         this.$bvToast.toast('Shapes where saved to the store', {
           title: 'Save Shapes',
           autoHideDelay: 500
@@ -464,7 +464,7 @@ export default {
       return portId
     },
     getShapes () {
-      this.store.sendQuery_comunica(
+      this.store.sendQuery(
       // eslint-disable-next-line
         `PREFIX sh: <http://www.w3.org/ns/shacl#>
         select distinct ?nodeShape ?targetClass ?propertyShape ?path ?nodeShapeRef ?targetClassRef {
@@ -494,7 +494,7 @@ export default {
         }
         this.nextPosition(true)
       })
-      this.store.sendQuery_comunica(
+      this.store.sendQuery(
         // eslint-disable-next-line
         `PREFIX sh: <http://www.w3.org/ns/shacl#>
           construct {

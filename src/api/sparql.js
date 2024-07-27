@@ -18,28 +18,28 @@ class SparqlEndpoint {
     }
   }
 
-  query_comunica_bindings (queryString) {
+  query_bindings (queryString) {
     console.log(`Send bindings query (${queryString}) via comunica to ${this.sources}`);
     return this.queryEngine.queryBindings(queryString, {
       sources: this.sources
     })
   }
 
-  query_comunica_quads (queryString) {
+  query_quads (queryString) {
     console.log(`Send quads query (${queryString}) via comunica to ${this.sources}`);
     return this.queryEngine.queryQuads(queryString, {
       sources: this.sources
     })
   }
 
-  query_comunica (queryString) {
+  query (queryString) {
     console.log(`Send any query (${queryString}) via comunica to ${this.sources}`);
     return this.queryEngine.query(queryString, {
       sources: this.sources
     })
   }
 
-  update_comunica (updateString) {
+  update (updateString) {
     console.log(`Send update query (${updateString}) via comunica to ${this.sources}`);
     return this.queryEngine.queryVoid(updateString, {
       sources: this.destination

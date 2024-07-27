@@ -16,7 +16,7 @@ export const useRdfStore = defineStore('rdf', {
       sparqlEndpoint: EndpointFactory.create(config.endpoint)
   }),
   actions: {
-    sendQuery_comunica (payload) {
+    sendQuery (payload) {
       /**
       Query for quads (construct query)
        payload can be:
@@ -48,9 +48,9 @@ export const useRdfStore = defineStore('rdf', {
       // TODO inject defaultGraph
       const query = injectDefaultGraph(queryString, defaultGraph)
       const generator = new Generator()
-      return this.sparqlEndpoint.query_comunica(generator.stringify(query))
+      return this.sparqlEndpoint.query(generator.stringify(query))
     },
-    async getResource_comunica (resourceUri, defaultGraph) {
+    async getResource (resourceUri, defaultGraph) {
       if (defaultGraph === undefined) {
         defaultGraph = [useSelectionStore().graph_iri]
       }
@@ -60,7 +60,7 @@ export const useRdfStore = defineStore('rdf', {
       }
       const queryString = `construct {<${resourceUri}> ?p ?o} ${datasetClause} where {<${resourceUri}> ?p ?o}`
 
-      const tripleStream = await this.sparqlEndpoint.query_comunica_quads(queryString)
+      const tripleStream = await this.sparqlEndpoint.query_quads(queryString)
       const graph = rdf.namedNode(defaultGraph[0])
       return Readable.from(tripleStream).pipe(new TripleToQuad(graph))
     },
@@ -80,7 +80,7 @@ export const useRdfStore = defineStore('rdf', {
           })
       }
     },
-    async deleteInsertData_comunica (payload) {
+    async deleteInsertData (payload) {
       let deleteArray = payload.deleteArray
       let insertArray = payload.insertArray
 
@@ -109,7 +109,7 @@ export const useRdfStore = defineStore('rdf', {
 
       const updateString = updates.join(";")
 
-      return this.sparqlEndpoint.update_comunica(updateString)
+      return this.sparqlEndpoint.update(updateString)
     },
     updateEndpointConfiguration (configuration) {
       console.log('Change SPARQL Endpoint configuration.')

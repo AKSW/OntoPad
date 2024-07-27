@@ -79,7 +79,7 @@ export default {
     async getResource () {
       this.subject = rdf.namedNode(this.resource_iri)
       console.log('get resource: ' + this.resource_iri)
-      const resourceData = await this.store.getResource_comunica(this.resource_iri)
+      const resourceData = await this.store.getResource(this.resource_iri)
       this.dataModel = (await quadStreamToStore(resourceData)).store
     },
     selectResource (resourceIri) {

@@ -95,13 +95,13 @@ export default {
     },
     async getResource () {
       this.subject = rdf.namedNode(this.resource_iri)
-      this.originalDataModel = await (await this.store.getResource_comunica(this.resource_iri)).toArray()
+      this.originalDataModel = await (await this.store.getResource(this.resource_iri)).toArray()
       this.dataModel = cloneDeep(this.originalDataModel)
     },
     async updateResource () {
       const difference = diff(this.originalDataModel, this.dataModel)
       try {
-        await this.store.deleteInsertData_comunica({ deleteArray: difference.del, insertArray: difference.add })
+        await this.store.deleteInsertData({ deleteArray: difference.del, insertArray: difference.add })
         this.getResource()
       } catch (e) {
         console.error(e)

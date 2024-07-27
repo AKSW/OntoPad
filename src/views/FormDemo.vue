@@ -104,13 +104,13 @@ export default {
     async getResource () {
       this.subject = rdf.namedNode(this.resource_iri)
       console.log('get resource: ' + this.resource_iri)
-      const resourceData = await this.store.getResource_comunica(this.resource_iri)
+      const resourceData = await this.store.getResource(this.resource_iri)
       this.dataModel = (await quadStreamToStore(resourceData)).store
     },
     async getShape () {
       console.log('Get shape for target class')
       let shapeData = []
-      const result = await this.store.sendQuery_comunica({query: getShapeQuery4Target(this.resource_iri)}) // if class
+      const result = await this.store.sendQuery({query: getShapeQuery4Target(this.resource_iri)}) // if class
       if (result.resultType === 'quads') {
         const quadStream = await result.execute()
         shapeData = await quadStream.toArray()
@@ -118,7 +118,7 @@ export default {
 
       if (shapeData.length < 1) {
         console.log('Get shape for class of current resource')
-        const result = await this.store.sendQuery_comunica({query: getShapeQuery4Instance(this.resource_iri)}) // if class
+        const result = await this.store.sendQuery({query: getShapeQuery4Instance(this.resource_iri)}) // if class
         if (result.resultType === 'quads') {
           const quadStream = await result.execute()
           shapeData = await quadStream.toArray()

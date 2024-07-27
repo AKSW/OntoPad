@@ -101,7 +101,7 @@ export default {
       }
     },
     async updateList () {
-      const result = await this.store.sendQuery_comunica({ query: this.query })
+      const result = await this.store.sendQuery({ query: this.query })
       if (result.resultType === 'bindings') {
         const bindingsStream = await result.execute()
         this._bindings = await bindingsStream.toArray()
