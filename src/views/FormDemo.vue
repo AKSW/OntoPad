@@ -108,14 +108,23 @@ export default {
     },
     async getShape () {
       console.log('Get shape for target class')
-      var shapeRDF = await this.store.sendQuery({query: getShapeQuery4Target(this.resource_iri), data: true}) // if class
-
-      if (shapeRDF.data.length == 0) {
-        console.log('Get shape for class of current resource')
-        var shapeRDF = await this.store.sendQuery({query: getShapeQuery4Instance(this.resource_iri), data: true}) // try for instance
+      let shapeData = []
+      const result = await this.store.sendQuery_comunica({query: getShapeQuery4Target(this.resource_iri)}) // if class
+      if (result.resultType === 'quads') {
+        const quadStream = await result.execute()
+        shapeData = await quadStream.toArray()
       }
 
-      if (shapeRDF.data.length == 0) {
+      if (shapeData.length < 1) {
+        console.log('Get shape for class of current resource')
+        const result = await this.store.sendQuery_comunica({query: getShapeQuery4Instance(this.resource_iri)}) // if class
+        if (result.resultType === 'quads') {
+          const quadStream = await result.execute()
+          shapeData = await quadStream.toArray()
+        }
+      }
+
+      if (shapeData.length < 1) {
         console.log('Use default shape')
         this.shapeTurtle = `
           @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -138,32 +147,11 @@ export default {
             ] .`
       } else {
         console.log('Use found shape')
-        var shapeData = await this.parse(shapeRDF.data, { format: 'application/n-triples' })
         this.shapeTurtle = await this.serialize(shapeData, { format: 'text/turtle', prefixes: this.prefixes })
       }
     },
     selectResource (resourceIri) {
       this.selection.changeResourceIri(resourceIri)
-    },
-    parse (source, parserConfig = {}) {
-      const dataModel = []
-      return new Promise((resolve, reject) => {
-        const resourceParser = new Parser(parserConfig)
-        resourceParser.parse(source, (error, quad, prefixes) => {
-          if (error) {
-            if (error === 'input is null') {
-              resolve(dataModel)
-            } else {
-              reject(error)
-            }
-          } else if (quad) {
-            dataModel.push(quad)
-          } else {
-            this.prefixes = { ...prefixes, ...this.prefixes }
-            resolve(dataModel)
-          }
-        })
-      })
     },
     serialize (data, serializerConfig = {}) {
       return new Promise((resolve, reject) => {
