@@ -268,7 +268,7 @@ export default {
           } union { \
             ?resourceIri a <http://www.w3.org/2002/07/owl#Class> \
           } \
-        } order by ?resourceIri`, "class").then(result => { this.classes = result } )
+        } order by ?resourceIri`, "class").then(list => { this.classes = list } )
 
       this.getList(
         // eslint-disable-next-line
@@ -282,7 +282,7 @@ export default {
           } union { \
             ?resourceIri a <http://www.w3.org/2002/07/owl#DatatypeProperty> \
           } \
-        } order by ?resourceIri`, "property").then(result => { this.properties = result } )
+        } order by ?resourceIri`, "property").then(list => { this.properties = list } )
     },
     async getList (query, termType_) {
       const result = await this.store.sendQuery_comunica(query)
