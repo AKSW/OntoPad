@@ -257,39 +257,45 @@ export default {
       console.log(rdfClass)
       this.selection.changeResourceIri(rdfClass)
     },
-    getLists () {
-      this.store.sendQuery(
+    async getLists () {
+      this.getList(
         // eslint-disable-next-line
-        `select distinct ?class ?property { \
+        `select distinct ?resourceIri { \
           { \
-            ?sc a ?class \
+            ?sc a ?resourceIri \
           } union { \
-            ?class a <http://www.w3.org/2000/01/rdf-schema#Class> \
+            ?resourceIri a <http://www.w3.org/2000/01/rdf-schema#Class> \
           } union { \
-            ?class a <http://www.w3.org/2002/07/owl#Class> \
-          } union { \
-            ?sp ?property ?op \
-          } union { \
-            ?property a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> \
-          } union { \
-            ?property a <http://www.w3.org/2002/07/owl#ObjectProperty> \
-          } union { \
-            ?property a <http://www.w3.org/2002/07/owl#DatatypeProperty> \
+            ?resourceIri a <http://www.w3.org/2002/07/owl#Class> \
           } \
-        } order by ?class ?property`)
-        .then(result => {
-          const bindings = result.data.results.bindings
-          this.classes = []
-          this.properties = []
-          for (const key in bindings) {
-            if (bindings[key].class) {
-              this.classes.push({ iri: bindings[key].class.value, termType: 'class' })
-            }
-            if (bindings[key].property) {
-              this.properties.push({ iri: bindings[key].property.value, termType: 'property' })
-            }
+        } order by ?resourceIri`, "class").then(result => { this.classes = result } )
+
+      this.getList(
+        // eslint-disable-next-line
+        `select distinct ?resourceIri { \
+          { \
+            ?sp ?resourceIri ?op \
+          } union { \
+            ?resourceIri a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> \
+          } union { \
+            ?resourceIri a <http://www.w3.org/2002/07/owl#ObjectProperty> \
+          } union { \
+            ?resourceIri a <http://www.w3.org/2002/07/owl#DatatypeProperty> \
+          } \
+        } order by ?resourceIri`, "property").then(result => { this.properties = result } )
+    },
+    async getList (query, termType_) {
+      const result = await this.store.sendQuery_comunica(query)
+      if (result.resultType === 'bindings') {
+        const list = []
+        const bindingsStream = await result.execute()
+        for await (const bindings of bindingsStream) {
+          if (bindings.has('resourceIri')) {
+            list.push({ iri: bindings.get('resourceIri').value, termType: termType_ })
           }
-        })
+        }
+        return list
+      }
     },
     async add_term (termType) {
       let newTerm = []
@@ -458,7 +464,7 @@ export default {
       return portId
     },
     getShapes () {
-      this.store.sendQuery(
+      this.store.sendQuery_comunica(
       // eslint-disable-next-line
         `PREFIX sh: <http://www.w3.org/ns/shacl#>
         select distinct ?nodeShape ?targetClass ?propertyShape ?path ?nodeShapeRef ?targetClassRef {
@@ -472,21 +478,22 @@ export default {
               ?nodeShapeRef sh:targetClass ?targetClassRef .
             }
           }
-        } order by ?nodeShape ?propertyShape`)
-        .then(result => {
-          const bindings = result.data.results.bindings
-          for (const key in bindings) {
-            const node = this.addNodeShape(bindings[key].nodeShape.value, bindings[key].targetClass.value)
-            if (bindings[key].propertyShape && bindings[key].path) {
-              const port = this.addPropertyShape(node, bindings[key].propertyShape.value, bindings[key].path.value)
-              if (bindings[key].nodeShapeRef && bindings[key].targetClassRef) {
-                this.addNodeShape(bindings[key].nodeShapeRef.value, bindings[key].targetClassRef.value)
-                this.model.addLink(port, this.getPortIdByShape(bindings[key].nodeShapeRef.value))
+        } order by ?nodeShape ?propertyShape`).then(async result => {
+        if (result.resultType === 'bindings') {
+          const bindingsStream = await result.execute()
+          for await (const bindings of bindingsStream) {
+            const node = this.addNodeShape(bindings.get('nodeShape').value, bindings.get('targetClass').value)
+            if (bindings.has('propertyShape') && bindings.has('path')) {
+              const port = this.addPropertyShape(node, bindings.get('propertyShape').value, bindings.get('path').value)
+              if (bindings.has('nodeShapeRef') && bindings.has('targetClassRef')) {
+                this.addNodeShape(bindings.get('nodeShapeRef').value, bindings.get('targetClassRef').value)
+                this.model.addLink(port, this.getPortIdByShape(bindings.get('nodeShapeRef').value))
               }
             }
           }
-          this.nextPosition(true)
-        })
+        }
+        this.nextPosition(true)
+      })
       this.store.sendQuery({
         // eslint-disable-next-line
         query: `PREFIX sh: <http://www.w3.org/ns/shacl#>
