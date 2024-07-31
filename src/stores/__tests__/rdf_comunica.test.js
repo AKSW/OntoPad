@@ -65,4 +65,24 @@ describe('RDF Store with comunica backend', () => {
     tripleStream.pipe(new TripleToQuad(graph_node))
   })
 
+  it('gets some bindings', async () => {
+    let graph = "http://example.org/"
+    let datasetClause = `from <${graph}>`
+
+    const queryString = `select ?a ?b ${datasetClause} where { { ?a ?p ?o } union {?b ?p ?o } }`
+
+    let queryEndpoint = "http://localhost:5000/sparql"
+    let queryEngine = new QueryEngine()
+    let sources = [{ type: 'sparql', value: queryEndpoint }]
+
+    const bindingsStream = await queryEngine.queryBindings(queryString, {
+      sources: sources
+    })
+
+    console.log(bindingsStream)
+    console.log(Object.prototype.toString.call(bindingsStream))
+    console.log(await bindingsStream.toArray())
+
+  })
+
 })
