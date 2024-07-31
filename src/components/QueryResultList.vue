@@ -94,7 +94,11 @@ export default {
       }
     },
     async updateList () {
-      const result = await this.store.sendQuery({ query: this.query })
+      let _defaultGraph = undefined
+      if (this.queryQuads) {
+        _defaultGraph = 'quads'
+      }
+      const result = await this.store.sendQuery({ query: this.query, defaultGraph: _defaultGraph })
       if (result.resultType === 'bindings') {
         const bindingsStream = await result.execute()
         this.resources = []
