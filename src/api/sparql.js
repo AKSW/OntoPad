@@ -1,10 +1,34 @@
 import axios from 'axios'
 import { QueryEngine } from '@comunica/query-sparql'
+import dedent from 'dedent-js'
 
 class SparqlEndpoint {
   constructor (queryEndpoint, updateEndpoint) {
     this.queryEngine = new QueryEngine()
     this.sources = [{ type: 'sparql', value: queryEndpoint }]
+    // this.sources = [{
+    //   type: 'serialized',
+    //   value: dedent(`
+    //   @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+    //   @prefix ex: <http://example.org/> .
+    //   @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+    //   @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    //   graph ex: {
+    //     <http://example.org/some> a rdf:Class .
+    //     <http://example.org/bla> a <http://example.org/some> ;
+    //       rdfs:label "hi" .
+    //     ex:Norman a foaf:Person ;
+    //       foaf:name "Norman" .
+    //     ex:Natanael a foaf:Person ;
+    //       foaf:name "Natanael" .
+    //     ex:Sascha a foaf:Person ;
+    //       foaf:name "Sascha" ;
+    //       foaf:knows ex:Norman, ex:Natanael .
+    //   }
+    //   `),
+    //   mediaType: 'application/trig',
+    //   baseIRI: 'http://example.org/',
+    // },]
     this.type = 'query_only'
     this.capability = {
       query: true,
