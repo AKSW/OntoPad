@@ -29,14 +29,16 @@ export const useRdfStore = defineStore('rdf', {
        - can be undefined to use the current system selected graph
        */
       let defaultGraph
-      let queryString = ''
+      let query = ''
       console.log(`send query: ${payload}`)
       if (typeof payload === 'string') {
-        queryString = payload
+        query = payload
         defaultGraph = [useSelectionStore().graph_iri]
       } else if (typeof payload === 'object') {
-        queryString = payload.query
-        if (payload.defaultGraph !== undefined) {
+        query = payload.query
+        if (payload.defaultGraph === 'quads') {
+          defaultGraph = undefined
+        } else if (payload.defaultGraph !== undefined) {
           defaultGraph = payload.defaultGraph
         } else {
           defaultGraph = [useSelectionStore().graph_iri]
@@ -46,9 +48,18 @@ export const useRdfStore = defineStore('rdf', {
         console.error(payload)
       }
       // TODO inject defaultGraph
-      const query = injectDefaultGraph(queryString, defaultGraph)
+      if (defaultGraph !== undefined) {
+        console.log(`inject graph: ${defaultGraph}`);
+        query = injectDefaultGraph(query, defaultGraph)
+      }
       const generator = new Generator()
-      return this.sparqlEndpoint.query(generator.stringify(query))
+      let queryString
+      if (typeof query !== 'string') {
+        queryString = generator.stringify(query)
+      } else {
+        queryString = query
+      }
+      return this.sparqlEndpoint.query(queryString)
     },
     async getResource (resourceUri, defaultGraph) {
       if (defaultGraph === undefined) {
