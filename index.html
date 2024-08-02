@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script id="ontopad_configuration" type="application/yaml">
+      sources:
+        - id: in_memory
+          type: in_memory
+          data: |
+            @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+            @prefix ex: <http://example.org/> .
+            @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+            @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+            graph ex: {
+              <http://example.org/some> a rdf:Class .
+              <http://example.org/bla> a <http://example.org/some> ;
+                rdfs:label "hi" .
+              ex:Norman a foaf:Person ;
+                foaf:name "Norman" .
+              ex:Natanael a foaf:Person ;
+                foaf:name "Natanael" .
+              ex:Sascha a foaf:Person ;
+                foaf:name "Sascha" ;
+                foaf:knows ex:Norman, ex:Natanael .
+            }
+        - id: local_quitstore
+          type: endpoint
+          quit_url: http://localhost:5000
+      graph_iri: http://example.org/
+      resource_iri: http://example.org/Resource
+    </script>
     <title>Vite App</title>
 
   </head>

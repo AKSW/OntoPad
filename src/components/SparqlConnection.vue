@@ -1,5 +1,5 @@
 <template>
-  <form inline class="col-12">
+  <form v-if="store_ready" inline class="col-12">
     <div class="btn-group col-1 mb-2 mr-sm-2 mb-sm-0" role="group">
       <button type="button" class="btn btn-outline-secondary mb-0" @click="configure_endpoint_modal.show()" title="Configure Endpoint" aria-label="Configure Endpoint">
         <i class="bi bi-gear"></i>
@@ -15,51 +15,52 @@
     <input type="text" class="form-control col-2" id="graph_iri" v-model="graph_iri">
     <label for="select_url" class="col-1 mr-sm-2">Resource IRI</label>
     <input type="text" class="form-control col-6" id="resource_iri" v-model="resource_iri">
-    <div class="modal fade" ref="configure_endpoint" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" size="lg">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Configure Endpoint</h5>
-            <button type="button" class="btn-close" @click="configure_endpoint_modal.hide()" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group" label="Endpoint Type">
-                <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_only" value="query_only"><label class="form-check-label" for="query_only">Query only</label>
-                <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_update" value="query_update"><label class="form-check-label" for="query_update">Query &amp; Update</label>
-                <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="quit" value="quit"><label class="form-check-label" for="quit">Quit Store</label>
+  </form>
+  <div class="modal fade" ref="configure_endpoint" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" size="lg">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Configure Endpoint</h5>
+          <button type="button" class="btn-close" @click="configure_endpoint_modal.hide()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group" label="Endpoint Type">
+              <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_only" value="query_only"><label class="form-check-label" for="query_only">Query only</label>
+              <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_update" value="query_update"><label class="form-check-label" for="query_update">Query &amp; Update</label>
+              <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="quit" value="quit"><label class="form-check-label" for="quit">Quit Store</label>
+            </div>
+            <div class="form-group" v-if="endpoint_type == 'quit'">
+              <label for="quit_url">Quit URL</label>
+              <div>
+                <input type="text" class="form-control" id="quit_url" v-model="quit_url" placeholder="http://your.quit.store.org/">
               </div>
-              <div class="form-group" v-if="endpoint_type == 'quit'">
-                <label for="quit_url">Quit URL</label>
-                <div>
-                  <input type="text" class="form-control" id="quit_url" v-model="quit_url" placeholder="http://your.quit.store.org/">
-                </div>
+            </div>
+            <div class="form-group" v-if="endpoint_type == 'query_only' || endpoint_type == 'query_update'">
+              <label for="query_url">Query URL</label>
+              <div>
+                <input type="text" class="form-control" id="query_url" v-model="query_url" placeholder="http://your.sparql.store.org/query">
               </div>
-              <div class="form-group" v-if="endpoint_type == 'query_only' || endpoint_type == 'query_update'">
-                <label for="query_url">Query URL</label>
-                <div>
-                  <input type="text" class="form-control" id="query_url" v-model="query_url" placeholder="http://your.sparql.store.org/query">
-                </div>
+            </div>
+            <div class="form-group" v-if="endpoint_type == 'query_update'">
+              <label for="update_url">Update URL</label>
+              <div>
+                <input type="text" class="form-control" id="update_url" v-model="update_url" placeholder="http://your.sparql.store.org/update">
               </div>
-              <div class="form-group" v-if="endpoint_type == 'query_update'">
-                <label for="update_url">Update URL</label>
-                <div>
-                  <input type="text" class="form-control" id="update_url" v-model="update_url" placeholder="http://your.sparql.store.org/update">
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" @click="configure_endpoint_modal.hide()">Close</button>
-            <button type="button" class="btn btn-primary" @click="configure_endpoint(); configure_endpoint_modal.hide()">Save changes</button>
-          </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" @click="configure_endpoint_modal.hide()">Close</button>
+          <button type="button" class="btn btn-primary" @click="configure_endpoint(); configure_endpoint_modal.hide()">Save changes</button>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
+import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import { useSelectionStore } from '../stores/selection'
 import { Modal } from 'bootstrap'
@@ -87,6 +88,7 @@ export default {
     })
   },
   computed: {
+    ...mapState(useRdfStore, {store_ready: store => store.ready}),
     store_capability: {
       get () {
         return this.store.sparqlEndpoint.capability
@@ -118,6 +120,10 @@ export default {
     },
     get_endpoint_configuration () {
       const ep = this.store.sparqlEndpoint
+      // const ep = {
+      //   type: "query_only",
+      //   queryUrl: ""
+      // }
       this.quit_url = ''
       this.query_url = ''
       this.update_url = ''

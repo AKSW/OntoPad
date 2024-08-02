@@ -11,9 +11,11 @@ import 'splitpanes/dist/splitpanes.css'
 <template>
   <div id="app" class="container-fluid">
     <div class="row connection">
+      <div v-if="store_ready">🟢 Store is ready</div>
+      <div v-else>🔄 Loading</div>
       <SparqlConnection/>
     </div>
-    <div class="row">
+    <div v-if="store_ready" class="row">
       <splitpanes class="default-theme">
         <pane size="30">
           <splitpanes horizontal style="height: 80vh">
@@ -34,14 +36,34 @@ import 'splitpanes/dist/splitpanes.css'
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/form">Form</RouterLink></li>
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/add">Add</RouterLink></li>
             <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/source">Source</RouterLink></li>
-            
+
           </ul>
           <RouterView />
         </pane>
       </splitpanes>
     </div>
+    <div v-else>
+      Waiting for Store to be configured …
+    </div>
   </div>
 </template>
+
+<script>
+import { mapState } from 'pinia'
+import { useRdfStore } from './stores/rdf'
+
+export default {
+  name: 'App',
+  setup () {
+    const store = useRdfStore();
+    return { store }
+  },
+  computed: {
+    ...mapState(useRdfStore, {store_ready: store => store.ready}),
+  }
+}
+
+</script>
 
 <style scoped>
 #app {

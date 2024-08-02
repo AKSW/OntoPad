@@ -1,45 +1,20 @@
 import axios from 'axios'
 import { QueryEngine } from '@comunica/query-sparql'
 import dedent from 'dedent-js'
+import { stringToStore } from '../helpers/rdf-parse'
 
-class SparqlEndpoint {
-  constructor (queryEndpoint, updateEndpoint) {
-    this.queryEngine = new QueryEngine()
-    this.sources = [{ type: 'sparql', value: queryEndpoint }]
-    // this.sources = [{
-    //   type: 'serialized',
-    //   value: dedent(`
-    //   @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-    //   @prefix ex: <http://example.org/> .
-    //   @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-    //   @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    //   graph ex: {
-    //     <http://example.org/some> a rdf:Class .
-    //     <http://example.org/bla> a <http://example.org/some> ;
-    //       rdfs:label "hi" .
-    //     ex:Norman a foaf:Person ;
-    //       foaf:name "Norman" .
-    //     ex:Natanael a foaf:Person ;
-    //       foaf:name "Natanael" .
-    //     ex:Sascha a foaf:Person ;
-    //       foaf:name "Sascha" ;
-    //       foaf:knows ex:Norman, ex:Natanael .
-    //   }
-    //   `),
-    //   mediaType: 'application/trig',
-    //   baseIRI: 'http://example.org/',
-    // },]
+class SparqlStore {
+  constructor () {
     this.type = 'query_only'
     this.capability = {
       query: true,
       update: false,
       quit: false
     }
-    if (updateEndpoint) {
-      this.destination = [{ type: 'sparql', value: updateEndpoint }]
-      this.type = 'query_update'
-      this.capability.update = true
-    }
+  }
+
+  async initialize () {
+
   }
 
   query_bindings (queryString) {
@@ -79,4 +54,33 @@ class SparqlEndpoint {
   }
 }
 
-export { SparqlEndpoint }
+class SparqlEndpoint extends SparqlStore {
+  constructor (queryEndpoint, updateEndpoint) {
+    super()
+    this.queryEndpoint = queryEndpoint
+    this.updateEndpoint = updateEndpoint
+
+    this.type = 'query_only'
+    this.capability = {
+      query: true,
+      update: false,
+      quit: false
+    }
+    if (updateEndpoint) {
+      this.type = 'query_update'
+      this.capability.update = true
+    }
+  }
+
+  async initialize () {
+    this.queryEngine = new QueryEngine()
+    this.sources = [{ type: 'sparql', value: this.queryEndpoint }]
+
+    if (this.updateEndpoint) {
+      this.destination = [{ type: 'sparql', value: this.updateEndpoint }]
+    }
+  }
+}
+
+
+export { SparqlEndpoint, SparqlStore }
