@@ -1,8 +1,0 @@
-{
-  "endpoint": {
-    "query_url":"http://localhost:5000/sparql",
-    "update_url":"http://localhost:5000/sparql"
-  },
-  "graph_iri": "http://example.org/",
-  "resource_iri": "http://example.org/Resource"
-}
