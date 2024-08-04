@@ -13,7 +13,6 @@ jobs:
         ref: master
         sparse-checkout: docs
         sparse-checkout-cone-mode: false
-        path: docs
     - name: Set Node.js 21.x
       uses: actions/setup-node@v3
       with:
