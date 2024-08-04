@@ -34,6 +34,7 @@ jobs:
       with:
         source: master/docs
         destination: _site
+    - run: find _site
     - name: Deploy 🚀
       uses: peaceiris/actions-gh-pages@v4
       with:
