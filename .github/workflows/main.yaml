@@ -7,8 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Vue
     steps:
-    - uses: actions/checkout@v3
-
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        ref: master
+        sparse-checkout: docs
+        path: docs
     - name: Set Node.js 21.x
       uses: actions/setup-node@v3
       with:
@@ -23,10 +27,10 @@ jobs:
       uses: borales/actions-yarn@v4
       with:
         cmd: build # will run `yarn build` command
- 
+    - run: mv dist docs/pad
     - name: Deploy 🚀
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+        publish_dir: ./docs
         publish_branch: gh-pages
