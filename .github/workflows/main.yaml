@@ -28,10 +28,15 @@ jobs:
       uses: borales/actions-yarn@v4
       with:
         cmd: build # will run `yarn build` command
-    - run: mv dist master/docs/pad
+    - name: Build page
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: master/docs
+        destination: _site
+    - run: mv dist _site/pad
     - name: Deploy 🚀
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./master/docs
+        publish_dir: _site
         publish_branch: gh-pages
