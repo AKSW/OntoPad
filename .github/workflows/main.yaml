@@ -13,6 +13,7 @@ jobs:
         ref: master
         sparse-checkout: docs
         sparse-checkout-cone-mode: false
+        path: master
     - name: Set Node.js 21.x
       uses: actions/setup-node@v3
       with:
@@ -27,10 +28,10 @@ jobs:
       uses: borales/actions-yarn@v4
       with:
         cmd: build # will run `yarn build` command
-    - run: mv dist docs/pad
+    - run: mv dist master/docs/pad
     - name: Deploy 🚀
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs
+        publish_dir: ./master/docs
         publish_branch: gh-pages
