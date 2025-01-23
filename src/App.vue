@@ -1,16 +1,7 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import SparqlConnection from './components/SparqlConnection.vue'
-import GraphList from './components/GraphList.vue'
-import ClassList from './components/ClassList.vue'
-
-import { Splitpanes, Pane } from 'splitpanes'
-import 'splitpanes/dist/splitpanes.css'
-</script>
-
 <template>
   <div id="app" class="container-fluid">
     <div class="row connection">
+      <h1>{{ title }}</h1>
       <div v-if="store_ready">🟢 Store is ready</div>
       <div v-else>🔄 Loading</div>
       <SparqlConnection/>
@@ -46,23 +37,64 @@ import 'splitpanes/dist/splitpanes.css'
     <div v-else>
       Waiting for Store to be configured …
     </div>
+    <div>
+      <pre>
+        {{config}}
+      </pre>
+    </div>
   </div>
 </template>
 
 <script>
+import SparqlConnection from './components/SparqlConnection.vue'
+import GraphList from './components/GraphList.vue'
+import ClassList from './components/ClassList.vue'
+import { Splitpanes, Pane } from 'splitpanes'
+import { RouterLink, RouterView } from 'vue-router'
+
+import 'splitpanes/dist/splitpanes.css'
+
 import { mapState } from 'pinia'
 import { useRdfStore } from './stores/rdf'
 import { useSelectionStore } from './stores/selection'
 
 export default {
   name: 'App',
-  setup () {
-    const store = useRdfStore();
-    return { store }
-  },
   computed: {
     ...mapState(useRdfStore, {store_ready: store => store.ready}),
     ...mapState(useSelectionStore, ['graph_iri', 'resource_iri'])
+  },
+  components: {
+    SparqlConnection,
+    GraphList,
+    ClassList,
+    Splitpanes,
+    Pane,
+    RouterLink,
+    RouterView
+  },
+  methods: {
+    useSelectionStore
+  },
+  props: {
+    title: {
+      type: String,
+      default: "OntoPad"
+    },
+    config: {
+      type: Object,
+      default: {}
+    },
+  },
+  created () {
+    console.log("configuration is")
+    console.log(this.config)
+
+    const rdfStore = useRdfStore()
+    const selectionStore = useSelectionStore()
+
+    rdfStore.updateEndpointConfiguration(this.config)
+    selectionStore.initConfig(this.config)
   }
 }
 

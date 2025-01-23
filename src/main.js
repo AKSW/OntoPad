@@ -2,13 +2,21 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 import "bootstrap-icons/font/bootstrap-icons.css"
 
+import { parse } from 'yaml'
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+const app = createApp(App,
+{
+  title: "OntoPad next ⏩",
+  config: parse(document.querySelector('#ontopad_configuration').text)
+})
+
+console.log(app)
 
 app.use(createPinia())
 app.use(router)

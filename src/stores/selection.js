@@ -1,10 +1,9 @@
 import { defineStore } from 'pinia'
-import config from '@/config'
 
 export const useSelectionStore = defineStore('selection', {
   state: () => ({
-      graph_iri: config.graph_iri,
-      resource_iri: config.resource_iri,
+      graph_iri: "",
+      resource_iri: "",
       is_class: true,
   }),
   actions: {
@@ -20,6 +19,10 @@ export const useSelectionStore = defineStore('selection', {
       } else {
         this.is_class = false
       }
+    },
+    initConfig (config) {
+      this.graph_iri = config.graph_iri
+      this.resource_iri = config.resource_iri
     }
   },
 })

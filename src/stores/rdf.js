@@ -6,10 +6,8 @@ import TripleToQuad from 'rdf-transform-triple-to-quad'
 import * as sparql from 'rdf-sparql-builder'
 import rdf from '@rdfjs/data-model'
 import { EndpointFactory } from '@/api/endpoint.js'
-import config from '@/config'
 import { useSelectionStore } from '../stores/selection'
 import { injectDefaultGraph } from '../helpers/queries'
-
 
 export const useRdfStore = defineStore('rdf', () => {
   const ready = ref(false)
@@ -139,11 +137,6 @@ export const useRdfStore = defineStore('rdf', () => {
     sparqlEndpoint.value = stores[0]
     ready.value = true
   }
-
-  console.log("configuration is")
-  console.log(config)
-
-  updateEndpointConfiguration(config)
 
   return { ready, sparqlEndpoint, sendQuery, getResource, push, pull, deleteInsertData, updateEndpointConfiguration }
 })
