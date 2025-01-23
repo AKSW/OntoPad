@@ -1,6 +1,7 @@
 # OntoPad
 
 This OntoPad Version uses Vue 3 and Vite.
+Dependency management is done with `yarn` ([install it via `corepack`](https://yarnpkg.com/corepack#installation)).
 
 
 ## Customize configuration
