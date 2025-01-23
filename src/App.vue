@@ -20,15 +20,7 @@
         </pane>
         <pane size="90">
           <ul class="nav nav-tabs">
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/dashboard">Home</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/instances">Instances</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/voc">Vocabulary</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/edit">Edit</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/form">Form</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/add">Add</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/kanban">Kanban</RouterLink></li>
-            <li class="nav-item"><RouterLink class="nav-link" active-class="active" to="/source">Source</RouterLink></li>
-
+            <li v-for="(link, index) in $navigation['main']" :key="index" class="nav-item"><RouterLink class="nav-link" active-class="active" :to="link.to">{{link.title}}</RouterLink></li>
           </ul>
           <RouterView />
         </pane>
