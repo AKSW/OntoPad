@@ -37,11 +37,6 @@
     <div v-else>
       Waiting for Store to be configured …
     </div>
-    <div>
-      <pre>
-        {{config}}
-      </pre>
-    </div>
   </div>
 </template>
 
@@ -87,9 +82,6 @@ export default {
     },
   },
   created () {
-    console.log("configuration is")
-    console.log(this.config)
-
     const rdfStore = useRdfStore()
     const selectionStore = useSelectionStore()
 
