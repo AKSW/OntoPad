@@ -1,21 +1,12 @@
-import HelloView from '../views/HelloView.vue'
+import { register } from '../helpers/plugin'
 
 export default {
   install: (app, options) => {
-    // Plugin code goes here
-    console.log(app.config)
-    console.log(app.config.globalProperties.$router)
-    console.log(app.config.globalProperties.$navigation)
-    app.config.globalProperties.$router.addRoute({
-      path: '/hello',
+    register(app, {
       name: 'hello',
-      component: () => import('../views/HelloView.vue')
+      component: () => import('../views/HelloView.vue'),
+      path: '/hello',
+      title: "Hello"
     })
-    app.config.globalProperties.$navigation.main.push(
-      {
-        to: "/hello",
-        title: "Hello"
-      }
-    )
   }
 }
