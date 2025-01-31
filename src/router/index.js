@@ -46,11 +46,6 @@ const router = createRouter({
       component: () => import('../views/InputForm.vue')
     },
     {
-      path: '/kanban',
-      name: 'Kanban',
-      component: () => import('../views/Kanban.vue')
-    },
-    {
       path: '/source',
       name: 'Source',
       component: () => import('../views/Source.vue')

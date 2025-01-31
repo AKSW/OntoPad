@@ -11,6 +11,16 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
+  "files": ["dist"],
+  "main": "./dist/ontopad.umd.cjs",
+  "module": "./dist/ontopad.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ontopad.js",
+      "require": "./dist/ontopad.umd.cjs"
+    },
+    "./style.css": "./dist/ontopad.css"
+  },
   "dependencies": {
     "@comunica/query-sparql": "^3.2.0",
     "@popperjs/core": "^2.11.8",
