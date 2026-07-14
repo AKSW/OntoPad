@@ -3,6 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "files": ["dist"],
+  "main": "./dist/next-pad-26.cjs",
+  "module": "./dist/next-pad-26.js",
+  "exports": {
+    ".": {
+      "import": "./dist/next-pad-26.js",
+      "require": "./dist/next-pad-26.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
