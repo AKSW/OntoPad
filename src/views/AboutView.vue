@@ -1,15 +1,7 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <h1>OntoPad</h1>
+  <ul>
+    <li><a href="https://github.com/AKSW/OntoPad/">https://github.com/AKSW/OntoPad/</a></li>
+    <li><a href="https://ontopad.aksw.org/">https://ontopad.aksw.org/</a></li>
+  </ul>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

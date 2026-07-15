@@ -1,0 +1,33 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task -l
+
+  install:
+    desc: Install dependencies with yarn
+    cmds:
+      - |
+        yarn
+
+  format:
+    desc: Format the code with yarn
+    cmds:
+      - |
+        yarn format
+
+  serve:
+    desc: Run a yarn development server
+    interactive: true
+    cmds:
+      - |
+        yarn dev
+
+  test:
+    desc: Run the tests, currently only unit tests
+    interactive: true
+    cmds:
+      - |
+        yarn test:unit

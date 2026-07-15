@@ -1,6 +1,8 @@
-# .
+# OntoPad
 
-This template should help get you started developing with Vue 3 in Vite.
+This OntoPad Version uses Vue 3 and Vite.
+Dependency management is done with `yarn` ([install it via `corepack`](https://yarnpkg.com/corepack#installation)).
+
 
 ## Recommended IDE Setup
 
@@ -48,3 +50,7 @@ yarn test:unit
 ```sh
 yarn lint
 ```
+
+fixed:
+- navigation moved to App.vue
+- conditions in rdf store init

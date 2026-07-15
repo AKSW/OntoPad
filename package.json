@@ -3,14 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/next-pad-26.cjs",
   "module": "./dist/next-pad-26.js",
   "exports": {
     ".": {
       "import": "./dist/next-pad-26.js",
       "require": "./dist/next-pad-26.cjs"
-    }
+    },
+    "./main.css": "./dist/next-pad-26.css"
   },
   "scripts": {
     "dev": "vite",
@@ -23,9 +26,29 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@comunica/query-sparql": "^5.3.0",
+    "@popperjs/core": "^2.11.8",
+    "@rdfjs/data-model": "^2.1.2",
+    "@ro-kit/ui-widgets": "^1.0.47",
+    "@ulb-darmstadt/shacl-form": "^3.1.1",
+    "axios": "^1.18.1",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "dedent-js": "^1.0.1",
+    "jsonld": "^9.0.0",
+    "lit": "^3.3.3",
     "pinia": "^3.0.4",
+    "rdf-dereference-store": "^1.4.0",
+    "rdf-sparql-builder": "^0.2.5",
+    "rdf-transform-triple-to-quad": "^2.0.1",
+    "readable-stream": "^4.7.0",
+    "shacl-engine": "^1.1.2",
+    "sparqljs": "^3.7.4",
+    "splitpanes": "^4.1.2",
     "vue": "^3.5.38",
-    "vue-router": "^5.1.0"
+    "vue-diagrams": "^1.1.9",
+    "vue-router": "^5.1.0",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
