@@ -50,7 +50,3 @@ yarn test:unit
 ```sh
 yarn lint
 ```
-
-fixed:
-- navigation moved to App.vue
-- conditions in rdf store init
