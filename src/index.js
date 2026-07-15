@@ -9,6 +9,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import HelloPlugin from './plugins/HelloPlugin'
 
 const app = createApp(App,
 {
@@ -18,5 +19,6 @@ const app = createApp(App,
 
 app.use(createPinia())
 app.use(router)
+app.use(HelloPlugin)
 
 app.mount('#app')
