@@ -1,19 +1,19 @@
 {
-  "name": "next-pad-26",
+  "name": "ontopad",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/next-pad-26.cjs",
-  "module": "./dist/next-pad-26.js",
+  "main": "./dist/ontopad.cjs",
+  "module": "./dist/ontopad.js",
   "exports": {
     ".": {
-      "import": "./dist/next-pad-26.js",
-      "require": "./dist/next-pad-26.cjs"
+      "import": "./dist/ontopad.js",
+      "require": "./dist/ontopad.cjs"
     },
-    "./main.css": "./dist/next-pad-26.css"
+    "./main.css": "./dist/ontopad.css"
   },
   "scripts": {
     "dev": "vite",

@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/main.js'),
-      fileName: 'next-pad-26',
+      fileName: 'ontopad',
       formats: ['es', 'cjs']
     },
     rollupOptions: {
