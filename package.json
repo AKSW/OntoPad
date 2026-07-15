@@ -29,7 +29,7 @@
     "@comunica/query-sparql": "^5.3.0",
     "@popperjs/core": "^2.11.8",
     "@rdfjs/data-model": "^2.1.2",
-    "@ro-kit/ui-widgets": "^1.0.47",
+    "@ro-kit/ui-widgets": "npm:^1.0.44",
     "@ulb-darmstadt/shacl-form": "^3.1.1",
     "axios": "^1.18.1",
     "bootstrap": "^5.3.8",
