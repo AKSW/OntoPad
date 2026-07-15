@@ -16,10 +16,9 @@
             @prefix schema: <http://schema.org/> .
             @prefix sh: <http://www.w3.org/ns/shacl#> .
             @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+            foaf:Person a rdf:Class .
             graph ex: {
-              <http://example.org/some> a rdf:Class .
-              <http://example.org/bla> a <http://example.org/some> ;
-                rdfs:label "hi" .
               ex:Norman a foaf:Person ;
                 schema:birthDate "1981-01-01" ;
                 foaf:forname "Norman" ;
