@@ -79,6 +79,43 @@ export default {
 
     rdfStore.updateEndpointConfiguration(this.config)
     selectionStore.initConfig(this.config)
+
+    this.$navigation = {
+      main: [
+        {
+          to: "/dashboard",
+          title: "Home"
+        },
+        {
+          to: "/instances",
+          title: "Instances"
+        },
+        {
+          to: "/voc",
+          title: "Vocabulary"
+        },
+        {
+          to: "/edit",
+          title: "Edit"
+        },
+        {
+          to: "/form",
+          title: "Form"
+        },
+        {
+          to: "/add",
+          title: "Add"
+        },
+        {
+          to: "/kanban",
+          title: "Kanban"
+        },
+        {
+          to: "/source",
+          title: "Source"
+        }
+      ]
+    }
   }
 }
 

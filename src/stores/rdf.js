@@ -134,8 +134,10 @@ export const useRdfStore = defineStore('rdf', () => {
     console.log('Change SPARQL Endpoint configuration.')
     console.log(configuration)
     const stores = await EndpointFactory.create(configuration)
-    sparqlEndpoint.value = stores[0]
-    ready.value = true
+    if (stores.length > 0) {
+      sparqlEndpoint.value = stores[0]
+      ready.value = true
+    }
   }
 
   return { ready, sparqlEndpoint, sendQuery, getResource, push, pull, deleteInsertData, updateEndpointConfiguration }

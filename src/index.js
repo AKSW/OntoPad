@@ -22,43 +22,6 @@ console.log(app)
 
 app.use(pinia)
 app.use(router)
-
-app.config.globalProperties.$navigation = {
-  main: [
-    {
-      to: "/dashboard",
-      title: "Home"
-    },
-    {
-      to: "/instances",
-      title: "Instances"
-    },
-    {
-      to: "/voc",
-      title: "Vocabulary"
-    },
-    {
-      to: "/edit",
-      title: "Edit"
-    },
-    {
-      to: "/form",
-      title: "Form"
-    },
-    {
-      to: "/add",
-      title: "Add"
-    },
-    {
-      to: "/kanban",
-      title: "Kanban"
-    },
-    {
-      to: "/source",
-      title: "Source"
-    }
-  ]
-}
 app.use(HelloPlugin)
 
 
