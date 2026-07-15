@@ -39,6 +39,8 @@ __screenshots__/
 *.timestamp-*-*.mjs
 
 # yarn
+# see: https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+# If you're not using Zero-Installs
 .pnp.*
 .yarn/*
 !.yarn/patches
