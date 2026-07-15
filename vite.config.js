@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import vue from '@vitejs/plugin-vue'
+import vueDevTools from 'vite-plugin-vue-devtools'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -20,6 +21,7 @@ export default defineConfig({
 
           }
       }}),
+    vueDevTools(),
   ],
   resolve: {
     alias: {
@@ -32,16 +34,19 @@ export default defineConfig({
       name: 'OntoPad',
       // the proper extensions will be added
       fileName: 'ontopad',
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue'],
+      external: ['vue','pinia'],
       output: {
+        exports: 'named',
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
           vue: 'Vue',
+          pinia: 'Pinia'
         },
       },
     },
