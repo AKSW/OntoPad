@@ -9,14 +9,18 @@
       <dd><Term v-model:term="description" @click="selectResource"/></dd>
     </dl>
     <table width="100%" v-if="dataModel.getQuads !== undefined">
-      <tr>
-        <th scope="col" width="45%">Predicate</th>
-        <th scope="col" width="auto">Object</th>
-      </tr>
-      <tr v-for="(triple, index) in dataModel.getQuads(null, null, null)" :key="index">
-        <td><Term v-model:term="triple.predicate" @click="selectResource"/></td>
-        <td><Term v-model:term="triple.object" @click="selectResource"/></td>
-      </tr>
+      <thead>
+        <tr>
+          <th scope="col" width="45%">Predicate</th>
+          <th scope="col" width="auto">Object</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(triple, index) in dataModel.getQuads(null, null, null)" :key="index">
+          <td><Term v-model:term="triple.predicate" @click="selectResource"/></td>
+          <td><Term v-model:term="triple.object" @click="selectResource"/></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>

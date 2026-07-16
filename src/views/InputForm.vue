@@ -4,19 +4,23 @@
         <label for="resourceUriInput">Resource IRI (Subject)</label>
         <TermInput v-model:term="subject" type="iri" id="resourceUriInput" />
         <table width="100%">
-          <tr>
-            <th scope="col" width="45%">Predicate</th>
-            <th scope="col" width="auto">Object</th>
-            <th scope="col" width="90px"></th>
-          </tr>
-          <tr v-for="(triple, index) in dataModel" :key="index">
-            <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
-            <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
-            <td>
-              <button type="button" class="btn btn-outline-dark" @click="newTriple(index)">+</button>
-              <button type="button" class="btn btn-outline-dark" @click="delTriple(index)">-</button>
-            </td>
-          </tr>
+          <thead>
+            <tr>
+              <th scope="col" width="45%">Predicate</th>
+              <th scope="col" width="auto">Object</th>
+              <th scope="col" width="90px"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(triple, index) in dataModel" :key="index">
+              <td><TermInput :id="'form-pred-' + index" v-model:term="triple.predicate" type="iri" /></td>
+              <td><TermInput :id="'form-obj-' + index" v-model:term="triple.object" /></td>
+              <td>
+                <button type="button" class="btn btn-outline-dark" @click="newTriple(index)">+</button>
+                <button type="button" class="btn btn-outline-dark" @click="delTriple(index)">-</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
         <button type="button" class="btn btn-outline-dark mb-0" @click="newTriple()" v-if="dataModel.length < 1">+</button>
         <button type="button" class="btn btn-outline-primary mb-0" @click="submit">Submit</button>
