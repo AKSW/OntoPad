@@ -10,6 +10,8 @@ function register (app, plugin) {
     name: plugin.name,
     component: plugin.component
   })
+  app.config.globalProperties.$navigation = app.config.globalProperties.$navigation || {}
+  app.config.globalProperties.$navigation.main = app.config.globalProperties.$navigation.main || []
   app.config.globalProperties.$navigation.main.push(
     {
       to: plugin.path,

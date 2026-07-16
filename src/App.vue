@@ -80,8 +80,9 @@ export default {
     rdfStore.updateEndpointConfiguration(this.config)
     selectionStore.initConfig(this.config)
 
-    this.$navigation = {
-      main: [
+    this.$navigation = this.$navigation || {}
+    this.$navigation.main = this.$navigation.main || []
+    this.$navigation.main = [
         {
           to: "/dashboard",
           title: "Home"
@@ -114,8 +115,7 @@ export default {
           to: "/source",
           title: "Source"
         }
-      ]
-    }
+      ].concat(this.$navigation.main)
   }
 }
 
