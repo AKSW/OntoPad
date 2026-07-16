@@ -1,0 +1,43 @@
+name: Build Vue
+on:
+  push:
+    branches: [ next ]
+jobs:
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
+      with:
+        ref: master
+        sparse-checkout: docs
+        sparse-checkout-cone-mode: false
+        path: master
+    - name: Set Node.js 21.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 21.x
+    - run: corepack enable
+
+    - name: Run install
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: install # will run `yarn install` command
+    - name: Build production bundle
+      uses: borales/actions-yarn@v4
+      with:
+        cmd: build # will run `yarn build` command
+    - run: mv dist master/docs/pad
+    - name: Build page
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: master/docs
+        destination: _site
+    - run: find _site
+    - name: Deploy 🚀
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: _site
+        publish_branch: gh-pages
