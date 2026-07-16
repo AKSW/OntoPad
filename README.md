@@ -1,6 +1,7 @@
-# ontopad
+# OntoPad
 
-This template should help get you started developing with Vue 3 in Vite.
+This OntoPad Version uses Vue 3 and Vite.
+Dependency management is done with [`bun`](https://bun.sh/).
 
 ## Recommended IDE Setup
 

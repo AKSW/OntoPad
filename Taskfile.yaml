@@ -1,0 +1,40 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task -l
+
+  install:
+    desc: Install dependencies with bun
+    cmds:
+      - |
+        bun install
+
+  build:
+    desc: Build the library
+    cmds:
+      - |
+        bun run build
+
+
+  format:
+    desc: Format the code with bun
+    cmds:
+      - |
+        bun format
+
+  serve:
+    desc: Run a bun development server
+    interactive: true
+    cmds:
+      - |
+        bun dev
+
+  test:
+    desc: Run the tests, currently only unit tests
+    interactive: true
+    cmds:
+      - |
+        bun test:unit
