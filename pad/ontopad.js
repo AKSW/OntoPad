@@ -5177,6 +5177,7 @@ var No = {
 		}
 	},
 	created() {
+		console.log("OntoPad-next created");
 		let e = n(), r = t();
 		e.updateEndpointConfiguration(this.config), r.initConfig(this.config), this.$navigation = this.$navigation || {}, this.$navigation.main = this.$navigation.main || [], this.$navigation.main = [
 			{
@@ -5266,7 +5267,7 @@ function Vo(e, t, n, r, i, a) {
 		_: 1
 	})])) : (S(), m("div", Bo, " Waiting for Store to be configured … "))]);
 }
-var Ho = /*#__PURE__*/ i(No, [["render", Vo], ["__scopeId", "data-v-b5ac3aac"]]), Uo = Mo({
+var Ho = /*#__PURE__*/ i(No, [["render", Vo], ["__scopeId", "data-v-8db90590"]]), Uo = Mo({
 	history: qa("/OntoPad/pad/"),
 	routes: [
 		{
