@@ -14,6 +14,8 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  // ensure href links are build relatively
+  base: '',
   build: {
     lib: {
       entry: resolve(__dirname, 'src/main.js'),
