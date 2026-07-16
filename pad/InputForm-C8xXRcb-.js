@@ -1,8 +1,8 @@
-import { W as e, a as t, t as n } from "./rdf-BuzRRZzk.js";
+import { W as e, a as t, t as n } from "./rdf-IzXhxt-d.js";
 import { t as r } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as i } from "./TermInput-Dw1ChpV5.js";
-import { mapState as a } from "pinia";
-import { Fragment as o, createCommentVNode as s, createElementBlock as c, createElementVNode as l, createVNode as u, openBlock as d, renderList as f, resolveComponent as p, toDisplayString as m } from "vue";
+import { t as i } from "./TermInput-BvnaE9cR.js";
+import { Fragment as a, createCommentVNode as o, createElementBlock as s, createElementVNode as c, createVNode as l, openBlock as u, renderList as d, resolveComponent as f, toDisplayString as p } from "vue";
+import { mapState as m } from "pinia";
 //#region src/views/InputForm.vue
 var h = {
 	name: "InputForm",
@@ -17,7 +17,7 @@ var h = {
 			dataModel: [e.quad(e.blankNode(""), e.namedNode(""), e.namedNode(""))]
 		};
 	},
-	computed: { ...a(t, ["graph_iri"]) },
+	computed: { ...m(t, ["graph_iri"]) },
 	methods: {
 		newTriple(t) {
 			t ||= 0, this.dataModel.splice(t + 1, 0, e.quad(e.blankNode(""), e.namedNode(""), e.namedNode("")));
@@ -37,32 +37,32 @@ var h = {
 		}
 	}
 }, g = { class: "Form" }, _ = { width: "100%" }, v = ["onClick"], y = ["onClick"], b = { key: 1 };
-function x(e, t, n, r, i, a) {
-	let h = p("TermInput");
-	return d(), c("div", g, [
-		l("form", null, [
-			t[6] ||= l("label", { for: "resourceUriInput" }, "Resource IRI (Subject)", -1),
-			u(h, {
+function x(e, t, n, r, i, m) {
+	let h = f("TermInput");
+	return u(), s("div", g, [
+		c("form", null, [
+			t[6] ||= c("label", { for: "resourceUriInput" }, "Resource IRI (Subject)", -1),
+			l(h, {
 				term: i.subject,
 				"onUpdate:term": t[0] ||= (e) => i.subject = e,
 				type: "iri",
 				id: "resourceUriInput"
 			}, null, 8, ["term"]),
-			l("table", _, [t[5] ||= l("thead", null, [l("tr", null, [
-				l("th", {
+			c("table", _, [t[5] ||= c("thead", null, [c("tr", null, [
+				c("th", {
 					scope: "col",
 					width: "45%"
 				}, "Predicate"),
-				l("th", {
+				c("th", {
 					scope: "col",
 					width: "auto"
 				}, "Object"),
-				l("th", {
+				c("th", {
 					scope: "col",
 					width: "90px"
 				})
-			])], -1), l("tbody", null, [(d(!0), c(o, null, f(i.dataModel, (e, t) => (d(), c("tr", { key: t }, [
-				l("td", null, [u(h, {
+			])], -1), c("tbody", null, [(u(!0), s(a, null, d(i.dataModel, (e, t) => (u(), s("tr", { key: t }, [
+				c("td", null, [l(h, {
 					id: "form-pred-" + t,
 					term: e.predicate,
 					"onUpdate:term": (t) => e.predicate = t,
@@ -72,7 +72,7 @@ function x(e, t, n, r, i, a) {
 					"term",
 					"onUpdate:term"
 				])]),
-				l("td", null, [u(h, {
+				c("td", null, [l(h, {
 					id: "form-obj-" + t,
 					term: e.object,
 					"onUpdate:term": (t) => e.object = t
@@ -81,33 +81,33 @@ function x(e, t, n, r, i, a) {
 					"term",
 					"onUpdate:term"
 				])]),
-				l("td", null, [l("button", {
+				c("td", null, [c("button", {
 					type: "button",
 					class: "btn btn-outline-dark",
-					onClick: (e) => a.newTriple(t)
-				}, "+", 8, v), l("button", {
+					onClick: (e) => m.newTriple(t)
+				}, "+", 8, v), c("button", {
 					type: "button",
 					class: "btn btn-outline-dark",
-					onClick: (e) => a.delTriple(t)
+					onClick: (e) => m.delTriple(t)
 				}, "-", 8, y)])
 			]))), 128))])]),
-			i.dataModel.length < 1 ? (d(), c("button", {
+			i.dataModel.length < 1 ? (u(), s("button", {
 				key: 0,
 				type: "button",
 				class: "btn btn-outline-dark mb-0",
-				onClick: t[1] ||= (e) => a.newTriple()
-			}, "+")) : s("", !0),
-			l("button", {
+				onClick: t[1] ||= (e) => m.newTriple()
+			}, "+")) : o("", !0),
+			c("button", {
 				type: "button",
 				class: "btn btn-outline-primary mb-0",
-				onClick: t[2] ||= (...e) => a.submit && a.submit(...e)
+				onClick: t[2] ||= (...e) => m.submit && m.submit(...e)
 			}, "Submit")
 		]),
-		i.debug == 0 ? (d(), c("a", {
+		i.debug == 0 ? (u(), s("a", {
 			key: 0,
 			onClick: t[3] ||= (e) => i.debug = !0
-		}, "(show debug)")) : s("", !0),
-		i.debug ? (d(), c("div", b, [l("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), l("pre", null, "subject: " + m(i.subject) + "\n" + m(i.dataModel) + "\n      ", 1)])) : s("", !0)
+		}, "(show debug)")) : o("", !0),
+		i.debug ? (u(), s("div", b, [c("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), c("pre", null, "subject: " + p(i.subject) + "\n" + p(i.dataModel) + "\n      ", 1)])) : o("", !0)
 	]);
 }
 var S = /*#__PURE__*/ r(h, [["render", x]]);

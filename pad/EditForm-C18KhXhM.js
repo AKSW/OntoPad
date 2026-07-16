@@ -1,9 +1,9 @@
-import { W as e, a as t, t as n } from "./rdf-BuzRRZzk.js";
+import { W as e, a as t, t as n } from "./rdf-IzXhxt-d.js";
 import { t as r } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as i } from "./TermInput-Dw1ChpV5.js";
-import { r as a, t as o } from "./n3-compare-DTg-gidn.js";
-import { mapState as s } from "pinia";
-import { Fragment as c, createCommentVNode as l, createElementBlock as u, createElementVNode as d, createTextVNode as f, createVNode as p, openBlock as m, renderList as h, resolveComponent as g, toDisplayString as _ } from "vue";
+import { t as i } from "./TermInput-BvnaE9cR.js";
+import { r as a, t as o } from "./n3-compare-CX0DzKOp.js";
+import { Fragment as s, createCommentVNode as c, createElementBlock as l, createElementVNode as u, createTextVNode as d, createVNode as f, openBlock as p, renderList as m, resolveComponent as h, toDisplayString as g } from "vue";
+import { mapState as _ } from "pinia";
 //#region src/views/EditForm.vue
 var v = a(), y = {
 	name: "EditForm",
@@ -25,7 +25,7 @@ var v = a(), y = {
 			dataModel: []
 		};
 	},
-	computed: { ...s(t, ["graph_iri", "resource_iri"]) },
+	computed: { ..._(t, ["graph_iri", "resource_iri"]) },
 	methods: {
 		newTriple(t) {
 			t ||= 0, this.dataModel.splice(t + 1, 0, e.quad(this.subject, e.namedNode(""), e.namedNode(""), e.namedNode(this.graph_iri)));
@@ -53,31 +53,31 @@ var v = a(), y = {
 	height: "400px"
 } }, E = { class: "container" }, D = { class: "row" }, O = { class: "col" }, k = { class: "col" };
 function A(e, t, n, r, i, a) {
-	let o = g("TermInput");
-	return m(), u(c, null, [
-		d("div", b, [d("form", null, [
-			t[6] ||= d("label", { for: "resourceUriInput" }, "Resource IRI (Subject)", -1),
-			p(o, {
+	let o = h("TermInput");
+	return p(), l(s, null, [
+		u("div", b, [u("form", null, [
+			t[6] ||= u("label", { for: "resourceUriInput" }, "Resource IRI (Subject)", -1),
+			f(o, {
 				term: i.subject,
 				"onUpdate:term": t[0] ||= (e) => i.subject = e,
 				type: "iri",
 				id: "resourceUriInput"
 			}, null, 8, ["term"]),
-			d("table", x, [t[5] ||= d("thead", null, [d("tr", null, [
-				d("th", {
+			u("table", x, [t[5] ||= u("thead", null, [u("tr", null, [
+				u("th", {
 					scope: "col",
 					width: "45%"
 				}, "Predicate"),
-				d("th", {
+				u("th", {
 					scope: "col",
 					width: "auto"
 				}, "Object"),
-				d("th", {
+				u("th", {
 					scope: "col",
 					width: "90px"
 				})
-			])], -1), d("tbody", null, [(m(!0), u(c, null, h(i.dataModel, (e, t) => (m(), u("tr", { key: t }, [
-				d("td", null, [p(o, {
+			])], -1), u("tbody", null, [(p(!0), l(s, null, m(i.dataModel, (e, t) => (p(), l("tr", { key: t }, [
+				u("td", null, [f(o, {
 					id: "form-pred-" + t,
 					term: e.predicate,
 					"onUpdate:term": (t) => e.predicate = t,
@@ -87,7 +87,7 @@ function A(e, t, n, r, i, a) {
 					"term",
 					"onUpdate:term"
 				])]),
-				d("td", null, [p(o, {
+				u("td", null, [f(o, {
 					id: "form-obj-" + t,
 					term: e.object,
 					"onUpdate:term": (t) => e.object = t
@@ -96,33 +96,33 @@ function A(e, t, n, r, i, a) {
 					"term",
 					"onUpdate:term"
 				])]),
-				d("td", null, [d("button", {
+				u("td", null, [u("button", {
 					type: "button",
 					class: "btn btn-outline-dark mb-0",
 					onClick: (e) => a.newTriple(t)
-				}, "+", 8, S), d("button", {
+				}, "+", 8, S), u("button", {
 					type: "button",
 					class: "btn btn-outline-dark mb-0",
 					onClick: (e) => a.delTriple(t)
 				}, "-", 8, C)])
 			]))), 128))])]),
-			i.dataModel.length < 1 ? (m(), u("button", {
+			i.dataModel.length < 1 ? (p(), l("button", {
 				key: 0,
 				type: "button",
 				class: "btn btn-outline-dark mb-0",
 				onClick: t[1] ||= (e) => a.newTriple()
-			}, "+")) : l("", !0),
-			d("button", {
+			}, "+")) : c("", !0),
+			u("button", {
 				type: "button",
 				class: "btn btn-outline-primary mb-0",
 				onClick: t[2] ||= (...e) => a.updateResource && a.updateResource(...e)
 			}, "Update Resource")
 		])]),
-		i.debug == 0 ? (m(), u("a", {
+		i.debug == 0 ? (p(), l("a", {
 			key: 0,
 			onClick: t[3] ||= (e) => i.debug = !0
-		}, "(show debug)")) : l("", !0),
-		i.debug ? (m(), u("div", w, [d("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), d("div", T, [d("div", E, [d("div", D, [d("div", O, [t[7] ||= f(" new ", -1), d("pre", null, "subject: " + _(i.subject) + "\n" + _(i.dataModel) + "\n          ", 1)]), d("div", k, [t[8] ||= f(" old ", -1), d("pre", null, "subject: " + _(i.subject) + "\n" + _(i.originalDataModel) + "\n          ", 1)])])])])])) : l("", !0)
+		}, "(show debug)")) : c("", !0),
+		i.debug ? (p(), l("div", w, [u("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), u("div", T, [u("div", E, [u("div", D, [u("div", O, [t[7] ||= d(" new ", -1), u("pre", null, "subject: " + g(i.subject) + "\n" + g(i.dataModel) + "\n          ", 1)]), u("div", k, [t[8] ||= d(" old ", -1), u("pre", null, "subject: " + g(i.subject) + "\n" + g(i.originalDataModel) + "\n          ", 1)])])])])])) : c("", !0)
 	], 64);
 }
 var j = /*#__PURE__*/ r(y, [["render", A]]);

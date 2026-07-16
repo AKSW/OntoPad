@@ -1,12 +1,12 @@
-import { A as e, B as t, E as n, G as r, H as i, L as a, O as o, S as s, U as c, V as l, W as u, Y as d, Z as f, a as p, i as m, k as h, n as g, o as _, q as v, r as y, t as b, v as x, w as S, x as C } from "./rdf-BuzRRZzk.js";
+import { A as e, B as t, E as n, G as r, H as i, L as a, O as o, S as s, U as c, V as l, W as u, Y as d, Z as f, a as p, i as m, k as h, n as g, o as _, q as v, r as y, t as b, v as x, w as S, x as C } from "./rdf-IzXhxt-d.js";
 import { t as w } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { n as T, t as ee } from "./splitpanes.esm-DWEvKrA8.js";
-import E from "./InstanceList-DRRWmTAq.js";
+import E from "./InstanceList-CYgEelzK.js";
 import { t as D } from "./Term-DjvlK-Mw.js";
-import { t as te } from "./dist-C6t9bVqU.js";
+import { t as te } from "./dist-BUTSxrup.js";
 import { t as O } from "./v4-DIjJgmR0.js";
-import { mapState as k } from "pinia";
-import { createBlock as A, createElementVNode as ne, createVNode as j, openBlock as re, resolveComponent as M, toDisplayString as N, withCtx as ie } from "vue";
+import { createBlock as k, createElementVNode as A, createVNode as ne, openBlock as j, resolveComponent as re, toDisplayString as M, withCtx as N } from "vue";
+import { mapState as ie } from "pinia";
 //#region node_modules/rdf-canonize/lib/IdentifierIssuer.js
 var ae = /* @__PURE__ */ v(((e, t) => {
 	t.exports = class e {
@@ -9618,7 +9618,7 @@ var Gl = {
 		};
 	},
 	computed: {
-		...k(p, [
+		...ie(p, [
 			"graph_iri",
 			"resource_iri",
 			"is_class"
@@ -9681,19 +9681,19 @@ var Gl = {
 	}
 };
 function Kl(e, t, n, r, i, a) {
-	let o = M("Term"), s = M("shacl-form"), c = M("pane"), l = M("InstanceList"), u = M("splitpanes");
-	return re(), A(u, { class: "default-theme" }, {
-		default: ie(() => [j(c, { size: "70" }, {
-			default: ie(() => [ne("div", null, [ne("dl", null, [
-				t[1] ||= ne("dt", null, "IRI", -1),
-				ne("dd", null, N(e.resource_iri), 1),
-				t[2] ||= ne("dt", null, "Type", -1),
-				ne("dd", null, [j(o, {
+	let o = re("Term"), s = re("shacl-form"), c = re("pane"), l = re("InstanceList"), u = re("splitpanes");
+	return j(), k(u, { class: "default-theme" }, {
+		default: N(() => [ne(c, { size: "70" }, {
+			default: N(() => [A("div", null, [A("dl", null, [
+				t[1] ||= A("dt", null, "IRI", -1),
+				A("dd", null, M(e.resource_iri), 1),
+				t[2] ||= A("dt", null, "Type", -1),
+				A("dd", null, [ne(o, {
 					term: a.res_type,
 					"onUpdate:term": t[0] ||= (e) => a.res_type = e,
 					onClick: a.selectResource
 				}, null, 8, ["term", "onClick"])])
-			])]), ne("div", null, [j(s, {
+			])]), A("div", null, [ne(s, {
 				onChange: a.getFormTurtle,
 				ref: "myform",
 				"data-submit-button": "",
@@ -9709,8 +9709,8 @@ function Kl(e, t, n, r, i, a) {
 				"data-values-subject"
 			])])]),
 			_: 1
-		}), j(c, { size: "30" }, {
-			default: ie(() => [j(l, { style: {
+		}), ne(c, { size: "30" }, {
+			default: N(() => [ne(l, { style: {
 				height: "80vh",
 				"overflow-y": "scroll"
 			} })]),

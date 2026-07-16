@@ -1,12 +1,12 @@
-import { G as e, W as t, a as n, t as r } from "./rdf-BuzRRZzk.js";
+import { G as e, W as t, a as n, t as r } from "./rdf-IzXhxt-d.js";
 import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { n as a, t as o } from "./splitpanes.esm-DWEvKrA8.js";
 import "./ontopad.js";
-import s from "./InstanceList-DRRWmTAq.js";
+import s from "./InstanceList-CYgEelzK.js";
 import { t as c } from "./Term-DjvlK-Mw.js";
-import { t as l } from "./dist-C6t9bVqU.js";
-import { mapState as u } from "pinia";
-import { Fragment as d, createCommentVNode as f, createElementBlock as p, createElementVNode as m, createVNode as h, openBlock as g, renderList as _, resolveComponent as v, toDisplayString as y, unref as b, withCtx as x } from "vue";
+import { t as l } from "./dist-BUTSxrup.js";
+import { Fragment as u, createCommentVNode as d, createElementBlock as f, createElementVNode as p, createVNode as m, openBlock as h, renderList as g, resolveComponent as _, toDisplayString as v, unref as y, withCtx as b } from "vue";
+import { mapState as x } from "pinia";
 e();
 var S = l(), C = {
 	name: "PropertyView",
@@ -24,7 +24,7 @@ var S = l(), C = {
 		};
 	},
 	computed: {
-		...u(n, ["resource_iri"]),
+		...x(n, ["resource_iri"]),
 		label() {
 			if (this.dataModel.getQuads !== void 0) {
 				let e = this.dataModel.getQuads(t.namedNode(this.resource_iri), t.namedNode("http://www.w3.org/2000/01/rdf-schema#label"), null)[0];
@@ -61,29 +61,29 @@ var S = l(), C = {
 	width: "100%"
 };
 function T(e, t, n, r, i, a) {
-	let o = v("Term");
-	return g(), p("div", null, [m("dl", null, [
-		t[2] ||= m("dt", null, "IRI", -1),
-		m("dd", null, y(e.resource_iri), 1),
-		t[3] ||= m("dt", null, "Label", -1),
-		m("dd", null, [h(o, {
+	let o = _("Term");
+	return h(), f("div", null, [p("dl", null, [
+		t[2] ||= p("dt", null, "IRI", -1),
+		p("dd", null, v(e.resource_iri), 1),
+		t[3] ||= p("dt", null, "Label", -1),
+		p("dd", null, [m(o, {
 			term: a.label,
 			"onUpdate:term": t[0] ||= (e) => a.label = e,
 			onClick: a.selectResource
 		}, null, 8, ["term", "onClick"])]),
-		t[4] ||= m("dt", null, "Description", -1),
-		m("dd", null, [h(o, {
+		t[4] ||= p("dt", null, "Description", -1),
+		p("dd", null, [m(o, {
 			term: a.description,
 			"onUpdate:term": t[1] ||= (e) => a.description = e,
 			onClick: a.selectResource
 		}, null, 8, ["term", "onClick"])])
-	]), i.dataModel.getQuads === void 0 ? f("", !0) : (g(), p("table", w, [t[5] ||= m("thead", null, [m("tr", null, [m("th", {
+	]), i.dataModel.getQuads === void 0 ? d("", !0) : (h(), f("table", w, [t[5] ||= p("thead", null, [p("tr", null, [p("th", {
 		scope: "col",
 		width: "45%"
-	}, "Predicate"), m("th", {
+	}, "Predicate"), p("th", {
 		scope: "col",
 		width: "auto"
-	}, "Object")])], -1), m("tbody", null, [(g(!0), p(d, null, _(i.dataModel.getQuads(null, null, null), (e, t) => (g(), p("tr", { key: t }, [m("td", null, [h(o, {
+	}, "Object")])], -1), p("tbody", null, [(h(!0), f(u, null, g(i.dataModel.getQuads(null, null, null), (e, t) => (h(), f("tr", { key: t }, [p("td", null, [m(o, {
 		term: e.predicate,
 		"onUpdate:term": (t) => e.predicate = t,
 		onClick: a.selectResource
@@ -91,7 +91,7 @@ function T(e, t, n, r, i, a) {
 		"term",
 		"onUpdate:term",
 		"onClick"
-	])]), m("td", null, [h(o, {
+	])]), p("td", null, [m(o, {
 		term: e.object,
 		"onUpdate:term": (t) => e.object = t,
 		onClick: a.selectResource
@@ -104,12 +104,12 @@ function T(e, t, n, r, i, a) {
 var E = /*#__PURE__*/ i(C, [["render", T]]), D = /*#__PURE__*/ i({
 	__name: "DashboardView",
 	setup(e) {
-		return (e, t) => (g(), p(d, null, [t[0] ||= m("strong", null, "Resource Dashboard", -1), h(b(a), { class: "default-theme" }, {
-			default: x(() => [h(b(o), { size: "70" }, {
-				default: x(() => [h(E)]),
+		return (e, t) => (h(), f(u, null, [t[0] ||= p("strong", null, "Resource Dashboard", -1), m(y(a), { class: "default-theme" }, {
+			default: b(() => [m(y(o), { size: "70" }, {
+				default: b(() => [m(E)]),
 				_: 1
-			}), h(b(o), { size: "30" }, {
-				default: x(() => [h(s, { style: {
+			}), m(y(o), { size: "30" }, {
+				default: b(() => [m(s, { style: {
 					height: "80vh",
 					"overflow-y": "scroll"
 				} })]),
