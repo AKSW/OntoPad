@@ -1,10 +1,10 @@
-import { a as e, o as t, s as n, t as r } from "./rdf-IzXhxt-d.js";
+import { a as e, o as t, s as n, t as r } from "./rdf-BuzRRZzk.js";
 import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as a } from "./prefixes-BGYAmMl-.js";
-import { t as o } from "./dist-BUTSxrup.js";
-import { n as s } from "./n3-compare-CX0DzKOp.js";
-import { createCommentVNode as c, createElementBlock as l, createElementVNode as u, createTextVNode as d, openBlock as f, toDisplayString as p, vModelText as m, withDirectives as h } from "vue";
-import { mapState as g } from "pinia";
+import { t as a } from "./prefixes-BTPrfMnH.js";
+import { t as o } from "./dist-C6t9bVqU.js";
+import { n as s } from "./n3-compare-DTg-gidn.js";
+import { mapState as c } from "pinia";
+import { createCommentVNode as l, createElementBlock as u, createElementVNode as d, createTextVNode as f, openBlock as p, toDisplayString as m, vModelText as h, withDirectives as g } from "vue";
 //#region src/views/Source.vue
 var _ = o(), v = {
 	name: "Source",
@@ -18,8 +18,8 @@ var _ = o(), v = {
 		this.getResource();
 	} },
 	computed: {
-		...g(e, ["graph_iri", "resource_iri"]),
-		...g(a, ["prefixes_flat"])
+		...c(e, ["graph_iri", "resource_iri"]),
+		...c(a, ["prefixes_flat"])
 	},
 	data() {
 		return {
@@ -48,29 +48,29 @@ var _ = o(), v = {
 	}
 }, y = { class: "form-group" }, b = { key: 1 };
 function x(e, t, n, r, i, a) {
-	return f(), l("div", null, [
-		u("strong", null, "Sources of " + p(e.resource_iri), 1),
-		t[6] ||= d(" (", -1),
-		u("a", { onClick: t[0] ||= (...e) => a.getResource && a.getResource(...e) }, "refresh"),
-		t[7] ||= d(") ", -1),
-		u("form", null, [u("div", y, [t[5] ||= u("label", {
+	return p(), u("div", null, [
+		d("strong", null, "Sources of " + m(e.resource_iri), 1),
+		t[6] ||= f(" (", -1),
+		d("a", { onClick: t[0] ||= (...e) => a.getResource && a.getResource(...e) }, "refresh"),
+		t[7] ||= f(") ", -1),
+		d("form", null, [d("div", y, [t[5] ||= d("label", {
 			for: "sourceInput",
 			class: ""
-		}, "Turtle", -1), h(u("textarea", {
+		}, "Turtle", -1), g(d("textarea", {
 			id: "sourceInput",
 			class: "form-control",
 			"onUpdate:modelValue": t[1] ||= (e) => i.resourceSource = e,
 			rows: "15"
-		}, null, 512), [[m, i.resourceSource]])]), u("button", {
+		}, null, 512), [[h, i.resourceSource]])]), d("button", {
 			type: "button",
 			class: "btn btn-outline-primary mb-0",
 			onClick: t[2] ||= (e) => a.updateResource()
 		}, "Submit")]),
-		i.debug == 0 ? (f(), l("a", {
+		i.debug == 0 ? (p(), u("a", {
 			key: 0,
 			onClick: t[3] ||= (e) => i.debug = !0
-		}, "(show debug)")) : c("", !0),
-		i.debug ? (f(), l("div", b, [u("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), u("pre", null, p(e.originalSource) + " ", 1)])) : c("", !0)
+		}, "(show debug)")) : l("", !0),
+		i.debug ? (p(), u("div", b, [d("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), d("pre", null, m(e.originalSource) + " ", 1)])) : l("", !0)
 	]);
 }
 var S = /*#__PURE__*/ i(v, [["render", x]]);

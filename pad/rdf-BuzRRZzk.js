@@ -1,5 +1,5 @@
-import { ref as e } from "vue";
-import { defineStore as t } from "pinia";
+import { defineStore as e } from "pinia";
+import { ref as t } from "vue";
 //#region \0rolldown/runtime.js
 var n = Object.create, r = Object.defineProperty, i = Object.getOwnPropertyDescriptor, a = Object.getOwnPropertyNames, o = Object.getPrototypeOf, s = Object.prototype.hasOwnProperty, c = (e, t, n) => () => {
 	if (n) throw n[0];
@@ -83859,7 +83859,7 @@ var dV = class {
 		console.log("initialized");
 	}
 	return t;
-} }, gV = t("selection", {
+} }, gV = e("selection", {
 	state: () => ({
 		graph_iri: "",
 		resource_iri: "",
@@ -83973,8 +83973,8 @@ function bV(e, t) {
 }
 //#endregion
 //#region src/stores/rdf.js
-var xV = t("rdf", () => {
-	let t = e(!1), n = e(null);
+var xV = e("rdf", () => {
+	let e = t(!1), n = t(null);
 	async function r(e) {
 		let t, r = "";
 		console.log(`send query: ${e}`), typeof e == "string" ? (r = e, t = [gV().graph_iri]) : typeof e == "object" ? (r = e.query, t = e.defaultGraph === "quads" ? void 0 : e.defaultGraph === void 0 ? [gV().graph_iri] : e.defaultGraph) : (console.error("can't process query"), console.error(e)), t !== void 0 && (console.log(`inject graph: ${t}`), r = bV(r, t));
@@ -84008,13 +84008,13 @@ var xV = t("rdf", () => {
 		let a = i.join(";");
 		return n.value.update(a);
 	}
-	async function c(e) {
-		console.log("Loading …"), console.log("Change SPARQL Endpoint configuration."), console.log(e);
-		let r = await hV.create(e);
-		r.length > 0 && (n.value = r[0], t.value = !0);
+	async function c(t) {
+		console.log("Loading …"), console.log("Change SPARQL Endpoint configuration."), console.log(t);
+		let r = await hV.create(t);
+		r.length > 0 && (n.value = r[0], e.value = !0);
 	}
 	return {
-		ready: t,
+		ready: e,
 		sparqlEndpoint: n,
 		sendQuery: r,
 		getResource: i,

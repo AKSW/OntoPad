@@ -1,0 +1,1 @@
+require("./rdf-uoCkDfOK.cjs");const e=require("./_plugin-vue_export-helper-BTmtiIyf.cjs");let t=require("vue");var n={};function r(e,n){return(0,t.openBlock)(),(0,t.createElementBlock)(`h1`,null,`Hello OntoPad`)}var i=e.t(n,[[`render`,r]]);exports.default=i;
