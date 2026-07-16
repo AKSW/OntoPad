@@ -15,7 +15,7 @@ export default defineConfig({
     },
   },
   // ensure href links are build relatively
-  base: './',
+  base: '/OntoPad/pad/',
   build: {
     lib: {
       entry: resolve(__dirname, 'src/main.js'),
