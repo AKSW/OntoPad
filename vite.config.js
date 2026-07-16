@@ -25,9 +25,11 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue', 'pinia'],
       input: {
-        main: resolve(import.meta.dirname, 'index.html'),
+        main: resolve(import.meta.dirname, 'src/main.js'),
+        index: resolve(import.meta.dirname, 'index.html'),
       },
       output: {
+        exports: 'named',
         globals: {
           pinia: 'Pinia',
           vue: 'Vue'
