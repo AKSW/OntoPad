@@ -28,7 +28,6 @@ export default defineConfig({
         main: resolve(import.meta.dirname, 'index.html'),
       },
       output: {
-        exports: 'named',
         globals: {
           pinia: 'Pinia',
           vue: 'Vue'
