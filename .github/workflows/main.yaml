@@ -14,20 +14,9 @@ jobs:
         sparse-checkout: docs
         sparse-checkout-cone-mode: false
         path: master
-    - name: Set Node.js 21.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 21.x
-    - run: corepack enable
-
-    - name: Run install
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: install # will run `yarn install` command
-    - name: Build production bundle
-      uses: borales/actions-yarn@v4
-      with:
-        cmd: build # will run `yarn build` command
+    - uses: oven-sh/setup-bun@v2
+    - run: bun install
+    - run: bun run build
     - run: mv dist master/docs/pad
     - name: Build page
       uses: actions/jekyll-build-pages@v1
