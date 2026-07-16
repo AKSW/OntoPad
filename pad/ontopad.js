@@ -9221,7 +9221,7 @@ function Fu(e, t, n, r, i, a) {
 	})])) : (C(), m("div", Pu, " Waiting for Store to be configured … "))]);
 }
 var Iu = /*#__PURE__*/ i(Du, [["render", Fu], ["__scopeId", "data-v-b5ac3aac"]]), Lu = Eu({
-	history: Hl("/"),
+	history: Hl("./"),
 	routes: [
 		{
 			path: "/",
