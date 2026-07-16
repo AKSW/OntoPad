@@ -25,7 +25,6 @@
     "lint:eslint": "eslint . --fix --cache",
     "format": "prettier --write --experimental-cli src/",
     "prepare": "vite build"
-  }
   },
   "dependencies": {
     "@comunica/query-sparql": "^5.3.0",
