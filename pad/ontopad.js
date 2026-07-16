@@ -5213,6 +5213,7 @@ var No = {
 		].concat(this.$navigation.main);
 	},
 	mounted() {
+		console.log("OntoPad-next mounted");
 		let e = n(), r = t();
 		e.updateEndpointConfiguration(this.config), r.initConfig(this.config);
 	}
@@ -5269,7 +5270,7 @@ function Vo(e, t, n, r, i, a) {
 		_: 1
 	})])) : (S(), m("div", Bo, " Waiting for Store to be configured … "))]);
 }
-var Ho = /*#__PURE__*/ i(No, [["render", Vo], ["__scopeId", "data-v-f7839b2e"]]), Uo = Mo({
+var Ho = /*#__PURE__*/ i(No, [["render", Vo], ["__scopeId", "data-v-ac48e991"]]), Uo = Mo({
 	history: qa("/OntoPad/pad/"),
 	routes: [
 		{
