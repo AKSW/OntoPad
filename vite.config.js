@@ -21,16 +21,12 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/main.js'),
       name: 'ontopad',
       fileName: 'ontopad',
-      formats: ['es', 'cjs']
+      formats: ['es']
     },
     rollupOptions: {
       external: ['vue', 'pinia'],
       output: {
         exports: 'named',
-        globals: {
-          pinia: 'Pinia',
-          vue: 'Vue'
-        }
       }
     }
   },
