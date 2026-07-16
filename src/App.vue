@@ -75,12 +75,6 @@ export default {
   },
   created () {
     console.log("OntoPad-next created")
-    const rdfStore = useRdfStore()
-    const selectionStore = useSelectionStore()
-
-    rdfStore.updateEndpointConfiguration(this.config)
-    selectionStore.initConfig(this.config)
-
     this.$navigation = this.$navigation || {}
     this.$navigation.main = this.$navigation.main || []
     this.$navigation.main = [
@@ -117,6 +111,13 @@ export default {
           title: "Source"
         }
       ].concat(this.$navigation.main)
+  },
+  mounted () {
+    const rdfStore = useRdfStore()
+    const selectionStore = useSelectionStore()
+
+    rdfStore.updateEndpointConfiguration(this.config)
+    selectionStore.initConfig(this.config)
   }
 }
 
