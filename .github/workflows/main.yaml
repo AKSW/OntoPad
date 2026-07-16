@@ -16,7 +16,7 @@ jobs:
         path: master
     - uses: oven-sh/setup-bun@v2
     - run: bun install
-    - run: bun run build
+    - run: bun run vite build --base /OntoPad/pad/
     - run: mv dist master/docs/pad
     - name: Build page
       uses: actions/jekyll-build-pages@v1
