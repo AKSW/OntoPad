@@ -74,6 +74,7 @@ export default {
     },
   },
   created () {
+    console.log("OntoPad-next created")
     const rdfStore = useRdfStore()
     const selectionStore = useSelectionStore()
 
