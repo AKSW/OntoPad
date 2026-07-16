@@ -1,7 +1,8 @@
 import { G as e, W as t, a as n, t as r } from "./rdf-BuzRRZzk.js";
-import { a as i, i as a } from "./plugin-ngb8Wl3B.js";
-import { t as o } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import s from "./InstanceList-BOgrIJVG.js";
+import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
+import { n as a, t as o } from "./splitpanes.esm-DWEvKrA8.js";
+import "./ontopad.js";
+import s from "./InstanceList-DRRWmTAq.js";
 import { t as c } from "./Term-DjvlK-Mw.js";
 import { t as l } from "./dist-C6t9bVqU.js";
 import { mapState as u } from "pinia";
@@ -100,14 +101,14 @@ function T(e, t, n, r, i, a) {
 		"onClick"
 	])])]))), 128))])]))]);
 }
-var E = /*#__PURE__*/ o(C, [["render", T]]), D = /*#__PURE__*/ o({
+var E = /*#__PURE__*/ i(C, [["render", T]]), D = /*#__PURE__*/ i({
 	__name: "DashboardView",
 	setup(e) {
-		return (e, t) => (g(), p(d, null, [t[0] ||= m("strong", null, "Resource Dashboard", -1), h(b(i), { class: "default-theme" }, {
-			default: x(() => [h(b(a), { size: "70" }, {
+		return (e, t) => (g(), p(d, null, [t[0] ||= m("strong", null, "Resource Dashboard", -1), h(b(a), { class: "default-theme" }, {
+			default: x(() => [h(b(o), { size: "70" }, {
 				default: x(() => [h(E)]),
 				_: 1
-			}), h(b(a), { size: "30" }, {
+			}), h(b(o), { size: "30" }, {
 				default: x(() => [h(s, { style: {
 					height: "80vh",
 					"overflow-y": "scroll"

@@ -1,7 +1,8 @@
 import { O as e, a as t, t as n, x as r } from "./rdf-BuzRRZzk.js";
-import { c as i, o as a } from "./plugin-ngb8Wl3B.js";
-import { t as o } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as s } from "./prefixes-BTPrfMnH.js";
+import { t as i } from "./bootstrap.esm-OP7swxU_.js";
+import { t as a } from "./_plugin-vue_export-helper-B3ysoDQm.js";
+import { t as o } from "./prefixes-BTPrfMnH.js";
+import { t as s } from "./TermInput-Dw1ChpV5.js";
 import { t as c } from "./n3-compare-DTg-gidn.js";
 import { t as l } from "./v4-DIjJgmR0.js";
 import { mapState as u } from "pinia";
@@ -2523,7 +2524,7 @@ var { triple: Z, namedNode: Q, literal: $ } = e, gn = {
 		};
 	},
 	components: {
-		TermInput: a,
+		TermInput: s,
 		Diagram: X
 	},
 	data() {
@@ -2611,7 +2612,7 @@ var { triple: Z, namedNode: Q, literal: $ } = e, gn = {
 			console.log(e), console.log(t), console.log("configure " + e.object.shapeIri.id + " port" + t.object.shapeIri.id);
 		},
 		shortenIri(e) {
-			return s().shortenIri(e);
+			return o().shortenIri(e);
 		},
 		getShapeByPortId(e) {
 			return Q(this.portIds[e]);
@@ -2935,6 +2936,6 @@ function ar(e, t, n, r, i, a) {
 		])], 512)
 	], 64);
 }
-var or = /*#__PURE__*/ o(gn, [["render", ar]]);
+var or = /*#__PURE__*/ a(gn, [["render", ar]]);
 //#endregion
 export { or as default };

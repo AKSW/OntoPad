@@ -1,7 +1,7 @@
 import { A as e, B as t, E as n, G as r, H as i, L as a, O as o, S as s, U as c, V as l, W as u, Y as d, Z as f, a as p, i as m, k as h, n as g, o as _, q as v, r as y, t as b, v as x, w as S, x as C } from "./rdf-BuzRRZzk.js";
-import { a as w, i as T } from "./plugin-ngb8Wl3B.js";
-import { t as ee } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import E from "./InstanceList-BOgrIJVG.js";
+import { t as w } from "./_plugin-vue_export-helper-B3ysoDQm.js";
+import { n as T, t as ee } from "./splitpanes.esm-DWEvKrA8.js";
+import E from "./InstanceList-DRRWmTAq.js";
 import { t as D } from "./Term-DjvlK-Mw.js";
 import { t as te } from "./dist-C6t9bVqU.js";
 import { t as O } from "./v4-DIjJgmR0.js";
@@ -9594,8 +9594,8 @@ var Gl = {
 	components: {
 		Term: D,
 		InstanceList: E,
-		Splitpanes: w,
-		Pane: T
+		Splitpanes: T,
+		Pane: ee
 	},
 	mounted() {
 		this.getFormData();
@@ -9719,6 +9719,6 @@ function Kl(e, t, n, r, i, a) {
 		_: 1
 	});
 }
-var ql = /*#__PURE__*/ ee(Gl, [["render", Kl]]);
+var ql = /*#__PURE__*/ w(Gl, [["render", Kl]]);
 //#endregion
 export { ql as default };

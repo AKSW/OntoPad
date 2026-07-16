@@ -1,6 +1,6 @@
 import { W as e, a as t, t as n } from "./rdf-BuzRRZzk.js";
-import { o as r } from "./plugin-ngb8Wl3B.js";
-import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
+import { t as r } from "./_plugin-vue_export-helper-B3ysoDQm.js";
+import { t as i } from "./TermInput-Dw1ChpV5.js";
 import { mapState as a } from "pinia";
 import { Fragment as o, createCommentVNode as s, createElementBlock as c, createElementVNode as l, createVNode as u, openBlock as d, renderList as f, resolveComponent as p, toDisplayString as m } from "vue";
 //#region src/views/InputForm.vue
@@ -9,7 +9,7 @@ var h = {
 	setup() {
 		return { store: n() };
 	},
-	components: { TermInput: r },
+	components: { TermInput: i },
 	data() {
 		return {
 			debug: !1,
@@ -110,6 +110,6 @@ function x(e, t, n, r, i, a) {
 		i.debug ? (d(), c("div", b, [l("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), l("pre", null, "subject: " + m(i.subject) + "\n" + m(i.dataModel) + "\n      ", 1)])) : s("", !0)
 	]);
 }
-var S = /*#__PURE__*/ i(h, [["render", x]]);
+var S = /*#__PURE__*/ r(h, [["render", x]]);
 //#endregion
 export { S as default };

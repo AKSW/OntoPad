@@ -1,6 +1,6 @@
 import { W as e, a as t, t as n } from "./rdf-BuzRRZzk.js";
-import { o as r } from "./plugin-ngb8Wl3B.js";
-import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
+import { t as r } from "./_plugin-vue_export-helper-B3ysoDQm.js";
+import { t as i } from "./TermInput-Dw1ChpV5.js";
 import { r as a, t as o } from "./n3-compare-DTg-gidn.js";
 import { mapState as s } from "pinia";
 import { Fragment as c, createCommentVNode as l, createElementBlock as u, createElementVNode as d, createTextVNode as f, createVNode as p, openBlock as m, renderList as h, resolveComponent as g, toDisplayString as _ } from "vue";
@@ -10,7 +10,7 @@ var v = a(), y = {
 	setup() {
 		return { store: n() };
 	},
-	components: { TermInput: r },
+	components: { TermInput: i },
 	mounted() {
 		this.getResource();
 	},
@@ -125,6 +125,6 @@ function A(e, t, n, r, i, a) {
 		i.debug ? (m(), u("div", w, [d("a", { onClick: t[4] ||= (e) => i.debug = !1 }, "(hide debug)"), d("div", T, [d("div", E, [d("div", D, [d("div", O, [t[7] ||= f(" new ", -1), d("pre", null, "subject: " + _(i.subject) + "\n" + _(i.dataModel) + "\n          ", 1)]), d("div", k, [t[8] ||= f(" old ", -1), d("pre", null, "subject: " + _(i.subject) + "\n" + _(i.originalDataModel) + "\n          ", 1)])])])])])) : l("", !0)
 	], 64);
 }
-var j = /*#__PURE__*/ i(y, [["render", A]]);
+var j = /*#__PURE__*/ r(y, [["render", A]]);
 //#endregion
 export { j as default };
