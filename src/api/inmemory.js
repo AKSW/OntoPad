@@ -8,7 +8,7 @@ class InMemory extends SparqlStore {
     super()
     this.data = data
 
-    this.type = 'query_update'
+    this.type = 'in_memory'
     this.capability = {
       query: true,
       update: true,

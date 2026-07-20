@@ -22,6 +22,7 @@
         <div class="modal-body">
           <form>
             <div class="form-group" label="Endpoint Type">
+              <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="in_memory" value="in_memory"><label class="form-check-label" for="in_memory">In Memory</label>
               <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_only" value="query_only"><label class="form-check-label" for="query_only">Query only</label>
               <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="query_update" value="query_update"><label class="form-check-label" for="query_update">Query &amp; Update</label>
               <input class="form-check-input" type="radio" name="endpoint_type" v-model="endpoint_type" id="quit" value="quit"><label class="form-check-label" for="quit">Quit Store</label>
