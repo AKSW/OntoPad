@@ -11,10 +11,6 @@
         <i class="bi bi-cloud-download"></i>
       </button>
     </div>
-    <label for="select_url" class="col-1 mr-sm-2">Graph IRI</label>
-    <input type="text" class="form-control col-2" id="graph_iri" v-model="graph_iri">
-    <label for="select_url" class="col-1 mr-sm-2">Resource IRI</label>
-    <input type="text" class="form-control col-6" id="resource_iri" v-model="resource_iri">
   </form>
   <div class="modal fade" ref="configure_endpoint" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" size="lg">
     <div class="modal-dialog modal-lg">
@@ -62,15 +58,13 @@
 <script>
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
-import { useSelectionStore } from '../stores/selection'
 import { Modal } from 'bootstrap'
 
 export default {
   name: 'SparqlConnection',
   setup () {
     const store = useRdfStore();
-    const selection = useSelectionStore();
-    return { store, selection }
+    return { store }
   },
   data () {
     return {
@@ -94,22 +88,6 @@ export default {
         return this.store.sparqlEndpoint.capability
       }
     },
-    graph_iri: {
-      get () {
-        return this.selection.graph_iri
-      },
-      set (value) {
-        this.store.changeGraphIri(value)
-      }
-    },
-    resource_iri: {
-      get () {
-        return this.selection.resource_iri
-      },
-      set (value) {
-        this.selection.changeResourceIri(value)
-      }
-    }
   },
   methods: {
     push () {
