@@ -1,38 +1,32 @@
 <template>
-  <nav class="navbar bg-body-tertiary">
-    <div class="container">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="/logo.svg" alt="{{ title }}" width="30" height="24">
         {{ title }}
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <div class="row connection">
-              <div v-if="store_ready">🟢 Store is ready</div>
-              <div v-else>🔄 Loading</div>
-              <SparqlConnection/>
-            </div>
+            <span class="nav-link" v-if="store_ready">🟢 Store is ready</span>
+            <span class="nav-link" v-else>🔄 Loading</span>
           </li>
-          <li v-if="store_ready" class="nav-item">
-            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item" aria-current="graph"><pre>{{ graph_iri }}</pre></li>
-                <li class="breadcrumb-item active" aria-current="resource">{{ resource_iri }}</li>
-              </ol>
-              <label for="select_url" class="col-1 mr-sm-2">Graph IRI</label>
-              <input type="text" class="form-control col-2" id="graph_iri" v-model="graph_iri">
-              <label for="select_url" class="col-1 mr-sm-2">Resource IRI</label>
-              <input type="text" class="form-control col-6" id="resource_iri" v-model="resource_iri">
-            </nav>
+          <li class="nav-item">
+            <SparqlConnection/>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form v-if="store_ready" class="d-flex" role="graph-navigation">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control col-2" id="graph_iri" aria-label="Graph IRI" v-model="graph_iri" placeholder="Graph IRI">
+            <label for="graph_iri">Graph IRI</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control col-2" id="resource_iri" aria-label="Resource IRI" v-model="resource_iri" placeholder="Resource IRI">
+            <label for="resource_iri">Resource IRI</label>
+          </div>
         </form>
       </div>
     </div>
@@ -87,7 +81,7 @@ export default {
         return this.selectionStore.graph_iri
       },
       set (value) {
-        this.rdfStore.changeGraphIri(value)
+        this.selectionStore.changeGraphIri(value)
       }
     },
     resource_iri: {
@@ -109,7 +103,7 @@ export default {
     RouterView
   },
   methods: {
-    useSelectionStore
+    useSelectionStore,
   },
   props: {
     title: {
@@ -160,13 +154,13 @@ export default {
         }
       ].concat(this.$navigation.main)
   },
-  setup () {
+  setup (props) {
     console.log("OntoPad-next mounted")
     const rdfStore = useRdfStore()
     const selectionStore = useSelectionStore()
 
-    rdfStore.updateEndpointConfiguration(this.config)
-    selectionStore.initConfig(this.config)
+    rdfStore.updateEndpointConfiguration(props.config)
+    selectionStore.initConfig(props.config)
     return { rdfStore, selectionStore }
   }
 }
