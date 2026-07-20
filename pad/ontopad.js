@@ -1,9 +1,9 @@
-import { W as e, a as t, t as n } from "./rdf-BuzRRZzk.js";
-import { t as r } from "./bootstrap.esm-OP7swxU_.js";
+import { W as e, a as t, t as n } from "./rdf-DAT9J0rX.js";
+import { t as r } from "./bootstrap.esm-DiFqinEN.js";
 import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as a } from "./prefixes-BTPrfMnH.js";
-import { t as o } from "./QueryResultList-CeOrR6Pg.js";
-import { t as s } from "./TermInput-Dw1ChpV5.js";
+import { t as a } from "./prefixes-8MuYtvyh.js";
+import { t as o } from "./QueryResultList-G0dyocn2.js";
+import { t as s } from "./TermInput-BRh3dEeD.js";
 import { n as c, t as l } from "./splitpanes.esm-DWEvKrA8.js";
 import { mapState as u } from "pinia";
 import { Fragment as d, computed as f, createBlock as ee, createCommentVNode as p, createElementBlock as m, createElementVNode as h, createTextVNode as g, createVNode as _, defineComponent as v, getCurrentInstance as y, h as te, inject as b, nextTick as x, openBlock as S, provide as ne, reactive as C, ref as w, renderList as T, resolveComponent as E, shallowReactive as D, shallowRef as O, toDisplayString as re, unref as ie, vModelRadio as ae, vModelText as k, watch as oe, watchEffect as se, withCtx as A, withDirectives as j } from "vue";
@@ -11,10 +11,7 @@ import { Fragment as d, computed as f, createBlock as ee, createCommentVNode as 
 var ce = {
 	name: "SparqlConnection",
 	setup() {
-		return {
-			store: n(),
-			selection: t()
-		};
+		return { store: n() };
 	},
 	data() {
 		return {
@@ -34,23 +31,7 @@ var ce = {
 		...u(n, { store_ready: (e) => e.ready }),
 		store_capability: { get() {
 			return this.store.sparqlEndpoint.capability;
-		} },
-		graph_iri: {
-			get() {
-				return this.selection.graph_iri;
-			},
-			set(e) {
-				this.store.changeGraphIri(e);
-			}
-		},
-		resource_iri: {
-			get() {
-				return this.selection.resource_iri;
-			},
-			set(e) {
-				this.selection.changeResourceIri(e);
-			}
-		}
+		} }
 	},
 	methods: {
 		push() {
@@ -104,57 +85,35 @@ var ce = {
 	class: "form-group"
 }, ve = { class: "modal-footer" };
 function ye(e, t, n, r, i, a) {
-	return S(), m(d, null, [e.store_ready ? (S(), m("form", le, [
-		h("div", ue, [
-			h("button", {
-				type: "button",
-				class: "btn btn-outline-secondary mb-0",
-				onClick: t[0] ||= (e) => i.configure_endpoint_modal.show(),
-				title: "Configure Endpoint",
-				"aria-label": "Configure Endpoint"
-			}, [...t[14] ||= [h("i", { class: "bi bi-gear" }, null, -1)]]),
-			a.store_capability.quit ? (S(), m("button", {
-				key: 0,
-				type: "button",
-				class: "btn btn-outline-secondary mb-0",
-				onClick: t[1] ||= (e) => a.push(),
-				title: "Push To Remote Repository",
-				"aria-label": "Push To Remote Repository"
-			}, [...t[15] ||= [h("i", { class: "bi bi-cloud-upload" }, null, -1)]])) : p("", !0),
-			a.store_capability.quit ? (S(), m("button", {
-				key: 1,
-				type: "button",
-				class: "btn btn-outline-secondary mb-0",
-				onClick: t[2] ||= (e) => a.pull(),
-				title: "Pull From Remote Repository",
-				"aria-label": "Pull From Remote Repository"
-			}, [...t[16] ||= [h("i", { class: "bi bi-cloud-download" }, null, -1)]])) : p("", !0)
-		]),
-		t[17] ||= h("label", {
-			for: "select_url",
-			class: "col-1 mr-sm-2"
-		}, "Graph IRI", -1),
-		j(h("input", {
-			type: "text",
-			class: "form-control col-2",
-			id: "graph_iri",
-			"onUpdate:modelValue": t[3] ||= (e) => a.graph_iri = e
-		}, null, 512), [[k, a.graph_iri]]),
-		t[18] ||= h("label", {
-			for: "select_url",
-			class: "col-1 mr-sm-2"
-		}, "Resource IRI", -1),
-		j(h("input", {
-			type: "text",
-			class: "form-control col-6",
-			id: "resource_iri",
-			"onUpdate:modelValue": t[4] ||= (e) => a.resource_iri = e
-		}, null, 512), [[k, a.resource_iri]])
-	])) : p("", !0), h("div", de, [h("div", fe, [h("div", M, [
-		h("div", N, [t[19] ||= h("h5", { class: "modal-title" }, "Configure Endpoint", -1), h("button", {
+	return S(), m(d, null, [e.store_ready ? (S(), m("form", le, [h("div", ue, [
+		h("button", {
+			type: "button",
+			class: "btn btn-outline-secondary mb-0",
+			onClick: t[0] ||= (e) => i.configure_endpoint_modal.show(),
+			title: "Configure Endpoint",
+			"aria-label": "Configure Endpoint"
+		}, [...t[13] ||= [h("i", { class: "bi bi-gear" }, null, -1)]]),
+		a.store_capability.quit ? (S(), m("button", {
+			key: 0,
+			type: "button",
+			class: "btn btn-outline-secondary mb-0",
+			onClick: t[1] ||= (e) => a.push(),
+			title: "Push To Remote Repository",
+			"aria-label": "Push To Remote Repository"
+		}, [...t[14] ||= [h("i", { class: "bi bi-cloud-upload" }, null, -1)]])) : p("", !0),
+		a.store_capability.quit ? (S(), m("button", {
+			key: 1,
+			type: "button",
+			class: "btn btn-outline-secondary mb-0",
+			onClick: t[2] ||= (e) => a.pull(),
+			title: "Pull From Remote Repository",
+			"aria-label": "Pull From Remote Repository"
+		}, [...t[15] ||= [h("i", { class: "bi bi-cloud-download" }, null, -1)]])) : p("", !0)
+	])])) : p("", !0), h("div", de, [h("div", fe, [h("div", M, [
+		h("div", N, [t[16] ||= h("h5", { class: "modal-title" }, "Configure Endpoint", -1), h("button", {
 			type: "button",
 			class: "btn-close",
-			onClick: t[5] ||= (e) => i.configure_endpoint_modal.hide(),
+			onClick: t[3] ||= (e) => i.configure_endpoint_modal.hide(),
 			"aria-label": "Close"
 		})]),
 		h("div", pe, [h("form", null, [
@@ -163,11 +122,23 @@ function ye(e, t, n, r, i, a) {
 					class: "form-check-input",
 					type: "radio",
 					name: "endpoint_type",
-					"onUpdate:modelValue": t[6] ||= (e) => i.endpoint_type = e,
+					"onUpdate:modelValue": t[4] ||= (e) => i.endpoint_type = e,
+					id: "in_memory",
+					value: "in_memory"
+				}, null, 512), [[ae, i.endpoint_type]]),
+				t[17] ||= h("label", {
+					class: "form-check-label",
+					for: "in_memory"
+				}, "In Memory", -1),
+				j(h("input", {
+					class: "form-check-input",
+					type: "radio",
+					name: "endpoint_type",
+					"onUpdate:modelValue": t[5] ||= (e) => i.endpoint_type = e,
 					id: "query_only",
 					value: "query_only"
 				}, null, 512), [[ae, i.endpoint_type]]),
-				t[20] ||= h("label", {
+				t[18] ||= h("label", {
 					class: "form-check-label",
 					for: "query_only"
 				}, "Query only", -1),
@@ -175,11 +146,11 @@ function ye(e, t, n, r, i, a) {
 					class: "form-check-input",
 					type: "radio",
 					name: "endpoint_type",
-					"onUpdate:modelValue": t[7] ||= (e) => i.endpoint_type = e,
+					"onUpdate:modelValue": t[6] ||= (e) => i.endpoint_type = e,
 					id: "query_update",
 					value: "query_update"
 				}, null, 512), [[ae, i.endpoint_type]]),
-				t[21] ||= h("label", {
+				t[19] ||= h("label", {
 					class: "form-check-label",
 					for: "query_update"
 				}, "Query & Update", -1),
@@ -187,45 +158,45 @@ function ye(e, t, n, r, i, a) {
 					class: "form-check-input",
 					type: "radio",
 					name: "endpoint_type",
-					"onUpdate:modelValue": t[8] ||= (e) => i.endpoint_type = e,
+					"onUpdate:modelValue": t[7] ||= (e) => i.endpoint_type = e,
 					id: "quit",
 					value: "quit"
 				}, null, 512), [[ae, i.endpoint_type]]),
-				t[22] ||= h("label", {
+				t[20] ||= h("label", {
 					class: "form-check-label",
 					for: "quit"
 				}, "Quit Store", -1)
 			]),
-			i.endpoint_type == "quit" ? (S(), m("div", he, [t[23] ||= h("label", { for: "quit_url" }, "Quit URL", -1), h("div", null, [j(h("input", {
+			i.endpoint_type == "quit" ? (S(), m("div", he, [t[21] ||= h("label", { for: "quit_url" }, "Quit URL", -1), h("div", null, [j(h("input", {
 				type: "text",
 				class: "form-control",
 				id: "quit_url",
-				"onUpdate:modelValue": t[9] ||= (e) => i.quit_url = e,
+				"onUpdate:modelValue": t[8] ||= (e) => i.quit_url = e,
 				placeholder: "http://your.quit.store.org/"
 			}, null, 512), [[k, i.quit_url]])])])) : p("", !0),
-			i.endpoint_type == "query_only" || i.endpoint_type == "query_update" ? (S(), m("div", ge, [t[24] ||= h("label", { for: "query_url" }, "Query URL", -1), h("div", null, [j(h("input", {
+			i.endpoint_type == "query_only" || i.endpoint_type == "query_update" ? (S(), m("div", ge, [t[22] ||= h("label", { for: "query_url" }, "Query URL", -1), h("div", null, [j(h("input", {
 				type: "text",
 				class: "form-control",
 				id: "query_url",
-				"onUpdate:modelValue": t[10] ||= (e) => i.query_url = e,
+				"onUpdate:modelValue": t[9] ||= (e) => i.query_url = e,
 				placeholder: "http://your.sparql.store.org/query"
 			}, null, 512), [[k, i.query_url]])])])) : p("", !0),
-			i.endpoint_type == "query_update" ? (S(), m("div", _e, [t[25] ||= h("label", { for: "update_url" }, "Update URL", -1), h("div", null, [j(h("input", {
+			i.endpoint_type == "query_update" ? (S(), m("div", _e, [t[23] ||= h("label", { for: "update_url" }, "Update URL", -1), h("div", null, [j(h("input", {
 				type: "text",
 				class: "form-control",
 				id: "update_url",
-				"onUpdate:modelValue": t[11] ||= (e) => i.update_url = e,
+				"onUpdate:modelValue": t[10] ||= (e) => i.update_url = e,
 				placeholder: "http://your.sparql.store.org/update"
 			}, null, 512), [[k, i.update_url]])])])) : p("", !0)
 		])]),
 		h("div", ve, [h("button", {
 			type: "button",
 			class: "btn btn-secondary",
-			onClick: t[12] ||= (e) => i.configure_endpoint_modal.hide()
+			onClick: t[11] ||= (e) => i.configure_endpoint_modal.hide()
 		}, "Close"), h("button", {
 			type: "button",
 			class: "btn btn-primary",
-			onClick: t[13] ||= (e) => {
+			onClick: t[12] ||= (e) => {
 				a.configure_endpoint(), i.configure_endpoint_modal.hide();
 			}
 		}, "Save changes")])
@@ -5154,7 +5125,22 @@ var No = {
 	name: "App",
 	computed: {
 		...u(n, { store_ready: (e) => e.ready }),
-		...u(t, ["graph_iri", "resource_iri"])
+		graph_iri: {
+			get() {
+				return this.selectionStore.graph_iri;
+			},
+			set(e) {
+				this.selectionStore.changeGraphIri(e);
+			}
+		},
+		resource_iri: {
+			get() {
+				return this.selectionStore.resource_iri;
+			},
+			set(e) {
+				this.selectionStore.changeResourceIri(e);
+			}
+		}
 	},
 	components: {
 		SparqlConnection: be,
@@ -5212,22 +5198,68 @@ var No = {
 			}
 		].concat(this.$navigation.main);
 	},
-	mounted() {
+	setup(e) {
 		console.log("OntoPad-next mounted");
-		let e = n(), r = t();
-		e.updateEndpointConfiguration(this.config), r.initConfig(this.config);
+		let r = n(), i = t();
+		return r.updateEndpointConfiguration(e.config), i.initConfig(e.config), {
+			rdfStore: r,
+			selectionStore: i
+		};
 	}
-}, Po = { class: "container-fluid" }, Fo = { class: "row connection" }, Io = { key: 0 }, Lo = { key: 1 }, Ro = {
+}, Po = { class: "navbar navbar-expand-lg bg-body-tertiary" }, Fo = { class: "container-fluid" }, Io = {
+	class: "navbar-brand",
+	href: "#"
+}, Lo = {
+	class: "collapse navbar-collapse",
+	id: "navbarNav"
+}, Ro = { class: "navbar-nav" }, zo = { class: "nav-item" }, Bo = {
+	key: 0,
+	class: "nav-link"
+}, Vo = {
+	key: 1,
+	class: "nav-link"
+}, Ho = { class: "nav-item" }, Uo = {
+	key: 0,
+	class: "d-flex",
+	role: "graph-navigation"
+}, Wo = { class: "form-floating mb-3" }, Go = { class: "form-floating mb-3" }, Ko = { class: "container-fluid" }, qo = {
 	key: 0,
 	class: "row"
-}, zo = { class: "nav nav-tabs" }, Bo = { key: 1 };
-function Vo(e, t, n, r, i, a) {
+}, Jo = { class: "nav nav-tabs" }, Yo = { key: 1 };
+function Xo(e, t, n, r, i, a) {
 	let o = E("SparqlConnection"), s = E("GraphList"), c = E("pane"), l = E("ClassList"), u = E("splitpanes"), f = E("RouterLink"), ee = E("RouterView");
-	return S(), m("div", Po, [h("div", Fo, [
-		h("h1", null, re(n.title), 1),
-		e.store_ready ? (S(), m("div", Io, "🟢 Store is ready")) : (S(), m("div", Lo, "🔄 Loading")),
-		_(o)
-	]), e.store_ready ? (S(), m("div", Ro, [_(u, { class: "default-theme" }, {
+	return S(), m(d, null, [h("nav", Po, [h("div", Fo, [
+		h("a", Io, [t[2] ||= h("img", {
+			src: "/OntoPad/pad/logo.svg",
+			alt: "{{ title }}",
+			width: "30",
+			height: "24"
+		}, null, -1), g(" " + re(n.title), 1)]),
+		t[5] ||= h("button", {
+			class: "navbar-toggler",
+			type: "button",
+			"data-bs-toggle": "collapse",
+			"data-bs-target": "#navbarNav",
+			"aria-controls": "navbarNav",
+			"aria-expanded": "false",
+			"aria-label": "Toggle navigation"
+		}, [h("span", { class: "navbar-toggler-icon" })], -1),
+		h("div", Lo, [h("ul", Ro, [h("li", zo, [e.store_ready ? (S(), m("span", Bo, "🟢 Store is ready")) : (S(), m("span", Vo, "🔄 Loading"))]), h("li", Ho, [_(o)])]), e.store_ready ? (S(), m("form", Uo, [h("div", Wo, [j(h("input", {
+			type: "text",
+			class: "form-control col-2",
+			id: "graph_iri",
+			"aria-label": "Graph IRI",
+			"onUpdate:modelValue": t[0] ||= (e) => a.graph_iri = e,
+			placeholder: "Graph IRI"
+		}, null, 512), [[k, a.graph_iri]]), t[3] ||= h("label", { for: "graph_iri" }, "Graph IRI", -1)]), h("div", Go, [j(h("input", {
+			type: "text",
+			class: "form-control col-2",
+			id: "resource_iri",
+			"aria-label": "Resource IRI",
+			"onUpdate:modelValue": t[1] ||= (e) => a.resource_iri = e,
+			placeholder: "Resource IRI"
+		}, null, 512), [[k, a.resource_iri]]), t[4] ||= h("label", { for: "resource_iri" }, "Resource IRI", -1)])])) : p("", !0)])
+	])]), h("div", Ko, [e.store_ready ? (S(), m("div", qo, [_(u, { class: "default-theme" }, {
 		default: A(() => [_(c, { size: "30" }, {
 			default: A(() => [_(u, {
 				horizontal: "",
@@ -5235,7 +5267,7 @@ function Vo(e, t, n, r, i, a) {
 			}, {
 				default: A(() => [_(c, { size: "30" }, {
 					default: A(() => [_(s, {
-						graph_iri: e.graph_iri,
+						graph_iri: a.graph_iri,
 						selectGraph: (e) => {
 							a.useSelectionStore().changeGraphIri(e), a.useSelectionStore().changeResourceIri(e);
 						}
@@ -5243,7 +5275,7 @@ function Vo(e, t, n, r, i, a) {
 					_: 1
 				}), _(c, { size: "70" }, {
 					default: A(() => [_(l, {
-						class_iri: e.resource_iri,
+						class_iri: a.resource_iri,
 						selectClass: (e) => {
 							a.useSelectionStore().changeResourceIri(e);
 						}
@@ -5254,7 +5286,7 @@ function Vo(e, t, n, r, i, a) {
 			})]),
 			_: 1
 		}), _(c, { size: "90" }, {
-			default: A(() => [h("ul", zo, [(S(!0), m(d, null, T(e.$navigation.main, (e, t) => (S(), m("li", {
+			default: A(() => [h("ul", Jo, [(S(!0), m(d, null, T(e.$navigation.main, (e, t) => (S(), m("li", {
 				key: t,
 				class: "nav-item"
 			}, [_(f, {
@@ -5268,9 +5300,9 @@ function Vo(e, t, n, r, i, a) {
 			_: 1
 		})]),
 		_: 1
-	})])) : (S(), m("div", Bo, " Waiting for Store to be configured … "))]);
+	})])) : (S(), m("div", Yo, " Waiting for Store to be configured … "))])], 64);
 }
-var Ho = /*#__PURE__*/ i(No, [["render", Vo], ["__scopeId", "data-v-ac48e991"]]), Uo = Mo({
+var Zo = /*#__PURE__*/ i(No, [["render", Xo], ["__scopeId", "data-v-ef3c455e"]]), Qo = Mo({
 	history: qa("/OntoPad/pad/"),
 	routes: [
 		{
@@ -5285,43 +5317,43 @@ var Ho = /*#__PURE__*/ i(No, [["render", Vo], ["__scopeId", "data-v-ac48e991"]])
 		{
 			path: "/dashboard",
 			name: "DashboardView",
-			component: () => import("./DashboardView-Dom3jvKu.js")
+			component: () => import("./DashboardView-Ds66NK0-.js")
 		},
 		{
 			path: "/instances",
 			name: "InstanceList",
-			component: () => import("./InstanceList-DRRWmTAq.js")
+			component: () => import("./InstanceList-eW4HRopR.js")
 		},
 		{
 			path: "/voc",
 			name: "VocPad",
-			component: () => import("./VocPad-BAO2Dhqg.js")
+			component: () => import("./VocPad-CJkkw5JI.js")
 		},
 		{
 			path: "/edit",
 			name: "EditForm",
-			component: () => import("./EditForm-gNVSnJJ5.js")
+			component: () => import("./EditForm-zM2dMU7s.js")
 		},
 		{
 			path: "/form",
 			name: "FormDemo",
-			component: () => import("./FormDemo-BKYdH0ux.js")
+			component: () => import("./FormDemo-COz1Ruqh.js")
 		},
 		{
 			path: "/add",
 			name: "InputForm",
-			component: () => import("./InputForm-DKpnbRkW.js")
+			component: () => import("./InputForm-DSKz_WhN.js")
 		},
 		{
 			path: "/source",
 			name: "Source",
-			component: () => import("./Source-oGOQHhAw.js")
+			component: () => import("./Source-CVAQn6o3.js")
 		}
 	]
 });
 //#endregion
 //#region src/helpers/plugin.js
-function Wo(e, t) {
+function $o(e, t) {
 	console.log("Register new OntoPad plugin"), e.config.globalProperties.$router.addRoute({
 		path: t.path,
 		name: t.name,
@@ -5332,4 +5364,4 @@ function Wo(e, t) {
 	});
 }
 //#endregion
-export { Ho as OntoPad, Uo as OntoPadRouter, Wo as register, a as usePrefixesStore, n as useRdfStore, t as useSelectionStore };
+export { Zo as OntoPad, Qo as OntoPadRouter, $o as register, a as usePrefixesStore, n as useRdfStore, t as useSelectionStore };

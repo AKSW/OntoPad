@@ -83833,7 +83833,7 @@ var dV = class {
 	}
 }, mV = class extends dV {
 	constructor(e) {
-		super(), this.data = e, this.type = "query_update", this.capability = {
+		super(), this.data = e, this.type = "in_memory", this.capability = {
 			query: !0,
 			update: !0,
 			quit: !1
