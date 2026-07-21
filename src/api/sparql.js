@@ -3,6 +3,67 @@ import { QueryEngine } from '@comunica/query-sparql'
 import dedent from 'dedent-js'
 import { stringToStore } from '../helpers/rdf-parse'
 
+// URL matcher function that matches both origin and path
+const createUrlMatcher = (sources) => {
+  const authMap = new Map()
+
+  sources.forEach(source => {
+    if (source.auth && source.value) {
+      try {
+        const url = new URL(source.value)
+        const fullUrl = url.origin + url.pathname
+        authMap.set(fullUrl, source.auth)
+      } catch (_e) {
+        console.warn(`Invalid URL for source: ${source.value}`)
+      }
+    }
+  })
+
+  return (requestUrl) => {
+    try {
+      const url = typeof requestUrl === 'string' ? new URL(requestUrl) : new URL(requestUrl.url)
+      const fullUrl = url.origin + url.pathname
+      return authMap.get(fullUrl)
+    } catch (_e) {
+      return null
+    }
+  }
+}
+
+// Smart fetch function that applies auth only to specific URLs
+const createSmartFetch = (sources) => {
+  const getAuthForUrl = createUrlMatcher(sources)
+
+  return async (input, init = {}) => {
+    const authConfig = getAuthForUrl(input)
+
+    if (authConfig) {
+      const headers = new Headers(init.headers)
+      const credentials = btoa(`${authConfig.username}:${authConfig.password}`)
+      headers.set('Authorization', `Basic ${credentials}`)
+
+      return fetch(input, {
+        ...init,
+        headers
+      })
+    }
+
+    // No auth needed for this URL
+    return fetch(input, init)
+  }
+}
+
+// the endpoint can be a URL as string or an object:
+// {type: "sparql", value: "url", auth: {}} type and auth are optional
+const normalizeSource = (endpoint) => {
+    if (typeof endpoint === 'string' || endpoint instanceof String) {
+      return [{ type: 'sparql', value: endpoint }]
+    } else {
+      // ensure the type is always set.
+      return [{ type: 'sparql', ...endpoint }]
+    }
+}
+
 class SparqlStore {
   constructor () {
     this.type = 'query_only'
@@ -19,30 +80,55 @@ class SparqlStore {
 
   query_bindings (queryString) {
     console.log(`Send bindings query (${queryString}) via comunica to ${this.sources}`);
-    return this.queryEngine.queryBindings(queryString, {
+    const context = {
       sources: this.sources
-    })
+    }
+
+    // Add fetch function if available
+    if (this.fetchFunction) {
+      context.fetch = this.fetchFunction
+    }
+
+    return this.queryEngine.queryBindings(queryString, context)
   }
 
   query_quads (queryString) {
     console.log(`Send quads query (${queryString}) via comunica to ${this.sources}`);
-    return this.queryEngine.queryQuads(queryString, {
+    const context = {
       sources: this.sources
-    })
+    }
+
+    if (this.fetchFunction) {
+      context.fetch = this.fetchFunction
+    }
+
+    return this.queryEngine.queryQuads(queryString, context)
   }
 
   query (queryString) {
     console.log(`Send any query (${queryString}) via comunica to ${this.sources}`);
-    return this.queryEngine.query(queryString, {
+    const context = {
       sources: this.sources
-    })
+    }
+
+    if (this.fetchFunction) {
+      context.fetch = this.fetchFunction
+    }
+
+    return this.queryEngine.query(queryString, context)
   }
 
   update (updateString) {
     console.log(`Send update query (${updateString}) via comunica to ${this.sources}`);
-    return this.queryEngine.queryVoid(updateString, {
+    const context = {
       sources: this.destination
-    })
+    }
+
+    if (this.fetchFunction) {
+      context.fetch = this.fetchFunction
+    }
+
+    return this.queryEngine.queryVoid(updateString, context)
   }
 
   get queryUrl() {
@@ -74,11 +160,17 @@ class SparqlEndpoint extends SparqlStore {
 
   async initialize () {
     this.queryEngine = new QueryEngine()
-    this.sources = [{ type: 'sparql', value: this.queryEndpoint }]
+
+    this.sources = normalizeSource(this.queryEndpoint)
 
     if (this.updateEndpoint) {
-      this.destination = [{ type: 'sparql', value: this.updateEndpoint }]
+      this.destination = normalizeSource(this.updateEndpoint)
     }
+
+    // Create smart fetch function if any source has auth
+    const remotes = [...this.sources, ...this.destination]
+    const hasAuthSources = remotes.some(source => source.auth)
+    this.fetchFunction = hasAuthSources ? createSmartFetch(remotes) : undefined
   }
 }
 
