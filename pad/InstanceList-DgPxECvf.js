@@ -1,5 +1,5 @@
-import { a as e } from "./rdf-DAT9J0rX.js";
-import { t } from "./QueryResultList-G0dyocn2.js";
+import { a as e } from "./rdf-D2-Nb4_o.js";
+import { t } from "./QueryResultList-BeU3CrS9.js";
 import { mapState as n } from "pinia";
 import { createBlock as r, openBlock as i, unref as a } from "vue";
 //#region src/components/InstanceList.vue

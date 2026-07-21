@@ -1,6 +1,6 @@
-import { a as e, t } from "./rdf-DAT9J0rX.js";
+import { a as e, t } from "./rdf-D2-Nb4_o.js";
 import { t as n } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as r } from "./prefixes-8MuYtvyh.js";
+import { t as r } from "./prefixes-YZcOFqBl.js";
 import { Fragment as i, createCommentVNode as a, createElementBlock as o, createElementVNode as s, normalizeClass as c, openBlock as l, renderList as u, toDisplayString as d, vModelText as f, withDirectives as p } from "vue";
 //#region src/components/QueryResultList.vue
 var m = {
@@ -105,6 +105,6 @@ function T(e, t, n, r, m, T) {
 		onClick: (t) => T.select(e)
 	}, d(T.shortenIri(e)), 11, w))), 128))])]);
 }
-var E = /*#__PURE__*/ n(m, [["render", T], ["__scopeId", "data-v-211acf3b"]]);
+var E = /*#__PURE__*/ n(m, [["render", T], ["__scopeId", "data-v-6fa68efd"]]);
 //#endregion
 export { E as t };

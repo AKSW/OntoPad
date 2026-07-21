@@ -1,4 +1,4 @@
-import { W as e } from "./rdf-DAT9J0rX.js";
+import { W as e } from "./rdf-D2-Nb4_o.js";
 import { defineStore as t } from "pinia";
 //#region src/stores/prefixes.js
 var n = t("prefixes", {

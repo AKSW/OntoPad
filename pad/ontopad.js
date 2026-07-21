@@ -1,9 +1,9 @@
-import { W as e, a as t, t as n } from "./rdf-DAT9J0rX.js";
-import { t as r } from "./bootstrap.esm-DiFqinEN.js";
+import { W as e, a as t, t as n } from "./rdf-D2-Nb4_o.js";
+import { t as r } from "./bootstrap.esm-erz38oUA.js";
 import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as a } from "./prefixes-8MuYtvyh.js";
-import { t as o } from "./QueryResultList-G0dyocn2.js";
-import { t as s } from "./TermInput-BRh3dEeD.js";
+import { t as a } from "./prefixes-YZcOFqBl.js";
+import { t as o } from "./QueryResultList-BeU3CrS9.js";
+import { t as s } from "./TermInput-Dl6NAPqX.js";
 import { n as c, t as l } from "./splitpanes.esm-DWEvKrA8.js";
 import { mapState as u } from "pinia";
 import { Fragment as d, computed as f, createBlock as ee, createCommentVNode as p, createElementBlock as m, createElementVNode as h, createTextVNode as g, createVNode as _, defineComponent as v, getCurrentInstance as y, h as te, inject as b, nextTick as x, openBlock as S, provide as ne, reactive as C, ref as w, renderList as T, resolveComponent as E, shallowReactive as D, shallowRef as O, toDisplayString as re, unref as ie, vModelRadio as ae, vModelText as k, watch as oe, watchEffect as se, withCtx as A, withDirectives as j } from "vue";
@@ -54,7 +54,7 @@ var ce = {
 				}
 				e.query_url = this.query_url, this.update_url && (e.update_url = this.update_url);
 			}
-			this.store.updateEndpointConfiguration(e);
+			this.store.updateEndpointConfiguration({ sources: [e] });
 		}
 	}
 }, le = {
@@ -5302,7 +5302,7 @@ function Xo(e, t, n, r, i, a) {
 		_: 1
 	})])) : (S(), m("div", Yo, " Waiting for Store to be configured … "))])], 64);
 }
-var Zo = /*#__PURE__*/ i(No, [["render", Xo], ["__scopeId", "data-v-ef3c455e"]]), Qo = Mo({
+var Zo = /*#__PURE__*/ i(No, [["render", Xo], ["__scopeId", "data-v-fb9849be"]]), Qo = Mo({
 	history: qa("/OntoPad/pad/"),
 	routes: [
 		{
@@ -5317,37 +5317,37 @@ var Zo = /*#__PURE__*/ i(No, [["render", Xo], ["__scopeId", "data-v-ef3c455e"]])
 		{
 			path: "/dashboard",
 			name: "DashboardView",
-			component: () => import("./DashboardView-Ds66NK0-.js")
+			component: () => import("./DashboardView-Dav5mTcV.js")
 		},
 		{
 			path: "/instances",
 			name: "InstanceList",
-			component: () => import("./InstanceList-eW4HRopR.js")
+			component: () => import("./InstanceList-DgPxECvf.js")
 		},
 		{
 			path: "/voc",
 			name: "VocPad",
-			component: () => import("./VocPad-CJkkw5JI.js")
+			component: () => import("./VocPad-BSOZhzJF.js")
 		},
 		{
 			path: "/edit",
 			name: "EditForm",
-			component: () => import("./EditForm-zM2dMU7s.js")
+			component: () => import("./EditForm-BTQjqBnm.js")
 		},
 		{
 			path: "/form",
 			name: "FormDemo",
-			component: () => import("./FormDemo-COz1Ruqh.js")
+			component: () => import("./FormDemo-BGmTTxbG.js")
 		},
 		{
 			path: "/add",
 			name: "InputForm",
-			component: () => import("./InputForm-DSKz_WhN.js")
+			component: () => import("./InputForm-C49ggbDT.js")
 		},
 		{
 			path: "/source",
 			name: "Source",
-			component: () => import("./Source-CVAQn6o3.js")
+			component: () => import("./Source-D1PhZ58F.js")
 		}
 	]
 });
