@@ -1,7 +1,4 @@
-import axios from 'axios'
 import { QueryEngine } from '@comunica/query-sparql'
-import dedent from 'dedent-js'
-import { stringToStore } from '../helpers/rdf-parse'
 
 // URL matcher function that matches both origin and path
 const createUrlMatcher = (sources) => {
