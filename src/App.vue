@@ -154,7 +154,7 @@ export default {
         }
       ].concat(this.$navigation.main)
   },
-  setup (props) {
+  setup(props) {
     console.log("OntoPad-next mounted")
     const rdfStore = useRdfStore()
     const selectionStore = useSelectionStore()
