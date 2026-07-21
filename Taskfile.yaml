@@ -1,5 +1,7 @@
 version: '3'
 
+dotenv: ['custom.env', 'default.env']
+
 tasks:
   default:
     desc: List available tasks
@@ -17,7 +19,6 @@ tasks:
     cmds:
       - |
         bun run build
-
 
   format:
     desc: Format the code with bun
@@ -38,3 +39,17 @@ tasks:
     cmds:
       - |
         bun test:unit
+
+  prerelease:
+    desc: 'Prerelease'
+    summary: Bump version with alpha preid and publish to custom registry
+    cmd: |
+      echo "Using registry: {{.NPM_REGISTRY}}"
+      npm version prerelease --preid=alpha
+      bun run build
+      npm publish --registry "{{.NPM_REGISTRY}}"
+    sources:
+      - package.json
+      - custom.env
+    generates:
+      - package.json
