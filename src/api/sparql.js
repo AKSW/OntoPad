@@ -28,6 +28,11 @@ const createUrlMatcher = (sources) => {
 }
 
 // Smart fetch function that applies auth only to specific URLs
+// I have decided to implement basic auth with a custom fetch function instead of comunicas basic auth
+// (https://comunica.dev/docs/query/advanced/basic_auth/) because a custom fetch function would also allow
+// to implement oidc.
+// TODO: at some point implement https://www.npmjs.com/package/digest-fetch as described in:
+// https://github.com/comunica/comunica/issues/1600#issuecomment-3253823823
 const createSmartFetch = (sources) => {
   const getAuthForUrl = createUrlMatcher(sources)
 
