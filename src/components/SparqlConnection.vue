@@ -130,9 +130,9 @@ export default {
           endpointConfiguration.update_url = this.update_url
         }
       }
-      this.store.updateEndpointConfiguration(endpointConfiguration)
-    }
-  }
+      this.store.updateEndpointConfiguration({ sources: [endpointConfiguration] })
+    },
+  },
 }
 
 </script>

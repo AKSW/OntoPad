@@ -45,7 +45,7 @@ class SparqlStore {
     })
   }
 
-  get quitUrl () {
+  get queryUrl() {
     return this.sources[0].value
   }
 
