@@ -81914,25 +81914,21 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}, this.sources = [], this.destination = [], this.getAuthForUrl = null;
 	}
 	async initialize() {}
+	queryContext(e) {
+		let t = { sources: e };
+		return this.getAuthForUrl && (t.fetch = LL(this.getAuthForUrl)), t;
+	}
 	query_bindings(e) {
-		console.log(`Send bindings query (${e}) via comunica to ${this.sources}`);
-		let t = { sources: this.sources };
-		return this.fetchFunction && (t.fetch = this.fetchFunction), this.queryEngine.queryBindings(e, t);
+		return console.log(`Send bindings query (${e}) via comunica to ${this.sources}`), this.queryEngine.queryBindings(e, this.queryContext(this.sources));
 	}
 	query_quads(e) {
-		console.log(`Send quads query (${e}) via comunica to ${this.sources}`);
-		let t = { sources: this.sources };
-		return this.fetchFunction && (t.fetch = this.fetchFunction), this.queryEngine.queryQuads(e, t);
+		return console.log(`Send quads query (${e}) via comunica to ${this.sources}`), this.queryEngine.queryQuads(e, this.queryContext(this.sources));
 	}
 	query(e) {
-		console.log(`Send any query (${e}) via comunica to ${this.sources}`);
-		let t = { sources: this.sources };
-		return this.fetchFunction && (t.fetch = this.fetchFunction), this.queryEngine.query(e, t);
+		return console.log(`Send any query (${e}) via comunica to ${this.sources}`), this.queryEngine.query(e, this.queryContext(this.sources));
 	}
 	update(e) {
-		console.log(`Send update query (${e}) via comunica to ${this.sources}`);
-		let t = { sources: this.destination };
-		return this.fetchFunction && (t.fetch = this.fetchFunction), this.queryEngine.queryVoid(e, t);
+		return console.log(`Send update query (${e}) via comunica to ${this.sources}`), this.queryEngine.queryVoid(e, this.queryContext(this.destination));
 	}
 	get queryUrl() {
 		return this.sources[0].value;
@@ -81952,9 +81948,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}, t && (this.type = "query_update", this.capability.update = !0);
 	}
 	async initialize() {
-		this.fetchFunction = null, this.queryEngine = new FL.QueryEngine();
+		this.queryEngine = new FL.QueryEngine();
 		let e = RL(this.queryEndpoint), t = this.updateEndpoint ? RL(this.updateEndpoint) : [], n = [...e, ...t];
-		n.some((e) => e.auth) && (this.getAuthForUrl = IL(n), this.fetchFunction = LL(this.getAuthForUrl)), this.sources = e.map((e) => (delete e.auth, e)), this.destination = t.map((e) => (delete e.auth, e));
+		n.some((e) => e.auth) && (this.getAuthForUrl = IL(n)), this.sources = e.map((e) => (delete e.auth, e)), this.destination = t.map((e) => (delete e.auth, e));
 	}
 };
 //#endregion
