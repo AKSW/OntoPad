@@ -27,13 +27,13 @@ const createUrlMatcher = (sources) => {
   }
 }
 
-// Smart fetch function that applies auth only to specific URLs
+// Auth aware fetch function that applies auth only to specific URLs
 // I have decided to implement basic auth with a custom fetch function instead of comunicas basic auth
 // (https://comunica.dev/docs/query/advanced/basic_auth/) because a custom fetch function would also allow
 // to implement oidc.
 // TODO: at some point implement https://www.npmjs.com/package/digest-fetch as described in:
 // https://github.com/comunica/comunica/issues/1600#issuecomment-3253823823
-const createSmartFetch = (getAuthForUrl) => {
+const createAuthFetch = (getAuthForUrl) => {
   return async (input, init = {}) => {
     const authConfig = getAuthForUrl(input)
 
@@ -81,57 +81,37 @@ class SparqlStore {
 
   }
 
+  queryContext (sources) {
+    const context = {
+      sources: sources
+    }
+
+    // Add fetch function if auth is available
+    if (this.getAuthForUrl) {
+      context.fetch = createAuthFetch(this.getAuthForUrl)
+    }
+
+    return context
+  }
+
   query_bindings (queryString) {
     console.log(`Send bindings query (${queryString}) via comunica to ${this.sources}`);
-    const context = {
-      sources: this.sources
-    }
-
-    // Add fetch function if available
-    if (this.fetchFunction) {
-      context.fetch = this.fetchFunction
-    }
-
-    return this.queryEngine.queryBindings(queryString, context)
+    return this.queryEngine.queryBindings(queryString, this.queryContext(this.sources))
   }
 
   query_quads (queryString) {
     console.log(`Send quads query (${queryString}) via comunica to ${this.sources}`);
-    const context = {
-      sources: this.sources
-    }
-
-    if (this.fetchFunction) {
-      context.fetch = this.fetchFunction
-    }
-
-    return this.queryEngine.queryQuads(queryString, context)
+    return this.queryEngine.queryQuads(queryString, this.queryContext(this.sources))
   }
 
   query (queryString) {
     console.log(`Send any query (${queryString}) via comunica to ${this.sources}`);
-    const context = {
-      sources: this.sources
-    }
-
-    if (this.fetchFunction) {
-      context.fetch = this.fetchFunction
-    }
-
-    return this.queryEngine.query(queryString, context)
+    return this.queryEngine.query(queryString, this.queryContext(this.sources))
   }
 
   update (updateString) {
     console.log(`Send update query (${updateString}) via comunica to ${this.sources}`);
-    const context = {
-      sources: this.destination
-    }
-
-    if (this.fetchFunction) {
-      context.fetch = this.fetchFunction
-    }
-
-    return this.queryEngine.queryVoid(updateString, context)
+    return this.queryEngine.queryVoid(updateString, this.queryContext(this.destination))
   }
 
   get queryUrl() {
@@ -166,7 +146,6 @@ class SparqlEndpoint extends SparqlStore {
   }
 
   async initialize () {
-    this.fetchFunction = null
     this.queryEngine = new QueryEngine()
 
     const sources = normalizeSource(this.queryEndpoint)
@@ -177,7 +156,6 @@ class SparqlEndpoint extends SparqlStore {
 
     if(remotes.some(source => source.auth)) {
       this.getAuthForUrl = createUrlMatcher(remotes)
-      this.fetchFunction = createSmartFetch(this.getAuthForUrl)
     }
 
     this.sources = sources.map(remote => {
