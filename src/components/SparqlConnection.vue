@@ -78,7 +78,7 @@ export default {
   },
   mounted() {
     this.configure_endpoint_modal = new Modal(this.$refs.configure_endpoint)
-    this.$refs.configure_endpoint.addEventListener('show.bs.modal', event => {
+    this.$refs.configure_endpoint.addEventListener('show.bs.modal', () => {
       this.get_endpoint_configuration()
     })
   },
@@ -122,7 +122,7 @@ export default {
         endpointConfiguration.quit_url = this.quit_url
       } else {
         if (!this.query_url) {
-          console.error('Not even a query_url is given. Not chaning the endpoint configuration.')
+          console.error('Not even a query_url is given. Not changing the endpoint configuration.')
           return
         }
         endpointConfiguration.query_url = this.query_url
