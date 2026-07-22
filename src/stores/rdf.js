@@ -60,6 +60,11 @@ export const useRdfStore = defineStore('rdf', () => {
     return sparqlEndpoint.value.query(queryString)
   }
 
+  async function sendRawUpdate (updateString) {
+    console.log(`send raw update: ${updateString}`)
+    return sparqlEndpoint.value.update(updateString)
+  }
+
   async function getResource (resourceUri, defaultGraph) {
     if (defaultGraph === undefined) {
       defaultGraph = [useSelectionStore().graph_iri]
@@ -140,5 +145,5 @@ export const useRdfStore = defineStore('rdf', () => {
     }
   }
 
-  return { ready, sparqlEndpoint, sendQuery, getResource, push, pull, deleteInsertData, updateEndpointConfiguration }
+  return { ready, sparqlEndpoint, sendQuery, getResource, push, pull, deleteInsertData, updateEndpointConfiguration, sendRawUpdate }
 })
