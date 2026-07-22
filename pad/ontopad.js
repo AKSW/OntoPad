@@ -1,9 +1,9 @@
-import { W as e, a as t, t as n } from "./rdf-DtZfkFgL.js";
-import { t as r } from "./bootstrap.esm-B483I5uD.js";
+import { W as e, a as t, t as n } from "./rdf-Hu1nS4yF.js";
+import { t as r } from "./bootstrap.esm-DYp46-NX.js";
 import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as a } from "./prefixes-D9zfZvjt.js";
-import { t as o } from "./QueryResultList-B5u57P2e.js";
-import { t as s } from "./TermInput-BWiFeb58.js";
+import { t as a } from "./prefixes-DiepZNhU.js";
+import { t as o } from "./QueryResultList-DT6inH3f.js";
+import { t as s } from "./TermInput-6Ynu3r4n.js";
 import { n as c, t as l } from "./splitpanes.esm-DWEvKrA8.js";
 import { mapState as u } from "pinia";
 import { Fragment as d, computed as f, createBlock as ee, createCommentVNode as p, createElementBlock as m, createElementVNode as h, createTextVNode as g, createVNode as _, defineComponent as v, getCurrentInstance as y, h as te, inject as b, nextTick as ne, normalizeClass as x, openBlock as S, provide as C, reactive as w, ref as T, renderList as E, resolveComponent as D, shallowReactive as O, shallowRef as re, toDisplayString as ie, unref as ae, vModelRadio as oe, vModelText as k, watch as se, watchEffect as ce, withCtx as A, withDirectives as j } from "vue";
@@ -5400,37 +5400,37 @@ var us = /*#__PURE__*/ i(Ko, [["render", ls], ["__scopeId", "data-v-aa5b0752"]])
 		{
 			path: "/dashboard",
 			name: "DashboardView",
-			component: () => import("./DashboardView-D5ApyHVU.js")
+			component: () => import("./DashboardView-Djs6n9_S.js")
 		},
 		{
 			path: "/instances",
 			name: "InstanceList",
-			component: () => import("./InstanceList-D7Con8yn.js")
+			component: () => import("./InstanceList-CQLnXOT6.js")
 		},
 		{
 			path: "/voc",
 			name: "VocPad",
-			component: () => import("./VocPad-CneG6wWp.js")
+			component: () => import("./VocPad-BacBCrxx.js")
 		},
 		{
 			path: "/edit",
 			name: "EditForm",
-			component: () => import("./EditForm-DWIaPWBK.js")
+			component: () => import("./EditForm-e8rOrY9j.js")
 		},
 		{
 			path: "/form",
 			name: "FormDemo",
-			component: () => import("./FormDemo-DVTZ8PR7.js")
+			component: () => import("./FormDemo-xb6LV7G3.js")
 		},
 		{
 			path: "/add",
 			name: "InputForm",
-			component: () => import("./InputForm-DlvSwY8R.js")
+			component: () => import("./InputForm-Cf5r6lsm.js")
 		},
 		{
 			path: "/source",
 			name: "Source",
-			component: () => import("./Source-Byr5iaHm.js")
+			component: () => import("./Source-DNtd3K5y.js")
 		}
 	]
 });

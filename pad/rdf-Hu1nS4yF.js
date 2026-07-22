@@ -84004,24 +84004,27 @@ var SV = e("rdf", () => {
 		let i = new he.Generator(), a;
 		return a = typeof r == "string" ? r : i.stringify(r), n.value.query(a);
 	}
-	async function i(e, t) {
+	async function i(e) {
+		return console.log(`send raw update: ${e}`), n.value.update(e);
+	}
+	async function a(e, t) {
 		t === void 0 && (t = [_V().graph_iri]);
 		let r = "";
 		for (let e of t) r += `from <${e}>`;
 		let i = `construct {<${e}> ?p ?o} ${r} where {<${e}> ?p ?o}`, a = await n.value.query_quads(i), o = De.namedNode(t[0]);
 		return ge.Readable.from(a).pipe(new Oe(o));
 	}
-	function a() {
+	function o() {
 		n.value.push !== void 0 && n.value.push().then(function(e) {
 			console.log(e);
 		});
 	}
-	function o() {
+	function s() {
 		n.value.pull !== void 0 && n.value.pull().then(function(e) {
 			console.log(e);
 		});
 	}
-	async function s(e) {
+	async function c(e) {
 		let t = e.deleteArray, r = e.insertArray, i = [];
 		if (e.graphIri !== void 0) {
 			let n = De.namedNode(e.graphIri);
@@ -84031,7 +84034,7 @@ var SV = e("rdf", () => {
 		let a = i.join(";");
 		return n.value.update(a);
 	}
-	async function c(t) {
+	async function l(t) {
 		console.log("Loading …"), console.log("Change SPARQL Endpoint configuration."), console.log(t);
 		let r = await gV.create(t);
 		r.length > 0 && (n.value = r[0], e.value = !0);
@@ -84040,11 +84043,12 @@ var SV = e("rdf", () => {
 		ready: e,
 		sparqlEndpoint: n,
 		sendQuery: r,
-		getResource: i,
-		push: a,
-		pull: o,
-		deleteInsertData: s,
-		updateEndpointConfiguration: c
+		getResource: a,
+		push: o,
+		pull: s,
+		deleteInsertData: c,
+		updateEndpointConfiguration: l,
+		sendRawUpdate: i
 	};
 });
 //#endregion

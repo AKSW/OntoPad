@@ -1,10 +1,10 @@
-import { W as e, a as t, t as n } from "./rdf-DtZfkFgL.js";
+import { W as e, a as t, t as n } from "./rdf-Hu1nS4yF.js";
 import { t as r } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { n as i, t as a } from "./splitpanes.esm-DWEvKrA8.js";
 import "./ontopad.js";
-import o from "./InstanceList-D7Con8yn.js";
+import o from "./InstanceList-CQLnXOT6.js";
 import { t as s } from "./Term-DjvlK-Mw.js";
-import { t as c } from "./dist-CzZ0iLTx.js";
+import { t as c } from "./dist-rwQsnoKM.js";
 import { mapState as l } from "pinia";
 import { Fragment as u, createCommentVNode as d, createElementBlock as f, createElementVNode as p, createVNode as m, openBlock as h, renderList as g, resolveComponent as _, toDisplayString as v, unref as y, withCtx as b } from "vue";
 //#region src/views/PropertyView.vue
