@@ -200,7 +200,7 @@ import { Diagram } from 'vue-diagrams'
 import { v4 as uuidv4 } from 'uuid'
 import TermInput from '../components/TermInput.vue'
 import { diff } from '../helpers/n3-compare'
-import { DataFactory, Parser } from 'n3'
+import { DataFactory } from 'n3'
 const { triple, namedNode, literal } = DataFactory
 
 export default {

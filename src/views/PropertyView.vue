@@ -27,7 +27,6 @@
 
 <script>
 import Term from '../components/Term.vue'
-import { Readable } from 'readable-stream'
 import { mapState } from 'pinia'
 import { useRdfStore } from '../stores/rdf'
 import { useSelectionStore } from '../stores/selection'
