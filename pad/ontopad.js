@@ -23,7 +23,7 @@ var ce = {
 		};
 	},
 	mounted() {
-		this.configure_endpoint_modal = new r(this.$refs.configure_endpoint), this.$refs.configure_endpoint.addEventListener("show.bs.modal", (e) => {
+		this.configure_endpoint_modal = new r(this.$refs.configure_endpoint), this.$refs.configure_endpoint.addEventListener("show.bs.modal", () => {
 			this.get_endpoint_configuration();
 		});
 	},
@@ -49,7 +49,7 @@ var ce = {
 			if (this.endpoint_type === "quit" && this.quit_url) e.quit_url = this.quit_url;
 			else {
 				if (!this.query_url) {
-					console.error("Not even a query_url is given. Not chaning the endpoint configuration.");
+					console.error("Not even a query_url is given. Not changing the endpoint configuration.");
 					return;
 				}
 				e.query_url = this.query_url, this.update_url && (e.update_url = this.update_url);
@@ -5212,17 +5212,17 @@ var No = {
 }, Lo = {
 	class: "collapse navbar-collapse",
 	id: "navbarNav"
-}, Ro = { class: "navbar-nav" }, zo = { class: "nav-item" }, Bo = {
+}, Ro = {
+	key: 0,
+	class: "d-flex ms-auto me-auto w-75",
+	role: "graph-navigation"
+}, zo = { class: "form-floating col-6" }, Bo = { class: "form-floating col-6" }, Vo = { class: "navbar-nav" }, Ho = { class: "nav-item" }, Uo = {
 	key: 0,
 	class: "nav-link"
-}, Vo = {
+}, Wo = {
 	key: 1,
 	class: "nav-link"
-}, Ho = { class: "nav-item" }, Uo = {
-	key: 0,
-	class: "d-flex",
-	role: "graph-navigation"
-}, Wo = { class: "form-floating mb-3" }, Go = { class: "form-floating mb-3" }, Ko = { class: "container-fluid" }, qo = {
+}, Go = { class: "nav-item" }, Ko = { class: "container-fluid" }, qo = {
 	key: 0,
 	class: "row"
 }, Jo = { class: "nav nav-tabs" }, Yo = { key: 1 };
@@ -5244,21 +5244,21 @@ function Xo(e, t, n, r, i, a) {
 			"aria-expanded": "false",
 			"aria-label": "Toggle navigation"
 		}, [h("span", { class: "navbar-toggler-icon" })], -1),
-		h("div", Lo, [h("ul", Ro, [h("li", zo, [e.store_ready ? (S(), m("span", Bo, "🟢 Store is ready")) : (S(), m("span", Vo, "🔄 Loading"))]), h("li", Ho, [_(o)])]), e.store_ready ? (S(), m("form", Uo, [h("div", Wo, [j(h("input", {
+		h("div", Lo, [e.store_ready ? (S(), m("form", Ro, [h("div", zo, [j(h("input", {
 			type: "text",
-			class: "form-control col-2",
+			class: "form-control",
 			id: "graph_iri",
 			"aria-label": "Graph IRI",
 			"onUpdate:modelValue": t[0] ||= (e) => a.graph_iri = e,
 			placeholder: "Graph IRI"
-		}, null, 512), [[k, a.graph_iri]]), t[3] ||= h("label", { for: "graph_iri" }, "Graph IRI", -1)]), h("div", Go, [j(h("input", {
+		}, null, 512), [[k, a.graph_iri]]), t[3] ||= h("label", { for: "graph_iri" }, "Graph IRI", -1)]), h("div", Bo, [j(h("input", {
 			type: "text",
-			class: "form-control col-2",
+			class: "form-control",
 			id: "resource_iri",
 			"aria-label": "Resource IRI",
 			"onUpdate:modelValue": t[1] ||= (e) => a.resource_iri = e,
 			placeholder: "Resource IRI"
-		}, null, 512), [[k, a.resource_iri]]), t[4] ||= h("label", { for: "resource_iri" }, "Resource IRI", -1)])])) : p("", !0)])
+		}, null, 512), [[k, a.resource_iri]]), t[4] ||= h("label", { for: "resource_iri" }, "Resource IRI", -1)])])) : p("", !0), h("ul", Vo, [h("li", Ho, [e.store_ready ? (S(), m("span", Uo, "🟢 Store is ready")) : (S(), m("span", Wo, "🔄 Loading"))]), h("li", Go, [_(o)])])])
 	])]), h("div", Ko, [e.store_ready ? (S(), m("div", qo, [_(u, { class: "default-theme" }, {
 		default: A(() => [_(c, { size: "30" }, {
 			default: A(() => [_(u, {
@@ -5302,7 +5302,7 @@ function Xo(e, t, n, r, i, a) {
 		_: 1
 	})])) : (S(), m("div", Yo, " Waiting for Store to be configured … "))])], 64);
 }
-var Zo = /*#__PURE__*/ i(No, [["render", Xo], ["__scopeId", "data-v-fb9849be"]]), Qo = Mo({
+var Zo = /*#__PURE__*/ i(No, [["render", Xo], ["__scopeId", "data-v-aa5b0752"]]), Qo = Mo({
 	history: qa("/OntoPad/pad/"),
 	routes: [
 		{
