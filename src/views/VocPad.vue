@@ -259,7 +259,6 @@ export default {
     },
     async getLists () {
       this.getList(
-        // eslint-disable-next-line
         `select distinct ?resourceIri { \
           { \
             ?sc a ?resourceIri \
@@ -271,7 +270,6 @@ export default {
         } order by ?resourceIri`, "class").then(list => { this.classes = list } )
 
       this.getList(
-        // eslint-disable-next-line
         `select distinct ?resourceIri { \
           { \
             ?sp ?resourceIri ?op \
@@ -465,7 +463,6 @@ export default {
     },
     getShapes () {
       this.store.sendQuery(
-      // eslint-disable-next-line
         `PREFIX sh: <http://www.w3.org/ns/shacl#>
         select distinct ?nodeShape ?targetClass ?propertyShape ?path ?nodeShapeRef ?targetClassRef {
           ?nodeShape a sh:NodeShape ;
@@ -495,7 +492,6 @@ export default {
         this.nextPosition(true)
       })
       this.store.sendQuery(
-        // eslint-disable-next-line
         `PREFIX sh: <http://www.w3.org/ns/shacl#>
           construct {
             ?nodeShape a sh:NodeShape ;
