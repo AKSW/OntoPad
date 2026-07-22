@@ -5400,7 +5400,7 @@ var us = /*#__PURE__*/ i(Ko, [["render", ls], ["__scopeId", "data-v-aa5b0752"]])
 		{
 			path: "/dashboard",
 			name: "DashboardView",
-			component: () => import("./DashboardView-ws5jnEWX.js")
+			component: () => import("./DashboardView-D5ApyHVU.js")
 		},
 		{
 			path: "/instances",
