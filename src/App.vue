@@ -9,6 +9,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
+        <form v-if="store_ready" class="d-flex ms-auto me-auto w-75" role="graph-navigation">
+          <div class="form-floating col-6">
+            <input type="text" class="form-control" id="graph_iri" aria-label="Graph IRI" v-model="graph_iri" placeholder="Graph IRI">
+            <label for="graph_iri">Graph IRI</label>
+          </div>
+          <div class="form-floating col-6">
+            <input type="text" class="form-control" id="resource_iri" aria-label="Resource IRI" v-model="resource_iri" placeholder="Resource IRI">
+            <label for="resource_iri">Resource IRI</label>
+          </div>
+        </form>
         <ul class="navbar-nav">
           <li class="nav-item">
             <span class="nav-link" v-if="store_ready">🟢 Store is ready</span>
@@ -18,16 +28,6 @@
             <SparqlConnection/>
           </li>
         </ul>
-        <form v-if="store_ready" class="d-flex" role="graph-navigation">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control col-2" id="graph_iri" aria-label="Graph IRI" v-model="graph_iri" placeholder="Graph IRI">
-            <label for="graph_iri">Graph IRI</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control col-2" id="resource_iri" aria-label="Resource IRI" v-model="resource_iri" placeholder="Resource IRI">
-            <label for="resource_iri">Resource IRI</label>
-          </div>
-        </form>
       </div>
     </div>
   </nav>
