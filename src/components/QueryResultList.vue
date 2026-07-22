@@ -7,7 +7,7 @@
         </div>
         <div class="col-12">
           <div class="input-group mb-3">
-            <input type="text" class="form-control" v-if="search" v-model="filter" placeholder="Search …"></input>
+            <input type="text" class="form-control" v-if="search" v-model="filter" placeholder="Search …" />
             <button type="button" class="btn btn-secondary" v-on:click="updateList" title="Reload" aria-label="Reload">
               <i class="bi bi-arrow-repeat"></i>
             </button>

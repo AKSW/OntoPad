@@ -1,11 +1,37 @@
 <template>
-  <div class="container-fluid">
-    <div class="row connection">
-      <h1>{{ title }}</h1>
-      <div v-if="store_ready">🟢 Store is ready</div>
-      <div v-else>🔄 Loading</div>
-      <SparqlConnection/>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/logo.svg" alt="{{ title }}" width="30" height="24">
+        {{ title }}
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form v-if="store_ready" class="d-flex ms-auto me-auto w-75" role="graph-navigation">
+          <div class="form-floating col-6">
+            <input type="text" class="form-control" id="graph_iri" aria-label="Graph IRI" v-model="graph_iri" placeholder="Graph IRI">
+            <label for="graph_iri">Graph IRI</label>
+          </div>
+          <div class="form-floating col-6">
+            <input type="text" class="form-control" id="resource_iri" aria-label="Resource IRI" v-model="resource_iri" placeholder="Resource IRI">
+            <label for="resource_iri">Resource IRI</label>
+          </div>
+        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <span class="nav-link" v-if="store_ready">🟢 Store is ready</span>
+            <span class="nav-link" v-else>🔄 Loading</span>
+          </li>
+          <li class="nav-item">
+            <SparqlConnection/>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+  <div class="container-fluid">
     <div v-if="store_ready" class="row">
       <splitpanes class="default-theme">
         <pane size="30">
@@ -49,7 +75,23 @@ export default {
   name: 'App',
   computed: {
     ...mapState(useRdfStore, {store_ready: store => store.ready}),
-    ...mapState(useSelectionStore, ['graph_iri', 'resource_iri'])
+    // ...mapState(useSelectionStore, ['graph_iri', 'resource_iri']),
+    graph_iri: {
+      get () {
+        return this.selectionStore.graph_iri
+      },
+      set (value) {
+        this.selectionStore.changeGraphIri(value)
+      }
+    },
+    resource_iri: {
+      get () {
+        return this.selectionStore.resource_iri
+      },
+      set (value) {
+        this.selectionStore.changeResourceIri(value)
+      }
+    }
   },
   components: {
     SparqlConnection,
@@ -61,7 +103,7 @@ export default {
     RouterView
   },
   methods: {
-    useSelectionStore
+    useSelectionStore,
   },
   props: {
     title: {
@@ -112,13 +154,14 @@ export default {
         }
       ].concat(this.$navigation.main)
   },
-  mounted () {
+  setup(props) {
     console.log("OntoPad-next mounted")
     const rdfStore = useRdfStore()
     const selectionStore = useSelectionStore()
 
-    rdfStore.updateEndpointConfiguration(this.config)
-    selectionStore.initConfig(this.config)
+    rdfStore.updateEndpointConfiguration(props.config)
+    selectionStore.initConfig(props.config)
+    return { rdfStore, selectionStore }
   }
 }
 

@@ -66,6 +66,14 @@
         - id: local_quitstore
           type: endpoint
           quit_url: http://localhost:5000
+        - id: fuseki
+          type: endpoint
+          query_url: http://localhost:3030/ds/query
+          update_url:
+            value: http://localhost:3030/ds/update
+            auth:
+              username: admin
+              password: admin
       graph_iri: http://example.org/
       resource_iri: http://example.org/Resource
     </script>

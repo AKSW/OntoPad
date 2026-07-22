@@ -200,7 +200,7 @@ import { Diagram } from 'vue-diagrams'
 import { v4 as uuidv4 } from 'uuid'
 import TermInput from '../components/TermInput.vue'
 import { diff } from '../helpers/n3-compare'
-import { DataFactory, Parser } from 'n3'
+import { DataFactory } from 'n3'
 const { triple, namedNode, literal } = DataFactory
 
 export default {
@@ -259,7 +259,6 @@ export default {
     },
     async getLists () {
       this.getList(
-        // eslint-disable-next-line
         `select distinct ?resourceIri { \
           { \
             ?sc a ?resourceIri \
@@ -271,7 +270,6 @@ export default {
         } order by ?resourceIri`, "class").then(list => { this.classes = list } )
 
       this.getList(
-        // eslint-disable-next-line
         `select distinct ?resourceIri { \
           { \
             ?sp ?resourceIri ?op \
@@ -465,7 +463,6 @@ export default {
     },
     getShapes () {
       this.store.sendQuery(
-      // eslint-disable-next-line
         `PREFIX sh: <http://www.w3.org/ns/shacl#>
         select distinct ?nodeShape ?targetClass ?propertyShape ?path ?nodeShapeRef ?targetClassRef {
           ?nodeShape a sh:NodeShape ;
@@ -495,7 +492,6 @@ export default {
         this.nextPosition(true)
       })
       this.store.sendQuery(
-        // eslint-disable-next-line
         `PREFIX sh: <http://www.w3.org/ns/shacl#>
           construct {
             ?nodeShape a sh:NodeShape ;
