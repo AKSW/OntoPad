@@ -33,9 +33,7 @@ const createUrlMatcher = (sources) => {
 // to implement oidc.
 // TODO: at some point implement https://www.npmjs.com/package/digest-fetch as described in:
 // https://github.com/comunica/comunica/issues/1600#issuecomment-3253823823
-const createSmartFetch = (sources) => {
-  const getAuthForUrl = createUrlMatcher(sources)
-
+const createSmartFetch = (getAuthForUrl) => {
   return async (input, init = {}) => {
     const authConfig = getAuthForUrl(input)
 
@@ -74,6 +72,9 @@ class SparqlStore {
       update: false,
       quit: false
     }
+    this.sources = []
+    this.destination = []
+    this.getAuthForUrl = null
   }
 
   async initialize () {
@@ -140,6 +141,10 @@ class SparqlStore {
   get updateUrl () {
     return this.destination[0].value
   }
+
+  get authForUrl () {
+    return this.getAuthForUrl
+  }
 }
 
 class SparqlEndpoint extends SparqlStore {
@@ -161,18 +166,29 @@ class SparqlEndpoint extends SparqlStore {
   }
 
   async initialize () {
+    this.fetchFunction = null
     this.queryEngine = new QueryEngine()
 
-    this.sources = normalizeSource(this.queryEndpoint)
-
-    if (this.updateEndpoint) {
-      this.destination = normalizeSource(this.updateEndpoint)
-    }
+    const sources = normalizeSource(this.queryEndpoint)
+    const destination = this.updateEndpoint ? normalizeSource(this.updateEndpoint) : []
 
     // Create smart fetch function if any source has auth
-    const remotes = [...this.sources, ...this.destination]
-    const hasAuthSources = remotes.some(source => source.auth)
-    this.fetchFunction = hasAuthSources ? createSmartFetch(remotes) : undefined
+    const remotes = [...sources, ...destination]
+
+    if(remotes.some(source => source.auth)) {
+      this.getAuthForUrl = createUrlMatcher(remotes)
+      this.fetchFunction = createSmartFetch(this.getAuthForUrl)
+    }
+
+    this.sources = sources.map(remote => {
+      delete remote.auth
+      return remote
+    })
+
+    this.destination = destination.map(remote => {
+      delete remote.auth
+      return remote
+    })
   }
 }
 

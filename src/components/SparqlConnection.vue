@@ -36,13 +36,49 @@
             <div class="form-group" v-if="endpoint_type == 'query_only' || endpoint_type == 'query_update'">
               <label for="query_url">Query URL</label>
               <div>
-                <input type="text" class="form-control" id="query_url" v-model="query_url" placeholder="http://your.sparql.store.org/query">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="query_url" v-model="query_url" placeholder="http://your.sparql.store.org/query">
+                  <button class="btn btn-outline-secondary" type="button" @click="query_auth_enabled = !query_auth_enabled" :title="query_auth_enabled ? 'Disable Query Authentication' : 'Enable Query Authentication'">
+                    <i class="bi" :class="query_auth_enabled ? 'bi-lock-fill' : 'bi-unlock'"></i>
+                  </button>
+                </div>
+              </div>
+              <div v-if="query_auth_enabled" class="mt-2">
+                <div class="card card-body mt-2">
+                  <h6 class="card-title">Authentication for Query URL</h6>
+                  <div class="form-group">
+                    <label for="query_username">Username</label>
+                    <input type="text" class="form-control" id="query_username" v-model="query_username" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="query_password">Password</label>
+                    <input type="password" class="form-control" id="query_password" v-model="query_password" placeholder="Password">
+                  </div>
+                </div>
               </div>
             </div>
             <div class="form-group" v-if="endpoint_type == 'query_update'">
               <label for="update_url">Update URL</label>
               <div>
-                <input type="text" class="form-control" id="update_url" v-model="update_url" placeholder="http://your.sparql.store.org/update">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="update_url" v-model="update_url" placeholder="http://your.sparql.store.org/update">
+                  <button class="btn btn-outline-secondary" type="button" @click="update_auth_enabled = !update_auth_enabled" :title="update_auth_enabled ? 'Disable Update Authentication' : 'Enable Update Authentication'">
+                    <i class="bi" :class="update_auth_enabled ? 'bi-lock-fill' : 'bi-unlock'"></i>
+                  </button>
+                </div>
+              </div>
+              <div v-if="update_auth_enabled" class="mt-2">
+                <div class="card card-body mt-2">
+                  <h6 class="card-title">Authentication for Update URL</h6>
+                  <div class="form-group">
+                    <label for="update_username">Username</label>
+                    <input type="text" class="form-control" id="update_username" v-model="update_username" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="update_password">Password</label>
+                    <input type="password" class="form-control" id="update_password" v-model="update_password" placeholder="Password">
+                  </div>
+                </div>
               </div>
             </div>
           </form>
@@ -73,7 +109,15 @@ export default {
       endpoint_type: 'quit',
       query_url: '',
       update_url: '',
-      quit_url: ''
+      quit_url: '',
+      // Authentication for query URL
+      query_auth_enabled: false,
+      query_username: '',
+      query_password: '',
+      // Authentication for update URL
+      update_auth_enabled: false,
+      update_username: '',
+      update_password: ''
     }
   },
   mounted() {
@@ -106,14 +150,40 @@ export default {
       this.quit_url = ''
       this.query_url = ''
       this.update_url = ''
+      this.query_auth_enabled = false
+      this.query_username = ''
+      this.query_password = ''
+      this.update_auth_enabled = false
+      this.update_username = ''
+      this.update_password = ''
       this.endpoint_type = ep.type
+
       if (ep.type === 'quit') {
         this.quit_url = ep.quitUrl
-      } else if (ep.type === 'query_only') {
+      } else if (ep.type === 'query_only' || ep.type === 'query_update') {
+        // Set query URL
         this.query_url = ep.queryUrl
-      } else if (ep.type === 'query_update') {
-        this.query_url = ep.queryUrl
-        this.update_url = ep.updateUrl
+
+        // Set query authentication if available
+        const query_auth = ep.getAuthForUrl ? ep.getAuthForUrl(this.query_url) : undefined
+        if (query_auth) {
+          this.query_auth_enabled = true
+          this.query_username = query_auth.username || ''
+          this.query_password = query_auth.password || ''
+        }
+
+        // Set update URL if query_update type
+        if (ep.type === 'query_update') {
+          this.update_url = ep.updateUrl
+
+          // Set update authentication if available
+          const update_auth = ep.getAuthForUrl ? ep.getAuthForUrl(this.update_url) : undefined
+          if (update_auth) {
+            this.update_auth_enabled = true
+            this.update_username = update_auth.username || ''
+            this.update_password = update_auth.password || ''
+          }
+        }
       }
     },
     configure_endpoint () {
@@ -125,9 +195,33 @@ export default {
           console.error('Not even a query_url is given. Not changing the endpoint configuration.')
           return
         }
-        endpointConfiguration.query_url = this.query_url
+
+        // Handle query URL with optional authentication
+        if (this.query_auth_enabled && (this.query_username || this.query_password)) {
+          endpointConfiguration.query_url = {
+            value: this.query_url,
+            auth: {
+              username: this.query_username,
+              password: this.query_password
+            }
+          }
+        } else {
+          endpointConfiguration.query_url = this.query_url
+        }
+
+        // Handle update URL if present
         if (this.update_url) {
-          endpointConfiguration.update_url = this.update_url
+          if (this.update_auth_enabled && (this.update_username || this.update_password)) {
+            endpointConfiguration.update_url = {
+              value: this.update_url,
+              auth: {
+                username: this.update_username,
+                password: this.update_password
+              }
+            }
+          } else {
+            endpointConfiguration.update_url = this.update_url
+          }
         }
       }
       this.store.updateEndpointConfiguration({ sources: [endpointConfiguration] })
