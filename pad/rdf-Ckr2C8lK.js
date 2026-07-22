@@ -81889,19 +81889,16 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return null;
 		}
 	};
-}, LL = (e) => {
-	let t = IL(e);
-	return async (e, n = {}) => {
-		let r = t(e);
-		if (r) {
-			let t = new Headers(n.headers), i = btoa(`${r.username}:${r.password}`);
-			return t.set("Authorization", `Basic ${i}`), fetch(e, {
-				...n,
-				headers: t
-			});
-		}
-		return fetch(e, n);
-	};
+}, LL = (e) => async (t, n = {}) => {
+	let r = e(t);
+	if (r) {
+		let e = new Headers(n.headers), i = btoa(`${r.username}:${r.password}`);
+		return e.set("Authorization", `Basic ${i}`), fetch(t, {
+			...n,
+			headers: e
+		});
+	}
+	return fetch(t, n);
 }, RL = (e) => typeof e == "string" || e instanceof String ? [{
 	type: "sparql",
 	value: e
@@ -81914,7 +81911,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			query: !0,
 			update: !1,
 			quit: !1
-		};
+		}, this.sources = [], this.destination = [], this.getAuthForUrl = null;
 	}
 	async initialize() {}
 	query_bindings(e) {
@@ -81943,6 +81940,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	get updateUrl() {
 		return this.destination[0].value;
 	}
+	get authForUrl() {
+		return this.getAuthForUrl;
+	}
 }, BL = class extends zL {
 	constructor(e, t) {
 		super(), this.queryEndpoint = e, this.updateEndpoint = t, this.type = "query_only", this.capability = {
@@ -81952,9 +81952,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}, t && (this.type = "query_update", this.capability.update = !0);
 	}
 	async initialize() {
-		this.queryEngine = new FL.QueryEngine(), this.sources = RL(this.queryEndpoint), this.updateEndpoint && (this.destination = RL(this.updateEndpoint));
-		let e = [...this.sources, ...this.destination], t = e.some((e) => e.auth);
-		this.fetchFunction = t ? LL(e) : void 0;
+		this.fetchFunction = null, this.queryEngine = new FL.QueryEngine();
+		let e = RL(this.queryEndpoint), t = this.updateEndpoint ? RL(this.updateEndpoint) : [], n = [...e, ...t];
+		n.some((e) => e.auth) && (this.getAuthForUrl = IL(n), this.fetchFunction = LL(this.getAuthForUrl)), this.sources = e.map((e) => (delete e.auth, e)), this.destination = t.map((e) => (delete e.auth, e));
 	}
 };
 //#endregion

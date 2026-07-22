@@ -1,6 +1,6 @@
-import { a as e, t } from "./rdf-D2-Nb4_o.js";
+import { a as e, t } from "./rdf-Ckr2C8lK.js";
 import { t as n } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as r } from "./prefixes-YZcOFqBl.js";
+import { t as r } from "./prefixes-BYTjU17K.js";
 import { Fragment as i, createCommentVNode as a, createElementBlock as o, createElementVNode as s, normalizeClass as c, openBlock as l, renderList as u, toDisplayString as d, vModelText as f, withDirectives as p } from "vue";
 //#region src/components/QueryResultList.vue
 var m = {
