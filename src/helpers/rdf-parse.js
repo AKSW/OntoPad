@@ -2,7 +2,8 @@
 
 import { Store, Parser, StreamWriter, StreamParser } from 'n3'
 import { Readable } from 'readable-stream'
-import { promisifyEventEmitter } from 'event-emitter-promisify';
+import { promisifyEventEmitter } from 'event-emitter-promisify'
+import { Buffer } from 'node:buffer'
 
 // parse to objects
 // rdfString: the rdf string to parse

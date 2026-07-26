@@ -46,6 +46,7 @@
     "readable-stream": "^4.7.0",
     "sparqljs": "^3.7.4",
     "splitpanes": "^4.1.2",
+    "vite-plugin-node-polyfills": "^0.28.0",
     "vue": "^3.5.40",
     "vue-router": "^5.2.0",
     "yaml": "^2.9.0"
