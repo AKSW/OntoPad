@@ -8293,10 +8293,6 @@ var Ih = {
 				title: "Add"
 			},
 			{
-				to: "/kanban",
-				title: "Kanban"
-			},
-			{
 				to: "/source",
 				title: "Source"
 			}
@@ -8406,7 +8402,7 @@ function $h(e, t, n, r, i, a) {
 		_: 1
 	})])) : (N(), E("div", Qh, " Waiting for Store to be configured … "))])], 64);
 }
-var eg = /*#__PURE__*/ f(Ih, [["render", $h], ["__scopeId", "data-v-6a99b717"]]), tg = Fh({
+var eg = /*#__PURE__*/ f(Ih, [["render", $h], ["__scopeId", "data-v-4fc90bfc"]]), tg = Fh({
 	history: Zm("/OntoPad/pad/"),
 	routes: [
 		{
@@ -8458,4 +8454,26 @@ function ng(e, t) {
 	});
 }
 //#endregion
-export { m as InstanceList, eg as OntoPad, tg as OntoPadRouter, y as Term, g as TermInput, b as diff, c as getResourceQuery, o as quadStreamToString, ng as register, p as usePrefixesStore, u as useRdfStore, l as useSelectionStore };
+//#region src/components/PropertyList.vue
+var rg = /*@__PURE__*/ Object.assign({
+	name: "PropertyList",
+	props: {
+		property_iri: String,
+		selectProperty: Function
+	},
+	watch: { graph_iri(e) {
+		console.log("graph_iri changed" + e), this.$refs.propertyList.updateList();
+	} }
+}, { setup(e) {
+	return (t, n) => (N(), w(h, {
+		title: "Property List",
+		search: "",
+		query: "select distinct ?property { {?s ?property ?o} union {?property a <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property>} union {?property a <http://www.w3.org/2002/07/owl#ObjectProperty>} union {?property a <http://www.w3.org/2002/07/owl#DatatypeProperty>} } order by ?property",
+		"select-variable": "property",
+		ref: "propertyList",
+		activeResource: e.property_iri,
+		selectResource: e.selectProperty
+	}, null, 8, ["activeResource", "selectResource"]));
+} });
+//#endregion
+export { m as InstanceList, eg as OntoPad, tg as OntoPadRouter, rg as PropertyList, y as Term, g as TermInput, b as diff, c as getResourceQuery, o as quadStreamToString, ng as register, p as usePrefixesStore, u as useRdfStore, l as useSelectionStore };
