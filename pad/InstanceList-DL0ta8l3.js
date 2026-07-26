@@ -1,6 +1,6 @@
-import { j as e, r as t, t as n } from "./rdf-DOyOO-ow.js";
+import { L as e, r as t, t as n } from "./rdf-O-dOZMGs.js";
 import { t as r } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as i } from "./prefixes-CjyPZiq3.js";
+import { t as i } from "./prefixes-Cxd5DCXT.js";
 import { mapState as a } from "pinia";
 import { Fragment as o, createBlock as s, createCommentVNode as c, createElementBlock as l, createElementVNode as u, normalizeClass as d, openBlock as f, renderList as p, toDisplayString as m, unref as h, vModelText as g, withDirectives as _ } from "vue";
 //#region src/components/QueryResultList.vue
