@@ -133,10 +133,6 @@ export default {
           title: "Edit"
         },
         {
-          to: "/form",
-          title: "Form"
-        },
-        {
           to: "/add",
           title: "Add"
         },

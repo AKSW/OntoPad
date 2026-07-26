@@ -14,6 +14,10 @@ export { usePrefixesStore } from './stores/prefixes.js'
 // Helpers
 export { register } from './helpers/plugin'
 export { diff } from './helpers/n3-compare'
+export { getResourceQuery } from './helpers/queries'
+export { quadStreamToString } from './helpers/rdf-parse'
 
 // Components
+export { default as Term } from './components/Term.vue'
 export { default as TermInput } from './components/TermInput.vue'
+export { default as InstanceList } from './components/InstanceList.vue'
