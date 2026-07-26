@@ -44,14 +44,16 @@ export async function stringToStore(string, options) {
 
 // Takes a Stream of Quads as first argument
 export async function quadStreamToString(quadStream, options) {
-  const streamWriter = new StreamWriter(options);
+  const streamWriter = new StreamWriter(options)
   streamWriter.import(quadStream)
 
-  const chunks = [];
+  const chunks = []
+
+  console.log(Buffer)
 
   for await (const chunk of streamWriter) {
-    chunks.push(Buffer.from(chunk));
+    chunks.push(Buffer.from(chunk))
   }
 
-  return Buffer.concat(chunks).toString();
+  return Buffer.concat(chunks).toString()
 }
