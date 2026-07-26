@@ -64228,432 +64228,6 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	};
 	Object.defineProperty(e, "__esModule", { value: !0 }), n(KO(), e);
 })), JO = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.default = "ffffffff-ffff-ffff-ffff-ffffffffffff";
-})), YO = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.default = "00000000-0000-0000-0000-000000000000";
-})), XO = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/i;
-})), ZO = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t = XO();
-	function n(e) {
-		return typeof e == "string" && t.default.test(e);
-	}
-	e.default = n;
-})), QO = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t = ZO();
-	function n(e) {
-		if (!(0, t.default)(e)) throw TypeError("Invalid UUID");
-		let n;
-		return Uint8Array.of((n = parseInt(e.slice(0, 8), 16)) >>> 24, n >>> 16 & 255, n >>> 8 & 255, n & 255, (n = parseInt(e.slice(9, 13), 16)) >>> 8, n & 255, (n = parseInt(e.slice(14, 18), 16)) >>> 8, n & 255, (n = parseInt(e.slice(19, 23), 16)) >>> 8, n & 255, (n = parseInt(e.slice(24, 36), 16)) / 1099511627776 & 255, n / 4294967296 & 255, n >>> 24 & 255, n >>> 16 & 255, n >>> 8 & 255, n & 255);
-	}
-	e.default = n;
-})), $O = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.unsafeStringify = void 0;
-	var t = ZO(), n = [];
-	for (let e = 0; e < 256; ++e) n.push((e + 256).toString(16).slice(1));
-	function r(e, t = 0) {
-		return (n[e[t + 0]] + n[e[t + 1]] + n[e[t + 2]] + n[e[t + 3]] + "-" + n[e[t + 4]] + n[e[t + 5]] + "-" + n[e[t + 6]] + n[e[t + 7]] + "-" + n[e[t + 8]] + n[e[t + 9]] + "-" + n[e[t + 10]] + n[e[t + 11]] + n[e[t + 12]] + n[e[t + 13]] + n[e[t + 14]] + n[e[t + 15]]).toLowerCase();
-	}
-	e.unsafeStringify = r;
-	function i(e, n = 0) {
-		let i = r(e, n);
-		if (!(0, t.default)(i)) throw TypeError("Stringified UUID is invalid");
-		return i;
-	}
-	e.default = i;
-})), ek = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t, n = /* @__PURE__ */ new Uint8Array(16);
-	function r() {
-		if (!t) {
-			if (typeof crypto > "u" || !crypto.getRandomValues) throw Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-			t = crypto.getRandomValues.bind(crypto);
-		}
-		return t(n);
-	}
-	e.default = r;
-})), tk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.updateV1State = void 0;
-	var t = ek(), n = $O(), r = {};
-	function i(e, i, s) {
-		let c, l = e?._v6 ?? !1;
-		if (e) {
-			let t = Object.keys(e);
-			t.length === 1 && t[0] === "_v6" && (e = void 0);
-		}
-		if (e) c = o(e.random ?? e.rng?.() ?? (0, t.default)(), e.msecs, e.nsecs, e.clockseq, e.node, i, s);
-		else {
-			let e = Date.now(), n = (0, t.default)();
-			a(r, e, n), c = o(n, r.msecs, r.nsecs, l ? void 0 : r.clockseq, l ? void 0 : r.node, i, s);
-		}
-		return i ?? (0, n.unsafeStringify)(c);
-	}
-	function a(e, t, n) {
-		return e.msecs ??= -Infinity, e.nsecs ??= 0, t === e.msecs ? (e.nsecs++, e.nsecs >= 1e4 && (e.node = void 0, e.nsecs = 0)) : t > e.msecs ? e.nsecs = 0 : t < e.msecs && (e.node = void 0), e.node || (e.node = n.slice(10, 16), e.node[0] |= 1, e.clockseq = (n[8] << 8 | n[9]) & 16383), e.msecs = t, e;
-	}
-	e.updateV1State = a;
-	function o(e, t, n, r, i, a, o = 0) {
-		if (e.length < 16) throw Error("Random bytes length must be >= 16");
-		if (!a) a = /* @__PURE__ */ new Uint8Array(16), o = 0;
-		else if (o < 0 || o + 16 > a.length) throw RangeError(`UUID byte range ${o}:${o + 15} is out of buffer bounds`);
-		t ??= Date.now(), n ??= 0, r ??= (e[8] << 8 | e[9]) & 16383, i ??= e.slice(10, 16), t += 0xb1d069b5400;
-		let s = ((t & 268435455) * 1e4 + n) % 4294967296;
-		a[o++] = s >>> 24 & 255, a[o++] = s >>> 16 & 255, a[o++] = s >>> 8 & 255, a[o++] = s & 255;
-		let c = t / 4294967296 * 1e4 & 268435455;
-		a[o++] = c >>> 8 & 255, a[o++] = c & 255, a[o++] = c >>> 24 & 15 | 16, a[o++] = c >>> 16 & 255, a[o++] = r >>> 8 | 128, a[o++] = r & 255;
-		for (let e = 0; e < 6; ++e) a[o++] = i[e];
-		return a;
-	}
-	e.default = i;
-})), nk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t = QO(), n = $O();
-	function r(e) {
-		let r = i(typeof e == "string" ? (0, t.default)(e) : e);
-		return typeof e == "string" ? (0, n.unsafeStringify)(r) : r;
-	}
-	e.default = r;
-	function i(e) {
-		return Uint8Array.of((e[6] & 15) << 4 | e[7] >> 4 & 15, (e[7] & 15) << 4 | (e[4] & 240) >> 4, (e[4] & 15) << 4 | (e[5] & 240) >> 4, (e[5] & 15) << 4 | (e[0] & 240) >> 4, (e[0] & 15) << 4 | (e[1] & 240) >> 4, (e[1] & 15) << 4 | (e[2] & 240) >> 4, 96 | e[2] & 15, e[3], e[8], e[9], e[10], e[11], e[12], e[13], e[14], e[15]);
-	}
-})), rk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	function t(e) {
-		return n(i(a(e), e.length * 8));
-	}
-	function n(e) {
-		let t = new Uint8Array(e.length * 4);
-		for (let n = 0; n < e.length * 4; n++) t[n] = e[n >> 2] >>> n % 4 * 8 & 255;
-		return t;
-	}
-	function r(e) {
-		return (e + 64 >>> 9 << 4) + 14 + 1;
-	}
-	function i(e, t) {
-		let n = new Uint32Array(r(t)).fill(0);
-		n.set(e), n[t >> 5] |= 128 << t % 32, n[n.length - 1] = t, e = n;
-		let i = 1732584193, a = -271733879, s = -1732584194, c = 271733878;
-		for (let t = 0; t < e.length; t += 16) {
-			let n = i, r = a, p = s, m = c;
-			i = l(i, a, s, c, e[t], 7, -680876936), c = l(c, i, a, s, e[t + 1], 12, -389564586), s = l(s, c, i, a, e[t + 2], 17, 606105819), a = l(a, s, c, i, e[t + 3], 22, -1044525330), i = l(i, a, s, c, e[t + 4], 7, -176418897), c = l(c, i, a, s, e[t + 5], 12, 1200080426), s = l(s, c, i, a, e[t + 6], 17, -1473231341), a = l(a, s, c, i, e[t + 7], 22, -45705983), i = l(i, a, s, c, e[t + 8], 7, 1770035416), c = l(c, i, a, s, e[t + 9], 12, -1958414417), s = l(s, c, i, a, e[t + 10], 17, -42063), a = l(a, s, c, i, e[t + 11], 22, -1990404162), i = l(i, a, s, c, e[t + 12], 7, 1804603682), c = l(c, i, a, s, e[t + 13], 12, -40341101), s = l(s, c, i, a, e[t + 14], 17, -1502002290), a = l(a, s, c, i, e[t + 15], 22, 1236535329), i = u(i, a, s, c, e[t + 1], 5, -165796510), c = u(c, i, a, s, e[t + 6], 9, -1069501632), s = u(s, c, i, a, e[t + 11], 14, 643717713), a = u(a, s, c, i, e[t], 20, -373897302), i = u(i, a, s, c, e[t + 5], 5, -701558691), c = u(c, i, a, s, e[t + 10], 9, 38016083), s = u(s, c, i, a, e[t + 15], 14, -660478335), a = u(a, s, c, i, e[t + 4], 20, -405537848), i = u(i, a, s, c, e[t + 9], 5, 568446438), c = u(c, i, a, s, e[t + 14], 9, -1019803690), s = u(s, c, i, a, e[t + 3], 14, -187363961), a = u(a, s, c, i, e[t + 8], 20, 1163531501), i = u(i, a, s, c, e[t + 13], 5, -1444681467), c = u(c, i, a, s, e[t + 2], 9, -51403784), s = u(s, c, i, a, e[t + 7], 14, 1735328473), a = u(a, s, c, i, e[t + 12], 20, -1926607734), i = d(i, a, s, c, e[t + 5], 4, -378558), c = d(c, i, a, s, e[t + 8], 11, -2022574463), s = d(s, c, i, a, e[t + 11], 16, 1839030562), a = d(a, s, c, i, e[t + 14], 23, -35309556), i = d(i, a, s, c, e[t + 1], 4, -1530992060), c = d(c, i, a, s, e[t + 4], 11, 1272893353), s = d(s, c, i, a, e[t + 7], 16, -155497632), a = d(a, s, c, i, e[t + 10], 23, -1094730640), i = d(i, a, s, c, e[t + 13], 4, 681279174), c = d(c, i, a, s, e[t], 11, -358537222), s = d(s, c, i, a, e[t + 3], 16, -722521979), a = d(a, s, c, i, e[t + 6], 23, 76029189), i = d(i, a, s, c, e[t + 9], 4, -640364487), c = d(c, i, a, s, e[t + 12], 11, -421815835), s = d(s, c, i, a, e[t + 15], 16, 530742520), a = d(a, s, c, i, e[t + 2], 23, -995338651), i = f(i, a, s, c, e[t], 6, -198630844), c = f(c, i, a, s, e[t + 7], 10, 1126891415), s = f(s, c, i, a, e[t + 14], 15, -1416354905), a = f(a, s, c, i, e[t + 5], 21, -57434055), i = f(i, a, s, c, e[t + 12], 6, 1700485571), c = f(c, i, a, s, e[t + 3], 10, -1894986606), s = f(s, c, i, a, e[t + 10], 15, -1051523), a = f(a, s, c, i, e[t + 1], 21, -2054922799), i = f(i, a, s, c, e[t + 8], 6, 1873313359), c = f(c, i, a, s, e[t + 15], 10, -30611744), s = f(s, c, i, a, e[t + 6], 15, -1560198380), a = f(a, s, c, i, e[t + 13], 21, 1309151649), i = f(i, a, s, c, e[t + 4], 6, -145523070), c = f(c, i, a, s, e[t + 11], 10, -1120210379), s = f(s, c, i, a, e[t + 2], 15, 718787259), a = f(a, s, c, i, e[t + 9], 21, -343485551), i = o(i, n), a = o(a, r), s = o(s, p), c = o(c, m);
-		}
-		return Uint32Array.of(i, a, s, c);
-	}
-	function a(e) {
-		if (e.length === 0) return /* @__PURE__ */ new Uint32Array();
-		let t = new Uint32Array(r(e.length * 8)).fill(0);
-		for (let n = 0; n < e.length; n++) t[n >> 2] |= (e[n] & 255) << n % 4 * 8;
-		return t;
-	}
-	function o(e, t) {
-		let n = (e & 65535) + (t & 65535);
-		return (e >> 16) + (t >> 16) + (n >> 16) << 16 | n & 65535;
-	}
-	function s(e, t) {
-		return e << t | e >>> 32 - t;
-	}
-	function c(e, t, n, r, i, a) {
-		return o(s(o(o(t, e), o(r, a)), i), n);
-	}
-	function l(e, t, n, r, i, a, o) {
-		return c(t & n | ~t & r, e, t, i, a, o);
-	}
-	function u(e, t, n, r, i, a, o) {
-		return c(t & r | n & ~r, e, t, i, a, o);
-	}
-	function d(e, t, n, r, i, a, o) {
-		return c(t ^ n ^ r, e, t, i, a, o);
-	}
-	function f(e, t, n, r, i, a, o) {
-		return c(n ^ (t | ~r), e, t, i, a, o);
-	}
-	e.default = t;
-})), ik = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.URL = e.DNS = e.stringToBytes = void 0;
-	var t = QO(), n = $O();
-	function r(e) {
-		e = unescape(encodeURIComponent(e));
-		let t = new Uint8Array(e.length);
-		for (let n = 0; n < e.length; ++n) t[n] = e.charCodeAt(n);
-		return t;
-	}
-	e.stringToBytes = r, e.DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8", e.URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
-	function i(e, i, a, o, s, c) {
-		let l = typeof a == "string" ? r(a) : a, u = typeof o == "string" ? (0, t.default)(o) : o;
-		if (typeof o == "string" && (o = (0, t.default)(o)), o?.length !== 16) throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
-		let d = new Uint8Array(16 + l.length);
-		if (d.set(u), d.set(l, u.length), d = i(d), d[6] = d[6] & 15 | e, d[8] = d[8] & 63 | 128, s) {
-			if (c ||= 0, c < 0 || c + 16 > s.length) throw RangeError(`UUID byte range ${c}:${c + 15} is out of buffer bounds`);
-			for (let e = 0; e < 16; ++e) s[c + e] = d[e];
-			return s;
-		}
-		return (0, n.unsafeStringify)(d);
-	}
-	e.default = i;
-})), ak = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.URL = e.DNS = void 0;
-	var t = rk(), n = ik(), r = ik();
-	Object.defineProperty(e, "DNS", {
-		enumerable: !0,
-		get: function() {
-			return r.DNS;
-		}
-	}), Object.defineProperty(e, "URL", {
-		enumerable: !0,
-		get: function() {
-			return r.URL;
-		}
-	});
-	function i(e, r, i, a) {
-		return (0, n.default)(48, t.default, e, r, i, a);
-	}
-	i.DNS = n.DNS, i.URL = n.URL, e.default = i;
-})), ok = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.default = { randomUUID: typeof crypto < "u" && crypto.randomUUID && crypto.randomUUID.bind(crypto) };
-})), sk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t = ok(), n = ek(), r = $O();
-	function i(e, i, a) {
-		if (t.default.randomUUID && !i && !e) return t.default.randomUUID();
-		e ||= {};
-		let o = e.random ?? e.rng?.() ?? (0, n.default)();
-		if (o.length < 16) throw Error("Random bytes length must be >= 16");
-		if (o[6] = o[6] & 15 | 64, o[8] = o[8] & 63 | 128, i) {
-			if (a ||= 0, a < 0 || a + 16 > i.length) throw RangeError(`UUID byte range ${a}:${a + 15} is out of buffer bounds`);
-			for (let e = 0; e < 16; ++e) i[a + e] = o[e];
-			return i;
-		}
-		return (0, r.unsafeStringify)(o);
-	}
-	e.default = i;
-})), ck = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	function t(e, t, n, r) {
-		switch (e) {
-			case 0: return t & n ^ ~t & r;
-			case 1: return t ^ n ^ r;
-			case 2: return t & n ^ t & r ^ n & r;
-			case 3: return t ^ n ^ r;
-		}
-	}
-	function n(e, t) {
-		return e << t | e >>> 32 - t;
-	}
-	function r(e) {
-		let r = [
-			1518500249,
-			1859775393,
-			2400959708,
-			3395469782
-		], i = [
-			1732584193,
-			4023233417,
-			2562383102,
-			271733878,
-			3285377520
-		], a = new Uint8Array(e.length + 1);
-		a.set(e), a[e.length] = 128, e = a;
-		let o = e.length / 4 + 2, s = Math.ceil(o / 16), c = Array(s);
-		for (let t = 0; t < s; ++t) {
-			let n = /* @__PURE__ */ new Uint32Array(16);
-			for (let r = 0; r < 16; ++r) n[r] = e[t * 64 + r * 4] << 24 | e[t * 64 + r * 4 + 1] << 16 | e[t * 64 + r * 4 + 2] << 8 | e[t * 64 + r * 4 + 3];
-			c[t] = n;
-		}
-		c[s - 1][14] = (e.length - 1) * 8 / 2 ** 32, c[s - 1][14] = Math.floor(c[s - 1][14]), c[s - 1][15] = (e.length - 1) * 8 & 4294967295;
-		for (let e = 0; e < s; ++e) {
-			let a = /* @__PURE__ */ new Uint32Array(80);
-			for (let t = 0; t < 16; ++t) a[t] = c[e][t];
-			for (let e = 16; e < 80; ++e) a[e] = n(a[e - 3] ^ a[e - 8] ^ a[e - 14] ^ a[e - 16], 1);
-			let o = i[0], s = i[1], l = i[2], u = i[3], d = i[4];
-			for (let e = 0; e < 80; ++e) {
-				let i = Math.floor(e / 20), c = n(o, 5) + t(i, s, l, u) + d + r[i] + a[e] >>> 0;
-				d = u, u = l, l = n(s, 30) >>> 0, s = o, o = c;
-			}
-			i[0] = i[0] + o >>> 0, i[1] = i[1] + s >>> 0, i[2] = i[2] + l >>> 0, i[3] = i[3] + u >>> 0, i[4] = i[4] + d >>> 0;
-		}
-		return Uint8Array.of(i[0] >> 24, i[0] >> 16, i[0] >> 8, i[0], i[1] >> 24, i[1] >> 16, i[1] >> 8, i[1], i[2] >> 24, i[2] >> 16, i[2] >> 8, i[2], i[3] >> 24, i[3] >> 16, i[3] >> 8, i[3], i[4] >> 24, i[4] >> 16, i[4] >> 8, i[4]);
-	}
-	e.default = r;
-})), lk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.URL = e.DNS = void 0;
-	var t = ck(), n = ik(), r = ik();
-	Object.defineProperty(e, "DNS", {
-		enumerable: !0,
-		get: function() {
-			return r.DNS;
-		}
-	}), Object.defineProperty(e, "URL", {
-		enumerable: !0,
-		get: function() {
-			return r.URL;
-		}
-	});
-	function i(e, r, i, a) {
-		return (0, n.default)(80, t.default, e, r, i, a);
-	}
-	i.DNS = n.DNS, i.URL = n.URL, e.default = i;
-})), uk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t = $O(), n = tk(), r = nk();
-	function i(e, i, a) {
-		e ??= {}, a ??= 0;
-		let o = (0, n.default)({
-			...e,
-			_v6: !0
-		}, /* @__PURE__ */ new Uint8Array(16));
-		if (o = (0, r.default)(o), i) {
-			if (a < 0 || a + 16 > i.length) throw RangeError(`UUID byte range ${a}:${a + 15} is out of buffer bounds`);
-			for (let e = 0; e < 16; e++) i[a + e] = o[e];
-			return i;
-		}
-		return (0, t.unsafeStringify)(o);
-	}
-	e.default = i;
-})), dk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t = QO(), n = $O();
-	function r(e) {
-		let r = i(typeof e == "string" ? (0, t.default)(e) : e);
-		return typeof e == "string" ? (0, n.unsafeStringify)(r) : r;
-	}
-	e.default = r;
-	function i(e) {
-		return Uint8Array.of((e[3] & 15) << 4 | e[4] >> 4 & 15, (e[4] & 15) << 4 | (e[5] & 240) >> 4, (e[5] & 15) << 4 | e[6] & 15, e[7], (e[1] & 15) << 4 | (e[2] & 240) >> 4, (e[2] & 15) << 4 | (e[3] & 240) >> 4, 16 | (e[0] & 240) >> 4, (e[0] & 15) << 4 | (e[1] & 240) >> 4, e[8], e[9], e[10], e[11], e[12], e[13], e[14], e[15]);
-	}
-})), fk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.updateV7State = void 0;
-	var t = ek(), n = $O(), r = {};
-	function i(e, i, s) {
-		let c;
-		if (e) c = o(e.random ?? e.rng?.() ?? (0, t.default)(), e.msecs, e.seq, i, s);
-		else {
-			let e = Date.now(), n = (0, t.default)();
-			a(r, e, n), c = o(n, r.msecs, r.seq, i, s);
-		}
-		return i ?? (0, n.unsafeStringify)(c);
-	}
-	function a(e, t, n) {
-		return e.msecs ??= -Infinity, e.seq ??= 0, t > e.msecs ? (e.seq = n[6] << 23 | n[7] << 16 | n[8] << 8 | n[9], e.msecs = t) : (e.seq = e.seq + 1 | 0, e.seq === 0 && e.msecs++), e;
-	}
-	e.updateV7State = a;
-	function o(e, t, n, r, i = 0) {
-		if (e.length < 16) throw Error("Random bytes length must be >= 16");
-		if (!r) r = /* @__PURE__ */ new Uint8Array(16), i = 0;
-		else if (i < 0 || i + 16 > r.length) throw RangeError(`UUID byte range ${i}:${i + 15} is out of buffer bounds`);
-		return t ??= Date.now(), n ??= e[6] * 127 << 24 | e[7] << 16 | e[8] << 8 | e[9], r[i++] = t / 1099511627776 & 255, r[i++] = t / 4294967296 & 255, r[i++] = t / 16777216 & 255, r[i++] = t / 65536 & 255, r[i++] = t / 256 & 255, r[i++] = t & 255, r[i++] = 112 | n >>> 28 & 15, r[i++] = n >>> 20 & 255, r[i++] = 128 | n >>> 14 & 63, r[i++] = n >>> 6 & 255, r[i++] = n << 2 & 255 | e[10] & 3, r[i++] = e[11], r[i++] = e[12], r[i++] = e[13], r[i++] = e[14], r[i++] = e[15], r;
-	}
-	e.default = i;
-})), pk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 });
-	var t = ZO();
-	function n(e) {
-		if (!(0, t.default)(e)) throw TypeError("Invalid UUID");
-		return parseInt(e.slice(14, 15), 16);
-	}
-	e.default = n;
-})), mk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.version = e.validate = e.v7 = e.v6ToV1 = e.v6 = e.v5 = e.v4 = e.v3 = e.v1ToV6 = e.v1 = e.stringify = e.parse = e.NIL = e.MAX = void 0;
-	var t = JO();
-	Object.defineProperty(e, "MAX", {
-		enumerable: !0,
-		get: function() {
-			return t.default;
-		}
-	});
-	var n = YO();
-	Object.defineProperty(e, "NIL", {
-		enumerable: !0,
-		get: function() {
-			return n.default;
-		}
-	});
-	var r = QO();
-	Object.defineProperty(e, "parse", {
-		enumerable: !0,
-		get: function() {
-			return r.default;
-		}
-	});
-	var i = $O();
-	Object.defineProperty(e, "stringify", {
-		enumerable: !0,
-		get: function() {
-			return i.default;
-		}
-	});
-	var a = tk();
-	Object.defineProperty(e, "v1", {
-		enumerable: !0,
-		get: function() {
-			return a.default;
-		}
-	});
-	var o = nk();
-	Object.defineProperty(e, "v1ToV6", {
-		enumerable: !0,
-		get: function() {
-			return o.default;
-		}
-	});
-	var s = ak();
-	Object.defineProperty(e, "v3", {
-		enumerable: !0,
-		get: function() {
-			return s.default;
-		}
-	});
-	var c = sk();
-	Object.defineProperty(e, "v4", {
-		enumerable: !0,
-		get: function() {
-			return c.default;
-		}
-	});
-	var l = lk();
-	Object.defineProperty(e, "v5", {
-		enumerable: !0,
-		get: function() {
-			return l.default;
-		}
-	});
-	var u = uk();
-	Object.defineProperty(e, "v6", {
-		enumerable: !0,
-		get: function() {
-			return u.default;
-		}
-	});
-	var d = dk();
-	Object.defineProperty(e, "v6ToV1", {
-		enumerable: !0,
-		get: function() {
-			return d.default;
-		}
-	});
-	var f = fk();
-	Object.defineProperty(e, "v7", {
-		enumerable: !0,
-		get: function() {
-			return f.default;
-		}
-	});
-	var p = ZO();
-	Object.defineProperty(e, "validate", {
-		enumerable: !0,
-		get: function() {
-			return p.default;
-		}
-	});
-	var m = pk();
-	Object.defineProperty(e, "version", {
-		enumerable: !0,
-		get: function() {
-			return m.default;
-		}
-	});
-})), hk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -64688,7 +64262,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		};
 	})();
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionUuid = void 0;
-	var i = X(), a = Y(), o = r(mk());
+	var i = X(), a = Y(), o = r(mO());
 	e.TermFunctionUuid = class extends i.TermFunctionBase {
 		constructor() {
 			super({
@@ -64698,9 +64272,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), gk = /* @__PURE__ */ l(((e) => {
+})), YO = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermUuid = void 0;
-	var t = X(), n = Y(), r = hk();
+	var t = X(), n = Y(), r = JO();
 	e.ActorFunctionFactoryTermUuid = class extends t.ActorFunctionFactoryDedicated {
 		constructor(e) {
 			super({
@@ -64713,7 +64287,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionUuid();
 		}
 	};
-})), _k = /* @__PURE__ */ l(((e) => {
+})), XO = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -64728,8 +64302,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(gk(), e);
-})), vk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(YO(), e);
+})), ZO = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToBoolean = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionXsdToBoolean = class extends t.TermFunctionBase {
@@ -64749,9 +64323,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), yk = /* @__PURE__ */ l(((e) => {
+})), QO = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToBoolean = void 0;
-	var t = X(), n = Y(), r = vk();
+	var t = X(), n = Y(), r = ZO();
 	e.ActorFunctionFactoryTermXsdToBoolean = class extends t.ActorFunctionFactoryDedicated {
 		constructor(e) {
 			super({
@@ -64764,7 +64338,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionXsdToBoolean();
 		}
 	};
-})), bk = /* @__PURE__ */ l(((e) => {
+})), $O = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -64779,8 +64353,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(yk(), e);
-})), xk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(QO(), e);
+})), ek = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDate = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionXsdToDate = class extends t.TermFunctionBase {
@@ -64792,9 +64366,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), Sk = /* @__PURE__ */ l(((e) => {
+})), tk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDate = void 0;
-	var t = X(), n = Y(), r = xk();
+	var t = X(), n = Y(), r = ek();
 	e.ActorFunctionFactoryTermXsdToDate = class extends t.ActorFunctionFactoryDedicated {
 		constructor(e) {
 			super({
@@ -64807,7 +64381,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionXsdToDate();
 		}
 	};
-})), Ck = /* @__PURE__ */ l(((e) => {
+})), nk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -64822,8 +64396,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Sk(), e);
-})), wk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(tk(), e);
+})), rk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDatetime = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionXsdToDatetime = class extends t.TermFunctionBase {
@@ -64840,9 +64414,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), Tk = /* @__PURE__ */ l(((e) => {
+})), ik = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDatetime = void 0;
-	var t = X(), n = Y(), r = wk();
+	var t = X(), n = Y(), r = rk();
 	e.ActorFunctionFactoryTermXsdToDatetime = class extends t.ActorFunctionFactoryDedicated {
 		constructor(e) {
 			super({
@@ -64855,7 +64429,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionXsdToDatetime();
 		}
 	};
-})), Ek = /* @__PURE__ */ l(((e) => {
+})), ak = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -64870,8 +64444,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Tk(), e);
-})), Dk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(ik(), e);
+})), ok = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDayTimeDuration = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionXsdToDayTimeDuration = class extends t.TermFunctionBase {
@@ -64883,9 +64457,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), Ok = /* @__PURE__ */ l(((e) => {
+})), sk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDayTimeDuration = void 0;
-	var t = X(), n = Y(), r = Dk();
+	var t = X(), n = Y(), r = ok();
 	e.ActorFunctionFactoryTermXsdToDayTimeDuration = class extends t.ActorFunctionFactoryDedicated {
 		constructor(e) {
 			super({
@@ -64898,7 +64472,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionXsdToDayTimeDuration();
 		}
 	};
-})), kk = /* @__PURE__ */ l(((e) => {
+})), ck = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -64913,8 +64487,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Ok(), e);
-})), Ak = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(sk(), e);
+})), lk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDecimal = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionXsdToDecimal = class extends t.TermFunctionBase {
@@ -64934,9 +64508,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), jk = /* @__PURE__ */ l(((e) => {
+})), uk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDecimal = void 0;
-	var t = X(), n = Y(), r = Ak();
+	var t = X(), n = Y(), r = lk();
 	e.ActorFunctionFactoryTermXsdToDecimal = class extends t.ActorFunctionFactoryDedicated {
 		constructor(e) {
 			super({
@@ -64947,6 +64521,322 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		}
 		async run(e) {
 			return new r.TermFunctionXsdToDecimal();
+		}
+	};
+})), dk = /* @__PURE__ */ l(((e) => {
+	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
+		r === void 0 && (r = n);
+		var i = Object.getOwnPropertyDescriptor(t, n);
+		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
+			enumerable: !0,
+			get: function() {
+				return t[n];
+			}
+		}), Object.defineProperty(e, r, i);
+	}) : (function(e, t, n, r) {
+		r === void 0 && (r = n), e[r] = t[n];
+	})), n = e && e.__exportStar || function(e, n) {
+		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
+	};
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(uk(), e);
+})), fk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDouble = void 0;
+	var t = X(), n = Y();
+	e.TermFunctionXsdToDouble = class extends t.TermFunctionBase {
+		constructor() {
+			super({
+				arity: 1,
+				operator: n.TypeURL.XSD_DOUBLE,
+				overloads: (0, n.declare)(n.TypeURL.XSD_DOUBLE).onNumeric1(() => (e) => (0, n.double)(e.typedValue)).onBoolean1Typed(() => (e) => (0, n.double)(+!!e)).onUnary(n.TypeURL.XSD_STRING, () => (e) => {
+					let t = (0, n.parseXSDFloat)(e.str());
+					if (t === void 0) throw new n.CastError(e, n.TypeURL.XSD_DOUBLE);
+					return (0, n.double)(t);
+				}, !1).collect()
+			});
+		}
+	};
+})), pk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDouble = void 0;
+	var t = X(), n = Y(), r = fk();
+	e.ActorFunctionFactoryTermXsdToDouble = class extends t.ActorFunctionFactoryDedicated {
+		constructor(e) {
+			super({
+				...e,
+				functionNames: [n.TypeURL.XSD_DOUBLE],
+				termFunction: !0
+			});
+		}
+		async run(e) {
+			return new r.TermFunctionXsdToDouble();
+		}
+	};
+})), mk = /* @__PURE__ */ l(((e) => {
+	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
+		r === void 0 && (r = n);
+		var i = Object.getOwnPropertyDescriptor(t, n);
+		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
+			enumerable: !0,
+			get: function() {
+				return t[n];
+			}
+		}), Object.defineProperty(e, r, i);
+	}) : (function(e, t, n, r) {
+		r === void 0 && (r = n), e[r] = t[n];
+	})), n = e && e.__exportStar || function(e, n) {
+		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
+	};
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(pk(), e);
+})), hk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDuration = void 0;
+	var t = X(), n = Y();
+	e.TermFunctionXsdToDuration = class extends t.TermFunctionBase {
+		constructor() {
+			super({
+				arity: 1,
+				operator: n.TypeURL.XSD_DAY_TIME_DURATION,
+				overloads: (0, n.declare)(n.TypeURL.XSD_DURATION).onUnary(n.TypeURL.XSD_DURATION, () => (e) => new n.DurationLiteral(e.typedValue, e.strValue)).onStringly1(() => (e) => new n.DurationLiteral((0, n.parseDuration)(e.str()))).collect()
+			});
+		}
+	};
+})), gk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDuration = void 0;
+	var t = X(), n = Y(), r = hk();
+	e.ActorFunctionFactoryTermXsdToDuration = class extends t.ActorFunctionFactoryDedicated {
+		constructor(e) {
+			super({
+				...e,
+				functionNames: [n.TypeURL.XSD_DURATION],
+				termFunction: !0
+			});
+		}
+		async run(e) {
+			return new r.TermFunctionXsdToDuration();
+		}
+	};
+})), _k = /* @__PURE__ */ l(((e) => {
+	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
+		r === void 0 && (r = n);
+		var i = Object.getOwnPropertyDescriptor(t, n);
+		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
+			enumerable: !0,
+			get: function() {
+				return t[n];
+			}
+		}), Object.defineProperty(e, r, i);
+	}) : (function(e, t, n, r) {
+		r === void 0 && (r = n), e[r] = t[n];
+	})), n = e && e.__exportStar || function(e, n) {
+		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
+	};
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(gk(), e);
+})), vk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToFloat = void 0;
+	var t = X(), n = Y();
+	e.TermFunctionXsdToFloat = class extends t.TermFunctionBase {
+		constructor() {
+			super({
+				arity: 1,
+				operator: n.TypeURL.XSD_FLOAT,
+				overloads: (0, n.declare)(n.TypeURL.XSD_FLOAT).onNumeric1(() => (e) => (0, n.float)(e.typedValue)).onBoolean1Typed(() => (e) => (0, n.float)(+!!e)).onUnary(n.TypeURL.XSD_STRING, () => (e) => {
+					let t = (0, n.parseXSDFloat)(e.str());
+					if (t === void 0) throw new n.CastError(e, n.TypeURL.XSD_FLOAT);
+					return (0, n.float)(t);
+				}, !1).collect()
+			});
+		}
+	};
+})), yk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToFloat = void 0;
+	var t = X(), n = Y(), r = vk();
+	e.ActorFunctionFactoryTermXsdToFloat = class extends t.ActorFunctionFactoryDedicated {
+		constructor(e) {
+			super({
+				...e,
+				functionNames: [n.TypeURL.XSD_FLOAT],
+				termFunction: !0
+			});
+		}
+		async run(e) {
+			return new r.TermFunctionXsdToFloat();
+		}
+	};
+})), bk = /* @__PURE__ */ l(((e) => {
+	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
+		r === void 0 && (r = n);
+		var i = Object.getOwnPropertyDescriptor(t, n);
+		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
+			enumerable: !0,
+			get: function() {
+				return t[n];
+			}
+		}), Object.defineProperty(e, r, i);
+	}) : (function(e, t, n, r) {
+		r === void 0 && (r = n), e[r] = t[n];
+	})), n = e && e.__exportStar || function(e, n) {
+		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
+	};
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(yk(), e);
+})), xk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToInteger = void 0;
+	var t = X(), n = Y();
+	e.TermFunctionXsdToInteger = class extends t.TermFunctionBase {
+		constructor() {
+			super({
+				arity: 1,
+				operator: n.TypeURL.XSD_INTEGER,
+				overloads: (0, n.declare)(n.TypeURL.XSD_INTEGER).onBoolean1Typed(() => (e) => (0, n.integer)(+!!e)).onNumeric1(() => (e) => {
+					if (!Number.isFinite(e.typedValue)) throw new n.CastError(e, n.TypeURL.XSD_INTEGER);
+					return (0, n.integer)(Math.trunc(e.typedValue));
+				}).onString1(() => (e) => {
+					let t = e.str(), r = /^\d+$/u.test(t) ? Number.parseInt(t, 10) : void 0;
+					if (r === void 0) throw new n.CastError(e, n.TypeURL.XSD_INTEGER);
+					return (0, n.integer)(r);
+				}).collect()
+			});
+		}
+	};
+})), Sk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToInteger = void 0;
+	var t = X(), n = Y(), r = xk();
+	e.ActorFunctionFactoryTermXsdToInteger = class extends t.ActorFunctionFactoryDedicated {
+		constructor(e) {
+			super({
+				...e,
+				functionNames: [n.TypeURL.XSD_INTEGER],
+				termFunction: !0
+			});
+		}
+		async run(e) {
+			return new r.TermFunctionXsdToInteger();
+		}
+	};
+})), Ck = /* @__PURE__ */ l(((e) => {
+	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
+		r === void 0 && (r = n);
+		var i = Object.getOwnPropertyDescriptor(t, n);
+		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
+			enumerable: !0,
+			get: function() {
+				return t[n];
+			}
+		}), Object.defineProperty(e, r, i);
+	}) : (function(e, t, n, r) {
+		r === void 0 && (r = n), e[r] = t[n];
+	})), n = e && e.__exportStar || function(e, n) {
+		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
+	};
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Sk(), e);
+})), wk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToString = void 0;
+	var t = X(), n = Y();
+	e.TermFunctionXsdToString = class extends t.TermFunctionBase {
+		constructor() {
+			super({
+				arity: 1,
+				operator: n.TypeURL.XSD_STRING,
+				overloads: (0, n.declare)(n.TypeURL.XSD_STRING).onNumeric1(() => (e) => (0, n.string)((0, n.float)(e.typedValue).str())).onBoolean1Typed(() => (e) => (0, n.string)((0, n.bool)(e).str())).onTerm1(() => (e) => (0, n.string)(e.str())).collect()
+			});
+		}
+	};
+})), Tk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToString = void 0;
+	var t = X(), n = Y(), r = wk();
+	e.ActorFunctionFactoryTermXsdToString = class extends t.ActorFunctionFactoryDedicated {
+		constructor(e) {
+			super({
+				...e,
+				functionNames: [n.TypeURL.XSD_STRING],
+				termFunction: !0
+			});
+		}
+		async run(e) {
+			return new r.TermFunctionXsdToString();
+		}
+	};
+})), Ek = /* @__PURE__ */ l(((e) => {
+	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
+		r === void 0 && (r = n);
+		var i = Object.getOwnPropertyDescriptor(t, n);
+		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
+			enumerable: !0,
+			get: function() {
+				return t[n];
+			}
+		}), Object.defineProperty(e, r, i);
+	}) : (function(e, t, n, r) {
+		r === void 0 && (r = n), e[r] = t[n];
+	})), n = e && e.__exportStar || function(e, n) {
+		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
+	};
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Tk(), e);
+})), Dk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToTime = void 0;
+	var t = X(), n = Y();
+	e.TermFunctionXsdToTime = class extends t.TermFunctionBase {
+		constructor() {
+			super({
+				arity: 1,
+				operator: n.TypeURL.XSD_TIME,
+				overloads: (0, n.declare)(n.TypeURL.XSD_TIME).onUnary(n.TypeURL.XSD_TIME, () => (e) => new n.TimeLiteral(e.typedValue, e.strValue)).onUnary(n.TypeURL.XSD_DATE_TIME, () => (e) => new n.TimeLiteral(e.typedValue)).onStringly1(() => (e) => new n.TimeLiteral((0, n.parseTime)(e.str()))).collect()
+			});
+		}
+	};
+})), Ok = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToTime = void 0;
+	var t = X(), n = Y(), r = Dk();
+	e.ActorFunctionFactoryTermXsdToTime = class extends t.ActorFunctionFactoryDedicated {
+		constructor(e) {
+			super({
+				...e,
+				functionNames: [n.TypeURL.XSD_TIME],
+				termFunction: !0
+			});
+		}
+		async run(e) {
+			return new r.TermFunctionXsdToTime();
+		}
+	};
+})), kk = /* @__PURE__ */ l(((e) => {
+	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
+		r === void 0 && (r = n);
+		var i = Object.getOwnPropertyDescriptor(t, n);
+		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
+			enumerable: !0,
+			get: function() {
+				return t[n];
+			}
+		}), Object.defineProperty(e, r, i);
+	}) : (function(e, t, n, r) {
+		r === void 0 && (r = n), e[r] = t[n];
+	})), n = e && e.__exportStar || function(e, n) {
+		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
+	};
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Ok(), e);
+})), Ak = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToYearMonthDuration = void 0;
+	var t = X(), n = Y();
+	e.TermFunctionXsdToYearMonthDuration = class extends t.TermFunctionBase {
+		constructor() {
+			super({
+				arity: 1,
+				operator: n.TypeURL.XSD_YEAR_MONTH_DURATION,
+				overloads: (0, n.declare)(n.TypeURL.XSD_YEAR_MONTH_DURATION).onUnary(n.TypeURL.XSD_DURATION, () => (e) => new n.YearMonthDurationLiteral((0, n.trimToYearMonthDuration)(e.typedValue))).onStringly1(() => (e) => new n.YearMonthDurationLiteral((0, n.parseYearMonthDuration)(e.str()))).collect()
+			});
+		}
+	};
+})), jk = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToYearMonthDuration = void 0;
+	var t = X(), n = Y(), r = Ak();
+	e.ActorFunctionFactoryTermXsdToYearMonthDuration = class extends t.ActorFunctionFactoryDedicated {
+		constructor(e) {
+			super({
+				...e,
+				functionNames: [n.TypeURL.XSD_YEAR_MONTH_DURATION],
+				termFunction: !0
+			});
+		}
+		async run(e) {
+			return new r.TermFunctionXsdToYearMonthDuration();
 		}
 	};
 })), Mk = /* @__PURE__ */ l(((e) => {
@@ -64966,34 +64856,30 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	};
 	Object.defineProperty(e, "__esModule", { value: !0 }), n(jk(), e);
 })), Nk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDouble = void 0;
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionYear = void 0;
 	var t = X(), n = Y();
-	e.TermFunctionXsdToDouble = class extends t.TermFunctionBase {
+	e.TermFunctionYear = class extends t.TermFunctionBase {
 		constructor() {
 			super({
 				arity: 1,
-				operator: n.TypeURL.XSD_DOUBLE,
-				overloads: (0, n.declare)(n.TypeURL.XSD_DOUBLE).onNumeric1(() => (e) => (0, n.double)(e.typedValue)).onBoolean1Typed(() => (e) => (0, n.double)(+!!e)).onUnary(n.TypeURL.XSD_STRING, () => (e) => {
-					let t = (0, n.parseXSDFloat)(e.str());
-					if (t === void 0) throw new n.CastError(e, n.TypeURL.XSD_DOUBLE);
-					return (0, n.double)(t);
-				}, !1).collect()
+				operator: n.SparqlOperator.YEAR,
+				overloads: (0, n.declare)(n.SparqlOperator.YEAR).onDateTime1(() => (e) => (0, n.integer)(e.typedValue.year)).set([n.TypeURL.XSD_DATE], () => ([e]) => (0, n.integer)(e.typedValue.year)).collect()
 			});
 		}
 	};
 })), Pk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDouble = void 0;
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermYear = void 0;
 	var t = X(), n = Y(), r = Nk();
-	e.ActorFunctionFactoryTermXsdToDouble = class extends t.ActorFunctionFactoryDedicated {
+	e.ActorFunctionFactoryTermYear = class extends t.ActorFunctionFactoryDedicated {
 		constructor(e) {
 			super({
 				...e,
-				functionNames: [n.TypeURL.XSD_DOUBLE],
+				functionNames: [n.SparqlOperator.YEAR],
 				termFunction: !0
 			});
 		}
 		async run(e) {
-			return new r.TermFunctionXsdToDouble();
+			return new r.TermFunctionYear();
 		}
 	};
 })), Fk = /* @__PURE__ */ l(((e) => {
@@ -65013,318 +64899,6 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	};
 	Object.defineProperty(e, "__esModule", { value: !0 }), n(Pk(), e);
 })), Ik = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToDuration = void 0;
-	var t = X(), n = Y();
-	e.TermFunctionXsdToDuration = class extends t.TermFunctionBase {
-		constructor() {
-			super({
-				arity: 1,
-				operator: n.TypeURL.XSD_DAY_TIME_DURATION,
-				overloads: (0, n.declare)(n.TypeURL.XSD_DURATION).onUnary(n.TypeURL.XSD_DURATION, () => (e) => new n.DurationLiteral(e.typedValue, e.strValue)).onStringly1(() => (e) => new n.DurationLiteral((0, n.parseDuration)(e.str()))).collect()
-			});
-		}
-	};
-})), Lk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToDuration = void 0;
-	var t = X(), n = Y(), r = Ik();
-	e.ActorFunctionFactoryTermXsdToDuration = class extends t.ActorFunctionFactoryDedicated {
-		constructor(e) {
-			super({
-				...e,
-				functionNames: [n.TypeURL.XSD_DURATION],
-				termFunction: !0
-			});
-		}
-		async run(e) {
-			return new r.TermFunctionXsdToDuration();
-		}
-	};
-})), Rk = /* @__PURE__ */ l(((e) => {
-	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
-		r === void 0 && (r = n);
-		var i = Object.getOwnPropertyDescriptor(t, n);
-		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
-			enumerable: !0,
-			get: function() {
-				return t[n];
-			}
-		}), Object.defineProperty(e, r, i);
-	}) : (function(e, t, n, r) {
-		r === void 0 && (r = n), e[r] = t[n];
-	})), n = e && e.__exportStar || function(e, n) {
-		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
-	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Lk(), e);
-})), zk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToFloat = void 0;
-	var t = X(), n = Y();
-	e.TermFunctionXsdToFloat = class extends t.TermFunctionBase {
-		constructor() {
-			super({
-				arity: 1,
-				operator: n.TypeURL.XSD_FLOAT,
-				overloads: (0, n.declare)(n.TypeURL.XSD_FLOAT).onNumeric1(() => (e) => (0, n.float)(e.typedValue)).onBoolean1Typed(() => (e) => (0, n.float)(+!!e)).onUnary(n.TypeURL.XSD_STRING, () => (e) => {
-					let t = (0, n.parseXSDFloat)(e.str());
-					if (t === void 0) throw new n.CastError(e, n.TypeURL.XSD_FLOAT);
-					return (0, n.float)(t);
-				}, !1).collect()
-			});
-		}
-	};
-})), Bk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToFloat = void 0;
-	var t = X(), n = Y(), r = zk();
-	e.ActorFunctionFactoryTermXsdToFloat = class extends t.ActorFunctionFactoryDedicated {
-		constructor(e) {
-			super({
-				...e,
-				functionNames: [n.TypeURL.XSD_FLOAT],
-				termFunction: !0
-			});
-		}
-		async run(e) {
-			return new r.TermFunctionXsdToFloat();
-		}
-	};
-})), Vk = /* @__PURE__ */ l(((e) => {
-	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
-		r === void 0 && (r = n);
-		var i = Object.getOwnPropertyDescriptor(t, n);
-		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
-			enumerable: !0,
-			get: function() {
-				return t[n];
-			}
-		}), Object.defineProperty(e, r, i);
-	}) : (function(e, t, n, r) {
-		r === void 0 && (r = n), e[r] = t[n];
-	})), n = e && e.__exportStar || function(e, n) {
-		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
-	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Bk(), e);
-})), Hk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToInteger = void 0;
-	var t = X(), n = Y();
-	e.TermFunctionXsdToInteger = class extends t.TermFunctionBase {
-		constructor() {
-			super({
-				arity: 1,
-				operator: n.TypeURL.XSD_INTEGER,
-				overloads: (0, n.declare)(n.TypeURL.XSD_INTEGER).onBoolean1Typed(() => (e) => (0, n.integer)(+!!e)).onNumeric1(() => (e) => {
-					if (!Number.isFinite(e.typedValue)) throw new n.CastError(e, n.TypeURL.XSD_INTEGER);
-					return (0, n.integer)(Math.trunc(e.typedValue));
-				}).onString1(() => (e) => {
-					let t = e.str(), r = /^\d+$/u.test(t) ? Number.parseInt(t, 10) : void 0;
-					if (r === void 0) throw new n.CastError(e, n.TypeURL.XSD_INTEGER);
-					return (0, n.integer)(r);
-				}).collect()
-			});
-		}
-	};
-})), Uk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToInteger = void 0;
-	var t = X(), n = Y(), r = Hk();
-	e.ActorFunctionFactoryTermXsdToInteger = class extends t.ActorFunctionFactoryDedicated {
-		constructor(e) {
-			super({
-				...e,
-				functionNames: [n.TypeURL.XSD_INTEGER],
-				termFunction: !0
-			});
-		}
-		async run(e) {
-			return new r.TermFunctionXsdToInteger();
-		}
-	};
-})), Wk = /* @__PURE__ */ l(((e) => {
-	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
-		r === void 0 && (r = n);
-		var i = Object.getOwnPropertyDescriptor(t, n);
-		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
-			enumerable: !0,
-			get: function() {
-				return t[n];
-			}
-		}), Object.defineProperty(e, r, i);
-	}) : (function(e, t, n, r) {
-		r === void 0 && (r = n), e[r] = t[n];
-	})), n = e && e.__exportStar || function(e, n) {
-		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
-	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Uk(), e);
-})), Gk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToString = void 0;
-	var t = X(), n = Y();
-	e.TermFunctionXsdToString = class extends t.TermFunctionBase {
-		constructor() {
-			super({
-				arity: 1,
-				operator: n.TypeURL.XSD_STRING,
-				overloads: (0, n.declare)(n.TypeURL.XSD_STRING).onNumeric1(() => (e) => (0, n.string)((0, n.float)(e.typedValue).str())).onBoolean1Typed(() => (e) => (0, n.string)((0, n.bool)(e).str())).onTerm1(() => (e) => (0, n.string)(e.str())).collect()
-			});
-		}
-	};
-})), Kk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToString = void 0;
-	var t = X(), n = Y(), r = Gk();
-	e.ActorFunctionFactoryTermXsdToString = class extends t.ActorFunctionFactoryDedicated {
-		constructor(e) {
-			super({
-				...e,
-				functionNames: [n.TypeURL.XSD_STRING],
-				termFunction: !0
-			});
-		}
-		async run(e) {
-			return new r.TermFunctionXsdToString();
-		}
-	};
-})), qk = /* @__PURE__ */ l(((e) => {
-	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
-		r === void 0 && (r = n);
-		var i = Object.getOwnPropertyDescriptor(t, n);
-		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
-			enumerable: !0,
-			get: function() {
-				return t[n];
-			}
-		}), Object.defineProperty(e, r, i);
-	}) : (function(e, t, n, r) {
-		r === void 0 && (r = n), e[r] = t[n];
-	})), n = e && e.__exportStar || function(e, n) {
-		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
-	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Kk(), e);
-})), Jk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToTime = void 0;
-	var t = X(), n = Y();
-	e.TermFunctionXsdToTime = class extends t.TermFunctionBase {
-		constructor() {
-			super({
-				arity: 1,
-				operator: n.TypeURL.XSD_TIME,
-				overloads: (0, n.declare)(n.TypeURL.XSD_TIME).onUnary(n.TypeURL.XSD_TIME, () => (e) => new n.TimeLiteral(e.typedValue, e.strValue)).onUnary(n.TypeURL.XSD_DATE_TIME, () => (e) => new n.TimeLiteral(e.typedValue)).onStringly1(() => (e) => new n.TimeLiteral((0, n.parseTime)(e.str()))).collect()
-			});
-		}
-	};
-})), Yk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToTime = void 0;
-	var t = X(), n = Y(), r = Jk();
-	e.ActorFunctionFactoryTermXsdToTime = class extends t.ActorFunctionFactoryDedicated {
-		constructor(e) {
-			super({
-				...e,
-				functionNames: [n.TypeURL.XSD_TIME],
-				termFunction: !0
-			});
-		}
-		async run(e) {
-			return new r.TermFunctionXsdToTime();
-		}
-	};
-})), Xk = /* @__PURE__ */ l(((e) => {
-	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
-		r === void 0 && (r = n);
-		var i = Object.getOwnPropertyDescriptor(t, n);
-		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
-			enumerable: !0,
-			get: function() {
-				return t[n];
-			}
-		}), Object.defineProperty(e, r, i);
-	}) : (function(e, t, n, r) {
-		r === void 0 && (r = n), e[r] = t[n];
-	})), n = e && e.__exportStar || function(e, n) {
-		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
-	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Yk(), e);
-})), Zk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionXsdToYearMonthDuration = void 0;
-	var t = X(), n = Y();
-	e.TermFunctionXsdToYearMonthDuration = class extends t.TermFunctionBase {
-		constructor() {
-			super({
-				arity: 1,
-				operator: n.TypeURL.XSD_YEAR_MONTH_DURATION,
-				overloads: (0, n.declare)(n.TypeURL.XSD_YEAR_MONTH_DURATION).onUnary(n.TypeURL.XSD_DURATION, () => (e) => new n.YearMonthDurationLiteral((0, n.trimToYearMonthDuration)(e.typedValue))).onStringly1(() => (e) => new n.YearMonthDurationLiteral((0, n.parseYearMonthDuration)(e.str()))).collect()
-			});
-		}
-	};
-})), Qk = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermXsdToYearMonthDuration = void 0;
-	var t = X(), n = Y(), r = Zk();
-	e.ActorFunctionFactoryTermXsdToYearMonthDuration = class extends t.ActorFunctionFactoryDedicated {
-		constructor(e) {
-			super({
-				...e,
-				functionNames: [n.TypeURL.XSD_YEAR_MONTH_DURATION],
-				termFunction: !0
-			});
-		}
-		async run(e) {
-			return new r.TermFunctionXsdToYearMonthDuration();
-		}
-	};
-})), $k = /* @__PURE__ */ l(((e) => {
-	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
-		r === void 0 && (r = n);
-		var i = Object.getOwnPropertyDescriptor(t, n);
-		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
-			enumerable: !0,
-			get: function() {
-				return t[n];
-			}
-		}), Object.defineProperty(e, r, i);
-	}) : (function(e, t, n, r) {
-		r === void 0 && (r = n), e[r] = t[n];
-	})), n = e && e.__exportStar || function(e, n) {
-		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
-	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Qk(), e);
-})), eA = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionYear = void 0;
-	var t = X(), n = Y();
-	e.TermFunctionYear = class extends t.TermFunctionBase {
-		constructor() {
-			super({
-				arity: 1,
-				operator: n.SparqlOperator.YEAR,
-				overloads: (0, n.declare)(n.SparqlOperator.YEAR).onDateTime1(() => (e) => (0, n.integer)(e.typedValue.year)).set([n.TypeURL.XSD_DATE], () => ([e]) => (0, n.integer)(e.typedValue.year)).collect()
-			});
-		}
-	};
-})), tA = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermYear = void 0;
-	var t = X(), n = Y(), r = eA();
-	e.ActorFunctionFactoryTermYear = class extends t.ActorFunctionFactoryDedicated {
-		constructor(e) {
-			super({
-				...e,
-				functionNames: [n.SparqlOperator.YEAR],
-				termFunction: !0
-			});
-		}
-		async run(e) {
-			return new r.TermFunctionYear();
-		}
-	};
-})), nA = /* @__PURE__ */ l(((e) => {
-	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
-		r === void 0 && (r = n);
-		var i = Object.getOwnPropertyDescriptor(t, n);
-		(!i || ("get" in i ? !t.__esModule : i.writable || i.configurable)) && (i = {
-			enumerable: !0,
-			get: function() {
-				return t[n];
-			}
-		}), Object.defineProperty(e, r, i);
-	}) : (function(e, t, n, r) {
-		r === void 0 && (r = n), e[r] = t[n];
-	})), n = e && e.__exportStar || function(e, n) {
-		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
-	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(tA(), e);
-})), rA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationSource = void 0;
 	var t = Fd(), n = q(), r = K(), i = J(), a = jd(), o = gf();
 	e.ActorQueryOperationSource = class extends t.ActorQueryOperation {
@@ -65373,7 +64947,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), iA = /* @__PURE__ */ l(((e) => {
+})), Lk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65388,8 +64962,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(rA(), e);
-})), aA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Ik(), e);
+})), Rk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.MediatorJoinCoefficientsFixed = void 0;
 	var t = q(), n = K();
 	e.MediatorJoinCoefficientsFixed = class extends n.Mediator {
@@ -65426,7 +65000,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), (0, n.passTestWithSideData)(f, o[u].sideData);
 		}
 	};
-})), oA = /* @__PURE__ */ l(((e) => {
+})), zk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65441,8 +65015,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(aA(), e);
-})), sA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Rk(), e);
+})), Bk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.MediatorAll = void 0;
 	var t = K();
 	e.MediatorAll = class extends t.Mediator {
@@ -65469,7 +65043,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			throw Error("Unsupported operation: MediatorAll#mediateWith");
 		}
 	};
-})), cA = /* @__PURE__ */ l(((e) => {
+})), Vk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65484,8 +65058,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(sA(), e);
-})), lA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Bk(), e);
+})), Hk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpInvalidate = void 0;
 	var t = K();
 	e.ActorHttpInvalidate = class extends t.Actor {
@@ -65493,9 +65067,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			super(e);
 		}
 	};
-})), uA = /* @__PURE__ */ l(((e) => {
+})), Uk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpInvalidateListenable = void 0;
-	var t = K(), n = lA();
+	var t = K(), n = Hk();
 	e.ActorHttpInvalidateListenable = class extends n.ActorHttpInvalidate {
 		invalidateListeners = [];
 		constructor(e) {
@@ -65512,7 +65086,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return {};
 		}
 	};
-})), dA = /* @__PURE__ */ l(((e) => {
+})), Wk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65527,8 +65101,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(lA(), e), n(uA(), e);
-})), fA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Hk(), e), n(Uk(), e);
+})), Gk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinEntriesSortSelectivity = void 0;
 	var t = Nv(), n = K();
 	e.ActorRdfJoinEntriesSortSelectivity = class extends t.ActorRdfJoinEntriesSort {
@@ -65555,7 +65129,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return { entries: n };
 		}
 	};
-})), pA = /* @__PURE__ */ l(((e) => {
+})), Kk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65570,8 +65144,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(fA(), e);
-})), mA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Gk(), e);
+})), qk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ChunkedIterator = void 0;
 	var t = D_();
 	e.ChunkedIterator = class extends t.TransformIterator {
@@ -65591,7 +65165,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			this.chunk.length > 0 && this._push(this.consumeChunkAsIterator()), super._flush(e);
 		}
 	};
-})), hA = /* @__PURE__ */ l(((e) => {
+})), Jk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ClosableIterator = void 0;
 	var t = D_();
 	e.ClosableIterator = class extends t.AsyncIterator {
@@ -65617,7 +65191,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	function i() {
 		this[t.DESTINATION].close();
 	}
-})), gA = /* @__PURE__ */ l(((e) => {
+})), Yk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ClosableTransformIterator = void 0;
 	var t = D_();
 	e.ClosableTransformIterator = class extends t.TransformIterator {
@@ -65629,7 +65203,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			this.onClose(), super._end(e);
 		}
 	};
-})), _A = /* @__PURE__ */ l(((e) => {
+})), Xk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.instrumentIterator = t;
 	function t(e) {
 		let t = {
@@ -65667,7 +65241,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			"_source" in e && n(e._source, t, !1);
 		}
 	}
-})), vA = /* @__PURE__ */ l(((e) => {
+})), Zk = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65682,10 +65256,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(mA(), e), n(hA(), e), n(gA(), e), n(_A(), e);
-})), yA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(qk(), e), n(Jk(), e), n(Yk(), e), n(Xk(), e);
+})), Qk = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoin = void 0;
-	var t = q(), n = K(), r = vA(), i = jd();
+	var t = q(), n = K(), r = Zk(), i = jd();
 	e.ActorRdfJoin = class e extends n.Actor {
 		mediatorJoinSelectivity;
 		includeInLogs = !0;
@@ -65838,7 +65412,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return l.metadata = (0, i.cachifyMetadata)(l.metadata), l;
 		}
 	};
-})), bA = /* @__PURE__ */ l(((e) => {
+})), $k = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65853,10 +65427,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(yA(), e);
-})), xA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Qk(), e);
+})), eA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinSingle = void 0;
-	var t = bA(), n = K();
+	var t = $k(), n = K();
 	e.ActorRdfJoinSingle = class extends t.ActorRdfJoin {
 		constructor(e) {
 			super(e, {
@@ -65880,7 +65454,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}, t);
 		}
 	};
-})), SA = /* @__PURE__ */ l(((e) => {
+})), tA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65895,10 +65469,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(xA(), e);
-})), CA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(eA(), e);
+})), nA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinMultiEmpty = void 0;
-	var t = bA(), n = q(), r = K(), i = jd(), a = D_();
+	var t = $k(), n = q(), r = K(), i = jd(), a = D_();
 	e.ActorRdfJoinMultiEmpty = class extends t.ActorRdfJoin {
 		constructor(e) {
 			super(e, {
@@ -65935,7 +65509,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}, t);
 		}
 	};
-})), wA = /* @__PURE__ */ l(((e) => {
+})), rA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -65950,8 +65524,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(CA(), e);
-})), TA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(nA(), e);
+})), iA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.BindingsIndexDef = void 0, e.BindingsIndexDef = class {
 		keys;
 		hashFn;
@@ -65973,7 +65547,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return Object.values(this.index);
 		}
 	};
-})), EA = /* @__PURE__ */ l(((e) => {
+})), aA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.BindingsIndexUndef = void 0, e.BindingsIndexUndef = class {
 		keys;
 		data = {};
@@ -66048,9 +65622,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.keys.length === 0 ? [] : this.getRecursive(void 0, this.keys, [this.data]);
 		}
 	};
-})), DA = /* @__PURE__ */ l(((e) => {
+})), oA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), OA = /* @__PURE__ */ l(((e) => {
+})), sA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66065,8 +65639,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(TA(), e), n(EA(), e), n(DA(), e);
-})), kA = /* @__PURE__ */ l(((e, t) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(iA(), e), n(aA(), e), n(oA(), e);
+})), cA = /* @__PURE__ */ l(((e, t) => {
 	var n = D_(), r = n.MultiTransformIterator, i = n.SimpleTransformIterator;
 	t.exports = class extends r {
 		constructor(e, t, n, r) {
@@ -66079,7 +65653,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			} });
 		}
 	};
-})), AA = /* @__PURE__ */ l(((e, t) => {
+})), lA = /* @__PURE__ */ l(((e, t) => {
 	var n = D_().AsyncIterator;
 	t.exports = class extends n {
 		constructor(e, t, n, r) {
@@ -66122,7 +65696,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}
 		}
 	};
-})), jA = /* @__PURE__ */ l(((e, t) => {
+})), uA = /* @__PURE__ */ l(((e, t) => {
 	var { MultiTransformIterator: n, SimpleTransformIterator: r, scheduleTask: i } = D_();
 	t.exports = class extends n {
 		constructor(e, t, n, r) {
@@ -66138,7 +65712,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			} });
 		}
 	};
-})), MA = /* @__PURE__ */ l(((e, t) => {
+})), dA = /* @__PURE__ */ l(((e, t) => {
 	var n = D_().AsyncIterator;
 	t.exports = class extends n {
 		constructor(e, t, n, r) {
@@ -66181,7 +65755,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}
 		}
 	};
-})), NA = /* @__PURE__ */ l(((e, t) => {
+})), fA = /* @__PURE__ */ l(((e, t) => {
 	var n = D_().AsyncIterator;
 	t.exports = class extends n {
 		constructor(e) {
@@ -66206,17 +65780,17 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return null;
 		}
 	};
-})), PA = /* @__PURE__ */ l(((e, t) => {
+})), pA = /* @__PURE__ */ l(((e, t) => {
 	t.exports = {
-		DynamicNestedLoopJoin: kA(),
-		HashJoin: AA(),
-		NestedLoopJoin: jA(),
-		SymmetricHashJoin: MA(),
-		MergeStream: NA()
+		DynamicNestedLoopJoin: cA(),
+		HashJoin: lA(),
+		NestedLoopJoin: uA(),
+		SymmetricHashJoin: dA(),
+		MergeStream: fA()
 	};
-})), FA = /* @__PURE__ */ l(((e) => {
+})), mA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinHash = void 0;
-	var t = bA(), n = K(), r = OA(), i = vA(), a = D_(), o = PA(), s = _u();
+	var t = $k(), n = K(), r = sA(), i = Zk(), a = D_(), o = pA(), s = _u();
 	e.ActorRdfJoinHash = class extends t.ActorRdfJoin {
 		mediatorHashBindings;
 		constructor(e) {
@@ -66275,7 +65849,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), IA = /* @__PURE__ */ l(((e) => {
+})), hA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66290,10 +65864,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(FA(), e);
-})), LA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(mA(), e);
+})), gA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinSymmetricHash = void 0;
-	var t = bA(), n = K(), r = PA();
+	var t = $k(), n = K(), r = pA();
 	e.ActorRdfJoinSymmetricHash = class extends t.ActorRdfJoin {
 		mediatorHashBindings;
 		constructor(e) {
@@ -66322,7 +65896,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}, r);
 		}
 	};
-})), RA = /* @__PURE__ */ l(((e) => {
+})), _A = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66337,10 +65911,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(LA(), e);
-})), zA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(gA(), e);
+})), vA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinNestedLoop = void 0;
-	var t = bA(), n = K(), r = PA();
+	var t = $k(), n = K(), r = pA();
 	e.ActorRdfJoinNestedLoop = class extends t.ActorRdfJoin {
 		constructor(e) {
 			super(e, {
@@ -66367,7 +65941,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}, r);
 		}
 	};
-})), BA = /* @__PURE__ */ l(((e) => {
+})), yA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66382,8 +65956,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(zA(), e);
-})), VA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(vA(), e);
+})), bA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.bindingsToString = n, e.bindingsToCompactString = r;
 	var t = _u();
 	function n(e) {
@@ -66397,9 +65971,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return r ? (0, t.termToString)(r) : "";
 		}).join("");
 	}
-})), HA = /* @__PURE__ */ l(((e) => {
+})), xA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.Bindings = void 0;
-	var t = K(), n = (dc(), p(nr)), r = VA();
+	var t = K(), n = (dc(), p(nr)), r = bA();
 	e.Bindings = class e {
 		type = "bindings";
 		dataFactory;
@@ -66537,9 +66111,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return { [Symbol.iterator]: () => e };
 		}
 	};
-})), UA = /* @__PURE__ */ l(((e) => {
+})), SA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.BindingsFactory = void 0;
-	var t = (dc(), p(nr)), n = HA();
+	var t = (dc(), p(nr)), n = xA();
 	e.BindingsFactory = class e {
 		dataFactory;
 		contextMergeHandlers;
@@ -66559,7 +66133,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.bindings(Object.entries(e).map(([e, t]) => [this.dataFactory.variable(e), t]));
 		}
 	};
-})), WA = /* @__PURE__ */ l(((e) => {
+})), CA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66574,10 +66148,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(HA(), e), n(UA(), e), n(VA(), e);
-})), GA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(xA(), e), n(SA(), e), n(bA(), e);
+})), wA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinMinusHash = void 0;
-	var t = bA(), n = K(), r = WA(), i = OA(), a = vA(), o = _u();
+	var t = $k(), n = K(), r = CA(), i = sA(), a = Zk(), o = _u();
 	e.ActorRdfJoinMinusHash = class e extends t.ActorRdfJoin {
 		constructor(e) {
 			super(e, {
@@ -66620,7 +66194,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}, r);
 		}
 	};
-})), KA = /* @__PURE__ */ l(((e) => {
+})), TA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66635,10 +66209,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(GA(), e);
-})), qA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(wA(), e);
+})), EA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinOptionalHash = void 0;
-	var t = bA(), n = K(), r = WA(), i = OA(), a = vA(), o = D_(), s = _u();
+	var t = $k(), n = K(), r = CA(), i = sA(), a = Zk(), o = D_(), s = _u();
 	e.ActorRdfJoinOptionalHash = class e extends t.ActorRdfJoin {
 		blocking;
 		constructor(e) {
@@ -66711,7 +66285,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}, r);
 		}
 	};
-})), JA = /* @__PURE__ */ l(((e) => {
+})), DA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66726,10 +66300,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(qA(), e);
-})), YA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(EA(), e);
+})), OA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinOptionalNestedLoop = void 0;
-	var t = bA(), n = K(), r = PA();
+	var t = $k(), n = K(), r = pA();
 	e.ActorRdfJoinOptionalNestedLoop = class extends t.ActorRdfJoin {
 		constructor(e) {
 			super(e, {
@@ -66759,7 +66333,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}, r);
 		}
 	};
-})), XA = /* @__PURE__ */ l(((e) => {
+})), kA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66774,8 +66348,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(YA(), e);
-})), ZA = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(OA(), e);
+})), AA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorDereferenceRdf = void 0;
 	var t = kv();
 	e.ActorDereferenceRdf = class extends t.ActorDereferenceParse {
@@ -66783,7 +66357,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			super(e);
 		}
 	};
-})), QA = /* @__PURE__ */ l(((e) => {
+})), jA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66798,10 +66372,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(ZA(), e);
-})), $A = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(AA(), e);
+})), MA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorDereferenceRdfParse = void 0;
-	var t = QA();
+	var t = jA();
 	e.ActorDereferenceRdfParse = class extends t.ActorDereferenceRdf {
 		constructor(e) {
 			super(e);
@@ -66813,7 +66387,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), ej = /* @__PURE__ */ l(((e) => {
+})), NA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66828,8 +66402,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n($A(), e);
-})), tj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(MA(), e);
+})), PA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.HtmlScriptListener = void 0;
 	var t = q(), n = U(), r = zg();
 	e.HtmlScriptListener = class e {
@@ -66895,9 +66469,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return !this.onlyFirstScript && !this.targetScriptId && e === "application/ld+json";
 		}
 	};
-})), nj = /* @__PURE__ */ l(((e) => {
+})), FA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfParseHtmlScript = void 0;
-	var t = gS(), n = K(), r = tj();
+	var t = gS(), n = K(), r = PA();
 	e.ActorRdfParseHtmlScript = class extends t.ActorRdfParseHtml {
 		mediatorRdfParseMediatypes;
 		mediatorRdfParseHandle;
@@ -66915,7 +66489,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return { htmlParseListener: new r.HtmlScriptListener(this.mediatorRdfParseHandle, e.emit, e.error, e.end, t, e.context, e.baseIRI, e.headers) };
 		}
 	};
-})), rj = /* @__PURE__ */ l(((e) => {
+})), IA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66930,8 +66504,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(nj(), e);
-})), ij = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(FA(), e);
+})), LA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceDereferenceLink = void 0;
 	var t = K();
 	e.ActorQuerySourceDereferenceLink = class extends t.Actor {
@@ -66939,7 +66513,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			super(e);
 		}
 	};
-})), aj = /* @__PURE__ */ l(((e) => {
+})), RA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -66954,8 +66528,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(ij(), e);
-})), oj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(LA(), e);
+})), zA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuerySourceCachePolicyDereferenceWrapper = void 0, e.QuerySourceCachePolicyDereferenceWrapper = class e {
 		cachePolicy;
 		constructor(e) {
@@ -66994,9 +66568,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), sj = /* @__PURE__ */ l(((e) => {
+})), BA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceDereferenceLinkHypermedia = void 0;
-	var t = aj(), n = q(), r = K(), i = U(), a = oj();
+	var t = RA(), n = q(), r = K(), i = U(), a = zA();
 	e.ActorQuerySourceDereferenceLinkHypermedia = class extends t.ActorQuerySourceDereferenceLink {
 		mediatorDereferenceRdf;
 		mediatorMetadata;
@@ -67064,7 +66638,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), cj = /* @__PURE__ */ l(((e) => {
+})), VA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67079,8 +66653,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(sj(), e), n(oj(), e);
-})), lj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(BA(), e), n(zA(), e);
+})), HA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryResultSerializeRdf = void 0;
 	var t = f_(), n = K();
 	e.ActorQueryResultSerializeRdf = class extends t.ActorQueryResultSerialize {
@@ -67127,7 +66701,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			})).mediaTypeFormats;
 		}
 	};
-})), uj = /* @__PURE__ */ l(((e) => {
+})), UA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67142,8 +66716,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(lj(), e);
-})), dj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(HA(), e);
+})), WA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactory = void 0;
 	var t = K();
 	e.ActorBindingsAggregatorFactory = class extends t.Actor {
@@ -67152,7 +66726,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			super(e), this.mediatorExpressionEvaluatorFactory = e.mediatorExpressionEvaluatorFactory;
 		}
 	};
-})), fj = /* @__PURE__ */ l(((e) => {
+})), GA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67228,7 +66802,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.termTransformer.transformLiteral(e);
 		}
 	};
-})), pj = /* @__PURE__ */ l(((e) => {
+})), KA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67243,10 +66817,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(dj(), e), n(fj(), e);
-})), mj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(WA(), e), n(GA(), e);
+})), qA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.CountAggregator = void 0;
-	var t = pj(), n = Y();
+	var t = KA(), n = Y();
 	e.CountAggregator = class extends t.AggregateEvaluator {
 		state = void 0;
 		constructor(e, t, n) {
@@ -67262,9 +66836,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.state === void 0 ? this.emptyValue() : (0, n.typedLiteral)(String(this.state), n.TypeURL.XSD_INTEGER);
 		}
 	};
-})), hj = /* @__PURE__ */ l(((e) => {
+})), JA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactoryCount = void 0;
-	var t = pj(), n = K(), r = J(), i = mj();
+	var t = KA(), n = K(), r = J(), i = qA();
 	e.ActorBindingsAggregatorFactoryCount = class extends t.ActorBindingsAggregatorFactory {
 		constructor(e) {
 			super(e);
@@ -67279,7 +66853,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), t.distinct);
 		}
 	};
-})), gj = /* @__PURE__ */ l(((e) => {
+})), YA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67294,8 +66868,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(hj(), e), n(mj(), e);
-})), _j = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(JA(), e), n(qA(), e);
+})), XA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67330,7 +66904,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		};
 	})();
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.GroupConcatAggregator = void 0;
-	var i = pj(), a = r(Y());
+	var i = KA(), a = r(Y());
 	e.GroupConcatAggregator = class extends i.AggregateEvaluator {
 		dataFactory;
 		state = void 0;
@@ -67348,9 +66922,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.state === void 0 ? this.emptyValue() : a.typedLiteral(this.state, a.TypeURL.XSD_STRING);
 		}
 	};
-})), vj = /* @__PURE__ */ l(((e) => {
+})), ZA = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactoryGroupConcat = void 0;
-	var t = pj(), n = q(), r = K(), i = _j();
+	var t = KA(), n = q(), r = K(), i = XA();
 	e.ActorBindingsAggregatorFactoryGroupConcat = class extends t.ActorBindingsAggregatorFactory {
 		constructor(e) {
 			super(e);
@@ -67365,7 +66939,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), t.distinct, e.getSafe(n.KeysInitQuery.dataFactory), t.separator);
 		}
 	};
-})), yj = /* @__PURE__ */ l(((e) => {
+})), QA = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67380,10 +66954,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(vj(), e), n(_j(), e);
-})), bj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(ZA(), e), n(XA(), e);
+})), $A = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.SampleAggregator = void 0;
-	var t = pj();
+	var t = KA();
 	e.SampleAggregator = class extends t.AggregateEvaluator {
 		state = void 0;
 		constructor(e, t, n) {
@@ -67396,9 +66970,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.state === void 0 ? this.emptyValue() : this.state;
 		}
 	};
-})), xj = /* @__PURE__ */ l(((e) => {
+})), ej = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactorySample = void 0;
-	var t = pj(), n = K(), r = bj();
+	var t = KA(), n = K(), r = $A();
 	e.ActorBindingsAggregatorFactorySample = class extends t.ActorBindingsAggregatorFactory {
 		constructor(e) {
 			super(e);
@@ -67413,7 +66987,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), t.distinct);
 		}
 	};
-})), Sj = /* @__PURE__ */ l(((e) => {
+})), tj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67428,8 +67002,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(xj(), e), n(bj(), e);
-})), Cj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(ej(), e), n($A(), e);
+})), nj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67464,7 +67038,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		};
 	})();
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.WildcardCountAggregator = void 0;
-	var i = pj(), a = Y(), o = r(_u());
+	var i = KA(), a = Y(), o = r(_u());
 	e.WildcardCountAggregator = class extends i.AggregateEvaluator {
 		bindingValues = /* @__PURE__ */ new Map();
 		state = void 0;
@@ -67491,9 +67065,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return !1;
 		}
 	};
-})), wj = /* @__PURE__ */ l(((e) => {
+})), rj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactoryWildcardCount = void 0;
-	var t = pj(), n = K(), r = Cj();
+	var t = KA(), n = K(), r = nj();
 	e.ActorBindingsAggregatorFactoryWildcardCount = class extends t.ActorBindingsAggregatorFactory {
 		constructor(e) {
 			super(e);
@@ -67508,7 +67082,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), t.distinct);
 		}
 	};
-})), Tj = /* @__PURE__ */ l(((e) => {
+})), ij = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67523,8 +67097,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(wj(), e), n(Cj(), e);
-})), Ej = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(rj(), e), n(nj(), e);
+})), aj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67559,7 +67133,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		};
 	})();
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.AverageAggregator = void 0;
-	var i = pj(), a = r(Y());
+	var i = KA(), a = r(Y());
 	e.AverageAggregator = class extends i.AggregateEvaluator {
 		dataFactory;
 		additionFunction;
@@ -67589,9 +67163,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.divisionFunction.applyOnTerms([this.state.sum, e], this.evaluator).toRDF(this.dataFactory);
 		}
 	};
-})), Dj = /* @__PURE__ */ l(((e) => {
+})), oj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactoryAverage = void 0;
-	var t = pj(), n = q(), r = K(), i = Y(), a = Ej();
+	var t = KA(), n = q(), r = K(), i = Y(), a = aj();
 	e.ActorBindingsAggregatorFactoryAverage = class extends t.ActorBindingsAggregatorFactory {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -67615,7 +67189,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}));
 		}
 	};
-})), Oj = /* @__PURE__ */ l(((e) => {
+})), sj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67630,10 +67204,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Dj(), e), n(Ej(), e);
-})), kj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(oj(), e), n(aj(), e);
+})), cj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.SumAggregator = void 0;
-	var t = pj(), n = Y();
+	var t = KA(), n = Y();
 	e.SumAggregator = class extends t.AggregateEvaluator {
 		dataFactory;
 		additionFunction;
@@ -67655,9 +67229,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.state === void 0 ? this.emptyValue() : this.state.toRDF(this.dataFactory);
 		}
 	};
-})), Aj = /* @__PURE__ */ l(((e) => {
+})), lj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactorySum = void 0;
-	var t = pj(), n = q(), r = K(), i = Y(), a = kj();
+	var t = KA(), n = q(), r = K(), i = Y(), a = cj();
 	e.ActorBindingsAggregatorFactorySum = class extends t.ActorBindingsAggregatorFactory {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -67677,7 +67251,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}));
 		}
 	};
-})), jj = /* @__PURE__ */ l(((e) => {
+})), uj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67692,8 +67266,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Aj(), e), n(kj(), e);
-})), Mj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(lj(), e), n(cj(), e);
+})), dj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ExpressionFunctionIn = void 0;
 	var t = X(), n = Y();
 	e.ExpressionFunctionIn = class extends t.ExpressionFunctionBase {
@@ -67725,9 +67299,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}
 		}
 	};
-})), Nj = /* @__PURE__ */ l(((e) => {
+})), fj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryExpressionIn = void 0;
-	var t = X(), n = Y(), r = Mj();
+	var t = X(), n = Y(), r = dj();
 	e.ActorFunctionFactoryExpressionIn = class extends t.ActorFunctionFactoryDedicated {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -67747,7 +67321,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.ExpressionFunctionIn(t);
 		}
 	};
-})), Pj = /* @__PURE__ */ l(((e) => {
+})), pj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67762,8 +67336,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Nj(), e);
-})), Fj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(fj(), e);
+})), mj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ExpressionFunctionNotIn = void 0;
 	var t = X(), n = Y();
 	e.ExpressionFunctionNotIn = class extends t.ExpressionFunctionBase {
@@ -67782,9 +67356,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return e.length > 0;
 		}
 	};
-})), Ij = /* @__PURE__ */ l(((e) => {
+})), hj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryExpressionNotIn = void 0;
-	var t = X(), n = Y(), r = Fj();
+	var t = X(), n = Y(), r = mj();
 	e.ActorFunctionFactoryExpressionNotIn = class extends t.ActorFunctionFactoryDedicated {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -67803,7 +67377,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.ExpressionFunctionNotIn(t);
 		}
 	};
-})), Lj = /* @__PURE__ */ l(((e) => {
+})), gj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67818,8 +67392,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Ij(), e);
-})), Rj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(hj(), e);
+})), _j = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionGreaterThanEqual = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionGreaterThanEqual = class extends t.TermFunctionBase {
@@ -67832,9 +67406,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), this.lessThanEqualFunction = e;
 		}
 	};
-})), zj = /* @__PURE__ */ l(((e) => {
+})), vj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermGreaterThanEqual = void 0;
-	var t = X(), n = Y(), r = Rj();
+	var t = X(), n = Y(), r = _j();
 	e.ActorFunctionFactoryTermGreaterThanEqual = class extends t.ActorFunctionFactoryDedicated {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -67854,7 +67428,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionGreaterThanEqual(t);
 		}
 	};
-})), Bj = /* @__PURE__ */ l(((e) => {
+})), yj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67869,8 +67443,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(zj(), e);
-})), Vj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(vj(), e);
+})), bj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionGreaterThan = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionGreaterThan = class extends t.TermFunctionBase {
@@ -67883,9 +67457,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), this.lessThanFunction = e;
 		}
 	};
-})), Hj = /* @__PURE__ */ l(((e) => {
+})), xj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermGreaterThan = void 0;
-	var t = X(), n = Y(), r = Vj();
+	var t = X(), n = Y(), r = bj();
 	e.ActorFunctionFactoryTermGreaterThan = class extends t.ActorFunctionFactoryDedicated {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -67905,7 +67479,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionGreaterThan(t);
 		}
 	};
-})), Uj = /* @__PURE__ */ l(((e) => {
+})), Sj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67920,8 +67494,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Hj(), e);
-})), Wj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(xj(), e);
+})), Cj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionInequality = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionInequality = class extends t.TermFunctionBase {
@@ -67934,9 +67508,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), this.equalityFunction = e;
 		}
 	};
-})), Gj = /* @__PURE__ */ l(((e) => {
+})), wj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermInequality = void 0;
-	var t = X(), n = Y(), r = Wj();
+	var t = X(), n = Y(), r = Cj();
 	e.ActorFunctionFactoryTermInequality = class extends t.ActorFunctionFactoryDedicated {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -67956,7 +67530,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionInequality(t);
 		}
 	};
-})), Kj = /* @__PURE__ */ l(((e) => {
+})), Tj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -67971,8 +67545,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Gj(), e);
-})), qj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(wj(), e);
+})), Ej = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionLesserThanEqual = void 0;
 	var t = X(), n = Y();
 	e.TermFunctionLesserThanEqual = class extends t.TermFunctionBase {
@@ -67996,9 +67570,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), this.equalityFunction = e, this.lessThanFunction = t;
 		}
 	};
-})), Jj = /* @__PURE__ */ l(((e) => {
+})), Dj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermLesserThanEqual = void 0;
-	var t = X(), n = Y(), r = qj();
+	var t = X(), n = Y(), r = Ej();
 	e.ActorFunctionFactoryTermLesserThanEqual = class extends t.ActorFunctionFactoryDedicated {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -68023,7 +67597,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionLesserThanEqual(t, i);
 		}
 	};
-})), Yj = /* @__PURE__ */ l(((e) => {
+})), Oj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68038,8 +67612,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Jj(), e);
-})), Xj = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Dj(), e);
+})), kj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermFunctionLesserThan = void 0;
 	var t = X(), n = q(), r = Y();
 	e.TermFunctionLesserThan = class extends t.TermFunctionBase {
@@ -68065,9 +67639,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			if (!this.equalityFunction.applyOnTerms([e, t], n).typedValue) return this.applyOnTerms([e, t], n).typedValue;
 		}
 	};
-})), Zj = /* @__PURE__ */ l(((e) => {
+})), Aj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorFunctionFactoryTermLesserThan = void 0;
-	var t = X(), n = Y(), r = Xj();
+	var t = X(), n = Y(), r = kj();
 	e.ActorFunctionFactoryTermLesserThan = class extends t.ActorFunctionFactoryDedicated {
 		mediatorFunctionFactory;
 		constructor(e) {
@@ -68087,7 +67661,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new r.TermFunctionLesserThan(t);
 		}
 	};
-})), Qj = /* @__PURE__ */ l(((e) => {
+})), jj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68102,8 +67676,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(Zj(), e);
-})), $j = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Aj(), e);
+})), Mj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.readableFromWeb = e.ReadableFromWeb = void 0;
 	var t = U(), n = class extends t.Readable {
 		constructor(e, t) {
@@ -68125,19 +67699,19 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		return new n(e, t);
 	}
 	e.readableFromWeb = r;
-})), eM = /* @__PURE__ */ l(((e) => {
+})), Nj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.readableFromWeb = void 0;
-	var t = $j();
+	var t = Mj();
 	Object.defineProperty(e, "readableFromWeb", {
 		enumerable: !0,
 		get: function() {
 			return t.readableFromWeb;
 		}
 	});
-})), tM = /* @__PURE__ */ l(((e, t) => {
+})), Pj = /* @__PURE__ */ l(((e, t) => {
 	var n = (e) => typeof e == "object" && !!e && typeof e.pipe == "function";
 	n.writable = (e) => n(e) && e.writable !== !1 && typeof e._write == "function" && typeof e._writableState == "object", n.readable = (e) => n(e) && e.readable !== !1 && typeof e._read == "function" && typeof e._readableState == "object", n.duplex = (e) => n.writable(e) && n.readable(e), n.transform = (e) => n.duplex(e) && typeof e._transform == "function", t.exports = n;
-})), nM = /* @__PURE__ */ l(((e, t) => {
+})), Fj = /* @__PURE__ */ l(((e, t) => {
 	t.exports = n, t.exports.WEBSTREAM_SUPPORT = typeof ReadableStream < "u";
 	function n(e) {
 		if (!t.exports.WEBSTREAM_SUPPORT) throw Error("No web ReadableStream support");
@@ -68168,9 +67742,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			cancel: o
 		});
 	}
-})), rM = /* @__PURE__ */ l(((e) => {
+})), Ij = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttp = void 0;
-	var t = K(), n = eM(), r = tM(), i = nM();
+	var t = K(), n = Nj(), r = Pj(), i = Fj();
 	e.ActorHttp = class e extends t.Actor {
 		constructor(e) {
 			super(e);
@@ -68200,9 +67774,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return typeof globalThis.window == "object" && typeof globalThis.window.document == "object" || typeof globalThis.importScripts == "function";
 		}
 	};
-})), iM = /* @__PURE__ */ l(((e) => {
+})), Lj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.validateAndCloseHttpResponse = r;
-	var t = Qx(), n = rM();
+	var t = Qx(), n = Ij();
 	async function r(e, r) {
 		if (r.status >= 400) {
 			let i = "empty response";
@@ -68214,7 +67788,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		}
 		await r.body?.cancel();
 	}
-})), aM = /* @__PURE__ */ l(((e) => {
+})), Rj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68229,10 +67803,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(rM(), e), n(iM(), e);
-})), oM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Ij(), e), n(Lj(), e);
+})), zj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpWayback = void 0;
-	var t = aM(), n = q(), r = K(), i = Qx(), a = "http://wayback.archive-it.org/";
+	var t = Rj(), n = q(), r = K(), i = Qx(), a = "http://wayback.archive-it.org/";
 	function o(e) {
 		let t = new Request(e.input, e.init);
 		return { input: new Request(new URL(`/${t.url}`, a), t) };
@@ -68263,7 +67837,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return r;
 		}
 	};
-})), sM = /* @__PURE__ */ l(((e) => {
+})), Bj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68278,8 +67852,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(oM(), e);
-})), cM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(zj(), e);
+})), Vj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfUpdateHypermedia = void 0;
 	var t = K();
 	e.ActorRdfUpdateHypermedia = class extends t.Actor {
@@ -68291,7 +67865,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return e.forceDestinationType && this.destinationType !== e.forceDestinationType ? (0, t.failTest)(`Actor ${this.name} is not able to handle destination type ${e.forceDestinationType}.`) : this.testMetadata(e);
 		}
 	};
-})), lM = /* @__PURE__ */ l(((e) => {
+})), Hj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68306,10 +67880,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(cM(), e);
-})), uM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Vj(), e);
+})), Uj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuadDestinationPatchSparqlUpdate = void 0;
-	var t = aM(), n = D_(), r = F_(), i = U();
+	var t = Rj(), n = D_(), r = F_(), i = U();
 	e.QuadDestinationPatchSparqlUpdate = class {
 		url;
 		context;
@@ -68351,9 +67925,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			throw Error("Patch-based SPARQL Update destinations don't support named graphs");
 		}
 	};
-})), dM = /* @__PURE__ */ l(((e) => {
+})), Wj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfUpdateHypermediaPatchSparqlUpdate = void 0;
-	var t = lM(), n = K(), r = uM();
+	var t = Hj(), n = K(), r = Uj();
 	e.ActorRdfUpdateHypermediaPatchSparqlUpdate = class extends t.ActorRdfUpdateHypermedia {
 		mediatorHttp;
 		constructor(e) {
@@ -68366,7 +67940,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.logInfo(e.context, `Identified as patchSparqlUpdate destination: ${e.url}`), { destination: new r.QuadDestinationPatchSparqlUpdate(e.url, e.context, this.mediatorHttp) };
 		}
 	};
-})), fM = /* @__PURE__ */ l(((e) => {
+})), Gj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68381,10 +67955,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(dM(), e), n(uM(), e);
-})), pM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Wj(), e), n(Uj(), e);
+})), Kj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuadDestinationPutLdp = void 0;
-	var t = aM();
+	var t = Rj();
 	e.QuadDestinationPutLdp = class {
 		url;
 		context;
@@ -68428,9 +68002,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			throw Error("Put-based LDP destinations don't support named graphs");
 		}
 	};
-})), mM = /* @__PURE__ */ l(((e) => {
+})), qj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfUpdateHypermediaPutLdp = void 0;
-	var t = lM(), n = K(), r = pM();
+	var t = Hj(), n = K(), r = Kj();
 	e.ActorRdfUpdateHypermediaPutLdp = class extends t.ActorRdfUpdateHypermedia {
 		mediatorHttp;
 		mediatorRdfSerializeMediatypes;
@@ -68449,7 +68023,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.logInfo(e.context, `Identified as putLdp destination: ${e.url}`), { destination: new r.QuadDestinationPutLdp(e.url, e.context, e.metadata.putAccepted || [], this.mediatorHttp, this.mediatorRdfSerializeMediatypes, this.mediatorRdfSerialize) };
 		}
 	};
-})), hM = /* @__PURE__ */ l(((e) => {
+})), Jj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68464,8 +68038,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(mM(), e), n(pM(), e);
-})), gM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(qj(), e), n(Kj(), e);
+})), Yj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.SparqlJsonParser = void 0;
 	var t = hu(), n = U(), r = mv(), i = class e {
 		constructor(e) {
@@ -68562,7 +68136,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		"1.2-basic",
 		"1.1"
 	];
-})), _M = /* @__PURE__ */ l(((e) => {
+})), Xj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68577,8 +68151,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(gM(), e);
-})), vM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Yj(), e);
+})), Zj = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.SparqlXmlParser = void 0;
 	var t = hu(), n = ex(), r = U(), i = class e {
 		constructor(e) {
@@ -68690,7 +68264,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		"1.2-basic",
 		"1.1"
 	];
-})), yM = /* @__PURE__ */ l(((e) => {
+})), Qj = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -68705,8 +68279,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(vM(), e);
-})), bM = /* @__PURE__ */ l(((e, t) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(Zj(), e);
+})), $j = /* @__PURE__ */ l(((e, t) => {
 	(function() {
 		var e = typeof window == "object" && window ? window : global;
 		t !== void 0 && t.exports ? t.exports = e.Promise ? e.Promise : a : e.Promise ||= a;
@@ -68830,8 +68404,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		};
 	})();
-})), xM = /* @__PURE__ */ l(((e, t) => {
-	var n = bM();
+})), eM = /* @__PURE__ */ l(((e, t) => {
+	var n = $j();
 	t.exports = function(e, t, r) {
 		typeof t == "function" && (r = t, t = null);
 		var i = "", a = new n(function(n, r) {
@@ -68845,7 +68419,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			r(null, e);
 		}, r), a;
 	};
-})), SM = /* @__PURE__ */ l(((e) => {
+})), tM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__awaiter || function(e, t, n, r) {
 		function i(e) {
 			return e instanceof n ? e : new n(function(t) {
@@ -68874,7 +68448,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		});
 	};
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.SparqlEndpointFetcher = void 0;
-	var n = Bf(), r = (Jb(), p(Kb)), i = eM(), a = _M(), o = yM(), s = tM(), c = xM(), l = class e {
+	var n = Bf(), r = (Jb(), p(Kb)), i = Nj(), a = Xj(), o = Qj(), s = Pj(), c = eM(), l = class e {
 		constructor(t) {
 			this.method = t?.method ?? "POST", this.timeout = t?.timeout, this.forceGetIfUrlLengthBelow = t?.forceGetIfUrlLengthBelow ?? 0, this.directPost = t?.directPost ?? !1, this.additionalUrlParams = t?.additionalUrlParams ?? new URLSearchParams(), this.defaultHeaders = t?.defaultHeaders ?? new Headers(), this.fetchCb = t?.fetch, this.parseUnsupportedVersions = !!t?.parseUnsupportedVersions, this.sparqlQueryParser = t?.sparqlQueryParser ?? new n.Parser({ lexerConfig: { positionTracking: "onlyOffset" } }), this.sparqlJsonParser = new a.SparqlJsonParser(t), this.sparqlXmlParser = new o.SparqlXmlParser(t), this.sparqlParsers = {
 				[e.CONTENTTYPE_SPARQL_JSON]: {
@@ -68987,7 +68561,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		}
 	};
 	e.SparqlEndpointFetcher = l, l.CONTENTTYPE_SPARQL_JSON = "application/sparql-results+json", l.CONTENTTYPE_SPARQL_XML = "application/sparql-results+xml", l.CONTENTTYPE_TURTLE = "text/turtle", l.CONTENTTYPE_SPARQL = `${l.CONTENTTYPE_SPARQL_JSON};q=1.0,${l.CONTENTTYPE_SPARQL_XML};q=0.7`, l.REGEX_VERSION_HEADER = /version=([^ ;]*)/u;
-})), CM = /* @__PURE__ */ l(((e) => {
+})), nM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69002,10 +68576,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(SM(), e);
-})), wM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(tM(), e);
+})), rM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuadDestinationSparql = void 0;
-	var t = Qx(), n = D_(), r = CM(), i = F_();
+	var t = Qx(), n = D_(), r = nM(), i = F_();
 	e.QuadDestinationSparql = class {
 		url;
 		context;
@@ -69054,9 +68628,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			await this.endpointFetcher.fetchUpdate(this.url, n.join("; "));
 		}
 	};
-})), TM = /* @__PURE__ */ l(((e) => {
+})), iM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfUpdateHypermediaSparql = void 0;
-	var t = lM(), n = q(), r = K(), i = wM();
+	var t = Hj(), n = q(), r = K(), i = rM();
 	e.ActorRdfUpdateHypermediaSparql = class extends t.ActorRdfUpdateHypermedia {
 		mediatorHttp;
 		checkUrlSuffixSparql;
@@ -69073,7 +68647,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return { destination: new i.QuadDestinationSparql(e.metadata.sparqlService || e.url, e.context, this.mediatorHttp, t, !!e.context.get(n.KeysInitQuery.parseUnsupportedVersions)) };
 		}
 	};
-})), EM = /* @__PURE__ */ l(((e) => {
+})), aM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69088,8 +68662,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(TM(), e), n(wM(), e);
-})), DM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(iM(), e), n(rM(), e);
+})), oM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationAsk = void 0;
 	var t = Fd(), n = K(), r = J(), i = gf();
 	e.ActorQueryOperationAsk = class extends t.ActorQueryOperationTypedMediated {
@@ -69110,7 +68684,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), OM = /* @__PURE__ */ l(((e) => {
+})), sM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69125,8 +68699,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(DM(), e);
-})), kM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(oM(), e);
+})), cM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationBgpJoin = void 0;
 	var t = Fd(), n = q(), r = K(), i = J();
 	e.ActorQueryOperationBgpJoin = class extends t.ActorQueryOperationTypedMediated {
@@ -69144,7 +68718,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), AM = /* @__PURE__ */ l(((e) => {
+})), lM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69159,8 +68733,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(kM(), e);
-})), jM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(cM(), e);
+})), uM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.BindingsToQuadsIterator = void 0;
 	var t = D_(), n = Iu();
 	e.BindingsToQuadsIterator = class e extends t.MultiTransformIterator {
@@ -69195,9 +68769,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return new t.ArrayIterator(this.bindTemplate(e, this.template, this.blankNodeCounter++), { autoStart: !1 });
 		}
 	};
-})), MM = /* @__PURE__ */ l(((e) => {
+})), dM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationConstruct = void 0;
-	var t = Fd(), n = q(), r = K(), i = J(), a = gf(), o = Iu(), s = jM();
+	var t = Fd(), n = q(), r = K(), i = J(), a = gf(), o = Iu(), s = uM();
 	e.ActorQueryOperationConstruct = class e extends t.ActorQueryOperationTypedMediated {
 		constructor(e) {
 			super(e, i.Algebra.Types.CONSTRUCT);
@@ -69228,7 +68802,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), NM = /* @__PURE__ */ l(((e) => {
+})), fM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69243,8 +68817,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(MM(), e), n(jM(), e);
-})), PM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(dM(), e), n(uM(), e);
+})), pM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69322,7 +68896,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), FM = /* @__PURE__ */ l(((e) => {
+})), mM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69337,10 +68911,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(PM(), e);
-})), IM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(pM(), e);
+})), hM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationFilter = void 0;
-	var t = Fd(), n = K(), r = J(), i = WA(), a = Y(), o = gf();
+	var t = Fd(), n = K(), r = J(), i = CA(), a = Y(), o = gf();
 	e.ActorQueryOperationFilter = class extends t.ActorQueryOperationTypedMediated {
 		mediatorExpressionEvaluatorFactory;
 		constructor(e) {
@@ -69379,7 +68953,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), LM = /* @__PURE__ */ l(((e) => {
+})), gM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69394,10 +68968,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(IM(), e);
-})), RM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(hM(), e);
+})), _M = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationExtend = void 0;
-	var t = Fd(), n = K(), r = J(), i = WA(), a = Y(), o = gf();
+	var t = Fd(), n = K(), r = J(), i = CA(), a = Y(), o = gf();
 	e.ActorQueryOperationExtend = class extends t.ActorQueryOperationTypedMediated {
 		mediatorExpressionEvaluatorFactory;
 		constructor(e) {
@@ -69443,7 +69017,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), zM = /* @__PURE__ */ l(((e) => {
+})), vM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69458,8 +69032,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(RM(), e);
-})), BM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(_M(), e);
+})), yM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationFromQuad = void 0;
 	var t = Fd(), n = q(), r = K(), i = J();
 	e.ActorQueryOperationFromQuad = class e extends t.ActorQueryOperationTypedMediated {
@@ -69530,7 +69104,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), VM = /* @__PURE__ */ l(((e) => {
+})), bM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69545,8 +69119,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(BM(), e);
-})), HM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(yM(), e);
+})), xM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationNodes = void 0;
 	var t = Fd(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorQueryOperationNodes = class extends t.ActorQueryOperationTypedMediated {
@@ -69568,7 +69142,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), UM = /* @__PURE__ */ l(((e) => {
+})), SM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69583,8 +69157,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(HM(), e);
-})), WM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(xM(), e);
+})), CM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationProject = void 0;
 	var t = Fd(), n = q(), r = K(), i = J(), a = fw(), o = gf();
 	e.ActorQueryOperationProject = class extends t.ActorQueryOperationTypedMediated {
@@ -69628,7 +69202,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), GM = /* @__PURE__ */ l(((e) => {
+})), wM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69643,8 +69217,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(WM(), e);
-})), KM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(CM(), e);
+})), TM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationReducedHash = void 0;
 	var t = Fd(), n = K(), r = J(), i = gf(), a = Td();
 	e.ActorQueryOperationReducedHash = class extends t.ActorQueryOperationTypedMediated {
@@ -69675,7 +69249,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), qM = /* @__PURE__ */ l(((e) => {
+})), EM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69690,8 +69264,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(KM(), e);
-})), JM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(TM(), e);
+})), DM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationSlice = void 0;
 	var t = Fd(), n = q(), r = K(), i = J();
 	e.ActorQueryOperationSlice = class extends t.ActorQueryOperationTypedMediated {
@@ -69736,7 +69310,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), YM = /* @__PURE__ */ l(((e) => {
+})), OM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69751,8 +69325,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(JM(), e);
-})), XM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(DM(), e);
+})), kM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationUnion = void 0;
 	var t = Fd(), n = K(), r = J(), i = jd(), a = gf(), o = D_();
 	e.ActorQueryOperationUnion = class e extends t.ActorQueryOperationTypedMediated {
@@ -69831,7 +69405,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			throw Error(`Unable to union ${i}`);
 		}
 	};
-})), ZM = /* @__PURE__ */ l(((e) => {
+})), AM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -69846,8 +69420,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(XM(), e);
-})), QM = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(kM(), e);
+})), jM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.PathVariableObjectIterator = void 0;
 	var t = gf(), n = D_(), r = _u();
 	e.PathVariableObjectIterator = class extends n.BufferedIterator {
@@ -69911,9 +69485,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			this.runningOperations.length === 0 && this.pendingOperations.length === 0 && this.close();
 		}
 	};
-})), $M = /* @__PURE__ */ l(((e) => {
+})), MM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorAbstractPath = void 0;
-	var t = Fd(), n = q(), r = K(), i = J(), a = gf(), o = D_(), s = _u(), c = QM();
+	var t = Fd(), n = q(), r = K(), i = J(), a = gf(), o = D_(), s = _u(), c = jM();
 	e.ActorAbstractPath = class extends t.ActorQueryOperationTypedMediated {
 		predicateType;
 		constructor(e, t) {
@@ -70032,7 +69606,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return n.length === 1 ? (0, a.assignOperationSource)(t, n[0]) : e.createUnion(n.map((e) => (0, a.assignOperationSource)(t, e)), !0);
 		}
 	};
-})), eN = /* @__PURE__ */ l(((e) => {
+})), NM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70047,10 +69621,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n($M(), e), n(QM(), e);
-})), tN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(MM(), e), n(jM(), e);
+})), PM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathAlt = void 0;
-	var t = eN(), n = ZM(), r = q(), i = J(), a = gf(), o = D_();
+	var t = NM(), n = AM(), r = q(), i = J(), a = gf(), o = D_();
 	e.ActorQueryOperationPathAlt = class extends t.ActorAbstractPath {
 		mediatorRdfMetadataAccumulate;
 		constructor(e) {
@@ -70068,7 +69642,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), nN = /* @__PURE__ */ l(((e) => {
+})), FM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70083,10 +69657,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(tN(), e);
-})), rN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(PM(), e);
+})), IM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathInv = void 0;
-	var t = eN(), n = q(), r = J();
+	var t = NM(), n = q(), r = J();
 	e.ActorQueryOperationPathInv = class extends t.ActorAbstractPath {
 		constructor(e) {
 			super(e, r.Algebra.Types.INV);
@@ -70099,7 +69673,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), iN = /* @__PURE__ */ l(((e) => {
+})), LM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70114,10 +69688,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(rN(), e);
-})), aN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(IM(), e);
+})), RM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathLink = void 0;
-	var t = eN(), n = q(), r = J();
+	var t = NM(), n = q(), r = J();
 	e.ActorQueryOperationPathLink = class extends t.ActorAbstractPath {
 		constructor(e) {
 			super(e, r.Algebra.Types.LINK);
@@ -70130,7 +69704,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), oN = /* @__PURE__ */ l(((e) => {
+})), zM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70145,10 +69719,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(aN(), e);
-})), sN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(RM(), e);
+})), BM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathNps = void 0;
-	var t = eN(), n = q(), r = J(), i = gf();
+	var t = NM(), n = q(), r = J(), i = gf();
 	e.ActorQueryOperationPathNps = class extends t.ActorAbstractPath {
 		constructor(e) {
 			super(e, r.Algebra.Types.NPS);
@@ -70165,7 +69739,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), cN = /* @__PURE__ */ l(((e) => {
+})), VM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70180,8 +69754,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(sN(), e);
-})), lN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(BM(), e);
+})), HM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationClear = void 0;
 	var t = Fd(), n = q(), r = J(), i = gf();
 	e.ActorQueryOperationClear = class extends t.ActorQueryOperationTypedMediated {
@@ -70209,7 +69783,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), uN = /* @__PURE__ */ l(((e) => {
+})), UM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70224,8 +69798,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(lN(), e);
-})), dN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(HM(), e);
+})), WM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationUpdateCompositeUpdate = void 0;
 	var t = Fd(), n = J(), r = gf();
 	e.ActorQueryOperationUpdateCompositeUpdate = class extends t.ActorQueryOperationTypedMediated {
@@ -70247,7 +69821,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), fN = /* @__PURE__ */ l(((e) => {
+})), GM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70262,8 +69836,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(dN(), e);
-})), pN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(WM(), e);
+})), KM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationCreate = void 0;
 	var t = Fd(), n = J(), r = gf();
 	e.ActorQueryOperationCreate = class extends t.ActorQueryOperationTypedMediated {
@@ -70288,7 +69862,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), mN = /* @__PURE__ */ l(((e) => {
+})), qM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70303,8 +69877,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(pN(), e);
-})), hN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(KM(), e);
+})), JM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationDrop = void 0;
 	var t = Fd(), n = q(), r = J(), i = gf();
 	e.ActorQueryOperationDrop = class extends t.ActorQueryOperationTypedMediated {
@@ -70332,7 +69906,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), gN = /* @__PURE__ */ l(((e) => {
+})), YM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70347,8 +69921,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(hN(), e);
-})), _N = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(JM(), e);
+})), XM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationLoad = void 0;
 	var t = Fd(), n = q(), r = J(), i = gf();
 	e.ActorQueryOperationLoad = class extends t.ActorQueryOperationTypedMediated {
@@ -70381,7 +69955,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), vN = /* @__PURE__ */ l(((e) => {
+})), ZM = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70396,10 +69970,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(_N(), e);
-})), yN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(XM(), e);
+})), QM = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationJoin = void 0;
-	var t = Fd(), n = bA(), r = K(), i = J(), a = jd(), o = gf(), s = D_(), c = hu();
+	var t = Fd(), n = $k(), r = K(), i = J(), a = jd(), o = gf(), s = D_(), c = hu();
 	e.ActorQueryOperationJoin = class extends t.ActorQueryOperationTypedMediated {
 		mediatorJoin;
 		constructor(e) {
@@ -70441,7 +70015,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), bN = /* @__PURE__ */ l(((e) => {
+})), $M = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70456,8 +70030,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(yN(), e);
-})), xN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(QM(), e);
+})), eN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationLeftJoin = void 0;
 	var t = Fd(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorQueryOperationLeftJoin = class extends t.ActorQueryOperationTypedMediated {
@@ -70490,7 +70064,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), SN = /* @__PURE__ */ l(((e) => {
+})), tN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70505,8 +70079,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(xN(), e);
-})), CN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(eN(), e);
+})), nN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationMinus = void 0;
 	var t = Fd(), n = K(), r = J(), i = gf();
 	e.ActorQueryOperationMinus = class extends t.ActorQueryOperationTypedMediated {
@@ -70536,7 +70110,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), wN = /* @__PURE__ */ l(((e) => {
+})), rN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70551,10 +70125,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(CN(), e);
-})), TN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(nN(), e);
+})), iN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathSeq = void 0;
-	var t = eN(), n = q(), r = J(), i = gf();
+	var t = NM(), n = q(), r = J(), i = gf();
 	e.ActorQueryOperationPathSeq = class extends t.ActorAbstractPath {
 		mediatorJoin;
 		constructor(e) {
@@ -70594,7 +70168,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), EN = /* @__PURE__ */ l(((e) => {
+})), aN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70609,10 +70183,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(TN(), e);
-})), DN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(iN(), e);
+})), oN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinMultiSmallest = void 0;
-	var t = bA(), n = q(), r = K(), i = J(), a = gf();
+	var t = $k(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorRdfJoinMultiSmallest = class extends t.ActorRdfJoin {
 		mediatorJoinEntriesSort;
 		mediatorJoin;
@@ -70677,7 +70251,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			});
 		}
 	};
-})), ON = /* @__PURE__ */ l(((e) => {
+})), sN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70692,10 +70266,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(DN(), e);
-})), kN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(oN(), e);
+})), cN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.MaxAggregator = void 0;
-	var t = pj();
+	var t = KA();
 	e.MaxAggregator = class extends t.AggregateEvaluator {
 		orderByEvaluator;
 		state = void 0;
@@ -70710,9 +70284,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.state === void 0 ? this.emptyValue() : this.state;
 		}
 	};
-})), AN = /* @__PURE__ */ l(((e) => {
+})), lN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactoryMax = void 0;
-	var t = pj(), n = K(), r = kN();
+	var t = KA(), n = K(), r = cN();
 	e.ActorBindingsAggregatorFactoryMax = class extends t.ActorBindingsAggregatorFactory {
 		mediatorTermComparatorFactory;
 		constructor(e) {
@@ -70728,7 +70302,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), e.distinct, await this.mediatorTermComparatorFactory.mediate({ context: t }));
 		}
 	};
-})), jN = /* @__PURE__ */ l(((e) => {
+})), uN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70743,10 +70317,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(AN(), e), n(kN(), e);
-})), MN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(lN(), e), n(cN(), e);
+})), dN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.MinAggregator = void 0;
-	var t = pj();
+	var t = KA();
 	e.MinAggregator = class extends t.AggregateEvaluator {
 		orderByEvaluator;
 		state = void 0;
@@ -70761,9 +70335,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return this.state === void 0 ? this.emptyValue() : this.state;
 		}
 	};
-})), NN = /* @__PURE__ */ l(((e) => {
+})), fN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorBindingsAggregatorFactoryMin = void 0;
-	var t = pj(), n = K(), r = MN();
+	var t = KA(), n = K(), r = dN();
 	e.ActorBindingsAggregatorFactoryMin = class extends t.ActorBindingsAggregatorFactory {
 		mediatorTermComparatorFactory;
 		constructor(e) {
@@ -70779,7 +70353,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}), t.distinct, await this.mediatorTermComparatorFactory.mediate({ context: e }));
 		}
 	};
-})), PN = /* @__PURE__ */ l(((e) => {
+})), pN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70794,8 +70368,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(NN(), e), n(MN(), e);
-})), FN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(fN(), e), n(dN(), e);
+})), mN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.SortIterator = void 0;
 	var t = D_();
 	e.SortIterator = class extends t.TransformIterator {
@@ -70822,9 +70396,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			e();
 		}
 	};
-})), IN = /* @__PURE__ */ l(((e) => {
+})), hN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationOrderBy = void 0;
-	var t = Fd(), n = K(), r = J(), i = Y(), a = gf(), o = FN();
+	var t = Fd(), n = K(), r = J(), i = Y(), a = gf(), o = mN();
 	e.ActorQueryOperationOrderBy = class extends t.ActorQueryOperationTypedMediated {
 		window;
 		mediatorExpressionEvaluatorFactory;
@@ -70878,7 +70452,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return !(0, r.isKnownSubType)(e, r.Algebra.ExpressionTypes.OPERATOR) || e.operator !== "desc";
 		}
 	};
-})), LN = /* @__PURE__ */ l(((e) => {
+})), gN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -70893,8 +70467,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(IN(), e);
-})), RN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(hN(), e);
+})), _N = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationFilterPushdown = void 0;
 	var t = rf(), n = q(), r = K(), i = J(), a = gf(), o = Iu();
 	e.ActorOptimizeQueryOperationFilterPushdown = class extends t.ActorOptimizeQueryOperation {
@@ -71063,7 +70637,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), zN = /* @__PURE__ */ l(((e) => {
+})), vN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -71078,8 +70652,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(RN(), e);
-})), BN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(_N(), e);
+})), yN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationDistinctTermsPushdown = void 0;
 	var t = rf(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorOptimizeQueryOperationDistinctTermsPushdown = class extends t.ActorOptimizeQueryOperation {
@@ -71140,7 +70714,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return n;
 		}
 	};
-})), VN = /* @__PURE__ */ l(((e) => {
+})), bN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -71155,10 +70729,10 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(BN(), e);
-})), HN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(yN(), e);
+})), xN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.DereferenceCachePolicyHttpWrapper = void 0;
-	var t = UN();
+	var t = SN();
 	e.DereferenceCachePolicyHttpWrapper = class e {
 		cachePolicy;
 		maxAcceptHeaderLength;
@@ -71210,9 +70784,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			};
 		}
 	};
-})), UN = /* @__PURE__ */ l(((e) => {
+})), SN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorDereferenceHttpBase = void 0, e.mediaTypesToAcceptString = l;
-	var t = kv(), n = aM(), r = K(), i = Qx(), a = zg(), o = HN(), s = /^[^ ;]*/u, c = /version=([^ ;]*)/u;
+	var t = kv(), n = Rj(), r = K(), i = Qx(), a = zg(), o = xN(), s = /^[^ ;]*/u, c = /version=([^ ;]*)/u;
 	function l(e, t) {
 		let n = [], r = Object.entries(e).map(([e, t]) => ({
 			mediaType: e,
@@ -71283,15 +70857,15 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return n.append("Accept", l(await e.mediaTypes?.() ?? {}, t)), n;
 		}
 	};
-})), WN = /* @__PURE__ */ l(((e) => {
+})), CN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorDereferenceHttp = void 0;
-	var t = UN();
+	var t = SN();
 	e.ActorDereferenceHttp = class extends t.ActorDereferenceHttpBase {
 		getMaxAcceptHeaderLength() {
 			return this.maxAcceptHeaderLengthBrowser;
 		}
 	};
-})), GN = /* @__PURE__ */ l(((e) => {
+})), wN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -71306,8 +70880,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(WN(), e), n(UN(), e), n(HN(), e);
-})), KN = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(CN(), e), n(SN(), e), n(xN(), e);
+})), TN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ERROR_CODES = e.ErrorCoded = void 0, e.ErrorCoded = class extends Error {
 		/* istanbul ignore next */
 		constructor(e, t) {
@@ -71316,9 +70890,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	}, (function(e) {
 		e.COLLIDING_KEYWORDS = "colliding keywords", e.CONFLICTING_INDEXES = "conflicting indexes", e.CYCLIC_IRI_MAPPING = "cyclic IRI mapping", e.INVALID_ID_VALUE = "invalid @id value", e.INVALID_INDEX_VALUE = "invalid @index value", e.INVALID_NEST_VALUE = "invalid @nest value", e.INVALID_PREFIX_VALUE = "invalid @prefix value", e.INVALID_PROPAGATE_VALUE = "invalid @propagate value", e.INVALID_REVERSE_VALUE = "invalid @reverse value", e.INVALID_IMPORT_VALUE = "invalid @import value", e.INVALID_VERSION_VALUE = "invalid @version value", e.INVALID_BASE_IRI = "invalid base IRI", e.INVALID_CONTAINER_MAPPING = "invalid container mapping", e.INVALID_CONTEXT_ENTRY = "invalid context entry", e.INVALID_CONTEXT_NULLIFICATION = "invalid context nullification", e.INVALID_DEFAULT_LANGUAGE = "invalid default language", e.INVALID_INCLUDED_VALUE = "invalid @included value", e.INVALID_IRI_MAPPING = "invalid IRI mapping", e.INVALID_JSON_LITERAL = "invalid JSON literal", e.INVALID_KEYWORD_ALIAS = "invalid keyword alias", e.INVALID_LANGUAGE_MAP_VALUE = "invalid language map value", e.INVALID_LANGUAGE_MAPPING = "invalid language mapping", e.INVALID_LANGUAGE_TAGGED_STRING = "invalid language-tagged string", e.INVALID_LANGUAGE_TAGGED_VALUE = "invalid language-tagged value", e.INVALID_LOCAL_CONTEXT = "invalid local context", e.INVALID_REMOTE_CONTEXT = "invalid remote context", e.INVALID_REVERSE_PROPERTY = "invalid reverse property", e.INVALID_REVERSE_PROPERTY_MAP = "invalid reverse property map", e.INVALID_REVERSE_PROPERTY_VALUE = "invalid reverse property value", e.INVALID_SCOPED_CONTEXT = "invalid scoped context", e.INVALID_SCRIPT_ELEMENT = "invalid script element", e.INVALID_SET_OR_LIST_OBJECT = "invalid set or list object", e.INVALID_TERM_DEFINITION = "invalid term definition", e.INVALID_TYPE_MAPPING = "invalid type mapping", e.INVALID_TYPE_VALUE = "invalid type value", e.INVALID_TYPED_VALUE = "invalid typed value", e.INVALID_VALUE_OBJECT = "invalid value object", e.INVALID_VALUE_OBJECT_VALUE = "invalid value object value", e.INVALID_VOCAB_MAPPING = "invalid vocab mapping", e.IRI_CONFUSED_WITH_PREFIX = "IRI confused with prefix", e.KEYWORD_REDEFINITION = "keyword redefinition", e.LOADING_DOCUMENT_FAILED = "loading document failed", e.LOADING_REMOTE_CONTEXT_FAILED = "loading remote context failed", e.MULTIPLE_CONTEXT_LINK_HEADERS = "multiple context link headers", e.PROCESSING_MODE_CONFLICT = "processing mode conflict", e.PROTECTED_TERM_REDEFINITION = "protected term redefinition", e.CONTEXT_OVERFLOW = "context overflow", e.INVALID_BASE_DIRECTION = "invalid base direction", e.RECURSIVE_CONTEXT_INCLUSION = "recursive context inclusion", e.INVALID_STREAMING_KEY_ORDER = "invalid streaming key order", e.INVALID_EMBEDDED_NODE = "invalid embedded node", e.INVALID_ANNOTATION = "invalid annotation";
 	})(e.ERROR_CODES ||= {});
-})), qN = /* @__PURE__ */ l(((e) => {
+})), EN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.FetchDocumentLoader = void 0;
-	var t = KN(), n = Vg(), r = zg();
+	var t = TN(), n = Vg(), r = zg();
 	e.FetchDocumentLoader = class {
 		constructor(e) {
 			this.fetcher = e;
@@ -71348,7 +70922,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			} else throw Error(i.statusText || `Status code: ${i.status}`);
 		}
 	};
-})), JN = /* @__PURE__ */ l(((e) => {
+})), DN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.Util = void 0;
 	var t = class e {
 		static isCompactIri(e) {
@@ -71466,9 +71040,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		"@set",
 		"@index"
 	], e.Util = t;
-})), YN = /* @__PURE__ */ l(((e) => {
+})), ON = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.defaultExpandOptions = e.JsonLdContextNormalized = void 0;
-	var t = zg(), n = KN(), r = JN();
+	var t = zg(), n = TN(), r = DN();
 	e.JsonLdContextNormalized = class {
 		constructor(e) {
 			this.contextRaw = e;
@@ -71527,9 +71101,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		allowPrefixNonGenDelims: !1,
 		allowVocabRelativeToBase: !0
 	};
-})), XN = /* @__PURE__ */ l(((e) => {
+})), kN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContextParser = void 0;
-	var t = zg(), n = KN(), r = qN(), i = YN(), a = JN(), o = class e {
+	var t = zg(), n = TN(), r = EN(), i = ON(), a = DN(), o = class e {
 		constructor(e) {
 			e ||= {}, this.documentLoader = e.documentLoader || new r.FetchDocumentLoader(), this.documentCache = {}, this.validateContext = !e.skipValidation, this.expandContentTypeToBase = !!e.expandContentTypeToBase, this.remoteContextsDepthLimit = e.remoteContextsDepthLimit || 32, this.redirectSchemaOrgHttps = "redirectSchemaOrgHttps" in e ? !!e.redirectSchemaOrgHttps : !0;
 		}
@@ -71839,11 +71413,11 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		}
 	};
 	o.DEFAULT_PROCESSING_MODE = 1.1, e.ContextParser = o;
-})), ZN = /* @__PURE__ */ l(((e) => {
+})), AN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), QN = /* @__PURE__ */ l(((e) => {
+})), jN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), $N = /* @__PURE__ */ l(((e) => {
+})), MN = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -71858,8 +71432,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(XN(), e), n(KN(), e), n(qN(), e), n(ZN(), e), n(QN(), e), n(YN(), e), n(JN(), e);
-})), eP = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(kN(), e), n(TN(), e), n(EN(), e), n(AN(), e), n(jN(), e), n(ON(), e), n(DN(), e);
+})), NN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContainerHandlerIdentifier = void 0, e.ContainerHandlerIdentifier = class {
 		canCombineWithGraph() {
 			return !0;
@@ -71879,9 +71453,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			s ||= t.idStack[a] = [], s.some((e) => e.equals(o)) || s.push(o), await t.handlePendingContainerFlushBuffers() || (t.emittedStack[a] = !1);
 		}
 	};
-})), tP = /* @__PURE__ */ l(((e) => {
+})), PN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerPredicate = void 0;
-	var t = $N(), n = sP();
+	var t = MN(), n = BN();
 	e.EntryHandlerPredicate = class e {
 		static async handlePredicateObject(e, n, r, i, a, o, s, c, l) {
 			let u = await n.getPropertiesDepth(r, i), d = await n.getDepthOffsetGraph(i, r), f = i - d, p = e.idStack[u];
@@ -71969,9 +71543,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}
 		}
 	};
-})), nP = /* @__PURE__ */ l(((e) => {
+})), FN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContainerHandlerIndex = void 0;
-	var t = $N(), n = tP(), r = sP();
+	var t = MN(), n = PN(), r = BN();
 	e.ContainerHandlerIndex = class {
 		canCombineWithGraph() {
 			return !0;
@@ -72002,9 +71576,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			i.emittedStack[c] = !1;
 		}
 	};
-})), rP = /* @__PURE__ */ l(((e) => {
+})), IN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContainerHandlerLanguage = void 0;
-	var t = $N();
+	var t = MN();
 	e.ContainerHandlerLanguage = class {
 		canCombineWithGraph() {
 			return !1;
@@ -72025,9 +71599,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			await n.newOnValueJob(i.slice(0, i.length - 1), a, o - 1, !0), n.emittedStack[o] = !1;
 		}
 	};
-})), iP = /* @__PURE__ */ l(((e) => {
+})), LN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContainerHandlerType = void 0;
-	var t = tP(), n = sP();
+	var t = PN(), n = BN();
 	e.ContainerHandlerType = class {
 		canCombineWithGraph() {
 			return !1;
@@ -72050,9 +71624,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			r.emittedStack[s] = !1;
 		}
 	};
-})), aP = /* @__PURE__ */ l(((e) => {
+})), RN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerContainer = void 0;
-	var t = eP(), n = nP(), r = rP(), i = iP(), a = sP(), o = class e {
+	var t = NN(), n = FN(), r = IN(), i = LN(), a = BN(), o = class e {
 		static isSimpleGraphContainer(e) {
 			return "@graph" in e && ("@set" in e && Object.keys(e).length === 2 || Object.keys(e).length === 1);
 		}
@@ -72128,16 +71702,16 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		"@language": new r.ContainerHandlerLanguage(),
 		"@type": new i.ContainerHandlerType()
 	};
-})), oP = /* @__PURE__ */ l(((e, t) => {
+})), zN = /* @__PURE__ */ l(((e, t) => {
 	t.exports = function e(t) {
 		return typeof t != "object" || !t || t.toJSON != null ? JSON.stringify(t) : Array.isArray(t) ? "[" + t.reduce((t, n, r) => {
 			let i = r === 0 ? "" : ",", a = n === void 0 || typeof n == "symbol" ? null : n;
 			return t + i + e(a);
 		}, "") + "]" : "{" + Object.keys(t).sort().reduce((n, r, i) => t[r] === void 0 || typeof t[r] == "symbol" ? n : n + (n.length === 0 ? "" : ",") + e(r) + ":" + e(t[r]), "") + "}";
 	};
-})), sP = /* @__PURE__ */ l(((e) => {
+})), BN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.Util = void 0;
-	var t = $N(), n = hu(), r = aP(), i = oP(), a = class e {
+	var t = MN(), n = hu(), r = RN(), i = zN(), a = class e {
 		constructor(t) {
 			this.parsingContext = t.parsingContext, this.dataFactory = t.dataFactory || new n.DataFactory(), this.rdfFirst = this.dataFactory.namedNode(e.RDF + "first"), this.rdfRest = this.dataFactory.namedNode(e.RDF + "rest"), this.rdfNil = this.dataFactory.namedNode(e.RDF + "nil"), this.rdfType = this.dataFactory.namedNode(e.RDF + "type"), this.rdfJson = this.dataFactory.namedNode(e.RDF + "JSON");
 		}
@@ -72436,9 +72010,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		}
 	};
 	e.Util = a, a.XSD = "http://www.w3.org/2001/XMLSchema#", a.XSD_BOOLEAN = a.XSD + "boolean", a.XSD_INTEGER = a.XSD + "integer", a.XSD_DOUBLE = a.XSD + "double", a.RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-})), cP = /* @__PURE__ */ l(((e) => {
+})), VN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerArrayValue = void 0;
-	var t = sP(), n = $N();
+	var t = BN(), n = MN();
 	e.EntryHandlerArrayValue = class {
 		isPropertyHandler() {
 			return !1;
@@ -72505,7 +72079,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			e.listPointerStack[a] = c, e.rdfstar && e.annotationsBuffer[a] && e.emitError(new n.ErrorCoded("Found an illegal annotation inside a list", n.ERROR_CODES.INVALID_ANNOTATION));
 		}
 	};
-})), lP = /* @__PURE__ */ l(((e) => {
+})), HN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerInvalidFallback = void 0, e.EntryHandlerInvalidFallback = class {
 		isPropertyHandler() {
 			return !1;
@@ -72523,7 +72097,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			e.emittedStack[a] = !1;
 		}
 	};
-})), uP = /* @__PURE__ */ l(((e) => {
+})), UN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeyword = void 0, e.EntryHandlerKeyword = class {
 		constructor(e) {
 			this.keyword = e;
@@ -72541,9 +72115,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return n === this.keyword;
 		}
 	};
-})), dP = /* @__PURE__ */ l(((e) => {
+})), WN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordContext = void 0;
-	var t = $N(), n = uP();
+	var t = MN(), n = UN();
 	e.EntryHandlerKeywordContext = class extends n.EntryHandlerKeyword {
 		constructor() {
 			super("@context");
@@ -72557,9 +72131,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			e.contextTree.setContext(i.slice(0, -1), c), e.emitContext(a), await e.validateContext(await c);
 		}
 	};
-})), fP = /* @__PURE__ */ l(((e) => {
+})), GN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordGraph = void 0;
-	var t = uP();
+	var t = UN();
 	e.EntryHandlerKeywordGraph = class extends t.EntryHandlerKeyword {
 		constructor() {
 			super("@graph");
@@ -72568,9 +72142,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			e.graphStack[a + 1] = !0;
 		}
 	};
-})), pP = /* @__PURE__ */ l(((e) => {
+})), KN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordId = void 0;
-	var t = $N(), n = uP();
+	var t = MN(), n = UN();
 	e.EntryHandlerKeywordId = class extends n.EntryHandlerKeyword {
 		constructor() {
 			super("@id");
@@ -72591,9 +72165,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			e.idStack[s] = n.nullableTermToArray(await n.resourceToTerm(await e.getContext(i), a));
 		}
 	};
-})), mP = /* @__PURE__ */ l(((e) => {
+})), qN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordIncluded = void 0;
-	var t = $N(), n = uP();
+	var t = MN(), n = UN();
 	e.EntryHandlerKeywordIncluded = class extends n.EntryHandlerKeyword {
 		constructor() {
 			super("@included");
@@ -72604,9 +72178,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			"@value" in s && e.emitError(new t.ErrorCoded(`Found an illegal @included @value node '${JSON.stringify(a)}'`, t.ERROR_CODES.INVALID_INCLUDED_VALUE)), "@list" in s && e.emitError(new t.ErrorCoded(`Found an illegal @included @list node '${JSON.stringify(a)}'`, t.ERROR_CODES.INVALID_INCLUDED_VALUE)), e.emittedStack[o] = !1;
 		}
 	};
-})), hP = /* @__PURE__ */ l(((e) => {
+})), JN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordNest = void 0;
-	var t = $N(), n = uP();
+	var t = MN(), n = UN();
 	e.EntryHandlerKeywordNest = class extends n.EntryHandlerKeyword {
 		constructor() {
 			super("@nest");
@@ -72615,9 +72189,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			typeof a != "object" && e.emitError(new t.ErrorCoded(`Found invalid @nest entry for '${r}': '${a}'`, t.ERROR_CODES.INVALID_NEST_VALUE)), "@value" in await n.unaliasKeywords(a, i, o, await e.getContext(i)) && e.emitError(new t.ErrorCoded(`Found an invalid @value node for '${r}'`, t.ERROR_CODES.INVALID_NEST_VALUE)), e.emittedStack[o] = !1;
 		}
 	};
-})), gP = /* @__PURE__ */ l(((e) => {
+})), YN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordType = void 0;
-	var t = $N(), n = sP(), r = tP(), i = uP();
+	var t = MN(), n = BN(), r = PN(), i = UN();
 	e.EntryHandlerKeywordType = class extends i.EntryHandlerKeyword {
 		constructor() {
 			super("@type");
@@ -72645,9 +72219,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			}))), e.contextTree.setContext(o.slice(0, o.length - 1), _)), e.processingType[c] = !0;
 		}
 	};
-})), _P = /* @__PURE__ */ l(((e) => {
+})), XN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordUnknownFallback = void 0;
-	var t = $N(), n = class e {
+	var t = MN(), n = class e {
 		isPropertyHandler() {
 			return !1;
 		}
@@ -72679,9 +72253,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		"@set": null,
 		"@value": null
 	};
-})), vP = /* @__PURE__ */ l(((e) => {
+})), ZN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordValue = void 0;
-	var t = uP();
+	var t = UN();
 	e.EntryHandlerKeywordValue = class extends t.EntryHandlerKeyword {
 		constructor() {
 			super("@value");
@@ -72697,7 +72271,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			e.literalStack[a] = !0, delete e.unidentifiedValuesBuffer[a], delete e.unidentifiedGraphsBuffer[a], e.emittedStack[a] = !1;
 		}
 	};
-})), yP = /* @__PURE__ */ l(((e) => {
+})), QN = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContextTree = void 0, e.ContextTree = class e {
 		constructor() {
 			this.subTrees = {};
@@ -72729,9 +72303,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			this.setContext(e, null);
 		}
 	};
-})), bP = /* @__PURE__ */ l(((e) => {
+})), $N = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ParsingContext = void 0;
-	var t = $N(), n = KN(), r = yP(), i = SP(), a = class e {
+	var t = MN(), n = TN(), r = QN(), i = tP(), a = class e {
 		constructor(e) {
 			this.contextParser = new t.ContextParser({
 				documentLoader: e.documentLoader,
@@ -72839,9 +72413,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			allowVocabRelativeToBase: !0
 		}
 	};
-})), xP = /* @__PURE__ */ l(((e) => {
+})), eP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.EntryHandlerKeywordAnnotation = void 0;
-	var t = uP(), n = $N();
+	var t = UN(), n = MN();
 	e.EntryHandlerKeywordAnnotation = class extends t.EntryHandlerKeyword {
 		constructor() {
 			super("@annotation");
@@ -72850,9 +72424,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			(typeof a == "string" || typeof a == "object" && a["@value"]) && e.emitError(new n.ErrorCoded(`Found illegal annotation value: ${JSON.stringify(a)}`, n.ERROR_CODES.INVALID_ANNOTATION));
 		}
 	};
-})), SP = /* @__PURE__ */ l(((e) => {
+})), tP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.JsonLdParser = void 0;
-	var t = mv(), n = $N(), r = U(), i = cP(), a = aP(), o = lP(), s = tP(), c = dP(), l = fP(), u = pP(), d = mP(), f = hP(), p = gP(), m = _P(), h = vP(), g = bP(), _ = sP(), v = Vg(), y = xP(), b = class e extends r.Transform {
+	var t = mv(), n = MN(), r = U(), i = VN(), a = RN(), o = HN(), s = PN(), c = WN(), l = GN(), u = KN(), d = qN(), f = JN(), p = YN(), m = XN(), h = ZN(), g = $N(), _ = BN(), v = Vg(), y = eP(), b = class e extends r.Transform {
 		constructor(e) {
 			super({ readableObjectMode: !0 }), e ||= {}, this.options = e, this.parsingContext = new g.ParsingContext(Object.assign({ parser: this }, e)), this.util = new _.Util({
 				dataFactory: e.dataFactory,
@@ -73054,7 +72628,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		new s.EntryHandlerPredicate(),
 		new o.EntryHandlerInvalidFallback()
 	];
-})), CP = /* @__PURE__ */ l(((e) => {
+})), nP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -73069,8 +72643,8 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(SP(), e);
-})), wP = /* @__PURE__ */ l((() => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(tP(), e);
+})), rP = /* @__PURE__ */ l((() => {
 	(function(e) {
 		(function(t) {
 			var n = typeof globalThis < "u" && globalThis || e !== void 0 && e || typeof global < "u" && global || {}, r = {
@@ -73382,7 +72956,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			return T.polyfill = !0, n.fetch || (n.fetch = T, n.Headers = u, n.Request = b, n.Response = C), t.Headers = u, t.Request = b, t.Response = C, t.fetch = T, Object.defineProperty(t, "__esModule", { value: !0 }), t;
 		})({});
 	})(typeof self < "u" ? self : void 0);
-})), TP = /* @__PURE__ */ l(((e) => {
+})), iP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ERROR_CODES = e.ErrorCoded = void 0, e.ErrorCoded = class extends Error {
 		/* istanbul ignore next */
 		constructor(e, t) {
@@ -73391,9 +72965,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 	}, (function(e) {
 		e.COLLIDING_KEYWORDS = "colliding keywords", e.CONFLICTING_INDEXES = "conflicting indexes", e.CYCLIC_IRI_MAPPING = "cyclic IRI mapping", e.INVALID_ID_VALUE = "invalid @id value", e.INVALID_INDEX_VALUE = "invalid @index value", e.INVALID_NEST_VALUE = "invalid @nest value", e.INVALID_PREFIX_VALUE = "invalid @prefix value", e.INVALID_PROPAGATE_VALUE = "invalid @propagate value", e.INVALID_REVERSE_VALUE = "invalid @reverse value", e.INVALID_IMPORT_VALUE = "invalid @import value", e.INVALID_VERSION_VALUE = "invalid @version value", e.INVALID_BASE_IRI = "invalid base IRI", e.INVALID_CONTAINER_MAPPING = "invalid container mapping", e.INVALID_CONTEXT_ENTRY = "invalid context entry", e.INVALID_CONTEXT_NULLIFICATION = "invalid context nullification", e.INVALID_DEFAULT_LANGUAGE = "invalid default language", e.INVALID_INCLUDED_VALUE = "invalid @included value", e.INVALID_IRI_MAPPING = "invalid IRI mapping", e.INVALID_JSON_LITERAL = "invalid JSON literal", e.INVALID_KEYWORD_ALIAS = "invalid keyword alias", e.INVALID_LANGUAGE_MAP_VALUE = "invalid language map value", e.INVALID_LANGUAGE_MAPPING = "invalid language mapping", e.INVALID_LANGUAGE_TAGGED_STRING = "invalid language-tagged string", e.INVALID_LANGUAGE_TAGGED_VALUE = "invalid language-tagged value", e.INVALID_LOCAL_CONTEXT = "invalid local context", e.INVALID_REMOTE_CONTEXT = "invalid remote context", e.INVALID_REVERSE_PROPERTY = "invalid reverse property", e.INVALID_REVERSE_PROPERTY_MAP = "invalid reverse property map", e.INVALID_REVERSE_PROPERTY_VALUE = "invalid reverse property value", e.INVALID_SCOPED_CONTEXT = "invalid scoped context", e.INVALID_SCRIPT_ELEMENT = "invalid script element", e.INVALID_SET_OR_LIST_OBJECT = "invalid set or list object", e.INVALID_TERM_DEFINITION = "invalid term definition", e.INVALID_TYPE_MAPPING = "invalid type mapping", e.INVALID_TYPE_VALUE = "invalid type value", e.INVALID_TYPED_VALUE = "invalid typed value", e.INVALID_VALUE_OBJECT = "invalid value object", e.INVALID_VALUE_OBJECT_VALUE = "invalid value object value", e.INVALID_VOCAB_MAPPING = "invalid vocab mapping", e.IRI_CONFUSED_WITH_PREFIX = "IRI confused with prefix", e.KEYWORD_REDEFINITION = "keyword redefinition", e.LOADING_DOCUMENT_FAILED = "loading document failed", e.LOADING_REMOTE_CONTEXT_FAILED = "loading remote context failed", e.MULTIPLE_CONTEXT_LINK_HEADERS = "multiple context link headers", e.PROCESSING_MODE_CONFLICT = "processing mode conflict", e.PROTECTED_TERM_REDEFINITION = "protected term redefinition", e.CONTEXT_OVERFLOW = "context overflow", e.INVALID_BASE_DIRECTION = "invalid base direction", e.RECURSIVE_CONTEXT_INCLUSION = "recursive context inclusion", e.INVALID_STREAMING_KEY_ORDER = "invalid streaming key order", e.INVALID_EMBEDDED_NODE = "invalid embedded node", e.INVALID_ANNOTATION = "invalid annotation";
 	})(e.ERROR_CODES ||= {});
-})), EP = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.FetchDocumentLoader = void 0, wP();
-	var t = TP(), n = Vg(), r = zg();
+})), aP = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.FetchDocumentLoader = void 0, rP();
+	var t = iP(), n = Vg(), r = zg();
 	e.FetchDocumentLoader = class {
 		constructor(e) {
 			this.fetcher = e;
@@ -73423,7 +72997,7 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 			} else throw Error(i.statusText || `Status code: ${i.status}`);
 		}
 	};
-})), DP = /* @__PURE__ */ l(((e) => {
+})), oP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.Util = void 0;
 	var t = class e {
 		static isCompactIri(e) {
@@ -73541,9 +73115,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		"@set",
 		"@index"
 	], e.Util = t;
-})), OP = /* @__PURE__ */ l(((e) => {
+})), sP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.defaultExpandOptions = e.JsonLdContextNormalized = void 0;
-	var t = zg(), n = TP(), r = DP();
+	var t = zg(), n = iP(), r = oP();
 	e.JsonLdContextNormalized = class {
 		constructor(e) {
 			this.contextRaw = e;
@@ -73602,9 +73176,9 @@ Tried mapping @context to ${JSON.stringify(t["@context"])}`, n.ERROR_CODES.KEYWO
 		allowPrefixNonGenDelims: !1,
 		allowVocabRelativeToBase: !0
 	};
-})), kP = /* @__PURE__ */ l(((e) => {
-	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContextParser = void 0, wP();
-	var t = zg(), n = TP(), r = EP(), i = OP(), a = DP(), o = class e {
+})), cP = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), e.ContextParser = void 0, rP();
+	var t = zg(), n = iP(), r = aP(), i = sP(), a = oP(), o = class e {
 		constructor(e) {
 			e ||= {}, this.documentLoader = e.documentLoader || new r.FetchDocumentLoader(), this.documentCache = {}, this.validateContext = !e.skipValidation, this.expandContentTypeToBase = !!e.expandContentTypeToBase, this.remoteContextsDepthLimit = e.remoteContextsDepthLimit || 32, this.redirectSchemaOrgHttps = "redirectSchemaOrgHttps" in e ? !!e.redirectSchemaOrgHttps : !0;
 		}
@@ -73910,11 +73484,11 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}
 	};
 	o.DEFAULT_PROCESSING_MODE = 1.1, e.ContextParser = o;
-})), AP = /* @__PURE__ */ l(((e) => {
+})), lP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), jP = /* @__PURE__ */ l(((e) => {
+})), uP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), MP = /* @__PURE__ */ l(((e) => {
+})), dP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -73929,10 +73503,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(kP(), e), n(TP(), e), n(EP(), e), n(AP(), e), n(jP(), e), n(OP(), e), n(DP(), e);
-})), NP = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(cP(), e), n(iP(), e), n(aP(), e), n(lP(), e), n(uP(), e), n(sP(), e), n(oP(), e);
+})), fP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.DocumentLoaderMediated = void 0;
-	var t = aM(), n = Qx(), r = MP();
+	var t = Rj(), n = Qx(), r = dP();
 	e.DocumentLoaderMediated = class e extends r.FetchDocumentLoader {
 		context;
 		lastCachePolicies;
@@ -73970,9 +73544,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}), n;
 		}
 	};
-})), PP = /* @__PURE__ */ l(((e) => {
+})), pP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfParseJsonLd = void 0;
-	var t = ny(), n = q(), r = K(), i = CP(), a = Td(), o = NP();
+	var t = ny(), n = q(), r = K(), i = nP(), a = Td(), o = fP();
 	e.ActorRdfParseJsonLd = class extends t.ActorRdfParseFixedMediaTypes {
 		mediatorHttp;
 		httpInvalidator;
@@ -73995,7 +73569,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}).import(e.data) };
 		}
 	};
-})), FP = /* @__PURE__ */ l(((e) => {
+})), mP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -74010,8 +73584,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(PP(), e), n(NP(), e);
-})), IP = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(pP(), e), n(fP(), e);
+})), hP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfUpdateQuadsHypermedia = void 0;
 	var t = yw(), n = K(), r = gf(), i = Td();
 	e.ActorRdfUpdateQuadsHypermedia = class extends t.ActorRdfUpdateQuadsDestination {
@@ -74082,7 +73656,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return this.cache && this.cache.set(n, i), i.then(({ destination: e }) => e);
 		}
 	};
-})), LP = /* @__PURE__ */ l(((e) => {
+})), gP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -74097,8 +73671,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(IP(), e);
-})), RP = /* @__PURE__ */ l(((e, t) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(hP(), e);
+})), _P = /* @__PURE__ */ l(((e, t) => {
 	var n = /* @__PURE__ */ new Set([
 		200,
 		203,
@@ -74365,44 +73939,44 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), zP = /* @__PURE__ */ u({
-	browser: () => eF,
-	bugs: () => KP,
-	default: () => nF,
-	dependencies: () => $P,
-	description: () => HP,
-	files: () => ZP,
-	funding: () => UP,
-	gitHead: () => tF,
-	homepage: () => WP,
-	keywords: () => qP,
+})), vP = /* @__PURE__ */ u({
+	browser: () => NP,
+	bugs: () => TP,
+	default: () => FP,
+	dependencies: () => MP,
+	description: () => xP,
+	files: () => AP,
+	funding: () => SP,
+	gitHead: () => PP,
+	homepage: () => CP,
+	keywords: () => EP,
 	license: () => "MIT",
-	main: () => JP,
-	name: () => BP,
-	publishConfig: () => XP,
-	repository: () => GP,
-	scripts: () => QP,
+	main: () => DP,
+	name: () => yP,
+	publishConfig: () => kP,
+	repository: () => wP,
+	scripts: () => jP,
 	sideEffects: () => !1,
-	typings: () => YP,
-	version: () => VP
-}), BP, VP, HP, UP, WP, GP, KP, qP, JP, YP, XP, ZP, QP, $P, eF, tF, nF, rF = c((() => {
-	BP = "@comunica/actor-http-fetch", VP = "5.3.0", HP = "A fetch http actor", UP = {
+	typings: () => OP,
+	version: () => bP
+}), yP, bP, xP, SP, CP, wP, TP, EP, DP, OP, kP, AP, jP, MP, NP, PP, FP, IP = c((() => {
+	yP = "@comunica/actor-http-fetch", bP = "5.3.0", xP = "A fetch http actor", SP = {
 		type: "opencollective",
 		url: "https://opencollective.com/comunica-association"
-	}, WP = "https://comunica.dev/", GP = {
+	}, CP = "https://comunica.dev/", wP = {
 		type: "git",
 		url: "https://github.com/comunica/comunica.git",
 		directory: "packages/actor-http-fetch"
-	}, KP = { url: "https://github.com/comunica/comunica/issues" }, qP = ["comunica", "runner"], JP = "lib/index.js", YP = "lib/index", XP = { access: "public" }, ZP = [
+	}, TP = { url: "https://github.com/comunica/comunica/issues" }, EP = ["comunica", "runner"], DP = "lib/index.js", OP = "lib/index", kP = { access: "public" }, AP = [
 		"components",
 		"lib/**/*.d.ts",
 		"lib/**/*.js",
 		"lib/**/*.js.map"
-	], QP = {
+	], jP = {
 		build: "yarn run build:ts && yarn run build:components",
 		"build:ts": "node \"../../node_modules/typescript/bin/tsc\"",
 		"build:components": "componentsjs-generator"
-	}, $P = {
+	}, MP = {
 		"@comunica/bus-http": "^5.3.0",
 		"@comunica/bus-http-invalidate": "^5.3.0",
 		"@comunica/context-entries": "^5.3.0",
@@ -74412,30 +73986,30 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		"@types/http-cache-semantics": "^4.0.4",
 		"http-cache-semantics": "^4.2.0",
 		undici: "^8.0.0"
-	}, eF = { "./lib/FetchInitPreprocessor.js": "./lib/FetchInitPreprocessor-browser.js" }, tF = "8a9d8e4a706d64268e1e222b4c561caa47798f72", nF = {
-		name: BP,
-		version: VP,
-		description: HP,
+	}, NP = { "./lib/FetchInitPreprocessor.js": "./lib/FetchInitPreprocessor-browser.js" }, PP = "8a9d8e4a706d64268e1e222b4c561caa47798f72", FP = {
+		name: yP,
+		version: bP,
+		description: xP,
 		"lsd:module": !0,
 		license: "MIT",
-		funding: UP,
-		homepage: WP,
-		repository: GP,
-		bugs: KP,
-		keywords: qP,
+		funding: SP,
+		homepage: CP,
+		repository: wP,
+		bugs: TP,
+		keywords: EP,
 		sideEffects: !1,
-		main: JP,
-		typings: YP,
-		publishConfig: XP,
-		files: ZP,
-		scripts: QP,
-		dependencies: $P,
-		browser: eF,
-		gitHead: tF
+		main: DP,
+		typings: OP,
+		publishConfig: kP,
+		files: AP,
+		scripts: jP,
+		dependencies: MP,
+		browser: NP,
+		gitHead: PP
 	};
-})), iF = /* @__PURE__ */ l(((e) => {
+})), LP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.CachePolicyHttpCacheSemanticsWrapper = void 0;
-	var t = aM(), n = q();
+	var t = Rj(), n = q();
 	e.CachePolicyHttpCacheSemanticsWrapper = class e {
 		cachePolicy;
 		queryTimestamp;
@@ -74484,7 +74058,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return t;
 		}
 	};
-})), aF = /* @__PURE__ */ l(((e) => {
+})), RP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.FetchInitPreprocessor = void 0, e.FetchInitPreprocessor = class {
 		async handle(e) {
 			if (e.body && typeof e.body != "string" && "getReader" in e.body) {
@@ -74502,9 +74076,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), oF = /* @__PURE__ */ l(((e) => {
+})), zP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpFetch = void 0;
-	var t = aM(), n = q(), r = K(), i = RP(), a = (rF(), p(zP).default), o = iF(), s = aF();
+	var t = Rj(), n = q(), r = K(), i = _P(), a = (IP(), p(vP).default), o = LP(), s = RP();
 	e.ActorHttpFetch = class e extends t.ActorHttp {
 		fetchInitPreprocessor;
 		static userAgent = t.ActorHttp.createUserAgent("ActorHttpFetch", a.version);
@@ -74546,7 +74120,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return btoa(n);
 		}
 	};
-})), sF = /* @__PURE__ */ l(((e) => {
+})), BP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -74561,8 +74135,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(oF(), e), n(iF(), e);
-})), cF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(zP(), e), n(LP(), e);
+})), VP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActionObserverHttp = void 0;
 	var t = K();
 	e.ActionObserverHttp = class extends t.ActionObserver {
@@ -74578,7 +74152,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			this.observedActors.includes(e.name) && this.requests++;
 		}
 	};
-})), lF = /* @__PURE__ */ l(((e) => {
+})), HP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryResultSerializeSparqlJson = void 0;
 	var t = f_(), n = K(), r = D_(), i = U();
 	e.ActorQueryResultSerializeSparqlJson = class e extends t.ActorQueryResultSerializeFixedMediaTypes {
@@ -74634,7 +74208,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return { data: o };
 		}
 	};
-})), uF = /* @__PURE__ */ l(((e) => {
+})), UP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -74649,8 +74223,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(cF(), e), n(lF(), e);
-})), dF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(VP(), e), n(HP(), e);
+})), WP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActionObserverHttp = void 0;
 	var t = K();
 	e.ActionObserverHttp = class extends t.ActionObserver {
@@ -74666,7 +74240,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			this.observedActors.includes(e.name) && this.requests++;
 		}
 	};
-})), fF = /* @__PURE__ */ l(((e) => {
+})), GP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryResultSerializeStats = void 0;
 	var t = f_(), n = q(), r = K(), i = D_(), a = U();
 	e.ActorQueryResultSerializeStats = class extends t.ActorQueryResultSerializeFixedMediaTypes {
@@ -74714,7 +74288,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return this.now() - e;
 		}
 	};
-})), pF = /* @__PURE__ */ l(((e) => {
+})), KP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -74729,8 +74303,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(dF(), e), n(fF(), e);
-})), mF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(WP(), e), n(GP(), e);
+})), qP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifyHypermedia = void 0;
 	var t = K();
 	e.ActorQuerySourceIdentifyHypermedia = class extends t.Actor {
@@ -74742,7 +74316,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return e.forceSourceType && this.sourceType !== e.forceSourceType ? (0, t.failTest)(`Actor ${this.name} is not able to handle source type ${e.forceSourceType}.`) : this.testMetadata(e);
 		}
 	};
-})), hF = /* @__PURE__ */ l(((e) => {
+})), JP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -74757,8 +74331,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(mF(), e);
-})), gF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(qP(), e);
+})), YP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentify = void 0;
 	var t = K();
 	e.ActorQuerySourceIdentify = class extends t.Actor {
@@ -74766,9 +74340,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			super(e);
 		}
 	};
-})), _F = /* @__PURE__ */ l(((e) => {
+})), XP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.quadsToBindings = o, e.isTermVariable = s, e.getVariables = c, e.getDuplicateElementLinks = l, e.setMetadata = u, e.quadsMetadataToBindingsMetadata = d, e.quadsOrderToBindingsOrder = f, e.filterMatchingQuotedQuads = p;
-	var t = vA(), n = jd(), r = _u(), i = Iu(), a = Pu();
+	var t = Zk(), n = jd(), r = _u(), i = Iu(), a = Pu();
 	function o(e, n, r, a, o) {
 		let s = c(n), d = n.graph.termType === "Variable" && !o, f = l(n), p = (0, i.reduceTermsNested)(n, (e, t, n) => (t.termType === "Variable" && (e[n.join("_")] = t.value), e), {}), m = e;
 		d && (m = m.filter((e) => e.graph.termType !== "DefaultGraph")), f && (m = m.filter((e) => {
@@ -74840,7 +74414,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	function p(e, t) {
 		return (0, i.someTerms)(e, (e) => e.termType === "Quad") && (t = t.filter((t) => (0, a.matchPatternMappings)(t, e))), t;
 	}
-})), vF = /* @__PURE__ */ l(((e) => {
+})), ZP = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -74855,10 +74429,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(gF(), e), n(_F(), e);
-})), yF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(YP(), e), n(XP(), e);
+})), QP = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuerySourceQpf = void 0;
-	var t = vF(), n = q(), r = J(), i = jd(), a = D_(), o = _u(), s = F_(), c = Iu();
+	var t = ZP(), n = q(), r = J(), i = jd(), a = D_(), o = _u(), s = F_(), c = Iu();
 	e.QuerySourceQpf = class {
 		selectorShape;
 		searchForm;
@@ -75050,9 +74624,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	function l(e) {
 		return e.termType === "DefaultGraph" ? "|" : (0, o.termToString)(e);
 	}
-})), bF = /* @__PURE__ */ l(((e) => {
+})), $P = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifyHypermediaQpf = void 0;
-	var t = hF(), n = q(), r = K(), i = J(), a = WA(), o = yF();
+	var t = JP(), n = q(), r = K(), i = J(), a = CA(), o = QP();
 	e.ActorQuerySourceIdentifyHypermediaQpf = class extends t.ActorQuerySourceIdentifyHypermedia {
 		mediatorMetadata;
 		mediatorMetadataExtract;
@@ -75085,7 +74659,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return new o.QuerySourceQpf(this.mediatorMetadata, this.mediatorMetadataExtract, this.mediatorDereferenceRdf, l, u, await a.BindingsFactory.create(this.mediatorMergeBindingsContext, r, l), this.subjectUri, this.predicateUri, this.objectUri, this.graphUri, e, t, s, c);
 		}
 	};
-})), xF = /* @__PURE__ */ l(((e) => {
+})), eF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -75100,10 +74674,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(bF(), e), n(yF(), e);
-})), SF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n($P(), e), n(QP(), e);
+})), tF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuerySourceSparql = void 0;
-	var t = q(), n = K(), r = J(), i = jd(), a = gf(), o = D_(), s = CM(), c = Td(), l = Iu();
+	var t = q(), n = K(), r = J(), i = jd(), a = gf(), o = D_(), s = nM(), c = Td(), l = Iu();
 	e.QuerySourceSparql = class e {
 		referenceValue;
 		url;
@@ -75392,9 +74966,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return `QuerySourceSparql(${this.url})`;
 		}
 	};
-})), CF = /* @__PURE__ */ l(((e) => {
+})), nF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifyHypermediaSparql = void 0;
-	var t = hF(), n = q(), r = K(), i = J(), a = WA(), o = SF();
+	var t = JP(), n = q(), r = K(), i = J(), a = CA(), o = tF();
 	e.ActorQuerySourceIdentifyHypermediaSparql = class extends t.ActorQuerySourceIdentifyHypermedia {
 		mediatorHttp;
 		mediatorMergeBindingsContext;
@@ -75426,7 +75000,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return { source: new o.QuerySourceSparql(e.forceSourceType ?? this.forceSourceType ? e.url : e.metadata.sparqlService || e.url, e.url, e.context, this.mediatorHttp, this.mediatorQuerySerialize, this.bindMethod, t, r, await a.BindingsFactory.create(this.mediatorMergeBindingsContext, e.context, t), this.forceHttpGet, this.cacheSize, this.countTimeout, this.cardinalityCountQueries && !s, this.cardinalityEstimateConstruction, this.forceGetIfUrlLengthBelow, !!e.context.get(n.KeysInitQuery.parseUnsupportedVersions), e.metadata) };
 		}
 	};
-})), wF = /* @__PURE__ */ l(((e) => {
+})), rF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -75441,10 +75015,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(CF(), e), n(SF(), e);
-})), TF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(nF(), e), n(tF(), e);
+})), iF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuerySourceRdfJs = void 0;
-	var t = vF(), n = q(), r = J(), i = jd(), a = D_(), o = Iu();
+	var t = ZP(), n = q(), r = J(), i = jd(), a = D_(), o = Iu();
 	e.QuerySourceRdfJs = class e {
 		selectorShape;
 		referenceValue;
@@ -75588,9 +75162,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return `QuerySourceRdfJs(${this.source.constructor.name})`;
 		}
 	};
-})), EF = /* @__PURE__ */ l(((e) => {
+})), aF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifyRdfJs = void 0;
-	var t = vF(), n = q(), r = K(), i = WA(), a = TF();
+	var t = ZP(), n = q(), r = K(), i = CA(), a = iF();
 	e.ActorQuerySourceIdentifyRdfJs = class extends t.ActorQuerySourceIdentify {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -75608,9 +75182,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			} };
 		}
 	};
-})), DF = /* @__PURE__ */ l(((e) => {
+})), oF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), OF = /* @__PURE__ */ l(((e) => {
+})), sF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -75625,8 +75199,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(EF(), e), n(DF(), e), n(TF(), e);
-})), kF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(aF(), e), n(oF(), e), n(iF(), e);
+})), cF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermDictionaryNumberRecordFullTerms = void 0;
 	var t = hu(), n = _u();
 	e.TermDictionaryNumberRecordFullTerms = class {
@@ -75656,7 +75230,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			throw Error("findQuotedTriplesEncoded is not supported");
 		}
 	};
-})), AF = /* @__PURE__ */ l(((e) => {
+})), lF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QUAD_TERM_NAMES_INVERSE = void 0, e.getBestIndex = n, e.getBestIndexTerms = r, e.getIndexMatchTermsPath = i, e.getComponentOrderScore = a, e.orderQuadComponents = o, e.encodeOptionalTerms = s, e.quadToPattern = c, e.quadHasVariables = l, e.arePatternsQuoted = u;
 	var t = Iu();
 	e.QUAD_TERM_NAMES_INVERSE = Object.fromEntries(t.QUAD_TERM_NAMES.map((e, t) => [e, t]));
@@ -75728,9 +75302,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	function u(e) {
 		return e.map((e) => e?.termType === "Quad" && l(e));
 	}
-})), jF = /* @__PURE__ */ l(((e) => {
+})), uF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.RdfStoreIndexNestedMap = void 0;
-	var t = AF();
+	var t = lF();
 	e.RdfStoreIndexNestedMap = class {
 		constructor(e) {
 			this.features = { quotedTripleFiltering: !1 }, this.dictionary = e.dictionary, this.nestedMap = /* @__PURE__ */ new Map();
@@ -75847,9 +75421,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return this.countTermsInner(0, this.nestedMap, e);
 		}
 	};
-})), MF = /* @__PURE__ */ l(((e) => {
+})), dF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermDictionaryQuotedIndexed = void 0;
-	var t = hu(), n = jF(), r = AF(), i = class e {
+	var t = hu(), n = uF(), r = lF(), i = class e {
 		constructor(e, r = new t.DataFactory()) {
 			this.quotedTriplesDictionary = [], this.features = { quotedTriples: !0 }, this.plainTermDictionary = e;
 			let i = {
@@ -75961,9 +75535,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}
 	};
 	e.TermDictionaryQuotedIndexed = i, i.BITMASK = 1 << 31;
-})), NF = /* @__PURE__ */ l(((e) => {
+})), fF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.RdfStoreIndexNestedMapQuoted = void 0;
-	var t = AF(), n = jF();
+	var t = lF(), n = uF();
 	e.RdfStoreIndexNestedMapQuoted = class extends n.RdfStoreIndexNestedMap {
 		constructor(e) {
 			super(e), this.features = { quotedTripleFiltering: !0 };
@@ -76031,9 +75605,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return n;
 		}
 	};
-})), PF = /* @__PURE__ */ l(((e) => {
+})), pF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.RdfStore = void 0;
-	var t = D_(), n = hu(), r = _u(), i = Iu(), a = FF(), o = kF(), s = MF(), c = NF(), l = AF(), u = class e {
+	var t = D_(), n = hu(), r = _u(), i = Iu(), a = mF(), o = cF(), s = dF(), c = fF(), l = lF(), u = class e {
 		constructor(t) {
 			this.features = {
 				quotedTripleFiltering: !0,
@@ -76296,9 +75870,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			"predicate"
 		]
 	];
-})), FF = /* @__PURE__ */ l(((e) => {
+})), mF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.DatasetCoreWrapper = void 0;
-	var t = PF();
+	var t = pF();
 	e.DatasetCoreWrapper = class e {
 		constructor(e) {
 			this.store = e;
@@ -76325,9 +75899,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return this.store.readQuads();
 		}
 	};
-})), IF = /* @__PURE__ */ l(((e) => {
+})), hF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), LF = /* @__PURE__ */ l(((e) => {
+})), gF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermDictionaryNumberMap = void 0;
 	var t = hu(), n = _u();
 	e.TermDictionaryNumberMap = class {
@@ -76357,7 +75931,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			throw Error("findQuotedTriplesEncoded is not supported");
 		}
 	};
-})), RF = /* @__PURE__ */ l(((e) => {
+})), _F = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermDictionaryNumberRecord = void 0;
 	var t = hu(), n = _u();
 	e.TermDictionaryNumberRecord = class {
@@ -76387,7 +75961,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			throw Error("findQuotedTriplesEncoded is not supported");
 		}
 	};
-})), zF = /* @__PURE__ */ l(((e) => {
+})), vF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermDictionaryQuoted = void 0;
 	var t = hu(), n = Iu(), r = class e {
 		constructor(e, n, r = new t.DataFactory()) {
@@ -76426,9 +76000,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}
 	};
 	e.TermDictionaryQuoted = r, r.BITMASK = 1 << 31;
-})), BF = /* @__PURE__ */ l(((e) => {
+})), yF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermDictionaryQuotedReferential = void 0;
-	var t = hu(), n = Iu(), r = AF(), i = class e {
+	var t = hu(), n = Iu(), r = lF(), i = class e {
 		constructor(e, n = new t.DataFactory()) {
 			this.quotedTriplesDictionary = [], this.quotedTriplesReverseDictionary = {}, this.features = { quotedTriples: !0 }, this.plainTermDictionary = e, this.dataFactory = n;
 		}
@@ -76479,7 +76053,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}
 	};
 	e.TermDictionaryQuotedReferential = i, i.BITMASK = 1 << 31, i.SEPARATOR = "_";
-})), VF = /* @__PURE__ */ l(((e) => {
+})), bF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermDictionarySymbol = void 0;
 	var t = hu(), n = _u();
 	e.TermDictionarySymbol = class {
@@ -76507,11 +76081,11 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			throw Error("findQuotedTriplesEncoded is not supported");
 		}
 	};
-})), HF = /* @__PURE__ */ l(((e) => {
+})), xF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), UF = /* @__PURE__ */ l(((e) => {
+})), SF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.RdfStoreIndexNestedMapRecursive = void 0;
-	var t = AF();
+	var t = lF();
 	e.RdfStoreIndexNestedMapRecursive = class {
 		constructor(e) {
 			this.features = { quotedTripleFiltering: !1 }, this.dictionary = e.dictionary, this.nestedMap = /* @__PURE__ */ new Map();
@@ -76607,9 +76181,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return this.countTermsInner(0, this.nestedMap, e);
 		}
 	};
-})), WF = /* @__PURE__ */ l(((e) => {
+})), CF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.RdfStoreIndexNestedMapRecursiveQuoted = void 0;
-	var t = AF(), n = UF();
+	var t = lF(), n = SF();
 	e.RdfStoreIndexNestedMapRecursiveQuoted = class extends n.RdfStoreIndexNestedMapRecursive {
 		constructor(e) {
 			super(e), this.features = { quotedTripleFiltering: !0 };
@@ -76657,9 +76231,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return a;
 		}
 	};
-})), GF = /* @__PURE__ */ l(((e) => {
+})), wF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.RdfStoreIndexNestedRecord = void 0;
-	var t = AF();
+	var t = lF();
 	e.RdfStoreIndexNestedRecord = class {
 		constructor(e) {
 			this.features = { quotedTripleFiltering: !1 }, this.dictionary = e.dictionary, this.nestedRecords = {};
@@ -76763,9 +76337,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return this.countTermsInner(0, this.nestedRecords, e);
 		}
 	};
-})), KF = /* @__PURE__ */ l(((e) => {
+})), TF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.RdfStoreIndexNestedRecordQuoted = void 0;
-	var t = AF(), n = GF();
+	var t = lF(), n = wF();
 	e.RdfStoreIndexNestedRecordQuoted = class extends n.RdfStoreIndexNestedRecord {
 		constructor(e) {
 			super(e), this.features = { quotedTripleFiltering: !0 };
@@ -76833,11 +76407,11 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return n;
 		}
 	};
-})), qF = /* @__PURE__ */ l(((e) => {
+})), EF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), JF = /* @__PURE__ */ l(((e) => {
+})), DF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 });
-})), YF = /* @__PURE__ */ l(((e) => {
+})), OF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -76852,10 +76426,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(FF(), e), n(IF(), e), n(LF(), e), n(RF(), e), n(kF(), e), n(zF(), e), n(MF(), e), n(BF(), e), n(VF(), e), n(HF(), e), n(jF(), e), n(NF(), e), n(UF(), e), n(WF(), e), n(GF(), e), n(KF(), e), n(qF(), e), n(AF(), e), n(JF(), e), n(PF(), e);
-})), XF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(mF(), e), n(hF(), e), n(gF(), e), n(_F(), e), n(cF(), e), n(vF(), e), n(dF(), e), n(yF(), e), n(bF(), e), n(xF(), e), n(uF(), e), n(fF(), e), n(SF(), e), n(CF(), e), n(wF(), e), n(TF(), e), n(EF(), e), n(lF(), e), n(DF(), e), n(pF(), e);
+})), kF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifyHypermediaNone = void 0;
-	var t = OF(), n = hF(), r = q(), i = K(), a = WA(), o = YF();
+	var t = sF(), n = JP(), r = q(), i = K(), a = CA(), o = OF();
 	e.ActorQuerySourceIdentifyHypermediaNone = class e extends n.ActorQuerySourceIdentifyHypermedia {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -76874,7 +76448,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return new Promise((n, r) => t.import(e).on("error", r).once("end", () => n(t)));
 		}
 	};
-})), ZF = /* @__PURE__ */ l(((e) => {
+})), AF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -76889,8 +76463,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(XF(), e);
-})), QF = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(kF(), e);
+})), jF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorExpressionEvaluatorFactory = void 0;
 	var t = K();
 	e.ActorExpressionEvaluatorFactory = class extends t.Actor {
@@ -76901,7 +76475,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			super(e), this.mediatorQueryOperation = e.mediatorQueryOperation, this.mediatorFunctionFactory = e.mediatorFunctionFactory, this.mediatorMergeBindingsContext = e.mediatorMergeBindingsContext;
 		}
 	};
-})), $F = /* @__PURE__ */ l(((e) => {
+})), MF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -76916,8 +76490,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(QF(), e);
-})), eI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(jF(), e);
+})), NF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -76999,7 +76573,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return new o.Existence(e);
 		}
 	};
-})), tI = /* @__PURE__ */ l(((e) => {
+})), PF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77034,7 +76608,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		};
 	})();
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.InternalEvaluator = void 0;
-	var i = q(), a = Yc(), o = J(), s = r(Y()), c = gf(), l = eI();
+	var i = q(), a = Yc(), o = J(), s = r(Y()), c = gf(), l = NF();
 	e.InternalEvaluator = class {
 		context;
 		mediatorQueryOperation;
@@ -77085,9 +76659,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			throw new s.NoAggregator();
 		}
 	};
-})), nI = /* @__PURE__ */ l(((e) => {
+})), FF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ExpressionEvaluator = void 0;
-	var t = q(), n = tI();
+	var t = q(), n = PF();
 	e.ExpressionEvaluator = class {
 		context;
 		expr;
@@ -77111,9 +76685,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return this.internalEvaluator.evaluatorExpressionEvaluation(e, t);
 		}
 	};
-})), rI = /* @__PURE__ */ l(((e) => {
+})), IF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorExpressionEvaluatorFactoryDefault = void 0;
-	var t = $F(), n = q(), r = K(), i = WA(), a = Y(), o = eI(), s = nI();
+	var t = MF(), n = q(), r = K(), i = CA(), a = Y(), o = NF(), s = FF();
 	e.ActorExpressionEvaluatorFactoryDefault = class extends t.ActorExpressionEvaluatorFactory {
 		constructor(e) {
 			super(e);
@@ -77126,7 +76700,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return new s.ExpressionEvaluator(t, await new o.AlgebraTransformer(t, this.mediatorFunctionFactory).transformAlgebra(e.algExpr), this.mediatorFunctionFactory, this.mediatorQueryOperation, await i.BindingsFactory.create(this.mediatorMergeBindingsContext, e.context, e.context.getSafe(n.KeysInitQuery.dataFactory)));
 		}
 	};
-})), iI = /* @__PURE__ */ l(((e) => {
+})), LF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77141,10 +76715,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(rI(), e);
-})), aI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(IF(), e);
+})), RF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.GroupsState = void 0;
-	var t = q(), n = WA();
+	var t = q(), n = CA();
 	e.GroupsState = class {
 		pattern;
 		mediatorBindingsAggregatorFactory;
@@ -77233,9 +76807,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return (0, n.bindingsToCompactString)(e, this.variables);
 		}
 	};
-})), oI = /* @__PURE__ */ l(((e) => {
+})), zF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationGroup = void 0;
-	var t = Fd(), n = q(), r = K(), i = J(), a = WA(), o = gf(), s = D_(), c = aI();
+	var t = Fd(), n = q(), r = K(), i = J(), a = CA(), o = gf(), s = D_(), c = RF();
 	e.ActorQueryOperationGroup = class extends t.ActorQueryOperationTypedMediated {
 		mediatorMergeBindingsContext;
 		mediatorBindingsAggregatorFactory;
@@ -77274,7 +76848,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), sI = /* @__PURE__ */ l(((e) => {
+})), BF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77289,10 +76863,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(oI(), e);
-})), cI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(zF(), e);
+})), VF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationNop = void 0;
-	var t = Fd(), n = q(), r = K(), i = J(), a = WA(), o = jd(), s = D_();
+	var t = Fd(), n = q(), r = K(), i = J(), a = CA(), o = jd(), s = D_();
 	e.ActorQueryOperationNop = class extends t.ActorQueryOperationTypedMediated {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -77317,7 +76891,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), lI = /* @__PURE__ */ l(((e) => {
+})), HF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77332,10 +76906,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(cI(), e);
-})), uI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(VF(), e);
+})), UF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationValues = void 0;
-	var t = Fd(), n = q(), r = K(), i = J(), a = WA(), o = jd(), s = D_();
+	var t = Fd(), n = q(), r = K(), i = J(), a = CA(), o = jd(), s = D_();
 	e.ActorQueryOperationValues = class extends t.ActorQueryOperationTyped {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -77363,7 +76937,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), dI = /* @__PURE__ */ l(((e) => {
+})), WF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77378,10 +76952,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(uI(), e);
-})), fI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(UF(), e);
+})), GF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathOneOrMore = void 0;
-	var t = eN(), n = q(), r = J(), i = WA(), a = gf(), o = D_();
+	var t = NM(), n = q(), r = J(), i = CA(), a = gf(), o = D_();
 	e.ActorQueryOperationPathOneOrMore = class extends t.ActorAbstractPath {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -77460,7 +77034,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), pI = /* @__PURE__ */ l(((e) => {
+})), KF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77475,10 +77049,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(fI(), e);
-})), mI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(GF(), e);
+})), qF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathZeroOrMore = void 0;
-	var t = eN(), n = q(), r = J(), i = WA(), a = D_();
+	var t = NM(), n = q(), r = J(), i = CA(), a = D_();
 	e.ActorQueryOperationPathZeroOrMore = class extends t.ActorAbstractPath {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -77547,7 +77121,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), hI = /* @__PURE__ */ l(((e) => {
+})), JF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77562,10 +77136,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(mI(), e);
-})), gI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(qF(), e);
+})), YF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationPathZeroOrOne = void 0;
-	var t = eN(), n = q(), r = J(), i = WA(), a = jd(), o = gf(), s = D_();
+	var t = NM(), n = q(), r = J(), i = CA(), a = jd(), o = gf(), s = D_();
 	e.ActorQueryOperationPathZeroOrOne = class extends t.ActorAbstractPath {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -77608,7 +77182,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), _I = /* @__PURE__ */ l(((e) => {
+})), XF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77623,10 +77197,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(gI(), e);
-})), vI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(YF(), e);
+})), ZF = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryOperationUpdateDeleteInsert = void 0;
-	var t = NM(), n = Fd(), r = q(), i = J(), a = WA(), o = gf(), s = D_();
+	var t = fM(), n = Fd(), r = q(), i = J(), a = CA(), o = gf(), s = D_();
 	e.ActorQueryOperationUpdateDeleteInsert = class extends n.ActorQueryOperationTypedMediated {
 		mediatorUpdateQuads;
 		mediatorMergeBindingsContext;
@@ -77654,7 +77228,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), yI = /* @__PURE__ */ l(((e) => {
+})), QF = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77669,8 +77243,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(vI(), e);
-})), bI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(ZF(), e);
+})), $F = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryProcess = void 0;
 	var t = K();
 	e.ActorQueryProcess = class extends t.Actor {
@@ -77678,7 +77252,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			super(e);
 		}
 	};
-})), xI = /* @__PURE__ */ l(((e) => {
+})), eI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77693,10 +77267,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(bI(), e);
-})), SI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n($F(), e);
+})), tI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryProcessSequential = void 0;
-	var t = xI(), n = q(), r = K(), i = J(), a = WA(), o = gf();
+	var t = eI(), n = q(), r = K(), i = J(), a = CA(), o = gf();
 	e.ActorQueryProcessSequential = class extends t.ActorQueryProcess {
 		mediatorContextPreprocess;
 		mediatorQueryParse;
@@ -77755,7 +77329,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return n.context = t, n;
 		}
 	};
-})), CI = /* @__PURE__ */ l(((e) => {
+})), nI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -77770,8 +77344,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(SI(), e);
-})), wI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(tI(), e);
+})), rI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.LinkedRdfSourcesAsyncRdfIterator = void 0;
 	var t = q(), n = jd(), r = D_();
 	e.LinkedRdfSourcesAsyncRdfIterator = class extends r.BufferedIterator {
@@ -77902,9 +77476,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return e.isEmpty() && !this.areIteratorsRunning();
 		}
 	};
-})), TI = /* @__PURE__ */ l(((e) => {
+})), iI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.MediatedLinkedRdfSourcesAsyncRdfIterator = void 0;
-	var t = q(), n = wI();
+	var t = q(), n = rI();
 	e.MediatedLinkedRdfSourcesAsyncRdfIterator = class extends n.LinkedRdfSourcesAsyncRdfIterator {
 		mediatorMetadataAccumulate;
 		mediatorRdfResolveHypermediaLinks;
@@ -77944,9 +77518,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			})).metadata;
 		}
 	};
-})), EI = /* @__PURE__ */ l(((e) => {
+})), aI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QuerySourceHypermedia = void 0;
-	var t = D_(), n = Td(), r = TI();
+	var t = D_(), n = Td(), r = iI();
 	e.QuerySourceHypermedia = class {
 		referenceValue;
 		firstLink;
@@ -78007,9 +77581,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return `QuerySourceHypermedia(${this.firstLink.url})`;
 		}
 	};
-})), DI = /* @__PURE__ */ l(((e) => {
+})), oI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifyHypermedia = void 0;
-	var t = vF(), n = q(), r = K(), i = WA(), a = EI();
+	var t = ZP(), n = q(), r = K(), i = CA(), a = aI();
 	e.ActorQuerySourceIdentifyHypermedia = class extends t.ActorQuerySourceIdentify {
 		mediatorMetadataAccumulate;
 		mediatorQuerySourceDereferenceLink;
@@ -78040,7 +77614,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			} };
 		}
 	};
-})), OI = /* @__PURE__ */ l(((e) => {
+})), sI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78055,10 +77629,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(DI(), e), n(EI(), e);
-})), kI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(oI(), e), n(aI(), e);
+})), cI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinNone = void 0;
-	var t = bA(), n = q(), r = K(), i = WA(), a = jd(), o = D_();
+	var t = $k(), n = q(), r = K(), i = CA(), a = jd(), o = D_();
 	e.ActorRdfJoinNone = class extends t.ActorRdfJoin {
 		mediatorMergeBindingsContext;
 		constructor(e) {
@@ -78095,7 +77669,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}, t);
 		}
 	};
-})), AI = /* @__PURE__ */ l(((e) => {
+})), lI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78110,10 +77684,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(kI(), e);
-})), jI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(cI(), e);
+})), uI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinMultiBind = void 0;
-	var t = bA(), n = q(), r = K(), i = J(), a = WA(), o = gf(), s = D_();
+	var t = $k(), n = q(), r = K(), i = J(), a = CA(), o = gf(), s = D_();
 	e.ActorRdfJoinMultiBind = class e extends t.ActorRdfJoin {
 		bindOrder;
 		selectivityModifier;
@@ -78222,7 +77796,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			});
 		}
 	};
-})), MI = /* @__PURE__ */ l(((e) => {
+})), dI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78237,10 +77811,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(jI(), e);
-})), NI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(uI(), e);
+})), fI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinOptionalBind = void 0;
-	var t = MI(), n = bA(), r = q(), i = K(), a = J(), o = WA(), s = gf();
+	var t = dI(), n = $k(), r = q(), i = K(), a = J(), o = CA(), s = gf();
 	e.ActorRdfJoinOptionalBind = class extends n.ActorRdfJoin {
 		bindOrder;
 		selectivityModifier;
@@ -78288,7 +77862,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}, t);
 		}
 	};
-})), PI = /* @__PURE__ */ l(((e) => {
+})), pI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78303,8 +77877,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(NI(), e);
-})), FI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(fI(), e);
+})), mI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorTermComparatorFactory = void 0;
 	var t = K();
 	e.ActorTermComparatorFactory = class extends t.Actor {
@@ -78315,7 +77889,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			super(e), this.mediatorQueryOperation = e.mediatorQueryOperation, this.mediatorFunctionFactory = e.mediatorFunctionFactory, this.mediatorMergeBindingsContext = e.mediatorMergeBindingsContext;
 		}
 	};
-})), II = /* @__PURE__ */ l(((e) => {
+})), hI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78330,8 +77904,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(FI(), e);
-})), LI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(mI(), e);
+})), gI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.TermComparatorExpressionEvaluator = void 0, e.TermComparatorExpressionEvaluator = class {
 		internalEvaluator;
 		equalityFunction;
@@ -78376,7 +77950,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			DefaultGraph: 5
 		};
 	};
-})), RI = /* @__PURE__ */ l(((e) => {
+})), _I = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78411,7 +77985,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		};
 	})();
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorTermComparatorFactoryExpressionEvaluator = void 0;
-	var i = tI(), a = II(), o = q(), s = K(), c = WA(), l = r(Y()), u = LI();
+	var i = PF(), a = hI(), o = q(), s = K(), c = CA(), l = r(Y()), u = gI();
 	e.ActorTermComparatorFactoryExpressionEvaluator = class extends a.ActorTermComparatorFactory {
 		async test(e) {
 			return (0, s.passTestVoid)();
@@ -78428,7 +78002,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}));
 		}
 	};
-})), zI = /* @__PURE__ */ l(((e) => {
+})), vI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78443,10 +78017,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(RI(), e);
-})), BI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(_I(), e);
+})), yI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceDereferenceLinkForceSparql = void 0;
-	var t = aj(), n = q(), r = K(), i = U();
+	var t = RA(), n = q(), r = K(), i = U();
 	e.ActorQuerySourceDereferenceLinkForceSparql = class extends t.ActorQuerySourceDereferenceLink {
 		mediatorMetadataAccumulate;
 		mediatorQuerySourceIdentifyHypermedia;
@@ -78477,7 +78051,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), VI = /* @__PURE__ */ l(((e) => {
+})), bI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78492,10 +78066,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(BI(), e);
-})), HI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(yI(), e);
+})), xI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinMultiSmallestFilterBindings = void 0;
-	var t = bA(), n = q(), r = K(), i = J(), a = WA(), o = vA(), s = gf(), c = D_();
+	var t = $k(), n = q(), r = K(), i = J(), a = CA(), o = Zk(), s = gf(), c = D_();
 	e.ActorRdfJoinMultiSmallestFilterBindings = class extends t.ActorRdfJoin {
 		selectivityModifier;
 		blockSize;
@@ -78602,7 +78176,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}, i);
 		}
 	};
-})), UI = /* @__PURE__ */ l(((e) => {
+})), SI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78617,10 +78191,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(HI(), e);
-})), WI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(xI(), e);
+})), CI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryProcessExplainParsed = void 0;
-	var t = xI(), n = q(), r = K();
+	var t = eI(), n = q(), r = K();
 	e.ActorQueryProcessExplainParsed = class extends t.ActorQueryProcess {
 		queryProcessor;
 		constructor(e) {
@@ -78638,7 +78212,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			} };
 		}
 	};
-})), GI = /* @__PURE__ */ l(((e) => {
+})), wI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78653,10 +78227,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(WI(), e);
-})), KI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(CI(), e);
+})), TI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryProcessExplainLogical = void 0;
-	var t = xI(), n = q(), r = K();
+	var t = eI(), n = q(), r = K();
 	e.ActorQueryProcessExplainLogical = class extends t.ActorQueryProcess {
 		queryProcessor;
 		constructor(e) {
@@ -78674,7 +78248,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			} };
 		}
 	};
-})), qI = /* @__PURE__ */ l(((e) => {
+})), EI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78689,10 +78263,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(KI(), e);
-})), JI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(TI(), e);
+})), DI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryProcessExplainQuery = void 0;
-	var t = xI(), n = q(), r = K(), i = J(), a = gf();
+	var t = eI(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorQueryProcessExplainQuery = class e extends t.ActorQueryProcess {
 		queryProcessor;
 		mediatorQuerySerialize;
@@ -78730,7 +78304,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			});
 		}
 	};
-})), YI = /* @__PURE__ */ l(((e) => {
+})), OI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78745,8 +78319,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(JI(), e);
-})), XI = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(DI(), e);
+})), kI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.MemoryPhysicalQueryPlanLogger = void 0, e.numberToString = r;
 	var t = J(), n = _u();
 	e.MemoryPhysicalQueryPlanLogger = class {
@@ -78861,9 +78435,9 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			maximumFractionDigits: 3
 		});
 	}
-})), ZI = /* @__PURE__ */ l(((e) => {
+})), AI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQueryProcessExplainPhysical = void 0;
-	var t = xI(), n = q(), r = K(), i = XI();
+	var t = eI(), n = q(), r = K(), i = kI();
 	e.ActorQueryProcessExplainPhysical = class extends t.ActorQueryProcess {
 		queryProcessor;
 		constructor(e) {
@@ -78901,7 +78475,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			} };
 		}
 	};
-})), QI = /* @__PURE__ */ l(((e) => {
+})), jI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78916,8 +78490,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(ZI(), e), n(XI(), e);
-})), $I = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(AI(), e), n(kI(), e);
+})), MI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationPruneEmptySourceOperations = void 0;
 	var t = rf(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorOptimizeQueryOperationPruneEmptySourceOperations = class e extends t.ActorOptimizeQueryOperation {
@@ -78984,7 +78558,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return l.value > 0;
 		}
 	};
-})), eL = /* @__PURE__ */ l(((e) => {
+})), NI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -78999,8 +78573,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n($I(), e);
-})), tL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(MI(), e);
+})), PI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationLeftjoinExpressionPushdown = void 0;
 	var t = rf(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorOptimizeQueryOperationLeftjoinExpressionPushdown = class extends t.ActorOptimizeQueryOperation {
@@ -79027,7 +78601,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return e.some((e) => t.some((t) => e.equals(t)));
 		}
 	};
-})), nL = /* @__PURE__ */ l(((e) => {
+})), FI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79042,10 +78616,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(tL(), e);
-})), rL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(PI(), e);
+})), II = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpProxy = void 0;
-	var t = aM(), n = q(), r = K();
+	var t = Rj(), n = q(), r = K();
 	e.ActorHttpProxy = class extends t.ActorHttp {
 		mediatorHttp;
 		constructor(e) {
@@ -79067,7 +78641,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}), i;
 		}
 	};
-})), iL = /* @__PURE__ */ l(((e) => {
+})), LI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ProxyHandlerStatic = void 0, e.ProxyHandlerStatic = class {
 		prefixUrl;
 		constructor(e) {
@@ -79083,7 +78657,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return typeof e == "string" ? this.prefixUrl + e : new Request(this.prefixUrl + e.url, e);
 		}
 	};
-})), aL = /* @__PURE__ */ l(((e) => {
+})), RI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79098,17 +78672,17 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(rL(), e), n(iL(), e);
-})), oL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(II(), e), n(LI(), e);
+})), zI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.storeStream = n;
-	var t = YF();
+	var t = OF();
 	function n(e) {
 		let n = t.RdfStore.createDefault();
 		return new Promise((t, r) => n.import(e).on("error", r).once("end", () => t(n)));
 	}
-})), sL = /* @__PURE__ */ l(((e) => {
+})), BI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifySerialized = void 0;
-	var t = vF(), n = K(), r = oL(), i = U();
+	var t = ZP(), n = K(), r = zI(), i = U();
 	e.ActorQuerySourceIdentifySerialized = class extends t.ActorQuerySourceIdentify {
 		mediatorRdfParse;
 		mediatorQuerySourceIdentify;
@@ -79149,7 +78723,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return "type" in e ? e.type === "serialized" : typeof e.value == "string" && "mediaType" in e;
 		}
 	};
-})), cL = /* @__PURE__ */ l(((e) => {
+})), VI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79164,10 +78738,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(sL(), e);
-})), lL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(BI(), e);
+})), HI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorQuerySourceIdentifyCompositeFile = void 0;
-	var t = OF(), n = vF(), r = q(), i = K(), a = J(), o = WA(), s = YF();
+	var t = sF(), n = ZP(), r = q(), i = K(), a = J(), o = CA(), s = OF();
 	e.ActorQuerySourceIdentifyCompositeFile = class extends n.ActorQuerySourceIdentify {
 		mediatorQuerySourceIdentify;
 		mediatorMergeBindingsContext;
@@ -79198,7 +78772,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			} };
 		}
 	};
-})), uL = /* @__PURE__ */ l(((e) => {
+})), UI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79213,10 +78787,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(lL(), e);
-})), dL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(HI(), e);
+})), WI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorRdfJoinMultiBindSource = void 0;
-	var t = bA(), n = q(), r = K(), i = J(), a = vA(), o = gf(), s = D_();
+	var t = $k(), n = q(), r = K(), i = J(), a = Zk(), o = gf(), s = D_();
 	e.ActorRdfJoinMultiBindSource = class extends t.ActorRdfJoin {
 		selectivityModifier;
 		blockSize;
@@ -79293,7 +78867,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return t.length === 1 ? t[0].operation : e.createJoin(t.map((e) => e.operation), !0);
 		}
 	};
-})), fL = /* @__PURE__ */ l(((e) => {
+})), GI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79308,8 +78882,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(dL(), e);
-})), pL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(WI(), e);
+})), KI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationJoinConnected = void 0;
 	var t = rf(), n = q(), r = K(), i = J();
 	e.ActorOptimizeQueryOperationJoinConnected = class e extends t.ActorOptimizeQueryOperation {
@@ -79360,7 +78934,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return !1;
 		}
 	};
-})), mL = /* @__PURE__ */ l(((e) => {
+})), qI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79375,10 +78949,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(pL(), e);
-})), hL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(KI(), e);
+})), JI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpRetry = void 0;
-	var t = aM(), n = q(), r = K();
+	var t = Rj(), n = q(), r = K();
 	e.ActorHttpRetry = class e extends t.ActorHttp {
 		activeDelays;
 		httpInvalidator;
@@ -79497,7 +79071,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			for (let e of Object.keys(this.activeDelays)) (!t || e === t) && (clearTimeout(this.activeDelays[e].timeout), delete this.activeDelays[e]);
 		}
 	};
-})), gL = /* @__PURE__ */ l(((e) => {
+})), YI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79512,10 +79086,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(hL(), e);
-})), _L = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(JI(), e);
+})), XI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpLimitRate = void 0;
-	var t = aM(), n = K();
+	var t = Rj(), n = K();
 	e.ActorHttpLimitRate = class e extends t.ActorHttp {
 		hostData;
 		correctionMultiplier;
@@ -79565,7 +79139,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			} else this.hostData.clear();
 		}
 	};
-})), vL = /* @__PURE__ */ l(((e) => {
+})), ZI = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79580,8 +79154,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(_L(), e);
-})), yL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(XI(), e);
+})), QI = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationBgpToJoin = void 0;
 	var t = rf(), n = q(), r = K(), i = J();
 	e.ActorOptimizeQueryOperationBgpToJoin = class extends t.ActorOptimizeQueryOperation {
@@ -79599,7 +79173,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), bL = /* @__PURE__ */ l(((e) => {
+})), $I = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79614,10 +79188,10 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(yL(), e);
-})), xL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(QI(), e);
+})), eL = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorHttpRetryBody = void 0;
-	var t = aM(), n = q(), r = K(), i = U();
+	var t = Rj(), n = q(), r = K(), i = U();
 	e.ActorHttpRetryBody = class e extends t.ActorHttp {
 		mediatorHttp;
 		static contentLengthRegex = /^[0-9]+$/u;
@@ -79778,7 +79352,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			e > 0 && await new Promise((t) => setTimeout(t, e));
 		}
 	};
-})), SL = /* @__PURE__ */ l(((e) => {
+})), tL = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79793,8 +79367,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(xL(), e);
-})), CL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(eL(), e);
+})), nL = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationJoinBgp = void 0;
 	var t = rf(), n = q(), r = K(), i = J();
 	e.ActorOptimizeQueryOperationJoinBgp = class extends t.ActorOptimizeQueryOperation {
@@ -79812,7 +79386,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), wL = /* @__PURE__ */ l(((e) => {
+})), rL = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79827,8 +79401,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(CL(), e);
-})), TL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(nL(), e);
+})), iL = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationAssignSourcesExhaustive = void 0;
 	var t = rf(), n = q(), r = K(), i = J(), a = gf();
 	e.ActorOptimizeQueryOperationAssignSourcesExhaustive = class extends t.ActorOptimizeQueryOperation {
@@ -79889,7 +79463,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			});
 		}
 	};
-})), EL = /* @__PURE__ */ l(((e) => {
+})), aL = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79904,8 +79478,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(TL(), e);
-})), DL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(iL(), e);
+})), oL = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationGroupFileSources = void 0;
 	var t = rf(), n = q(), r = K();
 	e.ActorOptimizeQueryOperationGroupFileSources = class e extends t.ActorOptimizeQueryOperation {
@@ -79958,7 +79532,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			if (n !== void 0) return n.forceSourceType === "file" ? 0 : e.source.getFilterFactor(t);
 		}
 	};
-})), OL = /* @__PURE__ */ l(((e) => {
+})), sL = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -79973,8 +79547,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(DL(), e);
-})), kL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(oL(), e);
+})), cL = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationQuerySourceIdentify = void 0;
 	var t = rf(), n = q(), r = K(), i = J(), a = gf(), o = Td();
 	e.ActorOptimizeQueryOperationQuerySourceIdentify = class extends t.ActorOptimizeQueryOperation {
@@ -80037,7 +79611,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			}).then(({ querySource: e }) => e), typeof e.value == "string" && this.cache && this.cache.set(e.value, n)), n;
 		}
 	};
-})), AL = /* @__PURE__ */ l(((e) => {
+})), lL = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -80052,8 +79626,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(kL(), e);
-})), jL = /* @__PURE__ */ l(((e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(cL(), e);
+})), uL = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.ActorOptimizeQueryOperationDescribeToConstructsSubject = void 0;
 	var t = rf(), n = q(), r = K(), i = J();
 	e.ActorOptimizeQueryOperationDescribeToConstructsSubject = class extends t.ActorOptimizeQueryOperation {
@@ -80083,7 +79657,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			};
 		}
 	};
-})), ML = /* @__PURE__ */ l(((e) => {
+})), dL = /* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -80098,8 +79672,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(jL(), e);
-})), NL = /* @__PURE__ */ l(((e, t) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(uL(), e);
+})), fL = /* @__PURE__ */ l(((e, t) => {
 	t.exports = function(e) {
 		let t = new (Zc()).LoggerVoid(), n = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-init/^5.0.0/components/ActorInit.jsonld#ActorInit_default_bus" }), r = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-context-preprocess/^5.0.0/components/ActorContextPreprocess.jsonld#ActorContextPreprocess_default_bus" }), i = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-hash-bindings/^5.0.0/components/ActorHashBindings.jsonld#ActorHashBindings_default_bus" }), a = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-hash-quads/^5.0.0/components/ActorHashQuads.jsonld#ActorHashQuads_default_bus" }), o = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-optimize-query-operation/^5.0.0/components/ActorOptimizeQueryOperation.jsonld#ActorOptimizeQueryOperation_default_bus" }), s = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-parse/^5.0.0/components/ActorQueryParse.jsonld#ActorQueryParse_default_bus" }), c = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-serialize/^5.0.0/components/ActorQuerySerialize.jsonld#ActorQuerySerialize_default_bus" }), l = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-source-dereference-link/^5.0.0/components/ActorQuerySourceDereferenceLink.jsonld#ActorQuerySourceDereferenceLink_default_bus" }), u = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-result-serialize/^5.0.0/components/ActorQueryResultSerialize.jsonld#ActorQueryResultSerialize_default_bus" }), d = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-source-identify-hypermedia/^5.0.0/components/ActorQuerySourceIdentifyHypermedia.jsonld#ActorQuerySourceIdentifyHypermedia_default_bus" }), f = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-dereference/^5.0.0/components/ActorDereference.jsonld#ActorDereference_default_bus" }), p = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-dereference-rdf/^5.0.0/components/ActorDereferenceRdf.jsonld#ActorDereferenceRdf_default_bus" }), m = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-join-entries-sort/^5.0.0/components/ActorRdfJoinEntriesSort.jsonld#ActorRdfJoinEntriesSort_default_bus" }), h = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-join-selectivity/^5.0.0/components/ActorRdfJoinSelectivity.jsonld#ActorRdfJoinSelectivity_default_bus" }), g = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-metadata/^5.0.0/components/ActorRdfMetadata.jsonld#ActorRdfMetadata_default_bus" }), _ = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-metadata-accumulate/^5.0.0/components/ActorRdfMetadataAccumulate.jsonld#ActorRdfMetadataAccumulate_default_bus" }), v = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-parse/^5.0.0/components/ActorRdfParse.jsonld#ActorRdfParse_default_bus" }), y = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-parse-html/^5.0.0/components/ActorRdfParseHtml.jsonld#ActorRdfParseHtml_default_bus" }), b = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-metadata-extract/^5.0.0/components/ActorRdfMetadataExtract.jsonld#ActorRdfMetadataExtract_default_bus" }), x = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-resolve-hypermedia-links/^5.0.0/components/ActorRdfResolveHypermediaLinks.jsonld#ActorRdfResolveHypermediaLinks_default_bus" }), S = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-resolve-hypermedia-links-queue/^5.0.0/components/ActorRdfResolveHypermediaLinksQueue.jsonld#ActorRdfResolveHypermediaLinksQueue_default_bus" }), C = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-serialize/^5.0.0/components/ActorRdfSerialize.jsonld#ActorRdfSerialize_default_bus" }), w = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-update-hypermedia/^5.0.0/components/ActorRdfUpdateHypermedia.jsonld#ActorRdfUpdateHypermedia_default_bus" }), T = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-update-quads/^5.0.0/components/ActorRdfUpdateQuads.jsonld#ActorRdfUpdateQuads_default_bus" }), E = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-bindings-aggregator-factory/^5.0.0/components/ActorBindingsAggregatorFactory.jsonld#ActorBindingsAggregatorFactory_default_bus" }), D = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-expression-evaluator-factory/^5.0.0/components/ActorExpressionEvaluatorFactory.jsonld#ActorExpressionEvaluatorFactory_default_bus" }), O = new (X()).BusFunctionFactory({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-function-factory/^5.0.0/components/ActorFunctionFactory.jsonld#ActorFunctionFactory_default_bus" }), k = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-http/^5.0.0/components/ActorHttp.jsonld#ActorHttp_default_bus" }), A = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-http/^5.0.0/components/ActorHttp.jsonld#ActorHttp_fallback_bus" }), j = new (Fd()).BusQueryOperation({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-operation/^5.0.0/components/ActorQueryOperation.jsonld#ActorQueryOperation_default_bus" }), ee = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-process/^5.0.0/components/ActorQueryProcess.jsonld#ActorQueryProcess_default_bus" }), M = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-query-source-identify/^5.0.0/components/ActorQuerySourceIdentify.jsonld#ActorQuerySourceIdentify_default_bus" }), N = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-rdf-join/^5.0.0/components/ActorRdfJoin.jsonld#ActorRdfJoin_default_bus" }), P = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-term-comparator-factory/^5.0.0/components/ActorTermComparatorFactory.jsonld#ActorTermComparatorFactory_default_bus" }), F = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-http-invalidate/^5.0.0/components/ActorHttpInvalidate.jsonld#ActorHttpInvalidate_default_bus" }), I = new (K()).Bus({ name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/bus-merge-bindings-context/^5.0.0/components/ActorMergeBindingsContext.jsonld#ActorMergeBindingsContext_default_bus" });
 		new (zd()).ActorContextPreprocessConvertShortcuts({
@@ -80873,59 +80447,59 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:function-factory/actors#term-function-unary-minus",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (_k()).ActorFunctionFactoryTermUuid({
+		}), new (XO()).ActorFunctionFactoryTermUuid({
 			name: "urn:comunica:default:function-factory/actors#term-function-uuid",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (bk()).ActorFunctionFactoryTermXsdToBoolean({
+		}), new ($O()).ActorFunctionFactoryTermXsdToBoolean({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-boolean",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Ck()).ActorFunctionFactoryTermXsdToDate({
+		}), new (nk()).ActorFunctionFactoryTermXsdToDate({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-date",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Ek()).ActorFunctionFactoryTermXsdToDatetime({
+		}), new (ak()).ActorFunctionFactoryTermXsdToDatetime({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-datetime",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (kk()).ActorFunctionFactoryTermXsdToDayTimeDuration({
+		}), new (ck()).ActorFunctionFactoryTermXsdToDayTimeDuration({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-day-time-duration",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Mk()).ActorFunctionFactoryTermXsdToDecimal({
+		}), new (dk()).ActorFunctionFactoryTermXsdToDecimal({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-decimal",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Fk()).ActorFunctionFactoryTermXsdToDouble({
+		}), new (mk()).ActorFunctionFactoryTermXsdToDouble({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-double",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Rk()).ActorFunctionFactoryTermXsdToDuration({
+		}), new (_k()).ActorFunctionFactoryTermXsdToDuration({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-duration",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Vk()).ActorFunctionFactoryTermXsdToFloat({
+		}), new (bk()).ActorFunctionFactoryTermXsdToFloat({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-float",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Wk()).ActorFunctionFactoryTermXsdToInteger({
+		}), new (Ck()).ActorFunctionFactoryTermXsdToInteger({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-integer",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (qk()).ActorFunctionFactoryTermXsdToString({
+		}), new (Ek()).ActorFunctionFactoryTermXsdToString({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-string",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Xk()).ActorFunctionFactoryTermXsdToTime({
+		}), new (kk()).ActorFunctionFactoryTermXsdToTime({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-time",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new ($k()).ActorFunctionFactoryTermXsdToYearMonthDuration({
+		}), new (Mk()).ActorFunctionFactoryTermXsdToYearMonthDuration({
 			name: "urn:comunica:default:function-factory/actors#term-function-xsd-to-year-month-duration",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (nA()).ActorFunctionFactoryTermYear({
+		}), new (Fk()).ActorFunctionFactoryTermYear({
 			name: "urn:comunica:default:function-factory/actors#term-function-year",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
@@ -80946,7 +80520,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:http/mediators#main",
 			bus: A
 		});
-		new (iA()).ActorQueryOperationSource({
+		new (Lk()).ActorQueryOperationSource({
 			name: "urn:comunica:default:query-operation/actors#source",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
@@ -80963,7 +80537,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}), Oe = new (Zd()).MediatorRace({
 			name: "urn:comunica:default:query-source-identify/mediators#main",
 			bus: M
-		}), ke = new (oA()).MediatorJoinCoefficientsFixed({
+		}), ke = new (zk()).MediatorJoinCoefficientsFixed({
 			cpuWeight: 10,
 			memoryWeight: 1,
 			timeWeight: 2,
@@ -80973,38 +80547,38 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}), Ae = new (Zd()).MediatorRace({
 			name: "urn:comunica:default:term-comparator-factory/mediators#main",
 			bus: P
-		}), je = new (cA()).MediatorAll({
+		}), je = new (Vk()).MediatorAll({
 			name: "urn:comunica:default:http-invalidate/mediators#main",
 			bus: F
-		}), Me = new (dA()).ActorHttpInvalidateListenable({
+		}), Me = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-optimize-query-operation-query-source-identify/^5.0.0/components/ActorOptimizeQueryOperationQuerySourceIdentify.jsonld#IActorOptimizeQueryOperationQuerySourceIdentifyArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
-		}), Ne = new (dA()).ActorHttpInvalidateListenable({
+		}), Ne = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-rdf-parse-jsonld/^5.0.0/components/ActorRdfParseJsonLd.jsonld#IActorRdfParseJsonLdArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
-		}), Pe = new (dA()).ActorHttpInvalidateListenable({
+		}), Pe = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-rdf-update-quads-hypermedia/^5.0.0/components/ActorRdfUpdateQuadsHypermedia.jsonld#IActorRdfUpdateQuadsHypermediaArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
-		}), Fe = new (dA()).ActorHttpInvalidateListenable({
+		}), Fe = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-http-retry/^5.0.0/components/ActorHttpRetry.jsonld#IActorHttpQueueArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
-		}), Ie = new (dA()).ActorHttpInvalidateListenable({
+		}), Ie = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-http-fetch/^5.0.0/components/ActorHttpFetch.jsonld#IActorHttpFetchArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
-		}), Le = new (dA()).ActorHttpInvalidateListenable({
+		}), Le = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-http-limit-rate/^5.0.0/components/ActorHttpLimitRate.jsonld#IActorHttpLimitRateArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
-		}), Re = new (dA()).ActorHttpInvalidateListenable({
+		}), Re = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-query-result-serialize-sparql-json/^5.0.0/components/ActionObserverHttp.jsonld#IActionObserverHttpArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
-		}), G = new (dA()).ActorHttpInvalidateListenable({
+		}), G = new (Wk()).ActorHttpInvalidateListenable({
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-query-result-serialize-stats/^5.0.0/components/ActionObserverHttp.jsonld#IActionObserverHttpArgs_default_invalidator",
 			bus: F,
 			busFailMessage: "HTTP invalidation failed: none of the configured actors were able to invalidate ${action.url}"
@@ -81013,94 +80587,94 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:merge-bindings-context/mediators#main",
 			bus: I
 		});
-		new (pA()).ActorRdfJoinEntriesSortSelectivity({
+		new (Kk()).ActorRdfJoinEntriesSortSelectivity({
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join-entries-sort/actors#selectivity",
 			bus: m,
 			busFailMessage: "Sorting join entries failed: none of the configured actors were able to sort"
-		}), new (SA()).ActorRdfJoinSingle({
+		}), new (tA()).ActorRdfJoinSingle({
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#inner-single",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (wA()).ActorRdfJoinMultiEmpty({
+		}), new (rA()).ActorRdfJoinMultiEmpty({
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#inner-multi-empty",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
 		});
-		let Be = new (IA()).ActorRdfJoinHash({
+		let Be = new (hA()).ActorRdfJoinHash({
 			mediatorHashBindings: R,
 			canHandleUndefs: !1,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#inner-hash-def",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), Ve = new (IA()).ActorRdfJoinHash({
+		}), Ve = new (hA()).ActorRdfJoinHash({
 			mediatorHashBindings: R,
 			canHandleUndefs: !0,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#inner-hash-undef",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), He = new (RA()).ActorRdfJoinSymmetricHash({
+		}), He = new (_A()).ActorRdfJoinSymmetricHash({
 			mediatorHashBindings: R,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#inner-symmetric-hash",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), Ue = new (BA()).ActorRdfJoinNestedLoop({
+		}), Ue = new (yA()).ActorRdfJoinNestedLoop({
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#inner-nested-loop",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
 		});
-		new (KA()).ActorRdfJoinMinusHash({
+		new (TA()).ActorRdfJoinMinusHash({
 			canHandleUndefs: !1,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#minus-hash-def",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (KA()).ActorRdfJoinMinusHash({
+		}), new (TA()).ActorRdfJoinMinusHash({
 			canHandleUndefs: !0,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#minus-hash-undef",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (JA()).ActorRdfJoinOptionalHash({
+		}), new (DA()).ActorRdfJoinOptionalHash({
 			canHandleUndefs: !1,
 			blocking: !1,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#optional-hash-def-nonblocking",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (JA()).ActorRdfJoinOptionalHash({
+		}), new (DA()).ActorRdfJoinOptionalHash({
 			canHandleUndefs: !1,
 			blocking: !0,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#optional-hash-def-blocking",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (JA()).ActorRdfJoinOptionalHash({
+		}), new (DA()).ActorRdfJoinOptionalHash({
 			canHandleUndefs: !0,
 			blocking: !1,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#optional-hash-undef-nonblocking",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (JA()).ActorRdfJoinOptionalHash({
+		}), new (DA()).ActorRdfJoinOptionalHash({
 			canHandleUndefs: !0,
 			blocking: !0,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#optional-hash-undef-blocking",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (XA()).ActorRdfJoinOptionalNestedLoop({
+		}), new (kA()).ActorRdfJoinOptionalNestedLoop({
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#optional-nested-loop",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (ej()).ActorDereferenceRdfParse({
+		}), new (NA()).ActorDereferenceRdfParse({
 			mediatorDereference: le,
 			mediatorParse: me,
 			mediatorParseMediatypes: H,
@@ -81133,14 +80707,14 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:dereference-rdf/actors#parse",
 			bus: p,
 			busFailMessage: "RDF dereferencing failed: none of the configured parsers were able to handle the media type ${action.handle.mediaType} for ${action.handle.url}"
-		}), new (rj()).ActorRdfParseHtmlScript({
+		}), new (IA()).ActorRdfParseHtmlScript({
 			mediatorRdfParseMediatypes: H,
 			mediatorRdfParseHandle: me,
 			name: "urn:comunica:default:rdf-parse-html/actors#script",
 			bus: y,
 			busFailMessage: "RDF HTML parsing failed: none of the configured parsers were able to parse RDF in HTML"
 		});
-		let We = new (cj()).ActorQuerySourceDereferenceLinkHypermedia({
+		let We = new (VA()).ActorQuerySourceDereferenceLinkHypermedia({
 			mediatorDereferenceRdf: ue,
 			mediatorMetadata: fe,
 			mediatorMetadataExtract: U,
@@ -81151,246 +80725,246 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: l,
 			busFailMessage: "Query source dereference link failed: none of the configured actors were able to resolve ${action.link.url}"
 		});
-		new (uj()).ActorQueryResultSerializeRdf({
+		new (UA()).ActorQueryResultSerializeRdf({
 			mediatorRdfSerialize: _e,
 			mediatorMediaTypeCombiner: ve,
 			mediatorMediaTypeFormatCombiner: ye,
 			name: "urn:comunica:default:query-result-serialize/actors#rdf",
 			bus: u,
 			busFailMessage: "Query result serialization failed: none of the configured actors were able to serialize for type ${action.handle.type}"
-		}), new (gj()).ActorBindingsAggregatorFactoryCount({
+		}), new (YA()).ActorBindingsAggregatorFactoryCount({
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#count",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (yj()).ActorBindingsAggregatorFactoryGroupConcat({
+		}), new (QA()).ActorBindingsAggregatorFactoryGroupConcat({
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#group-concat",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (Sj()).ActorBindingsAggregatorFactorySample({
+		}), new (tj()).ActorBindingsAggregatorFactorySample({
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#sample",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (Tj()).ActorBindingsAggregatorFactoryWildcardCount({
+		}), new (ij()).ActorBindingsAggregatorFactoryWildcardCount({
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#wildcard-count",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (Oj()).ActorBindingsAggregatorFactoryAverage({
+		}), new (sj()).ActorBindingsAggregatorFactoryAverage({
 			mediatorFunctionFactory: we,
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#average",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (jj()).ActorBindingsAggregatorFactorySum({
+		}), new (uj()).ActorBindingsAggregatorFactorySum({
 			mediatorFunctionFactory: we,
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#sum",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (Pj()).ActorFunctionFactoryExpressionIn({
+		}), new (pj()).ActorFunctionFactoryExpressionIn({
 			mediatorFunctionFactory: we,
 			name: "urn:comunica:default:function-factory/actors#expression-function-in",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Lj()).ActorFunctionFactoryExpressionNotIn({
+		}), new (gj()).ActorFunctionFactoryExpressionNotIn({
 			mediatorFunctionFactory: we,
 			name: "urn:comunica:default:function-factory/actors#expression-function-not-in",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Bj()).ActorFunctionFactoryTermGreaterThanEqual({
+		}), new (yj()).ActorFunctionFactoryTermGreaterThanEqual({
 			mediatorFunctionFactory: we,
 			name: "urn:comunica:default:function-factory/actors#term-function-greater-than-equal",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Uj()).ActorFunctionFactoryTermGreaterThan({
+		}), new (Sj()).ActorFunctionFactoryTermGreaterThan({
 			mediatorFunctionFactory: we,
 			name: "urn:comunica:default:function-factory/actors#term-function-greater-than",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Kj()).ActorFunctionFactoryTermInequality({
+		}), new (Tj()).ActorFunctionFactoryTermInequality({
 			mediatorFunctionFactory: we,
 			name: "urn:comunica:default:function-factory/actors#term-function-inequality",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Yj()).ActorFunctionFactoryTermLesserThanEqual({
+		}), new (Oj()).ActorFunctionFactoryTermLesserThanEqual({
 			mediatorFunctionFactory: we,
 			name: "urn:comunica:default:function-factory/actors#term-function-lesser-than-equal",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (Qj()).ActorFunctionFactoryTermLesserThan({
+		}), new (jj()).ActorFunctionFactoryTermLesserThan({
 			mediatorFunctionFactory: we,
 			name: "urn:comunica:default:function-factory/actors#term-function-lesser-than",
 			bus: O,
 			busFailMessage: "Creation of function evaluator failed: no configured actor was able to evaluate function ${action.functionName}"
-		}), new (sM()).ActorHttpWayback({
+		}), new (Bj()).ActorHttpWayback({
 			mediatorHttp: Te,
 			name: "urn:comunica:default:http/actors#wayback",
 			bus: A,
 			busFailMessage: "HTTP request failed: none of the configured actors were able to handle ${action.input}"
-		}), new (fM()).ActorRdfUpdateHypermediaPatchSparqlUpdate({
+		}), new (Gj()).ActorRdfUpdateHypermediaPatchSparqlUpdate({
 			mediatorHttp: Ee,
 			name: "urn:comunica:default:rdf-update-hypermedia/actors#patch-sparql-update",
 			bus: w,
 			busFailMessage: "RDF hypermedia updating failed: none of the configured actors were able to handle an update for ${action.url}"
-		}), new (hM()).ActorRdfUpdateHypermediaPutLdp({
+		}), new (Jj()).ActorRdfUpdateHypermediaPutLdp({
 			mediatorHttp: Ee,
 			mediatorRdfSerializeMediatypes: ve,
 			mediatorRdfSerialize: _e,
 			name: "urn:comunica:default:rdf-update-hypermedia/actors#put-ldp",
 			bus: w,
 			busFailMessage: "RDF hypermedia updating failed: none of the configured actors were able to handle an update for ${action.url}"
-		}), new (EM()).ActorRdfUpdateHypermediaSparql({
+		}), new (aM()).ActorRdfUpdateHypermediaSparql({
 			mediatorHttp: Ee,
 			checkUrlSuffixSparql: !0,
 			checkUrlSuffixUpdate: !0,
 			name: "urn:comunica:default:rdf-update-hypermedia/actors#sparql",
 			bus: w,
 			busFailMessage: "RDF hypermedia updating failed: none of the configured actors were able to handle an update for ${action.url}"
-		}), new (OM()).ActorQueryOperationAsk({
+		}), new (sM()).ActorQueryOperationAsk({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#ask",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (AM()).ActorQueryOperationBgpJoin({
+		}), new (lM()).ActorQueryOperationBgpJoin({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#bgp",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (NM()).ActorQueryOperationConstruct({
+		}), new (fM()).ActorQueryOperationConstruct({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#construct",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (FM()).ActorQueryOperationDistinctIdentity({
+		}), new (mM()).ActorQueryOperationDistinctIdentity({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#distinct",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (LM()).ActorQueryOperationFilter({
+		}), new (gM()).ActorQueryOperationFilter({
 			mediatorExpressionEvaluatorFactory: Ce,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#filter",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (zM()).ActorQueryOperationExtend({
+		}), new (vM()).ActorQueryOperationExtend({
 			mediatorExpressionEvaluatorFactory: Ce,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#extend",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (VM()).ActorQueryOperationFromQuad({
+		}), new (bM()).ActorQueryOperationFromQuad({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#from",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (UM()).ActorQueryOperationNodes({
+		}), new (SM()).ActorQueryOperationNodes({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#nodes",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (GM()).ActorQueryOperationProject({
+		}), new (wM()).ActorQueryOperationProject({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#project",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (qM()).ActorQueryOperationReducedHash({
+		}), new (EM()).ActorQueryOperationReducedHash({
 			mediatorHashBindings: R,
 			cacheSize: 100,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#reduced",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (YM()).ActorQueryOperationSlice({
+		}), new (OM()).ActorQueryOperationSlice({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#slice",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (ZM()).ActorQueryOperationUnion({
+		}), new (AM()).ActorQueryOperationUnion({
 			mediatorRdfMetadataAccumulate: pe,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#union",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (nN()).ActorQueryOperationPathAlt({
+		}), new (FM()).ActorQueryOperationPathAlt({
 			mediatorRdfMetadataAccumulate: pe,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-alt",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (iN()).ActorQueryOperationPathInv({
+		}), new (LM()).ActorQueryOperationPathInv({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-inv",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (oN()).ActorQueryOperationPathLink({
+		}), new (zM()).ActorQueryOperationPathLink({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-link",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (cN()).ActorQueryOperationPathNps({
+		}), new (VM()).ActorQueryOperationPathNps({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-nps",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (uN()).ActorQueryOperationClear({
+		}), new (UM()).ActorQueryOperationClear({
 			mediatorUpdateQuads: xe,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#update-clear",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (fN()).ActorQueryOperationUpdateCompositeUpdate({
+		}), new (GM()).ActorQueryOperationUpdateCompositeUpdate({
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#update-composite",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (mN()).ActorQueryOperationCreate({
+		}), new (qM()).ActorQueryOperationCreate({
 			mediatorUpdateQuads: xe,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#update-create",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (gN()).ActorQueryOperationDrop({
+		}), new (YM()).ActorQueryOperationDrop({
 			mediatorUpdateQuads: xe,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#update-drop",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (vN()).ActorQueryOperationLoad({
+		}), new (ZM()).ActorQueryOperationLoad({
 			mediatorUpdateQuads: xe,
 			mediatorQuerySourceIdentify: Oe,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#update-load",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (bN()).ActorQueryOperationJoin({
+		}), new ($M()).ActorQueryOperationJoin({
 			mediatorJoin: ke,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#join",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (SN()).ActorQueryOperationLeftJoin({
+		}), new (tN()).ActorQueryOperationLeftJoin({
 			mediatorJoin: ke,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#leftjoin",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (wN()).ActorQueryOperationMinus({
+		}), new (rN()).ActorQueryOperationMinus({
 			mediatorJoin: ke,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#minus",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (EN()).ActorQueryOperationPathSeq({
+		}), new (aN()).ActorQueryOperationPathSeq({
 			mediatorJoin: ke,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-seq",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
 		});
-		let Ge = new (ON()).ActorRdfJoinMultiSmallest({
+		let Ge = new (sN()).ActorRdfJoinMultiSmallest({
 			mediatorJoinEntriesSort: de,
 			mediatorJoin: ke,
 			mediatorJoinSelectivity: V,
@@ -81398,19 +80972,19 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
 		});
-		new (jN()).ActorBindingsAggregatorFactoryMax({
+		new (uN()).ActorBindingsAggregatorFactoryMax({
 			mediatorTermComparatorFactory: Ae,
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#max",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (PN()).ActorBindingsAggregatorFactoryMin({
+		}), new (pN()).ActorBindingsAggregatorFactoryMin({
 			mediatorTermComparatorFactory: Ae,
 			mediatorExpressionEvaluatorFactory: Ce,
 			name: "urn:comunica:default:bindings-aggregator-factory/actors#min",
 			bus: E,
 			busFailMessage: "Creation of Aggregator failed: none of the configured actors were able to handle ${action.expr.aggregator}"
-		}), new (LN()).ActorQueryOperationOrderBy({
+		}), new (gN()).ActorQueryOperationOrderBy({
 			mediatorExpressionEvaluatorFactory: Ce,
 			mediatorTermComparatorFactory: Ae,
 			mediatorQueryOperation: W,
@@ -81418,7 +80992,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
 		});
-		let Ke = new (zN()).ActorOptimizeQueryOperationFilterPushdown({
+		let Ke = new (vN()).ActorOptimizeQueryOperationFilterPushdown({
 			aggressivePushdown: !1,
 			maxIterations: 10,
 			splitConjunctive: !0,
@@ -81429,13 +81003,13 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [z]
-		}), qe = new (VN()).ActorOptimizeQueryOperationDistinctTermsPushdown({
+		}), qe = new (bN()).ActorOptimizeQueryOperationDistinctTermsPushdown({
 			name: "urn:comunica:default:optimize-query-operation/actors#distinct-terms-pushdown",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [z]
 		});
-		new (GN()).ActorDereferenceHttp({
+		new (wN()).ActorDereferenceHttp({
 			mediatorHttp: Ee,
 			maxAcceptHeaderLength: 1024,
 			maxAcceptHeaderLengthBrowser: 128,
@@ -81456,7 +81030,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: n,
 			busFailMessage: "Initialization failed: none of the configured actors were to initialize"
 		});
-		new (FP()).ActorRdfParseJsonLd({
+		new (mP()).ActorRdfParseJsonLd({
 			cacheSize: 128,
 			httpInvalidator: Ne,
 			mediatorHttp: Ee,
@@ -81472,7 +81046,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:rdf-parse/actors#jsonld",
 			bus: v,
 			busFailMessage: "RDF parsing failed: none of the configured parsers were able to handle the media type ${action.handle.mediaType} for ${action.handle.url}"
-		}), new (LP()).ActorRdfUpdateQuadsHypermedia({
+		}), new (gP()).ActorRdfUpdateQuadsHypermedia({
 			cacheSize: 100,
 			httpInvalidator: Pe,
 			mediatorDereferenceRdf: ue,
@@ -81483,7 +81057,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: T,
 			busFailMessage: "RDF updating failed: none of the configured actors were able to handle an update"
 		});
-		let Ye = new (sF()).ActorHttpFetch({
+		let Ye = new (BP()).ActorHttpFetch({
 			cacheMaxSize: 104857600,
 			cacheMaxCount: 1e3,
 			cacheMaxEntrySize: 5242880,
@@ -81495,18 +81069,18 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:http/actors#fetch",
 			bus: k,
 			busFailMessage: "HTTP request failed: none of the configured actors were able to handle ${action.input}"
-		}), Xe = new (uF()).ActionObserverHttp({
+		}), Xe = new (UP()).ActionObserverHttp({
 			httpInvalidator: Re,
 			observedActors: ["urn:comunica:default:http/actors#fetch"],
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-query-result-serialize-sparql-json/^5.0.0/components/ActorQueryResultSerializeSparqlJson.jsonld#ActorQueryResultSerializeSparqlJson_default_observer",
 			bus: k
-		}), Ze = new (pF()).ActionObserverHttp({
+		}), Ze = new (KP()).ActionObserverHttp({
 			httpInvalidator: G,
 			observedActors: ["urn:comunica:default:http/actors#fetch"],
 			name: "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-query-result-serialize-stats/^5.0.0/components/ActorQueryResultSerializeStats.jsonld#ActorQueryResultSerializeStats_default_observer",
 			bus: k
 		});
-		new (xF()).ActorQuerySourceIdentifyHypermediaQpf({
+		new (eF()).ActorQuerySourceIdentifyHypermediaQpf({
 			mediatorMetadata: fe,
 			mediatorMetadataExtract: U,
 			mediatorDereferenceRdf: ue,
@@ -81518,7 +81092,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:query-source-identify-hypermedia/actors#qpf",
 			bus: d,
 			busFailMessage: "Query source hypermedia identification failed: none of the configured actors were able to identify ${action.url}"
-		}), new (wF()).ActorQuerySourceIdentifyHypermediaSparql({
+		}), new (rF()).ActorQuerySourceIdentifyHypermediaSparql({
 			mediatorHttp: Ee,
 			mediatorMergeBindingsContext: ze,
 			mediatorQuerySerialize: ne,
@@ -81535,55 +81109,55 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:query-source-identify-hypermedia/actors#sparql",
 			bus: d,
 			busFailMessage: "Query source hypermedia identification failed: none of the configured actors were able to identify ${action.url}"
-		}), new (ZF()).ActorQuerySourceIdentifyHypermediaNone({
+		}), new (AF()).ActorQuerySourceIdentifyHypermediaNone({
 			mediatorMergeBindingsContext: ze,
 			name: "urn:comunica:default:query-source-identify-hypermedia/actors#none",
 			bus: d,
 			busFailMessage: "Query source hypermedia identification failed: none of the configured actors were able to identify ${action.url}"
-		}), new (iI()).ActorExpressionEvaluatorFactoryDefault({
+		}), new (LF()).ActorExpressionEvaluatorFactoryDefault({
 			mediatorQueryOperation: W,
 			mediatorFunctionFactory: we,
 			mediatorMergeBindingsContext: ze,
 			name: "urn:comunica:default:expression-evaluator-factory/actors#default",
 			bus: D,
 			busFailMessage: "Creation of Expression Evaluator failed"
-		}), new (sI()).ActorQueryOperationGroup({
+		}), new (BF()).ActorQueryOperationGroup({
 			mediatorMergeBindingsContext: ze,
 			mediatorBindingsAggregatorFactory: Se,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#group",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (lI()).ActorQueryOperationNop({
+		}), new (HF()).ActorQueryOperationNop({
 			mediatorMergeBindingsContext: ze,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#nop",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (dI()).ActorQueryOperationValues({
+		}), new (WF()).ActorQueryOperationValues({
 			mediatorMergeBindingsContext: ze,
 			name: "urn:comunica:default:query-operation/actors#values",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (pI()).ActorQueryOperationPathOneOrMore({
+		}), new (KF()).ActorQueryOperationPathOneOrMore({
 			mediatorMergeBindingsContext: ze,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-one-or-more",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (hI()).ActorQueryOperationPathZeroOrMore({
+		}), new (JF()).ActorQueryOperationPathZeroOrMore({
 			mediatorMergeBindingsContext: ze,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-zero-or-more",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (_I()).ActorQueryOperationPathZeroOrOne({
+		}), new (XF()).ActorQueryOperationPathZeroOrOne({
 			mediatorMergeBindingsContext: ze,
 			mediatorQueryOperation: W,
 			name: "urn:comunica:default:query-operation/actors#path-zero-or-one",
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
-		}), new (yI()).ActorQueryOperationUpdateDeleteInsert({
+		}), new (QF()).ActorQueryOperationUpdateDeleteInsert({
 			mediatorUpdateQuads: xe,
 			mediatorMergeBindingsContext: ze,
 			mediatorQueryOperation: W,
@@ -81591,7 +81165,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: j,
 			busFailMessage: "Query operation processing failed: none of the configured actors were able to handle the operation type ${action.operation.type}"
 		});
-		let Qe = new (CI()).ActorQueryProcessSequential({
+		let Qe = new (nI()).ActorQueryProcessSequential({
 			mediatorContextPreprocess: L,
 			mediatorQueryParse: te,
 			mediatorOptimizeQueryOperation: B,
@@ -81600,7 +81174,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:query-process/actors#sequential",
 			bus: ee,
 			busFailMessage: "Query processing failed: none of the configured actor were process to the query \"${action.query}\""
-		}), $e = new (OI()).ActorQuerySourceIdentifyHypermedia({
+		}), $e = new (sI()).ActorQuerySourceIdentifyHypermedia({
 			cacheSize: 100,
 			maxIterators: 64,
 			mediatorMetadataAccumulate: pe,
@@ -81612,13 +81186,13 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: M,
 			busFailMessage: "Query source identification failed: none of the configured actors were able to identify ${action.querySourceUnidentified.value}"
 		});
-		new (AI()).ActorRdfJoinNone({
+		new (lI()).ActorRdfJoinNone({
 			mediatorMergeBindingsContext: ze,
 			mediatorJoinSelectivity: V,
 			name: "urn:comunica:default:rdf-join/actors#inner-none",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (PI()).ActorRdfJoinOptionalBind({
+		}), new (pI()).ActorRdfJoinOptionalBind({
 			bindOrder: "depth-first",
 			selectivityModifier: 1e-6,
 			mediatorQueryOperation: W,
@@ -81627,14 +81201,14 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:rdf-join/actors#optional-bind",
 			bus: N,
 			busFailMessage: "RDF joining failed: none of the configured actors were able to handle the join type ${action.type}"
-		}), new (zI()).ActorTermComparatorFactoryExpressionEvaluator({
+		}), new (vI()).ActorTermComparatorFactoryExpressionEvaluator({
 			mediatorQueryOperation: W,
 			mediatorFunctionFactory: we,
 			mediatorMergeBindingsContext: ze,
 			name: "urn:comunica:default:term-comparator-factory/actors#expression-evaluator",
 			bus: P,
 			busFailMessage: "Creation of term comparator failed"
-		}), new (VI()).ActorQuerySourceDereferenceLinkForceSparql({
+		}), new (bI()).ActorQuerySourceDereferenceLinkForceSparql({
 			mediatorMetadataAccumulate: pe,
 			mediatorQuerySourceIdentifyHypermedia: se,
 			name: "urn:comunica:default:query-source-dereference-link/actors#force-sparql",
@@ -81642,7 +81216,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			busFailMessage: "Query source dereference link failed: none of the configured actors were able to resolve ${action.link.url}",
 			beforeActors: [We]
 		});
-		let et = new (MI()).ActorRdfJoinMultiBind({
+		let et = new (dI()).ActorRdfJoinMultiBind({
 			bindOrder: "depth-first",
 			selectivityModifier: 1e-4,
 			minMaxCardinalityRatio: 60,
@@ -81661,7 +81235,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 				Ue
 			]
 		});
-		new (UI()).ActorRdfJoinMultiSmallestFilterBindings({
+		new (SI()).ActorRdfJoinMultiSmallestFilterBindings({
 			selectivityModifier: 1e-4,
 			blockSize: 64,
 			mediatorJoinEntriesSort: de,
@@ -81677,7 +81251,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 				He,
 				Ue
 			]
-		}), new (uF()).ActorQueryResultSerializeSparqlJson({
+		}), new (UP()).ActorQueryResultSerializeSparqlJson({
 			emitMetadata: !0,
 			httpObserver: Xe,
 			mediaTypePriorities: { "application/sparql-results+json": .8 },
@@ -81685,76 +81259,76 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			name: "urn:comunica:default:query-result-serialize/actors#sparql-json",
 			bus: u,
 			busFailMessage: "Query result serialization failed: none of the configured actors were able to serialize for type ${action.handle.type}"
-		}), new (pF()).ActorQueryResultSerializeStats({
+		}), new (KP()).ActorQueryResultSerializeStats({
 			httpObserver: Ze,
 			mediaTypePriorities: { stats: .5 },
 			mediaTypeFormats: { stats: "https://comunica.linkeddatafragments.org/#results_stats" },
 			name: "urn:comunica:default:query-result-serialize/actors#stats",
 			bus: u,
 			busFailMessage: "Query result serialization failed: none of the configured actors were able to serialize for type ${action.handle.type}"
-		}), new (GI()).ActorQueryProcessExplainParsed({
+		}), new (wI()).ActorQueryProcessExplainParsed({
 			queryProcessor: Qe,
 			name: "urn:comunica:default:query-process/actors#explain-parsed",
 			bus: ee,
 			busFailMessage: "Query processing failed: none of the configured actor were process to the query \"${action.query}\""
-		}), new (qI()).ActorQueryProcessExplainLogical({
+		}), new (EI()).ActorQueryProcessExplainLogical({
 			queryProcessor: Qe,
 			name: "urn:comunica:default:query-process/actors#explain-logical",
 			bus: ee,
 			busFailMessage: "Query processing failed: none of the configured actor were process to the query \"${action.query}\""
-		}), new (YI()).ActorQueryProcessExplainQuery({
+		}), new (OI()).ActorQueryProcessExplainQuery({
 			queryProcessor: Qe,
 			mediatorQuerySerialize: ne,
 			name: "urn:comunica:default:query-process/actors#explain-query",
 			bus: ee,
 			busFailMessage: "Query processing failed: none of the configured actor were process to the query \"${action.query}\""
-		}), new (QI()).ActorQueryProcessExplainPhysical({
+		}), new (jI()).ActorQueryProcessExplainPhysical({
 			queryProcessor: Qe,
 			name: "urn:comunica:default:query-process/actors#explain-physical",
 			bus: ee,
 			busFailMessage: "Query processing failed: none of the configured actor were process to the query \"${action.query}\""
 		});
-		let tt = new (eL()).ActorOptimizeQueryOperationPruneEmptySourceOperations({
+		let tt = new (NI()).ActorOptimizeQueryOperationPruneEmptySourceOperations({
 			useAskIfSupported: !1,
 			name: "urn:comunica:default:optimize-query-operation/actors#prune-empty-source-operations",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [Ke]
 		});
-		new (nL()).ActorOptimizeQueryOperationLeftjoinExpressionPushdown({
+		new (FI()).ActorOptimizeQueryOperationLeftjoinExpressionPushdown({
 			name: "urn:comunica:default:optimize-query-operation/actors#leftjoin-expression-pushdown",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [Ke]
 		});
-		let nt = new (aL()).ActorHttpProxy({
+		let nt = new (RI()).ActorHttpProxy({
 			mediatorHttp: Ee,
 			name: "urn:comunica:default:http/actors#proxy",
 			bus: k,
 			busFailMessage: "HTTP request failed: none of the configured actors were able to handle ${action.input}",
 			beforeActors: [Ye]
 		});
-		new (OF()).ActorQuerySourceIdentifyRdfJs({
+		new (sF()).ActorQuerySourceIdentifyRdfJs({
 			mediatorMergeBindingsContext: ze,
 			name: "urn:comunica:default:query-source-identify/actors#rdfjs",
 			bus: M,
 			busFailMessage: "Query source identification failed: none of the configured actors were able to identify ${action.querySourceUnidentified.value}",
 			beforeActors: [$e]
-		}), new (cL()).ActorQuerySourceIdentifySerialized({
+		}), new (VI()).ActorQuerySourceIdentifySerialized({
 			mediatorRdfParse: me,
 			mediatorQuerySourceIdentify: Oe,
 			name: "urn:comunica:default:query-source-identify/actors#serialized",
 			bus: M,
 			busFailMessage: "Query source identification failed: none of the configured actors were able to identify ${action.querySourceUnidentified.value}",
 			beforeActors: [$e]
-		}), new (uL()).ActorQuerySourceIdentifyCompositeFile({
+		}), new (UI()).ActorQuerySourceIdentifyCompositeFile({
 			mediatorQuerySourceIdentify: Oe,
 			mediatorMergeBindingsContext: ze,
 			name: "urn:comunica:default:query-source-identify/actors#compositefile",
 			bus: M,
 			busFailMessage: "Query source identification failed: none of the configured actors were able to identify ${action.querySourceUnidentified.value}",
 			beforeActors: [$e]
-		}), new (fL()).ActorRdfJoinMultiBindSource({
+		}), new (GI()).ActorRdfJoinMultiBindSource({
 			selectivityModifier: 1e-4,
 			blockSize: 16,
 			mediatorJoinEntriesSort: de,
@@ -81771,12 +81345,12 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 				Ue
 			]
 		});
-		let rt = new (mL()).ActorOptimizeQueryOperationJoinConnected({
+		let rt = new (qI()).ActorOptimizeQueryOperationJoinConnected({
 			name: "urn:comunica:default:optimize-query-operation/actors#join-connected",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [tt]
-		}), it = new (gL()).ActorHttpRetry({
+		}), it = new (YI()).ActorHttpRetry({
 			mediatorHttp: Ee,
 			httpInvalidator: Fe,
 			name: "urn:comunica:default:http/actors#retry",
@@ -81784,7 +81358,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			busFailMessage: "HTTP request failed: none of the configured actors were able to handle ${action.input}",
 			beforeActors: [nt]
 		});
-		new (vL()).ActorHttpLimitRate({
+		new (ZI()).ActorHttpLimitRate({
 			mediatorHttp: Ee,
 			httpInvalidator: Le,
 			correctionMultiplier: .1,
@@ -81796,25 +81370,25 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			busFailMessage: "HTTP request failed: none of the configured actors were able to handle ${action.input}",
 			beforeActors: [nt]
 		});
-		let at = new (bL()).ActorOptimizeQueryOperationBgpToJoin({
+		let at = new ($I()).ActorOptimizeQueryOperationBgpToJoin({
 			name: "urn:comunica:default:optimize-query-operation/actors#bgp-to-join",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [rt]
 		});
-		new (SL()).ActorHttpRetryBody({
+		new (tL()).ActorHttpRetryBody({
 			mediatorHttp: Ee,
 			name: "urn:comunica:default:http/actors#retry-body",
 			bus: k,
 			busFailMessage: "HTTP request failed: none of the configured actors were able to handle ${action.input}",
 			beforeActors: [it]
 		});
-		let ot = new (wL()).ActorOptimizeQueryOperationJoinBgp({
+		let ot = new (rL()).ActorOptimizeQueryOperationJoinBgp({
 			name: "urn:comunica:default:optimize-query-operation/actors#join-bgp",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [at]
-		}), st = new (EL()).ActorOptimizeQueryOperationAssignSourcesExhaustive({
+		}), st = new (aL()).ActorOptimizeQueryOperationAssignSourcesExhaustive({
 			name: "urn:comunica:default:optimize-query-operation/actors#assign-sources-exhaustive",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
@@ -81824,13 +81398,13 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [st]
-		}), lt = new (OL()).ActorOptimizeQueryOperationGroupFileSources({
+		}), lt = new (sL()).ActorOptimizeQueryOperationGroupFileSources({
 			mediatorQuerySourceIdentify: Oe,
 			name: "urn:comunica:default:optimize-query-operation/actors#group-file-sources",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [ct]
-		}), ut = new (AL()).ActorOptimizeQueryOperationQuerySourceIdentify({
+		}), ut = new (lL()).ActorOptimizeQueryOperationQuerySourceIdentify({
 			serviceForceSparqlEndpoint: !1,
 			cacheSize: 100,
 			httpInvalidator: Me,
@@ -81841,22 +81415,22 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [lt]
 		});
-		return new (ML()).ActorOptimizeQueryOperationDescribeToConstructsSubject({
+		return new (dL()).ActorOptimizeQueryOperationDescribeToConstructsSubject({
 			name: "urn:comunica:default:optimize-query-operation/actors#describe-to-constructs-subject",
 			bus: o,
 			busFailMessage: "Query optimization failed: none of the configured actors were able to optimize",
 			beforeActors: [ut]
 		}), Je;
 	};
-})), PL = /* @__PURE__ */ l(((e) => {
+})), pL = /* @__PURE__ */ l(((e) => {
 	Object.defineProperty(e, "__esModule", { value: !0 }), e.QueryEngine = void 0;
-	var t = Ec(), n = NL();
+	var t = Ec(), n = fL();
 	e.QueryEngine = class extends t.QueryEngineBase {
 		constructor(e = n()) {
 			super(e);
 		}
 	};
-})), FL = (/* @__PURE__ */ l(((e) => {
+})), mL = (/* @__PURE__ */ l(((e) => {
 	var t = e && e.__createBinding || (Object.create ? (function(e, t, n, r) {
 		r === void 0 && (r = n);
 		var i = Object.getOwnPropertyDescriptor(t, n);
@@ -81871,8 +81445,8 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	})), n = e && e.__exportStar || function(e, n) {
 		for (var r in e) r !== "default" && !Object.prototype.hasOwnProperty.call(n, r) && t(n, e, r);
 	};
-	Object.defineProperty(e, "__esModule", { value: !0 }), n(PL(), e);
-})))(), IL = (e) => {
+	Object.defineProperty(e, "__esModule", { value: !0 }), n(pL(), e);
+})))(), hL = (e) => {
 	let t = /* @__PURE__ */ new Map();
 	return e.forEach((e) => {
 		if (e.auth && e.value) try {
@@ -81889,7 +81463,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 			return null;
 		}
 	};
-}, LL = (e) => async (t, n = {}) => {
+}, gL = (e) => async (t, n = {}) => {
 	let r = e(t);
 	if (r) {
 		let e = new Headers(n.headers), i = btoa(`${r.username}:${r.password}`);
@@ -81899,13 +81473,13 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		});
 	}
 	return fetch(t, n);
-}, RL = (e) => typeof e == "string" || e instanceof String ? [{
+}, _L = (e) => typeof e == "string" || e instanceof String ? [{
 	type: "sparql",
 	value: e
 }] : [{
 	type: "sparql",
 	...e
-}], zL = class {
+}], vL = class {
 	constructor() {
 		this.type = "query_only", this.capability = {
 			query: !0,
@@ -81916,7 +81490,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	async initialize() {}
 	queryContext(e) {
 		let t = { sources: e };
-		return this.getAuthForUrl && (t.fetch = LL(this.getAuthForUrl)), t;
+		return this.getAuthForUrl && (t.fetch = gL(this.getAuthForUrl)), t;
 	}
 	query_bindings(e) {
 		return console.log(`Send bindings query (${e}) via comunica to ${this.sources}`), this.queryEngine.queryBindings(e, this.queryContext(this.sources));
@@ -81939,7 +81513,7 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 	get authForUrl() {
 		return this.getAuthForUrl;
 	}
-}, BL = class extends zL {
+}, yL = class extends vL {
 	constructor(e, t) {
 		super(), this.queryEndpoint = e, this.updateEndpoint = t, this.type = "query_only", this.capability = {
 			query: !0,
@@ -81948,107 +81522,107 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		}, t && (this.type = "query_update", this.capability.update = !0);
 	}
 	async initialize() {
-		this.queryEngine = new FL.QueryEngine();
-		let e = RL(this.queryEndpoint), t = this.updateEndpoint ? RL(this.updateEndpoint) : [], n = [...e, ...t];
-		n.some((e) => e.auth) && (this.getAuthForUrl = IL(n)), this.sources = e.map((e) => (delete e.auth, e)), this.destination = t.map((e) => (delete e.auth, e));
+		this.queryEngine = new mL.QueryEngine();
+		let e = _L(this.queryEndpoint), t = this.updateEndpoint ? _L(this.updateEndpoint) : [], n = [...e, ...t];
+		n.some((e) => e.auth) && (this.getAuthForUrl = hL(n)), this.sources = e.map((e) => (delete e.auth, e)), this.destination = t.map((e) => (delete e.auth, e));
 	}
 };
 //#endregion
 //#region node_modules/axios/lib/helpers/bind.js
-function VL(e, t) {
+function bL(e, t) {
 	return function() {
 		return e.apply(t, arguments);
 	};
 }
 //#endregion
 //#region node_modules/axios/lib/utils.js
-var { toString: HL } = Object.prototype, { getPrototypeOf: UL } = Object, { iterator: WL, toStringTag: GL } = Symbol, KL = (({ hasOwnProperty: e }) => (t, n) => e.call(t, n))(Object.prototype), qL = (e, t) => {
+var { toString: xL } = Object.prototype, { getPrototypeOf: SL } = Object, { iterator: CL, toStringTag: wL } = Symbol, TL = (({ hasOwnProperty: e }) => (t, n) => e.call(t, n))(Object.prototype), EL = (e, t) => {
 	let n = e, r = [];
 	for (; n != null && n !== Object.prototype;) {
 		if (r.indexOf(n) !== -1) return !1;
-		if (r.push(n), KL(n, t)) return !0;
-		n = UL(n);
+		if (r.push(n), TL(n, t)) return !0;
+		n = SL(n);
 	}
 	return !1;
-}, JL = (e, t) => e != null && qL(e, t) ? e[t] : void 0, YL = ((e) => (t) => {
-	let n = HL.call(t);
+}, DL = (e, t) => e != null && EL(e, t) ? e[t] : void 0, OL = ((e) => (t) => {
+	let n = xL.call(t);
 	return e[n] || (e[n] = n.slice(8, -1).toLowerCase());
-})(Object.create(null)), XL = (e) => (e = e.toLowerCase(), (t) => YL(t) === e), ZL = (e) => (t) => typeof t === e, { isArray: QL } = Array, $L = ZL("undefined");
-function eR(e) {
-	return e !== null && !$L(e) && e.constructor !== null && !$L(e.constructor) && iR(e.constructor.isBuffer) && e.constructor.isBuffer(e);
+})(Object.create(null)), kL = (e) => (e = e.toLowerCase(), (t) => OL(t) === e), AL = (e) => (t) => typeof t === e, { isArray: jL } = Array, ML = AL("undefined");
+function NL(e) {
+	return e !== null && !ML(e) && e.constructor !== null && !ML(e.constructor) && LL(e.constructor.isBuffer) && e.constructor.isBuffer(e);
 }
-var tR = XL("ArrayBuffer");
-function nR(e) {
+var PL = kL("ArrayBuffer");
+function FL(e) {
 	let t;
-	return t = typeof ArrayBuffer < "u" && ArrayBuffer.isView ? ArrayBuffer.isView(e) : e && e.buffer && tR(e.buffer), t;
+	return t = typeof ArrayBuffer < "u" && ArrayBuffer.isView ? ArrayBuffer.isView(e) : e && e.buffer && PL(e.buffer), t;
 }
-var rR = ZL("string"), iR = ZL("function"), aR = ZL("number"), oR = (e) => typeof e == "object" && !!e, sR = (e) => e === !0 || e === !1, cR = (e) => {
-	if (!oR(e)) return !1;
-	let t = UL(e);
-	return (t === null || t === Object.prototype || UL(t) === null) && !qL(e, GL) && !qL(e, WL);
-}, lR = (e) => {
-	if (!oR(e) || eR(e)) return !1;
+var IL = AL("string"), LL = AL("function"), RL = AL("number"), zL = (e) => typeof e == "object" && !!e, BL = (e) => e === !0 || e === !1, VL = (e) => {
+	if (!zL(e)) return !1;
+	let t = SL(e);
+	return (t === null || t === Object.prototype || SL(t) === null) && !EL(e, wL) && !EL(e, CL);
+}, HL = (e) => {
+	if (!zL(e) || NL(e)) return !1;
 	try {
 		return Object.keys(e).length === 0 && Object.getPrototypeOf(e) === Object.prototype;
 	} catch {
 		return !1;
 	}
-}, uR = XL("Date"), dR = XL("File"), fR = (e) => !!(e && e.uri !== void 0), pR = (e) => e && e.getParts !== void 0, mR = XL("Blob"), hR = XL("FileList"), gR = (e) => oR(e) && iR(e.pipe);
-function _R() {
+}, UL = kL("Date"), WL = kL("File"), GL = (e) => !!(e && e.uri !== void 0), KL = (e) => e && e.getParts !== void 0, qL = kL("Blob"), JL = kL("FileList"), YL = (e) => zL(e) && LL(e.pipe);
+function XL() {
 	return typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : typeof global < "u" ? global : {};
 }
-var vR = _R(), yR = vR.FormData === void 0 ? void 0 : vR.FormData, bR = (e) => {
+var ZL = XL(), QL = ZL.FormData === void 0 ? void 0 : ZL.FormData, $L = (e) => {
 	if (!e) return !1;
-	if (yR && e instanceof yR) return !0;
-	let t = UL(e);
-	if (!t || t === Object.prototype || !iR(e.append)) return !1;
-	let n = YL(e);
-	return n === "formdata" || n === "object" && iR(e.toString) && e.toString() === "[object FormData]";
-}, xR = XL("URLSearchParams"), [SR, CR, wR, TR] = [
+	if (QL && e instanceof QL) return !0;
+	let t = SL(e);
+	if (!t || t === Object.prototype || !LL(e.append)) return !1;
+	let n = OL(e);
+	return n === "formdata" || n === "object" && LL(e.toString) && e.toString() === "[object FormData]";
+}, eR = kL("URLSearchParams"), [tR, nR, rR, iR] = [
 	"ReadableStream",
 	"Request",
 	"Response",
 	"Headers"
-].map(XL), ER = (e) => e.trim ? e.trim() : e.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
-function DR(e, t, { allOwnKeys: n = !1 } = {}) {
+].map(kL), aR = (e) => e.trim ? e.trim() : e.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
+function oR(e, t, { allOwnKeys: n = !1 } = {}) {
 	if (e == null) return;
 	let r, i;
-	if (typeof e != "object" && (e = [e]), QL(e)) for (r = 0, i = e.length; r < i; r++) t.call(null, e[r], r, e);
+	if (typeof e != "object" && (e = [e]), jL(e)) for (r = 0, i = e.length; r < i; r++) t.call(null, e[r], r, e);
 	else {
-		if (eR(e)) return;
+		if (NL(e)) return;
 		let i = n ? Object.getOwnPropertyNames(e) : Object.keys(e), a = i.length, o;
 		for (r = 0; r < a; r++) o = i[r], t.call(null, e[o], o, e);
 	}
 }
-function OR(e, t) {
-	if (eR(e)) return null;
+function sR(e, t) {
+	if (NL(e)) return null;
 	t = t.toLowerCase();
 	let n = Object.keys(e), r = n.length, i;
 	for (; r-- > 0;) if (i = n[r], t === i.toLowerCase()) return i;
 	return null;
 }
-var kR = typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : global, AR = (e) => !$L(e) && e !== kR;
-function jR(...e) {
-	let { caseless: t, skipUndefined: n } = AR(this) && this || {}, r = {}, i = (e, i) => {
+var cR = typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : global, lR = (e) => !ML(e) && e !== cR;
+function uR(...e) {
+	let { caseless: t, skipUndefined: n } = lR(this) && this || {}, r = {}, i = (e, i) => {
 		if (i === "__proto__" || i === "constructor" || i === "prototype") return;
-		let a = t && typeof i == "string" && OR(r, i) || i, o = KL(r, a) ? r[a] : void 0;
-		cR(o) && cR(e) ? r[a] = jR(o, e) : cR(e) ? r[a] = jR({}, e) : QL(e) ? r[a] = e.slice() : (!n || !$L(e)) && (r[a] = e);
+		let a = t && typeof i == "string" && sR(r, i) || i, o = TL(r, a) ? r[a] : void 0;
+		VL(o) && VL(e) ? r[a] = uR(o, e) : VL(e) ? r[a] = uR({}, e) : jL(e) ? r[a] = e.slice() : (!n || !ML(e)) && (r[a] = e);
 	};
 	for (let t = 0, n = e.length; t < n; t++) {
 		let n = e[t];
-		if (!n || eR(n) || (DR(n, i), typeof n != "object" || QL(n))) continue;
+		if (!n || NL(n) || (oR(n, i), typeof n != "object" || jL(n))) continue;
 		let r = Object.getOwnPropertySymbols(n);
 		for (let e = 0; e < r.length; e++) {
 			let t = r[e];
-			UR.call(n, t) && i(n[t], t);
+			SR.call(n, t) && i(n[t], t);
 		}
 	}
 	return r;
 }
-var MR = (e, t, n, { allOwnKeys: r } = {}) => (DR(t, (t, r) => {
-	n && iR(t) ? Object.defineProperty(e, r, {
+var dR = (e, t, n, { allOwnKeys: r } = {}) => (oR(t, (t, r) => {
+	n && LL(t) ? Object.defineProperty(e, r, {
 		__proto__: null,
-		value: VL(t, n),
+		value: bL(t, n),
 		writable: !0,
 		enumerable: !0,
 		configurable: !0
@@ -82059,7 +81633,7 @@ var MR = (e, t, n, { allOwnKeys: r } = {}) => (DR(t, (t, r) => {
 		enumerable: !0,
 		configurable: !0
 	});
-}, { allOwnKeys: r }), e), NR = (e) => (e.charCodeAt(0) === 65279 && (e = e.slice(1)), e), PR = (e, t, n, r) => {
+}, { allOwnKeys: r }), e), fR = (e) => (e.charCodeAt(0) === 65279 && (e = e.slice(1)), e), pR = (e, t, n, r) => {
 	e.prototype = Object.create(t.prototype, r), Object.defineProperty(e.prototype, "constructor", {
 		__proto__: null,
 		value: e,
@@ -82070,53 +81644,53 @@ var MR = (e, t, n, { allOwnKeys: r } = {}) => (DR(t, (t, r) => {
 		__proto__: null,
 		value: t.prototype
 	}), n && Object.assign(e.prototype, n);
-}, FR = (e, t, n, r) => {
+}, mR = (e, t, n, r) => {
 	let i, a, o, s = {};
 	if (t ||= {}, e == null) return t;
 	do {
 		for (i = Object.getOwnPropertyNames(e), a = i.length; a-- > 0;) o = i[a], (!r || r(o, e, t)) && !s[o] && (t[o] = e[o], s[o] = !0);
-		e = n !== !1 && UL(e);
+		e = n !== !1 && SL(e);
 	} while (e && (!n || n(e, t)) && e !== Object.prototype);
 	return t;
-}, IR = (e, t, n) => {
+}, hR = (e, t, n) => {
 	e = String(e), (n === void 0 || n > e.length) && (n = e.length), n -= t.length;
 	let r = e.indexOf(t, n);
 	return r !== -1 && r === n;
-}, LR = (e) => {
+}, gR = (e) => {
 	if (!e) return null;
-	if (QL(e)) return e;
+	if (jL(e)) return e;
 	let t = e.length;
-	if (!aR(t)) return null;
+	if (!RL(t)) return null;
 	let n = Array(t);
 	for (; t-- > 0;) n[t] = e[t];
 	return n;
-}, RR = ((e) => (t) => e && t instanceof e)(typeof Uint8Array < "u" && UL(Uint8Array)), zR = (e, t) => {
-	let n = (e && e[WL]).call(e), r;
+}, _R = ((e) => (t) => e && t instanceof e)(typeof Uint8Array < "u" && SL(Uint8Array)), vR = (e, t) => {
+	let n = (e && e[CL]).call(e), r;
 	for (; (r = n.next()) && !r.done;) {
 		let n = r.value;
 		t.call(e, n[0], n[1]);
 	}
-}, BR = (e, t) => {
+}, yR = (e, t) => {
 	let n, r = [];
 	for (; (n = e.exec(t)) !== null;) r.push(n);
 	return r;
-}, VR = XL("HTMLFormElement"), HR = (e) => e.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function(e, t, n) {
+}, bR = kL("HTMLFormElement"), xR = (e) => e.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function(e, t, n) {
 	return t.toUpperCase() + n;
-}), { propertyIsEnumerable: UR } = Object.prototype, WR = XL("RegExp"), GR = (e, t) => {
+}), { propertyIsEnumerable: SR } = Object.prototype, CR = kL("RegExp"), wR = (e, t) => {
 	let n = Object.getOwnPropertyDescriptors(e), r = {};
-	DR(n, (n, i) => {
+	oR(n, (n, i) => {
 		let a;
 		(a = t(n, i, e)) !== !1 && (r[i] = a || n);
 	}), Object.defineProperties(e, r);
-}, KR = (e) => {
-	GR(e, (t, n) => {
-		if (iR(e) && [
+}, TR = (e) => {
+	wR(e, (t, n) => {
+		if (LL(e) && [
 			"arguments",
 			"caller",
 			"callee"
 		].includes(n)) return !1;
 		let r = e[n];
-		if (iR(r)) {
+		if (LL(r)) {
 			if (t.enumerable = !1, "writable" in t) {
 				t.writable = !1;
 				return;
@@ -82126,102 +81700,102 @@ var MR = (e, t, n, { allOwnKeys: r } = {}) => (DR(t, (t, r) => {
 			};
 		}
 	});
-}, qR = (e, t) => {
+}, ER = (e, t) => {
 	let n = {}, r = (e) => {
 		e.forEach((e) => {
 			n[e] = !0;
 		});
 	};
-	return QL(e) ? r(e) : r(String(e).split(t)), n;
-}, JR = () => {}, YR = (e, t) => e != null && Number.isFinite(e = +e) ? e : t;
-function XR(e) {
-	return !!(e && iR(e.append) && e[GL] === "FormData" && e[WL]);
+	return jL(e) ? r(e) : r(String(e).split(t)), n;
+}, DR = () => {}, OR = (e, t) => e != null && Number.isFinite(e = +e) ? e : t;
+function kR(e) {
+	return !!(e && LL(e.append) && e[wL] === "FormData" && e[CL]);
 }
-var ZR = (e) => {
+var AR = (e) => {
 	let t = /* @__PURE__ */ new WeakSet(), n = (e) => {
-		if (oR(e)) {
+		if (zL(e)) {
 			if (t.has(e)) return;
-			if (eR(e)) return e;
+			if (NL(e)) return e;
 			if (!("toJSON" in e)) {
 				t.add(e);
-				let r = QL(e) ? [] : {};
-				return DR(e, (e, t) => {
+				let r = jL(e) ? [] : {};
+				return oR(e, (e, t) => {
 					let i = n(e);
-					!$L(i) && (r[t] = i);
+					!ML(i) && (r[t] = i);
 				}), t.delete(e), r;
 			}
 		}
 		return e;
 	};
 	return n(e);
-}, QR = XL("AsyncFunction"), $R = (e) => e && (oR(e) || iR(e)) && iR(e.then) && iR(e.catch), ez = ((e, t) => e ? setImmediate : t ? ((e, t) => (kR.addEventListener("message", ({ source: n, data: r }) => {
-	n === kR && r === e && t.length && t.shift()();
+}, jR = kL("AsyncFunction"), MR = (e) => e && (zL(e) || LL(e)) && LL(e.then) && LL(e.catch), NR = ((e, t) => e ? setImmediate : t ? ((e, t) => (cR.addEventListener("message", ({ source: n, data: r }) => {
+	n === cR && r === e && t.length && t.shift()();
 }, !1), (n) => {
-	t.push(n), kR.postMessage(e, "*");
-}))(`axios@${Math.random()}`, []) : (e) => setTimeout(e))(typeof setImmediate == "function", iR(kR.postMessage)), tz = typeof queueMicrotask < "u" ? queueMicrotask.bind(kR) : typeof process < "u" && process.nextTick || ez, nz = (e) => e != null && iR(e[WL]), $ = {
-	isArray: QL,
-	isArrayBuffer: tR,
-	isBuffer: eR,
-	isFormData: bR,
-	isArrayBufferView: nR,
-	isString: rR,
-	isNumber: aR,
-	isBoolean: sR,
-	isObject: oR,
-	isPlainObject: cR,
-	isEmptyObject: lR,
-	isReadableStream: SR,
-	isRequest: CR,
-	isResponse: wR,
-	isHeaders: TR,
-	isUndefined: $L,
-	isDate: uR,
-	isFile: dR,
-	isReactNativeBlob: fR,
-	isReactNative: pR,
-	isBlob: mR,
-	isRegExp: WR,
-	isFunction: iR,
-	isStream: gR,
-	isURLSearchParams: xR,
-	isTypedArray: RR,
-	isFileList: hR,
-	forEach: DR,
-	merge: jR,
-	extend: MR,
-	trim: ER,
-	stripBOM: NR,
-	inherits: PR,
-	toFlatObject: FR,
-	kindOf: YL,
-	kindOfTest: XL,
-	endsWith: IR,
-	toArray: LR,
-	forEachEntry: zR,
-	matchAll: BR,
-	isHTMLForm: VR,
-	hasOwnProperty: KL,
-	hasOwnProp: KL,
-	hasOwnInPrototypeChain: qL,
-	getSafeProp: JL,
-	reduceDescriptors: GR,
-	freezeMethods: KR,
-	toObjectSet: qR,
-	toCamelCase: HR,
-	noop: JR,
-	toFiniteNumber: YR,
-	findKey: OR,
-	global: kR,
-	isContextDefined: AR,
-	isSpecCompliantForm: XR,
-	toJSONObject: ZR,
-	isAsyncFn: QR,
-	isThenable: $R,
-	setImmediate: ez,
-	asap: tz,
-	isIterable: nz,
-	isSafeIterable: (e) => e != null && qL(e, WL) && nz(e)
-}, rz = $.toObjectSet([
+	t.push(n), cR.postMessage(e, "*");
+}))(`axios@${Math.random()}`, []) : (e) => setTimeout(e))(typeof setImmediate == "function", LL(cR.postMessage)), PR = typeof queueMicrotask < "u" ? queueMicrotask.bind(cR) : typeof process < "u" && process.nextTick || NR, FR = (e) => e != null && LL(e[CL]), $ = {
+	isArray: jL,
+	isArrayBuffer: PL,
+	isBuffer: NL,
+	isFormData: $L,
+	isArrayBufferView: FL,
+	isString: IL,
+	isNumber: RL,
+	isBoolean: BL,
+	isObject: zL,
+	isPlainObject: VL,
+	isEmptyObject: HL,
+	isReadableStream: tR,
+	isRequest: nR,
+	isResponse: rR,
+	isHeaders: iR,
+	isUndefined: ML,
+	isDate: UL,
+	isFile: WL,
+	isReactNativeBlob: GL,
+	isReactNative: KL,
+	isBlob: qL,
+	isRegExp: CR,
+	isFunction: LL,
+	isStream: YL,
+	isURLSearchParams: eR,
+	isTypedArray: _R,
+	isFileList: JL,
+	forEach: oR,
+	merge: uR,
+	extend: dR,
+	trim: aR,
+	stripBOM: fR,
+	inherits: pR,
+	toFlatObject: mR,
+	kindOf: OL,
+	kindOfTest: kL,
+	endsWith: hR,
+	toArray: gR,
+	forEachEntry: vR,
+	matchAll: yR,
+	isHTMLForm: bR,
+	hasOwnProperty: TL,
+	hasOwnProp: TL,
+	hasOwnInPrototypeChain: EL,
+	getSafeProp: DL,
+	reduceDescriptors: wR,
+	freezeMethods: TR,
+	toObjectSet: ER,
+	toCamelCase: xR,
+	noop: DR,
+	toFiniteNumber: OR,
+	findKey: sR,
+	global: cR,
+	isContextDefined: lR,
+	isSpecCompliantForm: kR,
+	toJSONObject: AR,
+	isAsyncFn: jR,
+	isThenable: MR,
+	setImmediate: NR,
+	asap: PR,
+	isIterable: FR,
+	isSafeIterable: (e) => e != null && EL(e, CL) && FR(e)
+}, IR = $.toObjectSet([
 	"age",
 	"authorization",
 	"content-length",
@@ -82239,15 +81813,15 @@ var ZR = (e) => {
 	"referer",
 	"retry-after",
 	"user-agent"
-]), iz = (e) => {
+]), LR = (e) => {
 	let t = {}, n, r, i;
 	return e && e.split("\n").forEach(function(e) {
-		i = e.indexOf(":"), n = e.substring(0, i).trim().toLowerCase(), r = e.substring(i + 1).trim(), !(!n || t[n] && rz[n]) && (n === "set-cookie" ? t[n] ? t[n].push(r) : t[n] = [r] : t[n] = t[n] ? t[n] + ", " + r : r);
+		i = e.indexOf(":"), n = e.substring(0, i).trim().toLowerCase(), r = e.substring(i + 1).trim(), !(!n || t[n] && IR[n]) && (n === "set-cookie" ? t[n] ? t[n].push(r) : t[n] = [r] : t[n] = t[n] ? t[n] + ", " + r : r);
 	}), t;
 };
 //#endregion
 //#region node_modules/axios/lib/helpers/sanitizeHeaderValue.js
-function az(e) {
+function RR(e) {
 	let t = 0, n = e.length;
 	for (; t < n;) {
 		let n = e.charCodeAt(t);
@@ -82261,43 +81835,43 @@ function az(e) {
 	}
 	return t === 0 && n === e.length ? e : e.slice(t, n);
 }
-var oz = /* @__PURE__ */ RegExp("[\\u0000-\\u0008\\u000a-\\u001f\\u007f]+", "g"), sz = /* @__PURE__ */ RegExp("[^\\u0009\\u0020-\\u007e\\u0080-\\u00ff]+", "g");
-function cz(e, t) {
-	return $.isArray(e) ? e.map((e) => cz(e, t)) : az(String(e).replace(t, ""));
+var zR = /* @__PURE__ */ RegExp("[\\u0000-\\u0008\\u000a-\\u001f\\u007f]+", "g"), BR = /* @__PURE__ */ RegExp("[^\\u0009\\u0020-\\u007e\\u0080-\\u00ff]+", "g");
+function VR(e, t) {
+	return $.isArray(e) ? e.map((e) => VR(e, t)) : RR(String(e).replace(t, ""));
 }
-var lz = (e) => cz(e, oz), uz = (e) => cz(e, sz);
-function dz(e) {
+var HR = (e) => VR(e, zR), UR = (e) => VR(e, BR);
+function WR(e) {
 	let t = Object.create(null);
 	return $.forEach(e.toJSON(), (e, n) => {
-		t[n] = uz(e);
+		t[n] = UR(e);
 	}), t;
 }
 //#endregion
 //#region node_modules/axios/lib/core/AxiosHeaders.js
-var fz = Symbol("internals");
-function pz(e) {
+var GR = Symbol("internals");
+function KR(e) {
 	return e && String(e).trim().toLowerCase();
 }
-function mz(e) {
-	return e === !1 || e == null ? e : $.isArray(e) ? e.map(mz) : lz(String(e));
+function qR(e) {
+	return e === !1 || e == null ? e : $.isArray(e) ? e.map(qR) : HR(String(e));
 }
-function hz(e) {
+function JR(e) {
 	let t = Object.create(null), n = /([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g, r;
 	for (; r = n.exec(e);) t[r[1]] = r[2];
 	return t;
 }
-var gz = (e) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(e.trim());
-function _z(e, t, n, r, i) {
+var YR = (e) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(e.trim());
+function XR(e, t, n, r, i) {
 	if ($.isFunction(r)) return r.call(this, t, n);
 	if (i && (t = n), $.isString(t)) {
 		if ($.isString(r)) return t.indexOf(r) !== -1;
 		if ($.isRegExp(r)) return r.test(t);
 	}
 }
-function vz(e) {
+function ZR(e) {
 	return e.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (e, t, n) => t.toUpperCase() + n);
 }
-function yz(e, t) {
+function QR(e, t) {
 	let n = $.toCamelCase(" " + t);
 	[
 		"get",
@@ -82313,21 +81887,21 @@ function yz(e, t) {
 		});
 	});
 }
-var bz = class {
+var $R = class {
 	constructor(e) {
 		e && this.set(e);
 	}
 	set(e, t, n) {
 		let r = this;
 		function i(e, t, n) {
-			let i = pz(t);
+			let i = KR(t);
 			if (!i) return;
 			let a = $.findKey(r, i);
-			(!a || r[a] === void 0 || n === !0 || n === void 0 && r[a] !== !1) && (r[a || t] = mz(e));
+			(!a || r[a] === void 0 || n === !0 || n === void 0 && r[a] !== !1) && (r[a || t] = qR(e));
 		}
 		let a = (e, t) => $.forEach(e, (e, n) => i(e, n, t));
 		if ($.isPlainObject(e) || e instanceof this.constructor) a(e, t);
-		else if ($.isString(e) && (e = e.trim()) && !gz(e)) a(iz(e), t);
+		else if ($.isString(e) && (e = e.trim()) && !YR(e)) a(LR(e), t);
 		else if ($.isObject(e) && $.isSafeIterable(e)) {
 			let n = Object.create(null), r, i;
 			for (let t of e) {
@@ -82339,12 +81913,12 @@ var bz = class {
 		return this;
 	}
 	get(e, t) {
-		if (e = pz(e), e) {
+		if (e = KR(e), e) {
 			let n = $.findKey(this, e);
 			if (n) {
 				let e = this[n];
 				if (!t) return e;
-				if (t === !0) return hz(e);
+				if (t === !0) return JR(e);
 				if ($.isFunction(t)) return t.call(this, e, n);
 				if ($.isRegExp(t)) return t.exec(e);
 				throw TypeError("parser must be boolean|regexp|function");
@@ -82352,18 +81926,18 @@ var bz = class {
 		}
 	}
 	has(e, t) {
-		if (e = pz(e), e) {
+		if (e = KR(e), e) {
 			let n = $.findKey(this, e);
-			return !!(n && this[n] !== void 0 && (!t || _z(this, this[n], n, t)));
+			return !!(n && this[n] !== void 0 && (!t || XR(this, this[n], n, t)));
 		}
 		return !1;
 	}
 	delete(e, t) {
 		let n = this, r = !1;
 		function i(e) {
-			if (e = pz(e), e) {
+			if (e = KR(e), e) {
 				let i = $.findKey(n, e);
-				i && (!t || _z(n, n[i], i, t)) && (delete n[i], r = !0);
+				i && (!t || XR(n, n[i], i, t)) && (delete n[i], r = !0);
 			}
 		}
 		return $.isArray(e) ? e.forEach(i) : i(e), r;
@@ -82372,7 +81946,7 @@ var bz = class {
 		let t = Object.keys(this), n = t.length, r = !1;
 		for (; n--;) {
 			let i = t[n];
-			(!e || _z(this, this[i], i, e, !0)) && (delete this[i], r = !0);
+			(!e || XR(this, this[i], i, e, !0)) && (delete this[i], r = !0);
 		}
 		return r;
 	}
@@ -82381,11 +81955,11 @@ var bz = class {
 		return $.forEach(this, (r, i) => {
 			let a = $.findKey(n, i);
 			if (a) {
-				t[a] = mz(r), delete t[i];
+				t[a] = qR(r), delete t[i];
 				return;
 			}
-			let o = e ? vz(i) : String(i).trim();
-			o !== i && delete t[i], t[o] = mz(r), n[o] = !0;
+			let o = e ? ZR(i) : String(i).trim();
+			o !== i && delete t[i], t[o] = qR(r), n[o] = !0;
 		}), this;
 	}
 	concat(...e) {
@@ -82417,22 +81991,22 @@ var bz = class {
 		return t.forEach((e) => n.set(e)), n;
 	}
 	static accessor(e) {
-		let t = (this[fz] = this[fz] = { accessors: {} }).accessors, n = this.prototype;
+		let t = (this[GR] = this[GR] = { accessors: {} }).accessors, n = this.prototype;
 		function r(e) {
-			let r = pz(e);
-			t[r] || (yz(n, e), t[r] = !0);
+			let r = KR(e);
+			t[r] || (QR(n, e), t[r] = !0);
 		}
 		return $.isArray(e) ? e.forEach(r) : r(e), this;
 	}
 };
-bz.accessor([
+$R.accessor([
 	"Content-Type",
 	"Content-Length",
 	"Accept",
 	"Accept-Encoding",
 	"User-Agent",
 	"Authorization"
-]), $.reduceDescriptors(bz.prototype, ({ value: e }, t) => {
+]), $.reduceDescriptors($R.prototype, ({ value: e }, t) => {
 	let n = t[0].toUpperCase() + t.slice(1);
 	return {
 		get: () => e,
@@ -82440,11 +82014,11 @@ bz.accessor([
 			this[n] = e;
 		}
 	};
-}), $.freezeMethods(bz);
+}), $.freezeMethods($R);
 //#endregion
 //#region node_modules/axios/lib/core/AxiosError.js
-var xz = "[REDACTED ****]";
-function Sz(e) {
+var ez = "[REDACTED ****]";
+function tz(e) {
 	if ($.hasOwnProp(e, "toJSON")) return !0;
 	let t = Object.getPrototypeOf(e);
 	for (; t && t !== Object.prototype;) {
@@ -82453,21 +82027,21 @@ function Sz(e) {
 	}
 	return !1;
 }
-function Cz(e, t) {
+function nz(e, t) {
 	let n = new Set(t.map((e) => String(e).toLowerCase())), r = [], i = (e) => {
 		if (typeof e != "object" || !e || $.isBuffer(e)) return e;
 		if (r.indexOf(e) !== -1) return;
-		e instanceof bz && (e = e.toJSON()), r.push(e);
+		e instanceof $R && (e = e.toJSON()), r.push(e);
 		let t;
 		if ($.isArray(e)) t = [], e.forEach((e, n) => {
 			let r = i(e);
 			$.isUndefined(r) || (t[n] = r);
 		});
 		else {
-			if (!$.isPlainObject(e) && Sz(e)) return r.pop(), e;
+			if (!$.isPlainObject(e) && tz(e)) return r.pop(), e;
 			t = Object.create(null);
 			for (let [r, a] of Object.entries(e)) {
-				let e = n.has(r.toLowerCase()) ? xz : i(a);
+				let e = n.has(r.toLowerCase()) ? ez : i(a);
 				$.isUndefined(e) || (t[r] = e);
 			}
 		}
@@ -82475,7 +82049,7 @@ function Cz(e, t) {
 	};
 	return i(e);
 }
-var wz = class e extends Error {
+var rz = class e extends Error {
 	static from(t, n, r, i, a, o) {
 		let s = new e(t.message, n || t.code, r, i, a);
 		return Object.defineProperty(s, "cause", {
@@ -82496,7 +82070,7 @@ var wz = class e extends Error {
 		}), this.name = "AxiosError", this.isAxiosError = !0, t && (this.code = t), n && (this.config = n), r && (this.request = r), i && (this.response = i, this.status = i.status);
 	}
 	toJSON() {
-		let e = this.config, t = e && $.hasOwnProp(e, "redact") ? e.redact : void 0, n = $.isArray(t) && t.length > 0 ? Cz(e, t) : $.toJSONObject(e);
+		let e = this.config, t = e && $.hasOwnProp(e, "redact") ? e.redact : void 0, n = $.isArray(t) && t.length > 0 ? nz(e, t) : $.toJSONObject(e);
 		return {
 			message: this.message,
 			name: this.name,
@@ -82512,25 +82086,25 @@ var wz = class e extends Error {
 		};
 	}
 };
-wz.ERR_BAD_OPTION_VALUE = "ERR_BAD_OPTION_VALUE", wz.ERR_BAD_OPTION = "ERR_BAD_OPTION", wz.ECONNABORTED = "ECONNABORTED", wz.ETIMEDOUT = "ETIMEDOUT", wz.ECONNREFUSED = "ECONNREFUSED", wz.ERR_NETWORK = "ERR_NETWORK", wz.ERR_FR_TOO_MANY_REDIRECTS = "ERR_FR_TOO_MANY_REDIRECTS", wz.ERR_DEPRECATED = "ERR_DEPRECATED", wz.ERR_BAD_RESPONSE = "ERR_BAD_RESPONSE", wz.ERR_BAD_REQUEST = "ERR_BAD_REQUEST", wz.ERR_CANCELED = "ERR_CANCELED", wz.ERR_NOT_SUPPORT = "ERR_NOT_SUPPORT", wz.ERR_INVALID_URL = "ERR_INVALID_URL", wz.ERR_FORM_DATA_DEPTH_EXCEEDED = "ERR_FORM_DATA_DEPTH_EXCEEDED";
-function Tz(e) {
+rz.ERR_BAD_OPTION_VALUE = "ERR_BAD_OPTION_VALUE", rz.ERR_BAD_OPTION = "ERR_BAD_OPTION", rz.ECONNABORTED = "ECONNABORTED", rz.ETIMEDOUT = "ETIMEDOUT", rz.ECONNREFUSED = "ECONNREFUSED", rz.ERR_NETWORK = "ERR_NETWORK", rz.ERR_FR_TOO_MANY_REDIRECTS = "ERR_FR_TOO_MANY_REDIRECTS", rz.ERR_DEPRECATED = "ERR_DEPRECATED", rz.ERR_BAD_RESPONSE = "ERR_BAD_RESPONSE", rz.ERR_BAD_REQUEST = "ERR_BAD_REQUEST", rz.ERR_CANCELED = "ERR_CANCELED", rz.ERR_NOT_SUPPORT = "ERR_NOT_SUPPORT", rz.ERR_INVALID_URL = "ERR_INVALID_URL", rz.ERR_FORM_DATA_DEPTH_EXCEEDED = "ERR_FORM_DATA_DEPTH_EXCEEDED";
+function iz(e) {
 	return $.isPlainObject(e) || $.isArray(e);
 }
-function Ez(e) {
+function az(e) {
 	return $.endsWith(e, "[]") ? e.slice(0, -2) : e;
 }
-function Dz(e, t, n) {
+function oz(e, t, n) {
 	return e ? e.concat(t).map(function(e, t) {
-		return e = Ez(e), !n && t ? "[" + e + "]" : e;
+		return e = az(e), !n && t ? "[" + e + "]" : e;
 	}).join(n ? "." : "") : t;
 }
-function Oz(e) {
-	return $.isArray(e) && !e.some(Tz);
+function sz(e) {
+	return $.isArray(e) && !e.some(iz);
 }
-var kz = $.toFlatObject($, {}, null, function(e) {
+var cz = $.toFlatObject($, {}, null, function(e) {
 	return /^is[A-Z]/.test(e);
 });
-function Az(e, t, n) {
+function lz(e, t, n) {
 	if (!$.isObject(e)) throw TypeError("target must be an object");
 	t ||= new FormData(), n = $.toFlatObject(n, {
 		metaTokens: !0,
@@ -82545,16 +82119,16 @@ function Az(e, t, n) {
 		if (e === null) return "";
 		if ($.isDate(e)) return e.toISOString();
 		if ($.isBoolean(e)) return e.toString();
-		if (!l && $.isBlob(e)) throw new wz("Blob is not supported. Use a Buffer instead.");
+		if (!l && $.isBlob(e)) throw new rz("Blob is not supported. Use a Buffer instead.");
 		if ($.isArrayBuffer(e) || $.isTypedArray(e)) {
 			if (l && typeof s == "function") return new s([e]);
 			if (typeof Buffer < "u") return Buffer.from(e);
-			throw new wz("Blob is not supported. Use a Buffer instead.", wz.ERR_NOT_SUPPORT);
+			throw new rz("Blob is not supported. Use a Buffer instead.", rz.ERR_NOT_SUPPORT);
 		}
 		return e;
 	}
 	function f(e) {
-		if (e > c) throw new wz("Object is too deeply nested (" + e + " levels). Max depth: " + c, wz.ERR_FORM_DATA_DEPTH_EXCEEDED);
+		if (e > c) throw new rz("Object is too deeply nested (" + e + " levels). Max depth: " + c, rz.ERR_FORM_DATA_DEPTH_EXCEEDED);
 	}
 	function p(e, t) {
 		if (c === Infinity) return JSON.stringify(e);
@@ -82567,19 +82141,19 @@ function Az(e, t, n) {
 	}
 	function m(e, n, i) {
 		let s = e;
-		if ($.isReactNative(t) && $.isReactNativeBlob(e)) return t.append(Dz(i, n, a), d(e)), !1;
+		if ($.isReactNative(t) && $.isReactNativeBlob(e)) return t.append(oz(i, n, a), d(e)), !1;
 		if (e && !i && typeof e == "object") {
 			if ($.endsWith(n, "{}")) n = r ? n : n.slice(0, -2), e = p(e, 1);
-			else if ($.isArray(e) && Oz(e) || ($.isFileList(e) || $.endsWith(n, "[]")) && (s = $.toArray(e))) return n = Ez(n), s.forEach(function(e, r) {
-				!($.isUndefined(e) || e === null) && t.append(o === !0 ? Dz([n], r, a) : o === null ? n : n + "[]", d(e));
+			else if ($.isArray(e) && sz(e) || ($.isFileList(e) || $.endsWith(n, "[]")) && (s = $.toArray(e))) return n = az(n), s.forEach(function(e, r) {
+				!($.isUndefined(e) || e === null) && t.append(o === !0 ? oz([n], r, a) : o === null ? n : n + "[]", d(e));
 			}), !1;
 		}
-		return Tz(e) ? !0 : (t.append(Dz(i, n, a), d(e)), !1);
+		return iz(e) ? !0 : (t.append(oz(i, n, a), d(e)), !1);
 	}
-	let h = Object.assign(kz, {
+	let h = Object.assign(cz, {
 		defaultVisitor: m,
 		convertValue: d,
-		isVisitable: Tz
+		isVisitable: iz
 	});
 	function g(e, n, r = 0) {
 		if (!$.isUndefined(e)) {
@@ -82594,7 +82168,7 @@ function Az(e, t, n) {
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/AxiosURLSearchParams.js
-function jz(e) {
+function uz(e) {
 	let t = {
 		"!": "%21",
 		"'": "%27",
@@ -82607,28 +82181,28 @@ function jz(e) {
 		return t[e];
 	});
 }
-function Mz(e, t) {
-	this._pairs = [], e && Az(e, this, t);
+function dz(e, t) {
+	this._pairs = [], e && lz(e, this, t);
 }
-var Nz = Mz.prototype;
-Nz.append = function(e, t) {
+var fz = dz.prototype;
+fz.append = function(e, t) {
 	this._pairs.push([e, t]);
-}, Nz.toString = function(e) {
-	let t = e ? (t) => e.call(this, t, jz) : jz;
+}, fz.toString = function(e) {
+	let t = e ? (t) => e.call(this, t, uz) : uz;
 	return this._pairs.map(function(e) {
 		return t(e[0]) + "=" + t(e[1]);
 	}, "").join("&");
 };
 //#endregion
 //#region node_modules/axios/lib/helpers/buildURL.js
-function Pz(e) {
+function pz(e) {
 	return encodeURIComponent(e).replace(/%3A/gi, ":").replace(/%24/g, "$").replace(/%2C/gi, ",").replace(/%20/g, "+");
 }
-function Fz(e, t, n) {
+function mz(e, t, n) {
 	if (!t) return e;
 	e ||= "";
-	let r = $.isFunction(n) ? { serialize: n } : n, i = $.getSafeProp(r, "encode") || Pz, a = $.getSafeProp(r, "serialize"), o;
-	if (o = a ? a(t, r) : $.isURLSearchParams(t) ? t.toString() : new Mz(t, r).toString(i), o) {
+	let r = $.isFunction(n) ? { serialize: n } : n, i = $.getSafeProp(r, "encode") || pz, a = $.getSafeProp(r, "serialize"), o;
+	if (o = a ? a(t, r) : $.isURLSearchParams(t) ? t.toString() : new dz(t, r).toString(i), o) {
 		let t = e.indexOf("#");
 		t !== -1 && (e = e.slice(0, t)), e += (e.indexOf("?") === -1 ? "?" : "&") + o;
 	}
@@ -82636,7 +82210,7 @@ function Fz(e, t, n) {
 }
 //#endregion
 //#region node_modules/axios/lib/core/InterceptorManager.js
-var Iz = class {
+var hz = class {
 	constructor() {
 		this.handlers = [];
 	}
@@ -82659,17 +82233,17 @@ var Iz = class {
 			t !== null && e(t);
 		});
 	}
-}, Lz = {
+}, gz = {
 	silentJSONParsing: !0,
 	forcedJSONParsing: !0,
 	clarifyTimeoutError: !1,
 	legacyInterceptorReqResOrdering: !0,
 	advertiseZstdAcceptEncoding: !1,
 	validateStatusUndefinedResolves: !0
-}, Rz = {
+}, _z = {
 	isBrowser: !0,
 	classes: {
-		URLSearchParams: typeof URLSearchParams < "u" ? URLSearchParams : Mz,
+		URLSearchParams: typeof URLSearchParams < "u" ? URLSearchParams : dz,
 		FormData: typeof FormData < "u" ? FormData : null,
 		Blob: typeof Blob < "u" ? Blob : null
 	},
@@ -82681,66 +82255,66 @@ var Iz = class {
 		"url",
 		"data"
 	]
-}, zz = /* @__PURE__ */ u({
-	hasBrowserEnv: () => Bz,
-	hasStandardBrowserEnv: () => Hz,
-	hasStandardBrowserWebWorkerEnv: () => Uz,
-	navigator: () => Vz,
-	origin: () => Wz
-}), Bz = typeof window < "u" && typeof document < "u", Vz = typeof navigator == "object" && navigator || void 0, Hz = Bz && (!Vz || [
+}, vz = /* @__PURE__ */ u({
+	hasBrowserEnv: () => yz,
+	hasStandardBrowserEnv: () => xz,
+	hasStandardBrowserWebWorkerEnv: () => Sz,
+	navigator: () => bz,
+	origin: () => Cz
+}), yz = typeof window < "u" && typeof document < "u", bz = typeof navigator == "object" && navigator || void 0, xz = yz && (!bz || [
 	"ReactNative",
 	"NativeScript",
 	"NS"
-].indexOf(Vz.product) < 0), Uz = typeof WorkerGlobalScope < "u" && self instanceof WorkerGlobalScope && typeof self.importScripts == "function", Wz = Bz && window.location.href || "http://localhost", Gz = {
-	...zz,
-	...Rz
+].indexOf(bz.product) < 0), Sz = typeof WorkerGlobalScope < "u" && self instanceof WorkerGlobalScope && typeof self.importScripts == "function", Cz = yz && window.location.href || "http://localhost", wz = {
+	...vz,
+	..._z
 };
 //#endregion
 //#region node_modules/axios/lib/helpers/toURLEncodedForm.js
-function Kz(e, t) {
-	return Az(e, new Gz.classes.URLSearchParams(), {
+function Tz(e, t) {
+	return lz(e, new wz.classes.URLSearchParams(), {
 		visitor: function(e, t, n, r) {
-			return Gz.isNode && $.isBuffer(e) ? (this.append(t, e.toString("base64")), !1) : r.defaultVisitor.apply(this, arguments);
+			return wz.isNode && $.isBuffer(e) ? (this.append(t, e.toString("base64")), !1) : r.defaultVisitor.apply(this, arguments);
 		},
 		...t
 	});
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/formDataToJSON.js
-var qz = 100;
-function Jz(e) {
-	if (e > qz) throw new wz("FormData field is too deeply nested (" + e + " levels). Max depth: " + qz, wz.ERR_FORM_DATA_DEPTH_EXCEEDED);
+var Ez = 100;
+function Dz(e) {
+	if (e > Ez) throw new rz("FormData field is too deeply nested (" + e + " levels). Max depth: " + Ez, rz.ERR_FORM_DATA_DEPTH_EXCEEDED);
 }
-function Yz(e) {
+function Oz(e) {
 	let t = [], n = /\w+|\[(\w*)]/g, r;
-	for (; (r = n.exec(e)) !== null;) Jz(t.length), t.push(r[0] === "[]" ? "" : r[1] || r[0]);
+	for (; (r = n.exec(e)) !== null;) Dz(t.length), t.push(r[0] === "[]" ? "" : r[1] || r[0]);
 	return t;
 }
-function Xz(e) {
+function kz(e) {
 	let t = {}, n = Object.keys(e), r, i = n.length, a;
 	for (r = 0; r < i; r++) a = n[r], t[a] = e[a];
 	return t;
 }
-function Zz(e) {
+function Az(e) {
 	function t(e, n, r, i) {
-		Jz(i);
+		Dz(i);
 		let a = e[i++];
 		if (a === "__proto__") return !0;
 		let o = Number.isFinite(+a), s = i >= e.length;
-		return a = !a && $.isArray(r) ? r.length : a, s ? ($.hasOwnProp(r, a) ? r[a] = $.isArray(r[a]) ? r[a].concat(n) : [r[a], n] : r[a] = n, !o) : ((!$.hasOwnProp(r, a) || !$.isObject(r[a])) && (r[a] = []), t(e, n, r[a], i) && $.isArray(r[a]) && (r[a] = Xz(r[a])), !o);
+		return a = !a && $.isArray(r) ? r.length : a, s ? ($.hasOwnProp(r, a) ? r[a] = $.isArray(r[a]) ? r[a].concat(n) : [r[a], n] : r[a] = n, !o) : ((!$.hasOwnProp(r, a) || !$.isObject(r[a])) && (r[a] = []), t(e, n, r[a], i) && $.isArray(r[a]) && (r[a] = kz(r[a])), !o);
 	}
 	if ($.isFormData(e) && $.isFunction(e.entries)) {
 		let n = {};
 		return $.forEachEntry(e, (e, r) => {
-			t(Yz(e), r, n, 0);
+			t(Oz(e), r, n, 0);
 		}), n;
 	}
 	return null;
 }
 //#endregion
 //#region node_modules/axios/lib/defaults/index.js
-var Qz = (e, t) => e != null && $.hasOwnProp(e, t) ? e[t] : void 0;
-function $z(e, t, n) {
+var jz = (e, t) => e != null && $.hasOwnProp(e, t) ? e[t] : void 0;
+function Mz(e, t, n) {
 	if ($.isString(e)) try {
 		return (t || JSON.parse)(e), $.trim(e);
 	} catch (e) {
@@ -82748,8 +82322,8 @@ function $z(e, t, n) {
 	}
 	return (n || JSON.stringify)(e);
 }
-var eB = {
-	transitional: Lz,
+var Nz = {
+	transitional: gz,
 	adapter: [
 		"xhr",
 		"http",
@@ -82757,30 +82331,30 @@ var eB = {
 	],
 	transformRequest: [function(e, t) {
 		let n = t.getContentType() || "", r = n.indexOf("application/json") > -1, i = $.isObject(e);
-		if (i && $.isHTMLForm(e) && (e = new FormData(e)), $.isFormData(e)) return r ? JSON.stringify(Zz(e)) : e;
+		if (i && $.isHTMLForm(e) && (e = new FormData(e)), $.isFormData(e)) return r ? JSON.stringify(Az(e)) : e;
 		if ($.isArrayBuffer(e) || $.isBuffer(e) || $.isStream(e) || $.isFile(e) || $.isBlob(e) || $.isReadableStream(e)) return e;
 		if ($.isArrayBufferView(e)) return e.buffer;
 		if ($.isURLSearchParams(e)) return t.setContentType("application/x-www-form-urlencoded;charset=utf-8", !1), e.toString();
 		let a;
 		if (i) {
-			let t = Qz(this, "formSerializer");
-			if (n.indexOf("application/x-www-form-urlencoded") > -1) return Kz(e, t).toString();
+			let t = jz(this, "formSerializer");
+			if (n.indexOf("application/x-www-form-urlencoded") > -1) return Tz(e, t).toString();
 			if ((a = $.isFileList(e)) || n.indexOf("multipart/form-data") > -1) {
-				let n = Qz(this, "env"), r = n && n.FormData;
-				return Az(a ? { "files[]": e } : e, r && new r(), t);
+				let n = jz(this, "env"), r = n && n.FormData;
+				return lz(a ? { "files[]": e } : e, r && new r(), t);
 			}
 		}
-		return i || r ? (t.setContentType("application/json", !1), $z(e)) : e;
+		return i || r ? (t.setContentType("application/json", !1), Mz(e)) : e;
 	}],
 	transformResponse: [function(e) {
-		let t = Qz(this, "transitional") || eB.transitional, n = t && t.forcedJSONParsing, r = Qz(this, "responseType"), i = r === "json";
+		let t = jz(this, "transitional") || Nz.transitional, n = t && t.forcedJSONParsing, r = jz(this, "responseType"), i = r === "json";
 		if ($.isResponse(e) || $.isReadableStream(e)) return e;
 		if (e && $.isString(e) && (n && !r || i)) {
 			let n = !(t && t.silentJSONParsing) && i;
 			try {
-				return JSON.parse(e, Qz(this, "parseReviver"));
+				return JSON.parse(e, jz(this, "parseReviver"));
 			} catch (e) {
-				if (n) throw e.name === "SyntaxError" ? wz.from(e, wz.ERR_BAD_RESPONSE, this, null, Qz(this, "response")) : e;
+				if (n) throw e.name === "SyntaxError" ? rz.from(e, rz.ERR_BAD_RESPONSE, this, null, jz(this, "response")) : e;
 			}
 		}
 		return e;
@@ -82791,8 +82365,8 @@ var eB = {
 	maxContentLength: -1,
 	maxBodyLength: -1,
 	env: {
-		FormData: Gz.classes.FormData,
-		Blob: Gz.classes.Blob
+		FormData: wz.classes.FormData,
+		Blob: wz.classes.Blob
 	},
 	validateStatus: function(e) {
 		return e >= 200 && e < 300;
@@ -82811,43 +82385,43 @@ $.forEach([
 	"patch",
 	"query"
 ], (e) => {
-	eB.headers[e] = {};
+	Nz.headers[e] = {};
 });
 //#endregion
 //#region node_modules/axios/lib/core/transformData.js
-function tB(e, t) {
-	let n = this || eB, r = t || n, i = bz.from(r.headers), a = r.data;
+function Pz(e, t) {
+	let n = this || Nz, r = t || n, i = $R.from(r.headers), a = r.data;
 	return $.forEach(e, function(e) {
 		a = e.call(n, a, i.normalize(), t ? t.status : void 0);
 	}), i.normalize(), a;
 }
 //#endregion
 //#region node_modules/axios/lib/cancel/isCancel.js
-function nB(e) {
+function Fz(e) {
 	return !!(e && e.__CANCEL__);
 }
 //#endregion
 //#region node_modules/axios/lib/cancel/CanceledError.js
-var rB = class extends wz {
+var Iz = class extends rz {
 	constructor(e, t, n) {
-		super(e ?? "canceled", wz.ERR_CANCELED, t, n), this.name = "CanceledError", this.__CANCEL__ = !0;
+		super(e ?? "canceled", rz.ERR_CANCELED, t, n), this.name = "CanceledError", this.__CANCEL__ = !0;
 	}
 };
 //#endregion
 //#region node_modules/axios/lib/core/settle.js
-function iB(e, t, n) {
+function Lz(e, t, n) {
 	let r = n.config.validateStatus;
-	!n.status || !r || r(n.status) ? e(n) : t(new wz("Request failed with status code " + n.status, n.status >= 400 && n.status < 500 ? wz.ERR_BAD_REQUEST : wz.ERR_BAD_RESPONSE, n.config, n.request, n));
+	!n.status || !r || r(n.status) ? e(n) : t(new rz("Request failed with status code " + n.status, n.status >= 400 && n.status < 500 ? rz.ERR_BAD_REQUEST : rz.ERR_BAD_RESPONSE, n.config, n.request, n));
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/parseProtocol.js
-function aB(e) {
+function Rz(e) {
 	let t = /^([-+\w]{1,25}):(?:\/\/)?/.exec(e);
 	return t && t[1] || "";
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/speedometer.js
-function oB(e, t) {
+function zz(e, t) {
 	e ||= 10;
 	let n = Array(e), r = Array(e), i = 0, a = 0, o;
 	return t = t === void 0 ? 1e3 : t, function(s) {
@@ -82862,7 +82436,7 @@ function oB(e, t) {
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/throttle.js
-function sB(e, t) {
+function Bz(e, t) {
 	let n = 0, r = 1e3 / t, i, a, o = (t, r = Date.now()) => {
 		n = r, i = null, a &&= (clearTimeout(a), null), e(...t);
 	};
@@ -82875,9 +82449,9 @@ function sB(e, t) {
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/progressEventReducer.js
-var cB = (e, t, n = 3) => {
-	let r = 0, i = oB(50, 250);
-	return sB((n) => {
+var Vz = (e, t, n = 3) => {
+	let r = 0, i = zz(50, 250);
+	return Bz((n) => {
 		if (!n || typeof n.loaded != "number") return;
 		let a = n.loaded, o = n.lengthComputable ? n.total : void 0, s = o == null ? a : Math.min(a, o), c = Math.max(0, s - r), l = i(c);
 		r = Math.max(r, s), e({
@@ -82892,14 +82466,14 @@ var cB = (e, t, n = 3) => {
 			[t ? "download" : "upload"]: !0
 		});
 	}, n);
-}, lB = (e, t) => {
+}, Hz = (e, t) => {
 	let n = e != null;
 	return [(r) => t[0]({
 		lengthComputable: n,
 		total: e,
 		loaded: r
 	}), t[1]];
-}, uB = (e) => (...t) => $.asap(() => e(...t)), dB = Gz.hasStandardBrowserEnv ? ((e, t) => (n) => (n = new URL(n, Gz.origin), e.protocol === n.protocol && e.host === n.host && (t || e.port === n.port)))(new URL(Gz.origin), Gz.navigator && /(msie|trident)/i.test(Gz.navigator.userAgent)) : () => !0, fB = Gz.hasStandardBrowserEnv ? {
+}, Uz = (e) => (...t) => $.asap(() => e(...t)), Wz = wz.hasStandardBrowserEnv ? ((e, t) => (n) => (n = new URL(n, wz.origin), e.protocol === n.protocol && e.host === n.host && (t || e.port === n.port)))(new URL(wz.origin), wz.navigator && /(msie|trident)/i.test(wz.navigator.userAgent)) : () => !0, Gz = wz.hasStandardBrowserEnv ? {
 	write(e, t, n, r, i, a, o) {
 		if (typeof document > "u") return;
 		let s = [`${e}=${encodeURIComponent(t)}`];
@@ -82930,37 +82504,37 @@ var cB = (e, t, n = 3) => {
 };
 //#endregion
 //#region node_modules/axios/lib/helpers/isAbsoluteURL.js
-function pB(e) {
+function Kz(e) {
 	return typeof e == "string" && /^([a-z][a-z\d+\-.]*:)?\/\//i.test(e);
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/combineURLs.js
-function mB(e, t) {
+function qz(e, t) {
 	return t ? e.replace(/\/?\/$/, "") + "/" + t.replace(/^\/+/, "") : e;
 }
 //#endregion
 //#region node_modules/axios/lib/core/buildFullPath.js
-var hB = /^https?:(?!\/\/)/i, gB = /[\t\n\r]/g;
-function _B(e) {
+var Jz = /^https?:(?!\/\/)/i, Yz = /[\t\n\r]/g;
+function Xz(e) {
 	let t = 0;
 	for (; t < e.length && e.charCodeAt(t) <= 32;) t++;
 	return e.slice(t);
 }
-function vB(e) {
-	return _B(e).replace(gB, "");
+function Zz(e) {
+	return Xz(e).replace(Yz, "");
 }
-function yB(e, t) {
-	if (typeof e == "string" && hB.test(vB(e))) throw new wz("Invalid URL: missing \"//\" after protocol", wz.ERR_INVALID_URL, t);
+function Qz(e, t) {
+	if (typeof e == "string" && Jz.test(Zz(e))) throw new rz("Invalid URL: missing \"//\" after protocol", rz.ERR_INVALID_URL, t);
 }
-function bB(e, t, n, r) {
-	yB(t, r);
-	let i = !pB(t);
-	return e && (i || n === !1) ? (yB(e, r), mB(e, t)) : t;
+function $z(e, t, n, r) {
+	Qz(t, r);
+	let i = !Kz(t);
+	return e && (i || n === !1) ? (Qz(e, r), qz(e, t)) : t;
 }
 //#endregion
 //#region node_modules/axios/lib/core/mergeConfig.js
-var xB = (e) => e instanceof bz ? { ...e } : e;
-function SB(e, t) {
+var eB = (e) => e instanceof $R ? { ...e } : e;
+function tB(e, t) {
 	e ||= {}, t ||= {};
 	let n = Object.create(null);
 	Object.defineProperty(n, "hasOwnProperty", {
@@ -83026,7 +82600,7 @@ function SB(e, t) {
 		allowedSocketPaths: o,
 		responseEncoding: o,
 		validateStatus: c,
-		headers: (e, t, n) => i(xB(e), xB(t), n, !0)
+		headers: (e, t, n) => i(eB(e), eB(t), n, !0)
 	};
 	return $.forEach(Object.keys({
 		...e,
@@ -83039,36 +82613,36 @@ function SB(e, t) {
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/resolveConfig.js
-var CB = ["content-type", "content-length"];
-function wB(e, t, n) {
+var nB = ["content-type", "content-length"];
+function rB(e, t, n) {
 	if (n !== "content-only") {
 		e.set(t);
 		return;
 	}
 	Object.entries(t || {}).forEach(([t, n]) => {
-		CB.includes(t.toLowerCase()) && e.set(t, n);
+		nB.includes(t.toLowerCase()) && e.set(t, n);
 	});
 }
-var TB = (e) => encodeURIComponent(e).replace(/%([0-9A-F]{2})/gi, (e, t) => String.fromCharCode(parseInt(t, 16)));
-function EB(e) {
-	let t = SB({}, e), n = (e) => $.hasOwnProp(t, e) ? t[e] : void 0, r = n("data"), i = n("withXSRFToken"), a = n("xsrfHeaderName"), o = n("xsrfCookieName"), s = n("headers"), c = n("auth"), l = n("baseURL"), u = n("allowAbsoluteUrls"), d = n("url");
-	if (t.headers = s = bz.from(s), t.url = Fz(bB(l, d, u, t), n("params"), n("paramsSerializer")), c) {
+var iB = (e) => encodeURIComponent(e).replace(/%([0-9A-F]{2})/gi, (e, t) => String.fromCharCode(parseInt(t, 16)));
+function aB(e) {
+	let t = tB({}, e), n = (e) => $.hasOwnProp(t, e) ? t[e] : void 0, r = n("data"), i = n("withXSRFToken"), a = n("xsrfHeaderName"), o = n("xsrfCookieName"), s = n("headers"), c = n("auth"), l = n("baseURL"), u = n("allowAbsoluteUrls"), d = n("url");
+	if (t.headers = s = $R.from(s), t.url = mz($z(l, d, u, t), n("params"), n("paramsSerializer")), c) {
 		let t = $.getSafeProp(c, "username") || "", n = $.getSafeProp(c, "password") || "";
 		try {
-			s.set("Authorization", "Basic " + btoa(t + ":" + (n ? TB(n) : "")));
+			s.set("Authorization", "Basic " + btoa(t + ":" + (n ? iB(n) : "")));
 		} catch (t) {
-			throw wz.from(t, wz.ERR_BAD_OPTION_VALUE, e);
+			throw rz.from(t, rz.ERR_BAD_OPTION_VALUE, e);
 		}
 	}
-	if ($.isFormData(r) && (Gz.hasStandardBrowserEnv || Gz.hasStandardBrowserWebWorkerEnv || $.isReactNative(r) ? s.setContentType(void 0) : $.isFunction(r.getHeaders) && wB(s, r.getHeaders(), n("formDataHeaderPolicy"))), Gz.hasStandardBrowserEnv && ($.isFunction(i) && (i = i(t)), i === !0 || i == null && dB(t.url))) {
-		let e = a && o && fB.read(o);
+	if ($.isFormData(r) && (wz.hasStandardBrowserEnv || wz.hasStandardBrowserWebWorkerEnv || $.isReactNative(r) ? s.setContentType(void 0) : $.isFunction(r.getHeaders) && rB(s, r.getHeaders(), n("formDataHeaderPolicy"))), wz.hasStandardBrowserEnv && ($.isFunction(i) && (i = i(t)), i === !0 || i == null && Wz(t.url))) {
+		let e = a && o && Gz.read(o);
 		e && s.set(a, e);
 	}
 	return t;
 }
-var DB = typeof XMLHttpRequest < "u" && function(e) {
+var oB = typeof XMLHttpRequest < "u" && function(e) {
 	return new Promise(function(t, n) {
-		let r = EB(e), i = r.data, a = bz.from(r.headers).normalize(), { responseType: o, onUploadProgress: s, onDownloadProgress: c } = r, l, u, d, f, p;
+		let r = aB(e), i = r.data, a = $R.from(r.headers).normalize(), { responseType: o, onUploadProgress: s, onDownloadProgress: c } = r, l, u, d, f, p;
 		function m() {
 			f && f(), p && p(), r.cancelToken && r.cancelToken.unsubscribe(l), r.signal && r.signal.removeEventListener("abort", l);
 		}
@@ -83076,8 +82650,8 @@ var DB = typeof XMLHttpRequest < "u" && function(e) {
 		h.open(r.method.toUpperCase(), r.url, !0), h.timeout = r.timeout;
 		function g() {
 			if (!h) return;
-			let r = bz.from("getAllResponseHeaders" in h && h.getAllResponseHeaders());
-			iB(function(e) {
+			let r = $R.from("getAllResponseHeaders" in h && h.getAllResponseHeaders());
+			Lz(function(e) {
 				t(e), m();
 			}, function(e) {
 				n(e), m();
@@ -83093,35 +82667,35 @@ var DB = typeof XMLHttpRequest < "u" && function(e) {
 		"onloadend" in h ? h.onloadend = g : h.onreadystatechange = function() {
 			!h || h.readyState !== 4 || h.status === 0 && !(h.responseURL && h.responseURL.startsWith("file:")) || setTimeout(g);
 		}, h.onabort = function() {
-			h &&= (n(new wz("Request aborted", wz.ECONNABORTED, e, h)), m(), null);
+			h &&= (n(new rz("Request aborted", rz.ECONNABORTED, e, h)), m(), null);
 		}, h.onerror = function(t) {
-			let r = new wz(t && t.message ? t.message : "Network Error", wz.ERR_NETWORK, e, h);
+			let r = new rz(t && t.message ? t.message : "Network Error", rz.ERR_NETWORK, e, h);
 			r.event = t || null, n(r), m(), h = null;
 		}, h.ontimeout = function() {
-			let t = r.timeout ? "timeout of " + r.timeout + "ms exceeded" : "timeout exceeded", i = r.transitional || Lz;
-			r.timeoutErrorMessage && (t = r.timeoutErrorMessage), n(new wz(t, i.clarifyTimeoutError ? wz.ETIMEDOUT : wz.ECONNABORTED, e, h)), m(), h = null;
-		}, i === void 0 && a.setContentType(null), "setRequestHeader" in h && $.forEach(dz(a), function(e, t) {
+			let t = r.timeout ? "timeout of " + r.timeout + "ms exceeded" : "timeout exceeded", i = r.transitional || gz;
+			r.timeoutErrorMessage && (t = r.timeoutErrorMessage), n(new rz(t, i.clarifyTimeoutError ? rz.ETIMEDOUT : rz.ECONNABORTED, e, h)), m(), h = null;
+		}, i === void 0 && a.setContentType(null), "setRequestHeader" in h && $.forEach(WR(a), function(e, t) {
 			h.setRequestHeader(t, e);
-		}), $.isUndefined(r.withCredentials) || (h.withCredentials = !!r.withCredentials), o && o !== "json" && (h.responseType = r.responseType), c && ([d, p] = cB(c, !0), h.addEventListener("progress", d)), s && h.upload && ([u, f] = cB(s), h.upload.addEventListener("progress", u), h.upload.addEventListener("loadend", f)), (r.cancelToken || r.signal) && (l = (t) => {
-			h &&= (n(!t || t.type ? new rB(null, e, h) : t), h.abort(), m(), null);
+		}), $.isUndefined(r.withCredentials) || (h.withCredentials = !!r.withCredentials), o && o !== "json" && (h.responseType = r.responseType), c && ([d, p] = Vz(c, !0), h.addEventListener("progress", d)), s && h.upload && ([u, f] = Vz(s), h.upload.addEventListener("progress", u), h.upload.addEventListener("loadend", f)), (r.cancelToken || r.signal) && (l = (t) => {
+			h &&= (n(!t || t.type ? new Iz(null, e, h) : t), h.abort(), m(), null);
 		}, r.cancelToken && r.cancelToken.subscribe(l), r.signal && (r.signal.aborted ? l() : r.signal.addEventListener("abort", l)));
-		let _ = aB(r.url);
-		if (_ && !Gz.protocols.includes(_)) {
-			n(new wz("Unsupported protocol " + _ + ":", wz.ERR_BAD_REQUEST, e)), m();
+		let _ = Rz(r.url);
+		if (_ && !wz.protocols.includes(_)) {
+			n(new rz("Unsupported protocol " + _ + ":", rz.ERR_BAD_REQUEST, e)), m();
 			return;
 		}
 		h.send(i || null);
 	});
-}, OB = (e, t) => {
+}, sB = (e, t) => {
 	if (e = e ? e.filter(Boolean) : [], !t && !e.length) return;
 	let n = new AbortController(), r = !1, i = function(e) {
 		if (!r) {
 			r = !0, o();
 			let t = e instanceof Error ? e : this.reason;
-			n.abort(t instanceof wz ? t : new rB(t instanceof Error ? t.message : t));
+			n.abort(t instanceof rz ? t : new Iz(t instanceof Error ? t.message : t));
 		}
 	}, a = t && setTimeout(() => {
-		a = null, i(new wz(`timeout of ${t}ms exceeded`, wz.ETIMEDOUT));
+		a = null, i(new rz(`timeout of ${t}ms exceeded`, rz.ETIMEDOUT));
 	}, t), o = () => {
 		e &&= (a && clearTimeout(a), a = null, e.forEach((e) => {
 			e.unsubscribe ? e.unsubscribe(i) : e.removeEventListener("abort", i);
@@ -83130,7 +82704,7 @@ var DB = typeof XMLHttpRequest < "u" && function(e) {
 	e.forEach((e) => e.addEventListener("abort", i, { once: !0 }));
 	let { signal: s } = n;
 	return s.unsubscribe = () => $.asap(o), s;
-}, kB = function* (e, t) {
+}, cB = function* (e, t) {
 	let n = e.byteLength;
 	if (!t || n < t) {
 		yield e;
@@ -83138,9 +82712,9 @@ var DB = typeof XMLHttpRequest < "u" && function(e) {
 	}
 	let r = 0, i;
 	for (; r < n;) i = r + t, yield e.slice(r, i), r = i;
-}, AB = async function* (e, t) {
-	for await (let n of jB(e)) yield* kB(n, t);
-}, jB = async function* (e) {
+}, lB = async function* (e, t) {
+	for await (let n of uB(e)) yield* cB(n, t);
+}, uB = async function* (e) {
 	if (e[Symbol.asyncIterator]) {
 		yield* e;
 		return;
@@ -83155,8 +82729,8 @@ var DB = typeof XMLHttpRequest < "u" && function(e) {
 	} finally {
 		await t.cancel();
 	}
-}, MB = (e, t, n, r) => {
-	let i = AB(e, t), a = 0, o, s = (e) => {
+}, dB = (e, t, n, r) => {
+	let i = lB(e, t), a = 0, o, s = (e) => {
 		o || (o = !0, r && r(e));
 	};
 	return new ReadableStream({
@@ -83177,8 +82751,8 @@ var DB = typeof XMLHttpRequest < "u" && function(e) {
 			return s(e), i.return();
 		}
 	}, { highWaterMark: 2 });
-}, NB = (e) => e >= 48 && e <= 57 || e >= 65 && e <= 70 || e >= 97 && e <= 102, PB = (e, t, n) => t + 2 < n && NB(e.charCodeAt(t + 1)) && NB(e.charCodeAt(t + 2));
-function FB(e) {
+}, fB = (e) => e >= 48 && e <= 57 || e >= 65 && e <= 70 || e >= 97 && e <= 102, pB = (e, t, n) => t + 2 < n && fB(e.charCodeAt(t + 1)) && fB(e.charCodeAt(t + 2));
+function mB(e) {
 	if (!e || typeof e != "string" || !e.startsWith("data:")) return 0;
 	let t = e.indexOf(",");
 	if (t < 0) return 0;
@@ -83187,7 +82761,7 @@ function FB(e) {
 		let e = r.length, t = r.length;
 		for (let n = 0; n < t; n++) if (r.charCodeAt(n) === 37 && n + 2 < t) {
 			let t = r.charCodeAt(n + 1), i = r.charCodeAt(n + 2);
-			NB(t) && NB(i) && (e -= 2, n += 2);
+			fB(t) && fB(i) && (e -= 2, n += 2);
 		}
 		let n = 0, i = t - 1, a = (e) => e >= 2 && r.charCodeAt(e - 2) === 37 && r.charCodeAt(e - 1) === 51 && (r.charCodeAt(e) === 68 || r.charCodeAt(e) === 100);
 		i >= 0 && (r.charCodeAt(i) === 61 ? (n++, i--) : a(i) && (n++, i -= 3)), n === 1 && i >= 0 && (r.charCodeAt(i) === 61 || a(i)) && n++;
@@ -83197,7 +82771,7 @@ function FB(e) {
 	let i = 0;
 	for (let e = 0, t = r.length; e < t; e++) {
 		let n = r.charCodeAt(e);
-		if (n === 37 && PB(r, e, t)) i += 1, e += 2;
+		if (n === 37 && pB(r, e, t)) i += 1, e += 2;
 		else if (n < 128) i += 1;
 		else if (n < 2048) i += 2;
 		else if (n >= 55296 && n <= 56319 && e + 1 < t) {
@@ -83209,32 +82783,32 @@ function FB(e) {
 }
 //#endregion
 //#region node_modules/axios/lib/env/data.js
-var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURIComponent(e).replace(/%([0-9A-F]{2})/gi, (e, t) => String.fromCharCode(parseInt(t, 16))), BB = (e) => {
+var hB = "1.18.1", gB = 64 * 1024, { isFunction: _B } = $, vB = (e) => encodeURIComponent(e).replace(/%([0-9A-F]{2})/gi, (e, t) => String.fromCharCode(parseInt(t, 16))), yB = (e) => {
 	if (!$.isString(e)) return e;
 	try {
 		return decodeURIComponent(e);
 	} catch {
 		return e;
 	}
-}, VB = (e, ...t) => {
+}, bB = (e, ...t) => {
 	try {
 		return !!e(...t);
 	} catch {
 		return !1;
 	}
-}, HB = (e) => {
+}, xB = (e) => {
 	let t = e.indexOf("://"), n = e;
 	return t !== -1 && (n = n.slice(t + 3)), n.includes("@") || n.includes(":");
-}, UB = (e) => {
+}, SB = (e) => {
 	let t = $.global !== void 0 && $.global !== null ? $.global : globalThis, { ReadableStream: n, TextEncoder: r } = t;
 	e = $.merge.call({ skipUndefined: !0 }, {
 		Request: t.Request,
 		Response: t.Response
 	}, e);
-	let { fetch: i, Request: a, Response: o } = e, s = i ? RB(i) : typeof fetch == "function", c = RB(a), l = RB(o);
+	let { fetch: i, Request: a, Response: o } = e, s = i ? _B(i) : typeof fetch == "function", c = _B(a), l = _B(o);
 	if (!s) return !1;
-	let u = s && RB(n), d = s && (typeof r == "function" ? ((e) => (t) => e.encode(t))(new r()) : async (e) => new Uint8Array(await new a(e).arrayBuffer())), f = c && u && VB(() => {
-		let e = !1, t = new a(Gz.origin, {
+	let u = s && _B(n), d = s && (typeof r == "function" ? ((e) => (t) => e.encode(t))(new r()) : async (e) => new Uint8Array(await new a(e).arrayBuffer())), f = c && u && bB(() => {
+		let e = !1, t = new a(wz.origin, {
 			body: new n(),
 			method: "POST",
 			get duplex() {
@@ -83242,7 +82816,7 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 			}
 		}), r = t.headers.has("Content-Type");
 		return t.body != null && t.body.cancel(), e && !r;
-	}), p = l && u && VB(() => $.isReadableStream(new o("").body)), m = { stream: p && ((e) => e.body) };
+	}), p = l && u && bB(() => $.isReadableStream(new o("").body)), m = { stream: p && ((e) => e.body) };
 	s && [
 		"text",
 		"arrayBuffer",
@@ -83253,13 +82827,13 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 		!m[e] && (m[e] = (t, n) => {
 			let r = t && t[e];
 			if (r) return r.call(t);
-			throw new wz(`Response type '${e}' is not supported`, wz.ERR_NOT_SUPPORT, n);
+			throw new rz(`Response type '${e}' is not supported`, rz.ERR_NOT_SUPPORT, n);
 		});
 	});
 	let h = async (e) => {
 		if (e == null) return 0;
 		if ($.isBlob(e)) return e.size;
-		if ($.isSpecCompliantForm(e)) return (await new a(Gz.origin, {
+		if ($.isSpecCompliantForm(e)) return (await new a(wz.origin, {
 			method: "POST",
 			body: e
 		}).arrayBuffer()).byteLength;
@@ -83267,29 +82841,29 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 		if ($.isURLSearchParams(e) && (e += ""), $.isString(e)) return (await d(e)).byteLength;
 	}, g = async (e, t) => $.toFiniteNumber(e.getContentLength()) ?? h(t);
 	return async (e) => {
-		let { url: t, method: n, data: s, signal: l, cancelToken: d, timeout: _, onDownloadProgress: v, onUploadProgress: y, responseType: b, headers: x, withCredentials: S = "same-origin", fetchOptions: C, maxContentLength: w, maxBodyLength: T } = EB(e), E = $.isNumber(w) && w > -1, D = $.isNumber(T) && T > -1, O = (t) => $.hasOwnProp(e, t) ? e[t] : void 0, k = i || fetch;
+		let { url: t, method: n, data: s, signal: l, cancelToken: d, timeout: _, onDownloadProgress: v, onUploadProgress: y, responseType: b, headers: x, withCredentials: S = "same-origin", fetchOptions: C, maxContentLength: w, maxBodyLength: T } = aB(e), E = $.isNumber(w) && w > -1, D = $.isNumber(T) && T > -1, O = (t) => $.hasOwnProp(e, t) ? e[t] : void 0, k = i || fetch;
 		b = b ? (b + "").toLowerCase() : "text";
-		let A = OB([l, d && d.toAbortSignal()], _), j = null, ee = A && A.unsubscribe && (() => {
+		let A = sB([l, d && d.toAbortSignal()], _), j = null, ee = A && A.unsubscribe && (() => {
 			A.unsubscribe();
-		}), M, N = null, P = () => new wz("Request body larger than maxBodyLength limit", wz.ERR_BAD_REQUEST, e, j);
+		}), M, N = null, P = () => new rz("Request body larger than maxBodyLength limit", rz.ERR_BAD_REQUEST, e, j);
 		try {
 			let i, l = O("auth");
 			if (l && (i = {
 				username: $.getSafeProp(l, "username") || "",
 				password: $.getSafeProp(l, "password") || ""
-			}), HB(t)) {
-				let e = new URL(t, Gz.origin);
+			}), xB(t)) {
+				let e = new URL(t, wz.origin);
 				!i && (e.username || e.password) && (i = {
-					username: BB(e.username),
-					password: BB(e.password)
+					username: yB(e.username),
+					password: yB(e.password)
 				}), (e.username || e.password) && (e.username = "", e.password = "", t = e.href);
 			}
-			if (i && (x.delete("authorization"), x.set("Authorization", "Basic " + btoa(zB((i.username || "") + ":" + (i.password || ""))))), E && typeof t == "string" && t.startsWith("data:") && FB(t) > w) throw new wz("maxContentLength size of " + w + " exceeded", wz.ERR_BAD_RESPONSE, e, j);
+			if (i && (x.delete("authorization"), x.set("Authorization", "Basic " + btoa(vB((i.username || "") + ":" + (i.password || ""))))), E && typeof t == "string" && t.startsWith("data:") && mB(t) > w) throw new rz("maxContentLength size of " + w + " exceeded", rz.ERR_BAD_RESPONSE, e, j);
 			if (D && n !== "get" && n !== "head") {
 				let e = await h(s);
 				if (typeof e == "number" && isFinite(e) && (M = e, e > T)) throw P();
 			}
-			let d = D && ($.isReadableStream(s) || $.isStream(s)), _ = (e, t, n) => MB(e, LB, (e) => {
+			let d = D && ($.isReadableStream(s) || $.isStream(s)), _ = (e, t, n) => dB(e, gB, (e) => {
 				if (D && e > T) throw N = P();
 				t && t(e);
 			}, n);
@@ -83301,33 +82875,33 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 						duplex: "half"
 					}), n;
 					if ($.isFormData(s) && (n = e.headers.get("content-type")) && x.setContentType(n), e.body) {
-						let [t, n] = y && lB(M, cB(uB(y))) || [];
+						let [t, n] = y && Hz(M, Vz(Uz(y))) || [];
 						s = _(e.body, t, n);
 					}
 				}
 			} else if (d && !c && u && n !== "get" && n !== "head") s = _(s);
-			else if (d && c && !f && n !== "get" && n !== "head") throw new wz("Stream request bodies are not supported by the current fetch implementation", wz.ERR_NOT_SUPPORT, e, j);
+			else if (d && c && !f && n !== "get" && n !== "head") throw new rz("Stream request bodies are not supported by the current fetch implementation", rz.ERR_NOT_SUPPORT, e, j);
 			$.isString(S) || (S = S ? "include" : "omit");
 			let F = c && "credentials" in a.prototype;
 			if ($.isFormData(s)) {
 				let e = x.getContentType();
 				e && /^multipart\/form-data/i.test(e) && !/boundary=/i.test(e) && x.delete("content-type");
 			}
-			x.set("User-Agent", "axios/" + IB, !1);
+			x.set("User-Agent", "axios/" + hB, !1);
 			let I = {
 				...C,
 				signal: A,
 				method: n.toUpperCase(),
-				headers: dz(x.normalize()),
+				headers: WR(x.normalize()),
 				body: s,
 				duplex: "half",
 				credentials: F ? S : void 0
 			};
 			j = c && new a(t, I);
-			let L = await (c ? k(j, C) : k(t, I)), R = bz.from(L.headers);
+			let L = await (c ? k(j, C) : k(t, I)), R = $R.from(L.headers);
 			if (E) {
 				let t = $.toFiniteNumber(R.getContentLength());
-				if (t != null && t > w) throw new wz("maxContentLength size of " + w + " exceeded", wz.ERR_BAD_RESPONSE, e, j);
+				if (t != null && t > w) throw new rz("maxContentLength size of " + w + " exceeded", rz.ERR_BAD_RESPONSE, e, j);
 			}
 			let z = p && (b === "stream" || b === "response");
 			if (p && L.body && (v || E || z && ee)) {
@@ -83339,9 +82913,9 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 				].forEach((e) => {
 					t[e] = L[e];
 				});
-				let n = $.toFiniteNumber(R.getContentLength()), [r, i] = v && lB(n, cB(uB(v), !0)) || [], a = 0;
-				L = new o(MB(L.body, LB, (t) => {
-					if (E && (a = t, a > w)) throw new wz("maxContentLength size of " + w + " exceeded", wz.ERR_BAD_RESPONSE, e, j);
+				let n = $.toFiniteNumber(R.getContentLength()), [r, i] = v && Hz(n, Vz(Uz(v), !0)) || [], a = 0;
+				L = new o(dB(L.body, gB, (t) => {
+					if (E && (a = t, a > w)) throw new rz("maxContentLength size of " + w + " exceeded", rz.ERR_BAD_RESPONSE, e, j);
 					r && r(t);
 				}, () => {
 					i && i(), ee && ee();
@@ -83351,12 +82925,12 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 			let B = await m[$.findKey(m, b) || "text"](L, e);
 			if (E && !p && !z) {
 				let t;
-				if (B != null && (typeof B.byteLength == "number" ? t = B.byteLength : typeof B.size == "number" ? t = B.size : typeof B == "string" && (t = typeof r == "function" ? new r().encode(B).byteLength : B.length)), typeof t == "number" && t > w) throw new wz("maxContentLength size of " + w + " exceeded", wz.ERR_BAD_RESPONSE, e, j);
+				if (B != null && (typeof B.byteLength == "number" ? t = B.byteLength : typeof B.size == "number" ? t = B.size : typeof B == "string" && (t = typeof r == "function" ? new r().encode(B).byteLength : B.length)), typeof t == "number" && t > w) throw new rz("maxContentLength size of " + w + " exceeded", rz.ERR_BAD_RESPONSE, e, j);
 			}
 			return !z && ee && ee(), await new Promise((t, n) => {
-				iB(t, n, {
+				Lz(t, n, {
 					data: B,
-					headers: bz.from(L.headers),
+					headers: $R.from(L.headers),
 					status: L.status,
 					statusText: L.statusText,
 					config: e,
@@ -83364,7 +82938,7 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 				});
 			});
 		} catch (t) {
-			if (ee && ee(), A && A.aborted && A.reason instanceof wz) {
+			if (ee && ee(), A && A.aborted && A.reason instanceof rz) {
 				let n = A.reason;
 				throw n.config = e, j && (n.request = j), t !== n && Object.defineProperty(n, "cause", {
 					__proto__: null,
@@ -83375,9 +82949,9 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 				}), n;
 			}
 			if (N) throw j && !N.request && (N.request = j), N;
-			if (t instanceof wz) throw j && !t.request && (t.request = j), t;
+			if (t instanceof rz) throw j && !t.request && (t.request = j), t;
 			if (t && t.name === "TypeError" && /Load failed|fetch/i.test(t.message)) {
-				let n = new wz("Network Error", wz.ERR_NETWORK, e, j, t && t.response);
+				let n = new rz("Network Error", rz.ERR_NETWORK, e, j, t && t.response);
 				throw Object.defineProperty(n, "cause", {
 					__proto__: null,
 					value: t.cause || t,
@@ -83386,27 +82960,27 @@ var IB = "1.18.1", LB = 64 * 1024, { isFunction: RB } = $, zB = (e) => encodeURI
 					configurable: !0
 				}), n;
 			}
-			throw wz.from(t, t && t.code, e, j, t && t.response);
+			throw rz.from(t, t && t.code, e, j, t && t.response);
 		}
 	};
-}, WB = /* @__PURE__ */ new Map(), GB = (e) => {
+}, CB = /* @__PURE__ */ new Map(), wB = (e) => {
 	let t = e && e.env || {}, { fetch: n, Request: r, Response: i } = t, a = [
 		r,
 		i,
 		n
-	], o = a.length, s, c, l = WB;
-	for (; o--;) s = a[o], c = l.get(s), c === void 0 && l.set(s, c = o ? /* @__PURE__ */ new Map() : UB(t)), l = c;
+	], o = a.length, s, c, l = CB;
+	for (; o--;) s = a[o], c = l.get(s), c === void 0 && l.set(s, c = o ? /* @__PURE__ */ new Map() : SB(t)), l = c;
 	return c;
 };
-GB();
+wB();
 //#endregion
 //#region node_modules/axios/lib/adapters/adapters.js
-var KB = {
+var TB = {
 	http: null,
-	xhr: DB,
-	fetch: { get: GB }
+	xhr: oB,
+	fetch: { get: wB }
 };
-$.forEach(KB, (e, t) => {
+$.forEach(TB, (e, t) => {
 	if (e) {
 		try {
 			Object.defineProperty(e, "name", {
@@ -83420,61 +82994,61 @@ $.forEach(KB, (e, t) => {
 		});
 	}
 });
-var qB = (e) => `- ${e}`, JB = (e) => $.isFunction(e) || e === null || e === !1;
-function YB(e, t) {
+var EB = (e) => `- ${e}`, DB = (e) => $.isFunction(e) || e === null || e === !1;
+function OB(e, t) {
 	e = $.isArray(e) ? e : [e];
 	let { length: n } = e, r, i, a = {};
 	for (let o = 0; o < n; o++) {
 		r = e[o];
 		let n;
-		if (i = r, !JB(r) && (i = KB[(n = String(r)).toLowerCase()], i === void 0)) throw new wz(`Unknown adapter '${n}'`);
+		if (i = r, !DB(r) && (i = TB[(n = String(r)).toLowerCase()], i === void 0)) throw new rz(`Unknown adapter '${n}'`);
 		if (i && ($.isFunction(i) || (i = i.get(t)))) break;
 		a[n || "#" + o] = i;
 	}
 	if (!i) {
 		let e = Object.entries(a).map(([e, t]) => `adapter ${e} ` + (t === !1 ? "is not supported by the environment" : "is not available in the build"));
-		throw new wz("There is no suitable adapter to dispatch the request " + (n ? e.length > 1 ? "since :\n" + e.map(qB).join("\n") : " " + qB(e[0]) : "as no adapter specified"), wz.ERR_NOT_SUPPORT);
+		throw new rz("There is no suitable adapter to dispatch the request " + (n ? e.length > 1 ? "since :\n" + e.map(EB).join("\n") : " " + EB(e[0]) : "as no adapter specified"), rz.ERR_NOT_SUPPORT);
 	}
 	return i;
 }
-var XB = {
-	getAdapter: YB,
-	adapters: KB
+var kB = {
+	getAdapter: OB,
+	adapters: TB
 };
 //#endregion
 //#region node_modules/axios/lib/core/dispatchRequest.js
-function ZB(e) {
-	if (e.cancelToken && e.cancelToken.throwIfRequested(), e.signal && e.signal.aborted) throw new rB(null, e);
+function AB(e) {
+	if (e.cancelToken && e.cancelToken.throwIfRequested(), e.signal && e.signal.aborted) throw new Iz(null, e);
 }
-function QB(e) {
-	return ZB(e), e.headers = bz.from(e.headers), e.data = tB.call(e, e.transformRequest), [
+function jB(e) {
+	return AB(e), e.headers = $R.from(e.headers), e.data = Pz.call(e, e.transformRequest), [
 		"post",
 		"put",
 		"patch"
-	].indexOf(e.method) !== -1 && e.headers.setContentType("application/x-www-form-urlencoded", !1), XB.getAdapter(e.adapter || eB.adapter, e)(e).then(function(t) {
-		ZB(e), e.response = t;
+	].indexOf(e.method) !== -1 && e.headers.setContentType("application/x-www-form-urlencoded", !1), kB.getAdapter(e.adapter || Nz.adapter, e)(e).then(function(t) {
+		AB(e), e.response = t;
 		try {
-			t.data = tB.call(e, e.transformResponse, t);
+			t.data = Pz.call(e, e.transformResponse, t);
 		} finally {
 			delete e.response;
 		}
-		return t.headers = bz.from(t.headers), t;
+		return t.headers = $R.from(t.headers), t;
 	}, function(t) {
-		if (!nB(t) && (ZB(e), t && t.response)) {
+		if (!Fz(t) && (AB(e), t && t.response)) {
 			e.response = t.response;
 			try {
-				t.response.data = tB.call(e, e.transformResponse, t.response);
+				t.response.data = Pz.call(e, e.transformResponse, t.response);
 			} finally {
 				delete e.response;
 			}
-			t.response.headers = bz.from(t.response.headers);
+			t.response.headers = $R.from(t.response.headers);
 		}
 		return Promise.reject(t);
 	});
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/validator.js
-var $B = {};
+var MB = {};
 [
 	"object",
 	"boolean",
@@ -83483,43 +83057,43 @@ var $B = {};
 	"string",
 	"symbol"
 ].forEach((e, t) => {
-	$B[e] = function(n) {
+	MB[e] = function(n) {
 		return typeof n === e || "a" + (t < 1 ? "n " : " ") + e;
 	};
 });
-var eV = {};
-$B.transitional = function(e, t, n) {
+var NB = {};
+MB.transitional = function(e, t, n) {
 	function r(e, t) {
-		return "[Axios v" + IB + "] Transitional option '" + e + "'" + t + (n ? ". " + n : "");
+		return "[Axios v" + hB + "] Transitional option '" + e + "'" + t + (n ? ". " + n : "");
 	}
 	return (n, i, a) => {
-		if (e === !1) throw new wz(r(i, " has been removed" + (t ? " in " + t : "")), wz.ERR_DEPRECATED);
-		return t && !eV[i] && (eV[i] = !0, console.warn(r(i, " has been deprecated since v" + t + " and will be removed in the near future"))), !e || e(n, i, a);
+		if (e === !1) throw new rz(r(i, " has been removed" + (t ? " in " + t : "")), rz.ERR_DEPRECATED);
+		return t && !NB[i] && (NB[i] = !0, console.warn(r(i, " has been deprecated since v" + t + " and will be removed in the near future"))), !e || e(n, i, a);
 	};
-}, $B.spelling = function(e) {
+}, MB.spelling = function(e) {
 	return (t, n) => (console.warn(`${n} is likely a misspelling of ${e}`), !0);
 };
-function tV(e, t, n) {
-	if (typeof e != "object" || !e) throw new wz("options must be an object", wz.ERR_BAD_OPTION_VALUE);
+function PB(e, t, n) {
+	if (typeof e != "object" || !e) throw new rz("options must be an object", rz.ERR_BAD_OPTION_VALUE);
 	let r = Object.keys(e), i = r.length;
 	for (; i-- > 0;) {
 		let a = r[i], o = Object.prototype.hasOwnProperty.call(t, a) ? t[a] : void 0;
 		if (o) {
 			let t = e[a], n = t === void 0 || o(t, a, e);
-			if (n !== !0) throw new wz("option " + a + " must be " + n, wz.ERR_BAD_OPTION_VALUE);
+			if (n !== !0) throw new rz("option " + a + " must be " + n, rz.ERR_BAD_OPTION_VALUE);
 			continue;
 		}
-		if (n !== !0) throw new wz("Unknown option " + a, wz.ERR_BAD_OPTION);
+		if (n !== !0) throw new rz("Unknown option " + a, rz.ERR_BAD_OPTION);
 	}
 }
-var nV = {
-	assertOptions: tV,
-	validators: $B
-}, rV = nV.validators, iV = class {
+var FB = {
+	assertOptions: PB,
+	validators: MB
+}, IB = FB.validators, LB = class {
 	constructor(e) {
 		this.defaults = e || {}, this.interceptors = {
-			request: new Iz(),
-			response: new Iz()
+			request: new hz(),
+			response: new hz()
 		};
 	}
 	async request(e, t) {
@@ -83546,21 +83120,21 @@ var nV = {
 		}
 	}
 	_request(e, t) {
-		typeof e == "string" ? (t ||= {}, t.url = e) : t = e || {}, t = SB(this.defaults, t);
+		typeof e == "string" ? (t ||= {}, t.url = e) : t = e || {}, t = tB(this.defaults, t);
 		let { transitional: n, paramsSerializer: r, headers: i } = t;
-		n !== void 0 && nV.assertOptions(n, {
-			silentJSONParsing: rV.transitional(rV.boolean),
-			forcedJSONParsing: rV.transitional(rV.boolean),
-			clarifyTimeoutError: rV.transitional(rV.boolean),
-			legacyInterceptorReqResOrdering: rV.transitional(rV.boolean),
-			advertiseZstdAcceptEncoding: rV.transitional(rV.boolean),
-			validateStatusUndefinedResolves: rV.transitional(rV.boolean)
-		}, !1), r != null && ($.isFunction(r) ? t.paramsSerializer = { serialize: r } : nV.assertOptions(r, {
-			encode: rV.function,
-			serialize: rV.function
-		}, !0)), t.allowAbsoluteUrls !== void 0 || (this.defaults.allowAbsoluteUrls === void 0 ? t.allowAbsoluteUrls = !0 : t.allowAbsoluteUrls = this.defaults.allowAbsoluteUrls), nV.assertOptions(t, {
-			baseUrl: rV.spelling("baseURL"),
-			withXsrfToken: rV.spelling("withXSRFToken")
+		n !== void 0 && FB.assertOptions(n, {
+			silentJSONParsing: IB.transitional(IB.boolean),
+			forcedJSONParsing: IB.transitional(IB.boolean),
+			clarifyTimeoutError: IB.transitional(IB.boolean),
+			legacyInterceptorReqResOrdering: IB.transitional(IB.boolean),
+			advertiseZstdAcceptEncoding: IB.transitional(IB.boolean),
+			validateStatusUndefinedResolves: IB.transitional(IB.boolean)
+		}, !1), r != null && ($.isFunction(r) ? t.paramsSerializer = { serialize: r } : FB.assertOptions(r, {
+			encode: IB.function,
+			serialize: IB.function
+		}, !0)), t.allowAbsoluteUrls !== void 0 || (this.defaults.allowAbsoluteUrls === void 0 ? t.allowAbsoluteUrls = !0 : t.allowAbsoluteUrls = this.defaults.allowAbsoluteUrls), FB.assertOptions(t, {
+			baseUrl: IB.spelling("baseURL"),
+			withXsrfToken: IB.spelling("withXSRFToken")
 		}, !0), t.method = (t.method || this.defaults.method || "get").toLowerCase();
 		let a = i && $.merge(i.common, i[t.method]);
 		i && $.forEach([
@@ -83574,12 +83148,12 @@ var nV = {
 			"common"
 		], (e) => {
 			delete i[e];
-		}), t.headers = bz.concat(a, i);
+		}), t.headers = $R.concat(a, i);
 		let o = [], s = !0;
 		this.interceptors.request.forEach(function(e) {
 			if (typeof e.runWhen == "function" && e.runWhen(t) === !1) return;
 			s &&= e.synchronous;
-			let n = t.transitional || Lz;
+			let n = t.transitional || gz;
 			n && n.legacyInterceptorReqResOrdering ? o.unshift(e.fulfilled, e.rejected) : o.push(e.fulfilled, e.rejected);
 		});
 		let c = [];
@@ -83588,7 +83162,7 @@ var nV = {
 		});
 		let l, u = 0, d;
 		if (!s) {
-			let e = [QB.bind(this), void 0];
+			let e = [jB.bind(this), void 0];
 			for (e.unshift(...o), e.push(...c), d = e.length, l = Promise.resolve(t); u < d;) l = l.then(e[u++], e[u++]);
 			return l;
 		}
@@ -83604,7 +83178,7 @@ var nV = {
 			}
 		}
 		try {
-			l = QB.call(this, f);
+			l = jB.call(this, f);
 		} catch (e) {
 			return Promise.reject(e);
 		}
@@ -83612,7 +83186,7 @@ var nV = {
 		return l;
 	}
 	getUri(e) {
-		return e = SB(this.defaults, e), Fz(bB(e.baseURL, e.url, e.allowAbsoluteUrls, e), e.params, e.paramsSerializer);
+		return e = tB(this.defaults, e), mz($z(e.baseURL, e.url, e.allowAbsoluteUrls, e), e.params, e.paramsSerializer);
 	}
 };
 $.forEach([
@@ -83621,8 +83195,8 @@ $.forEach([
 	"head",
 	"options"
 ], function(e) {
-	iV.prototype[e] = function(t, n) {
-		return this.request(SB(n || {}, {
+	LB.prototype[e] = function(t, n) {
+		return this.request(tB(n || {}, {
 			method: e,
 			url: t,
 			data: n && $.hasOwnProp(n, "data") ? n.data : void 0
@@ -83636,7 +83210,7 @@ $.forEach([
 ], function(e) {
 	function t(t) {
 		return function(n, r, i) {
-			return this.request(SB(i || {}, {
+			return this.request(tB(i || {}, {
 				method: e,
 				headers: t ? { "Content-Type": "multipart/form-data" } : {},
 				url: n,
@@ -83644,11 +83218,11 @@ $.forEach([
 			}));
 		};
 	}
-	iV.prototype[e] = t(), e !== "query" && (iV.prototype[e + "Form"] = t(!0));
+	LB.prototype[e] = t(), e !== "query" && (LB.prototype[e + "Form"] = t(!0));
 });
 //#endregion
 //#region node_modules/axios/lib/cancel/CancelToken.js
-var aV = class e {
+var RB = class e {
 	constructor(e) {
 		if (typeof e != "function") throw TypeError("executor must be a function.");
 		let t;
@@ -83669,7 +83243,7 @@ var aV = class e {
 				n.unsubscribe(t);
 			}, r;
 		}, e(function(e, r, i) {
-			n.reason || (n.reason = new rB(e, r, i), t(n.reason));
+			n.reason || (n.reason = new Iz(e, r, i), t(n.reason));
 		});
 	}
 	throwIfRequested() {
@@ -83705,19 +83279,19 @@ var aV = class e {
 };
 //#endregion
 //#region node_modules/axios/lib/helpers/spread.js
-function oV(e) {
+function zB(e) {
 	return function(t) {
 		return e.apply(null, t);
 	};
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/isAxiosError.js
-function sV(e) {
+function BB(e) {
 	return $.isObject(e) && e.isAxiosError === !0;
 }
 //#endregion
 //#region node_modules/axios/lib/helpers/HttpStatusCode.js
-var cV = {
+var VB = {
 	Continue: 100,
 	SwitchingProtocols: 101,
 	Processing: 102,
@@ -83788,26 +83362,26 @@ var cV = {
 	SslHandshakeFailed: 525,
 	InvalidSslCertificate: 526
 };
-Object.entries(cV).forEach(([e, t]) => {
-	cV[t] = e;
+Object.entries(VB).forEach(([e, t]) => {
+	VB[t] = e;
 });
 //#endregion
 //#region node_modules/axios/lib/axios.js
-function lV(e) {
-	let t = new iV(e), n = VL(iV.prototype.request, t);
-	return $.extend(n, iV.prototype, t, { allOwnKeys: !0 }), $.extend(n, t, null, { allOwnKeys: !0 }), n.create = function(t) {
-		return lV(SB(e, t));
+function HB(e) {
+	let t = new LB(e), n = bL(LB.prototype.request, t);
+	return $.extend(n, LB.prototype, t, { allOwnKeys: !0 }), $.extend(n, t, null, { allOwnKeys: !0 }), n.create = function(t) {
+		return HB(tB(e, t));
 	}, n;
 }
-var uV = lV(eB);
-uV.Axios = iV, uV.CanceledError = rB, uV.CancelToken = aV, uV.isCancel = nB, uV.VERSION = IB, uV.toFormData = Az, uV.AxiosError = wz, uV.Cancel = uV.CanceledError, uV.all = function(e) {
+var UB = HB(Nz);
+UB.Axios = LB, UB.CanceledError = Iz, UB.CancelToken = RB, UB.isCancel = Fz, UB.VERSION = hB, UB.toFormData = lz, UB.AxiosError = rz, UB.Cancel = UB.CanceledError, UB.all = function(e) {
 	return Promise.all(e);
-}, uV.spread = oV, uV.isAxiosError = sV, uV.mergeConfig = SB, uV.AxiosHeaders = bz, uV.formToJSON = (e) => Zz($.isHTMLForm(e) ? new FormData(e) : e), uV.getAdapter = XB.getAdapter, uV.HttpStatusCode = cV, uV.default = uV;
+}, UB.spread = zB, UB.isAxiosError = BB, UB.mergeConfig = tB, UB.AxiosHeaders = $R, UB.formToJSON = (e) => Az($.isHTMLForm(e) ? new FormData(e) : e), UB.getAdapter = kB.getAdapter, UB.HttpStatusCode = VB, UB.default = UB;
 //#endregion
 //#region src/api/quitstore.js
-var dV = class extends BL {
+var WB = class extends yL {
 	constructor(e) {
-		super(e + "/sparql", e + "/sparql"), this.type = "quit", this.HTTPGit = uV.create({ baseURL: e }), this.capability.quit = !0;
+		super(e + "/sparql", e + "/sparql"), this.type = "quit", this.HTTPGit = UB.create({ baseURL: e }), this.capability.quit = !0;
 	}
 	push() {
 		return this.HTTPGit.post("/push", new URLSearchParams({
@@ -83838,14 +83412,14 @@ var dV = class extends BL {
 //#endregion
 //#region src/helpers/rdf-parse.js
 Jb();
-var fV = Zx();
-async function pV(e, t) {
+var GB = Zx();
+async function KB(e, t) {
 	let n = new Vb(t);
 	ge.Readable.from([e]).pipe(n);
 	let r = new Ab();
-	return (0, fV.promisifyEventEmitter)(r.import(n), r);
+	return (0, GB.promisifyEventEmitter)(r.import(n), r);
 }
-async function mV(e, t) {
+async function qB(e, t) {
 	let n = new Wb(t);
 	n.import(e);
 	let r = [];
@@ -83854,7 +83428,7 @@ async function mV(e, t) {
 }
 //#endregion
 //#region src/api/inmemory.js
-var hV = class extends zL {
+var JB = class extends vL {
 	constructor(e) {
 		super(), this.data = e, this.type = "in_memory", this.capability = {
 			query: !0,
@@ -83863,26 +83437,26 @@ var hV = class extends zL {
 		};
 	}
 	async initialize() {
-		this.queryEngine = new FL.QueryEngine();
+		this.queryEngine = new mL.QueryEngine();
 		let e = this.data;
 		return new Promise((t) => {
-			pV(e).then((e) => {
+			KB(e).then((e) => {
 				this.sources = [e], this.destination = [e], console.log("Set source and destination"), t();
 			});
 		});
 	}
-}, gV = { async create(e) {
+}, YB = { async create(e) {
 	let t = [];
 	if (e.sources == null) console.error("EndpointFactory configuration has no sources");
 	else {
 		for (let n = 0; n < e.sources.length; n++) {
 			let r, i = e.sources[n];
-			i.data ? r = new hV(i.data) : i.quit_url ? r = new dV(i.quit_url) : i.query_url && (r = new BL(i.query_url, i.update_url)), await r.initialize(), t.push(r);
+			i.data ? r = new JB(i.data) : i.quit_url ? r = new WB(i.quit_url) : i.query_url && (r = new yL(i.query_url, i.update_url)), await r.initialize(), t.push(r);
 		}
 		console.log("initialized");
 	}
 	return t;
-} }, _V = e("selection", {
+} }, XB = e("selection", {
 	state: () => ({
 		graph_iri: "",
 		resource_iri: "",
@@ -83902,79 +83476,7 @@ var hV = class extends zL {
 });
 //#endregion
 //#region src/helpers/queries.js
-function vV(e) {
-	return `
-  PREFIX sh: <http://www.w3.org/ns/shacl#>
-  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-  CONSTRUCT {
-    ?node_s ?node_p ?node_o ;
-      sh:targetClass <${e}> ;
-      a sh:NodeShape .
-    ?prop_s ?prop_p ?prop_o .
-    ?prop_s sh:in ?list .
-    ?elt rdf:rest ?rest .
-    ?elt rdf:first ?val .
-  } WHERE {
-      {
-        {
-          ?node_s sh:targetClass <${e}> .
-          ?node_s ?node_p ?node_o .
-          ?prop_s ?prop_p ?prop_o .
-          FILTER(?prop_p != sh:in)
-          FILTER(?node_o = ?prop_s)
-        }
-        UNION
-        {
-          ?node_s sh:targetClass <${e}> .
-          ?node_s ?node_p ?node_o .
-          ?prop_s ?prop_p ?prop_o .
-          ?prop_s sh:in ?list .
-          ?list rdf:rest* ?elt .
-          ?elt rdf:rest ?rest .
-          ?elt rdf:first ?val .
-          FILTER(?node_o = ?prop_s)
-        }
-      }
-  }`;
-}
-function yV(e) {
-	return `
-  PREFIX sh: <http://www.w3.org/ns/shacl#>
-  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-  CONSTRUCT {
-    ?node_s ?node_p ?node_o ;
-      sh:targetClass ?class ;
-      a sh:NodeShape .
-    ?prop_s ?prop_p ?prop_o .
-    #?node_s ?p ?o .
-    ?prop_s sh:in ?list .
-    ?elt rdf:rest ?rest .
-    ?elt rdf:first ?val .
-  } WHERE {
-        <${e}> rdf:type ?class .
-        {
-          ?node_s sh:targetClass ?class .
-          ?node_s ?node_p ?node_o .
-          ?prop_s ?prop_p ?prop_o .
-          FILTER(?prop_p != sh:in)
-          FILTER(?node_o = ?prop_s)
-        }
-        UNION
-        {
-          ?node_s rdf:type ?class .
-          ?node_s ?node_p ?node_o .
-          ?prop_s ?prop_p ?prop_o .
-          ?prop_s sh:in ?list .
-          ?list rdf:rest* ?elt .
-          ?elt rdf:rest ?rest .
-          ?elt rdf:first ?val .
-          FILTER(?node_o = ?prop_s)
-        }
-  }`;
-}
-function bV(e) {
+function ZB(e) {
 	return `
   CONSTRUCT {
     <${e}> ?p ?o .
@@ -83982,7 +83484,7 @@ function bV(e) {
     <${e}> ?p ?o .
   }`;
 }
-function xV(e, t) {
+function QB(e, t) {
 	if (console.log(e), typeof e == "string") {
 		let t = new he.Parser();
 		e = t.parse(e);
@@ -83996,11 +83498,11 @@ function xV(e, t) {
 }
 //#endregion
 //#region src/stores/rdf.js
-var SV = e("rdf", () => {
+var $B = e("rdf", () => {
 	let e = t(!1), n = t(null);
 	async function r(e) {
 		let t, r = "";
-		console.log(`send query: ${e}`), typeof e == "string" ? (r = e, t = [_V().graph_iri]) : typeof e == "object" ? (r = e.query, t = e.defaultGraph === "quads" ? void 0 : e.defaultGraph === void 0 ? [_V().graph_iri] : e.defaultGraph) : (console.error("can't process query"), console.error(e)), t !== void 0 && (console.log(`inject graph: ${t}`), r = xV(r, t));
+		console.log(`send query: ${e}`), typeof e == "string" ? (r = e, t = [XB().graph_iri]) : typeof e == "object" ? (r = e.query, t = e.defaultGraph === "quads" ? void 0 : e.defaultGraph === void 0 ? [XB().graph_iri] : e.defaultGraph) : (console.error("can't process query"), console.error(e)), t !== void 0 && (console.log(`inject graph: ${t}`), r = QB(r, t));
 		let i = new he.Generator(), a;
 		return a = typeof r == "string" ? r : i.stringify(r), n.value.query(a);
 	}
@@ -84008,7 +83510,7 @@ var SV = e("rdf", () => {
 		return console.log(`send raw update: ${e}`), n.value.update(e);
 	}
 	async function a(e, t) {
-		t === void 0 && (t = [_V().graph_iri]);
+		t === void 0 && (t = [XB().graph_iri]);
 		let r = "";
 		for (let e of t) r += `from <${e}>`;
 		let i = `construct {<${e}> ?p ?o} ${r} where {<${e}> ?p ?o}`, a = await n.value.query_quads(i), o = De.namedNode(t[0]);
@@ -84036,7 +83538,7 @@ var SV = e("rdf", () => {
 	}
 	async function l(t) {
 		console.log("Loading …"), console.log("Change SPARQL Endpoint configuration."), console.log(t);
-		let r = await gV.create(t);
+		let r = await YB.create(t);
 		r.length > 0 && (n.value = r[0], e.value = !0);
 	}
 	return {
@@ -84052,4 +83554,4 @@ var SV = e("rdf", () => {
 	};
 });
 //#endregion
-export { Py as A, Un as B, Hb as C, Sb as D, xb as E, zg as F, U as G, Ke as H, _u as I, c as J, O as K, hu as L, mv as M, D_ as N, My as O, Vg as P, nr as R, Vb as S, Mb as T, Ge as U, wt as V, De as W, p as X, u as Y, f as Z, _x as _, _V as a, ex as b, MP as c, eM as d, fS as f, yx as g, Lx as h, vV as i, By as j, Fy as k, nM as l, Zx as m, bV as n, mV as o, Qx as p, l as q, yV as r, pV as s, SV as t, tM as u, ax as v, Ab as w, Jb as x, rx as y, dc as z };
+export { c as A, _u as C, U as D, De as E, p as M, O, zg as S, dc as T, rx as _, KB as a, D_ as b, Fj as c, fS as d, Qx as f, _x as g, yx as h, qB as i, u as j, l as k, Pj as l, Lx as m, ZB as n, dP as o, Zx as p, XB as r, zN as s, $B as t, Nj as u, ex as v, nr as w, Vg as x, mv as y };

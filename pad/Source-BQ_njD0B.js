@@ -1,8 +1,8 @@
-import { a as e, o as t, s as n, t as r } from "./rdf-Hu1nS4yF.js";
+import { a as e, i as t, r as n, t as r } from "./rdf-DOyOO-ow.js";
 import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as a } from "./prefixes-DiepZNhU.js";
-import { n as o } from "./n3-compare-_STfhj6O.js";
-import { t as s } from "./dist-rwQsnoKM.js";
+import { t as a } from "./prefixes-CjyPZiq3.js";
+import { n as o } from "./n3-compare-IJ8DLW5l.js";
+import { t as s } from "./dist-DZ-0eW0E.js";
 import { mapState as c } from "pinia";
 import { createCommentVNode as l, createElementBlock as u, createElementVNode as d, createTextVNode as f, openBlock as p, toDisplayString as m, vModelText as h, withDirectives as g } from "vue";
 //#region src/views/Source.vue
@@ -18,7 +18,7 @@ var _ = s(), v = {
 		this.getResource();
 	} },
 	computed: {
-		...c(e, ["graph_iri", "resource_iri"]),
+		...c(n, ["graph_iri", "resource_iri"]),
 		...c(a, ["prefixes_flat"])
 	},
 	data() {
@@ -38,10 +38,10 @@ var _ = s(), v = {
 			});
 		},
 		async updateResource() {
-			let e = await n(this.resourceSource), t = o(this.originalData, e);
+			let t = await e(this.resourceSource), n = o(this.originalData, t);
 			this.store.deleteInsertData({
-				insertArray: t.add,
-				deleteArray: t.del,
+				insertArray: n.add,
+				deleteArray: n.del,
 				graphIri: this.graph_iri
 			});
 		}

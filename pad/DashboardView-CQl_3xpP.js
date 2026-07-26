@@ -1,10 +1,8 @@
-import { W as e, a as t, t as n } from "./rdf-Hu1nS4yF.js";
+import { E as e, r as t, t as n } from "./rdf-DOyOO-ow.js";
 import { t as r } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { n as i, t as a } from "./splitpanes.esm-DWEvKrA8.js";
-import "./ontopad.js";
-import o from "./InstanceList-CQLnXOT6.js";
-import { t as s } from "./Term-DjvlK-Mw.js";
-import { t as c } from "./dist-rwQsnoKM.js";
+import { n as i } from "./InstanceList-Dcryss9Q.js";
+import { n as a, r as o, t as s } from "./Term-D9HhZu2s.js";
+import { t as c } from "./dist-DZ-0eW0E.js";
 import { mapState as l } from "pinia";
 import { Fragment as u, createCommentVNode as d, createElementBlock as f, createElementVNode as p, createVNode as m, openBlock as h, renderList as g, resolveComponent as _, toDisplayString as v, unref as y, withCtx as b } from "vue";
 //#region src/views/PropertyView.vue
@@ -104,12 +102,12 @@ function w(e, t, n, r, i, a) {
 var T = /*#__PURE__*/ r(S, [["render", w]]), E = /*#__PURE__*/ r({
 	__name: "DashboardView",
 	setup(e) {
-		return (e, t) => (h(), f(u, null, [t[0] ||= p("strong", null, "Resource Dashboard", -1), m(y(i), { class: "default-theme" }, {
+		return (e, t) => (h(), f(u, null, [t[0] ||= p("strong", null, "Resource Dashboard", -1), m(y(o), { class: "default-theme" }, {
 			default: b(() => [m(y(a), { size: "70" }, {
 				default: b(() => [m(T)]),
 				_: 1
 			}), m(y(a), { size: "30" }, {
-				default: b(() => [m(o, { style: {
+				default: b(() => [m(i, { style: {
 					height: "80vh",
 					"overflow-y": "scroll"
 				} })]),
