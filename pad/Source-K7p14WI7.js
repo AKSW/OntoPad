@@ -1,12 +1,12 @@
 import { a as e, o as t, s as n, t as r } from "./rdf-Hu1nS4yF.js";
 import { t as i } from "./_plugin-vue_export-helper-B3ysoDQm.js";
 import { t as a } from "./prefixes-DiepZNhU.js";
-import { t as o } from "./dist-rwQsnoKM.js";
-import { n as s } from "./n3-compare-_STfhj6O.js";
+import { n as o } from "./n3-compare-_STfhj6O.js";
+import { t as s } from "./dist-rwQsnoKM.js";
 import { mapState as c } from "pinia";
 import { createCommentVNode as l, createElementBlock as u, createElementVNode as d, createTextVNode as f, openBlock as p, toDisplayString as m, vModelText as h, withDirectives as g } from "vue";
 //#region src/views/Source.vue
-var _ = o(), v = {
+var _ = s(), v = {
 	name: "Source",
 	setup() {
 		return { store: r() };
@@ -38,7 +38,7 @@ var _ = o(), v = {
 			});
 		},
 		async updateResource() {
-			let e = await n(this.resourceSource), t = s(this.originalData, e);
+			let e = await n(this.resourceSource), t = o(this.originalData, e);
 			this.store.deleteInsertData({
 				insertArray: t.add,
 				deleteArray: t.del,
