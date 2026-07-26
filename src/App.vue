@@ -137,10 +137,6 @@ export default {
           title: "Add"
         },
         {
-          to: "/kanban",
-          title: "Kanban"
-        },
-        {
           to: "/source",
           title: "Source"
         }
