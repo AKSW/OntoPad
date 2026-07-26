@@ -129,10 +129,6 @@ export default {
           title: "Instances"
         },
         {
-          to: "/voc",
-          title: "Vocabulary"
-        },
-        {
           to: "/edit",
           title: "Edit"
         },
