@@ -1,4 +1,4 @@
-import { A as e, C as t, F as n, I as r, L as i, P as a, R as o, T as s, _ as c, b as l, c as u, d, f, g as p, h as m, k as h, l as g, m as _, o as v, p as y, s as b, u as x, v as S, w as C, x as w, y as T } from "./rdf-O-dOZMGs.js";
+import { A as e, C as t, F as n, I as r, L as i, P as a, R as o, T as s, _ as c, b as l, c as u, d, f, g as p, h as m, k as h, l as g, m as _, o as v, p as y, s as b, u as x, v as S, w as C, x as w, y as T } from "./rdf-C53IQogC.js";
 //#region node_modules/rdf-dereference-store/node_modules/n3/src/IRIs.js
 var E, D, O, k, A = r((() => {
 	E = "http://www.w3.org/1999/02/22-rdf-syntax-ns#", D = "http://www.w3.org/2001/XMLSchema#", O = "http://www.w3.org/2000/10/swap/", k = {

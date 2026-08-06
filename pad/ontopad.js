@@ -1,10 +1,10 @@
-import { D as e, L as t, M as n, N as r, O as i, S as a, i as o, j as s, n as c, r as l, t as u, w as d } from "./rdf-O-dOZMGs.js";
+import { D as e, L as t, M as n, N as r, O as i, S as a, i as o, j as s, n as c, r as l, t as u, w as d } from "./rdf-C53IQogC.js";
 import { t as f } from "./_plugin-vue_export-helper-B3ysoDQm.js";
-import { t as p } from "./prefixes-Cxd5DCXT.js";
-import { n as m, r as h } from "./InstanceList-DL0ta8l3.js";
-import { t as g } from "./TermInput-CKePcYiT.js";
+import { t as p } from "./prefixes-DE__fLi2.js";
+import { n as m, r as h } from "./InstanceList-DDLTRh7j.js";
+import { t as g } from "./TermInput-Dg8PbAIg.js";
 import { n as _, r as v, t as y } from "./Term-D9HhZu2s.js";
-import { t as b } from "./n3-compare-Dt_o6ZFO.js";
+import { t as b } from "./n3-compare-CG7IVZxi.js";
 import { mapState as x } from "pinia";
 import { Fragment as S, computed as C, createBlock as w, createCommentVNode as T, createElementBlock as E, createElementVNode as D, createTextVNode as O, createVNode as k, defineComponent as A, getCurrentInstance as j, h as M, inject as ee, nextTick as te, normalizeClass as ne, openBlock as N, provide as re, reactive as ie, ref as ae, renderList as oe, resolveComponent as P, shallowReactive as se, shallowRef as ce, toDisplayString as le, unref as ue, vModelRadio as F, vModelText as I, watch as de, watchEffect as fe, withCtx as pe, withDirectives as L } from "vue";
 var me = "bottom", he = "right", ge = "left", _e = "auto", ve = [
@@ -8417,27 +8417,27 @@ var eg = /*#__PURE__*/ f(Ih, [["render", $h], ["__scopeId", "data-v-4fc90bfc"]])
 		{
 			path: "/dashboard",
 			name: "DashboardView",
-			component: () => import("./DashboardView-BCjSicjN.js")
+			component: () => import("./DashboardView-eN-OoBgw.js")
 		},
 		{
 			path: "/instances",
 			name: "InstanceList",
-			component: () => import("./InstanceList-DL0ta8l3.js").then((e) => e.t)
+			component: () => import("./InstanceList-DDLTRh7j.js").then((e) => e.t)
 		},
 		{
 			path: "/edit",
 			name: "EditForm",
-			component: () => import("./EditForm-Q6OAjd0k.js")
+			component: () => import("./EditForm-GdpqbDdZ.js")
 		},
 		{
 			path: "/add",
 			name: "InputForm",
-			component: () => import("./InputForm-BeN3Gv9R.js")
+			component: () => import("./InputForm-BYvCPVIx.js")
 		},
 		{
 			path: "/source",
 			name: "Source",
-			component: () => import("./Source-D3pJY3N-.js")
+			component: () => import("./Source-Dq3KRqGo.js")
 		}
 	]
 });

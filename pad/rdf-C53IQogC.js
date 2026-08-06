@@ -82397,16 +82397,16 @@ must be one of ${a.Util.CONTAINERS.join(", ")}`, n.ERROR_CODES.INVALID_CONTAINER
 		return this.getAuthForUrl && (t.fetch = eR(this.getAuthForUrl)), t;
 	}
 	query_bindings(e) {
-		return console.log(`Send bindings query (${e}) via comunica to ${this.sources}`), this.queryEngine.queryBindings(e, this.queryContext(this.sources));
+		return console.log(`Send bindings query (${e}) via comunica to the configured source.`), console.log(this.sources), this.queryEngine.queryBindings(e, this.queryContext(this.sources));
 	}
 	query_quads(e) {
-		return console.log(`Send quads query (${e}) via comunica to ${this.sources}`), this.queryEngine.queryQuads(e, this.queryContext(this.sources));
+		return console.log(`Send quads query (${e}) via comunica to the configured source.`), console.log(this.sources), this.queryEngine.queryQuads(e, this.queryContext(this.sources));
 	}
 	query(e) {
-		return console.log(`Send any query (${e}) via comunica to ${this.sources}`), this.queryEngine.query(e, this.queryContext(this.sources));
+		return console.log(`Send any query (${e}) via comunica to the configured source.`), console.log(this.sources), this.queryEngine.query(e, this.queryContext(this.sources));
 	}
 	update(e) {
-		return console.log(`Send update query (${e}) via comunica to ${this.sources}`), this.queryEngine.queryVoid(e, this.queryContext(this.destination));
+		return console.log(`Send update query (${e}) via comunica to the configured source.`), console.log(this.sources), this.queryEngine.queryVoid(e, this.queryContext(this.destination));
 	}
 	get queryUrl() {
 		return this.sources[0].value;
@@ -84409,7 +84409,7 @@ var LV = e("rdf", () => {
 	let e = t(!1), n = t(null);
 	async function r(e) {
 		let t, r = "";
-		console.log(`send query: ${e}`), typeof e == "string" ? (r = e, t = [PV().graph_iri]) : typeof e == "object" ? (r = e.query, t = e.defaultGraph === "quads" ? void 0 : e.defaultGraph === void 0 ? [PV().graph_iri] : e.defaultGraph) : (console.error("can't process query"), console.error(e)), t !== void 0 && (console.log(`inject graph: ${t}`), r = IV(r, t));
+		console.log("rdf-store received a query payload:"), console.log(e), typeof e == "string" ? (r = e, t = [PV().graph_iri]) : typeof e == "object" ? (r = e.query, t = e.defaultGraph === "quads" ? void 0 : e.defaultGraph === void 0 ? [PV().graph_iri] : e.defaultGraph) : (console.error("can't process query"), console.error(e)), t !== void 0 && (console.log(`inject default graph <${t}> into the query`), r = IV(r, t));
 		let i = new G.Generator(), a;
 		return a = typeof r == "string" ? r : i.stringify(r), n.value.query(a);
 	}
