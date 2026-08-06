@@ -95,22 +95,26 @@ class SparqlStore {
   }
 
   query_bindings (queryString) {
-    console.log(`Send bindings query (${queryString}) via comunica to ${this.sources}`);
+    console.log(`Send bindings query (${queryString}) via comunica to the configured source.`);
+    console.log(this.sources);
     return this.queryEngine.queryBindings(queryString, this.queryContext(this.sources))
   }
 
   query_quads (queryString) {
-    console.log(`Send quads query (${queryString}) via comunica to ${this.sources}`);
+    console.log(`Send quads query (${queryString}) via comunica to the configured source.`);
+    console.log(this.sources);
     return this.queryEngine.queryQuads(queryString, this.queryContext(this.sources))
   }
 
   query (queryString) {
-    console.log(`Send any query (${queryString}) via comunica to ${this.sources}`);
+    console.log(`Send any query (${queryString}) via comunica to the configured source.`);
+    console.log(this.sources);
     return this.queryEngine.query(queryString, this.queryContext(this.sources))
   }
 
   update (updateString) {
-    console.log(`Send update query (${updateString}) via comunica to ${this.sources}`);
+    console.log(`Send update query (${updateString}) via comunica to the configured source.`);
+    console.log(this.sources);
     return this.queryEngine.queryVoid(updateString, this.queryContext(this.destination))
   }
 

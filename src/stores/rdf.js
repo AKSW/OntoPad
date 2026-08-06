@@ -28,7 +28,8 @@ export const useRdfStore = defineStore('rdf', () => {
      */
     let defaultGraph
     let query = ''
-    console.log(`send query: ${payload}`)
+    console.log('rdf-store received a query payload:')
+    console.log(payload)
     if (typeof payload === 'string') {
       query = payload
       defaultGraph = [useSelectionStore().graph_iri]
@@ -47,7 +48,7 @@ export const useRdfStore = defineStore('rdf', () => {
     }
     // TODO inject defaultGraph
     if (defaultGraph !== undefined) {
-      console.log(`inject graph: ${defaultGraph}`);
+      console.log(`inject default graph <${defaultGraph}> into the query`)
       query = injectDefaultGraph(query, defaultGraph)
     }
     const generator = new Generator()
