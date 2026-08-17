@@ -78,18 +78,18 @@ export default {
     // ...mapState(useSelectionStore, ['graph_iri', 'resource_iri']),
     graph_iri: {
       get () {
-        return this.selectionStore.graph_iri
+        return useSelectionStore().graph_iri
       },
       set (value) {
-        this.selectionStore.changeGraphIri(value)
+        useSelectionStore().changeGraphIri(value)
       }
     },
     resource_iri: {
       get () {
-        return this.selectionStore.resource_iri
+        return useSelectionStore().resource_iri
       },
       set (value) {
-        this.selectionStore.changeResourceIri(value)
+        useSelectionStore().changeResourceIri(value)
       }
     }
   },
@@ -142,14 +142,10 @@ export default {
         }
       ].concat(this.$navigation.main)
   },
-  setup(props) {
+  mounted () {
     console.log("OntoPad-next mounted")
-    const rdfStore = useRdfStore()
-    const selectionStore = useSelectionStore()
-
-    rdfStore.updateEndpointConfiguration(props.config)
-    selectionStore.initConfig(props.config)
-    return { rdfStore, selectionStore }
+    useRdfStore().updateEndpointConfiguration(this.config)
+    useSelectionStore().initConfig(this.config)
   }
 }
 
