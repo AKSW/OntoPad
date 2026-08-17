@@ -8239,18 +8239,18 @@ var Ih = {
 		...x(u, { store_ready: (e) => e.ready }),
 		graph_iri: {
 			get() {
-				return this.selectionStore.graph_iri;
+				return l().graph_iri;
 			},
 			set(e) {
-				this.selectionStore.changeGraphIri(e);
+				l().changeGraphIri(e);
 			}
 		},
 		resource_iri: {
 			get() {
-				return this.selectionStore.resource_iri;
+				return l().resource_iri;
 			},
 			set(e) {
-				this.selectionStore.changeResourceIri(e);
+				l().changeResourceIri(e);
 			}
 		}
 	},
@@ -8298,13 +8298,8 @@ var Ih = {
 			}
 		].concat(this.$navigation.main);
 	},
-	setup(e) {
-		console.log("OntoPad-next mounted");
-		let t = u(), n = l();
-		return t.updateEndpointConfiguration(e.config), n.initConfig(e.config), {
-			rdfStore: t,
-			selectionStore: n
-		};
+	mounted() {
+		console.log("OntoPad-next mounted"), u().updateEndpointConfiguration(this.config), l().initConfig(this.config);
 	}
 }, Lh = { class: "navbar navbar-expand-lg bg-body-tertiary" }, Rh = { class: "container-fluid" }, zh = {
 	class: "navbar-brand",
@@ -8402,7 +8397,7 @@ function $h(e, t, n, r, i, a) {
 		_: 1
 	})])) : (N(), E("div", Qh, " Waiting for Store to be configured … "))])], 64);
 }
-var eg = /*#__PURE__*/ f(Ih, [["render", $h], ["__scopeId", "data-v-4fc90bfc"]]), tg = Fh({
+var eg = /*#__PURE__*/ f(Ih, [["render", $h], ["__scopeId", "data-v-9122654f"]]), tg = Fh({
 	history: Zm("/OntoPad/pad/"),
 	routes: [
 		{
